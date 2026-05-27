@@ -84,169 +84,171 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden bg-[#0c0c0e] min-h-screen flex items-center"
+      className="relative w-full overflow-hidden bg-[#0c0c0e]"
+      style={{ minHeight: "100vh" }}
     >
-      {/* Centered Max-Width Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-24 lg:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+      {/* Full layout: left text + right image */}
+      <div className="flex flex-col lg:flex-row" style={{ minHeight: "100vh" }}>
 
-          {/* ─── LEFT TEXT COLUMN ─── */}
-          <div className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center relative z-20">
-            {/* Ambient red glow behind text */}
-            <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-red-600/10 blur-[120px] pointer-events-none" />
+        {/* LEFT TEXT PANEL */}
+        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-16 xl:px-20 pt-32 pb-8 lg:pt-28 lg:pb-0 w-full lg:w-[52%] xl:w-[50%]">
 
-            {/* ── Rating badge ── */}
-            <motion.div
-              initial={{ opacity: 0, y: -16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
-              className="inline-flex self-start items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-md mb-6 shadow-xl"
+          {/* Ambient red glow behind text */}
+          <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-red-600/10 blur-[120px] pointer-events-none" />
+
+          {/* Rating badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="inline-flex self-start items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-md mb-6 shadow-xl"
+          >
+            <div className="flex items-center gap-1 text-yellow-400">
+              <Star size={12} className="fill-yellow-400 text-yellow-400" />
+              <span className="text-xs font-black text-white leading-none">4.8</span>
+            </div>
+            <span className="h-3 w-px bg-white/20 mx-1" />
+            <span className="text-stone-300 text-[10px] font-bold tracking-wider uppercase leading-none">
+              10 GOOGLE REVIEWS
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 mx-1 animate-pulse" />
+            <span className="text-[10px] text-red-500 font-bold tracking-wider uppercase leading-none">
+              MURBAD'S BEST GYM
+            </span>
+          </motion.div>
+
+          {/* Main headline */}
+          <motion.h1
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.75, delay: 0.1 }}
+            className="font-display font-black uppercase leading-[0.92] tracking-tight select-none mb-6 text-left text-white"
+            style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)" }}
+          >
+            <span className="block">TRANSFORM</span>
+            <span className="block">
+              YOUR <span className="text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.55)]">BODY.</span>
+            </span>
+            <span className="block">TRANSFORM</span>
+            <span className="text-red-500 block drop-shadow-[0_0_20px_rgba(239,68,68,0.65)]">
+              YOUR LIFE
+            </span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.75, delay: 0.25 }}
+            className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed max-w-lg mb-8 text-left"
+          >
+            Best Gym in Murbad with Professional Equipment &amp; Motivating Environment. Unleash physical peak conditioning with premium strength gears, cardio chambers, and guidance.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.38 }}
+            className="flex flex-wrap gap-4 mb-10"
+          >
+            <button
+              onClick={() => handleScrollTo("membership")}
+              className="group inline-flex items-center gap-2 px-6 py-3.5 bg-red-600 hover:bg-red-500 text-white font-black text-xs uppercase tracking-widest rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.45)] hover:shadow-[0_0_28px_rgba(220,38,38,0.65)] cursor-pointer"
             >
-              <div className="flex items-center gap-1 text-yellow-400">
-                <Star size={12} className="fill-yellow-400 text-yellow-400" />
-                <span className="text-xs font-black text-white leading-none">4.8</span>
-              </div>
-              <span className="h-3 w-px bg-white/20 mx-1" />
-              <span className="text-stone-300 text-[10px] font-bold tracking-wider uppercase leading-none">
-                10 GOOGLE REVIEWS
-              </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 mx-1 animate-pulse" />
-              <span className="text-[10px] text-red-500 font-bold tracking-wider uppercase leading-none">
-                MURBAD'S BEST GYM
-              </span>
-            </motion.div>
+              JOIN NOW
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
 
-            {/* ── Main headline ── */}
-            <motion.h1
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.75, delay: 0.1 }}
-              className="font-display font-black uppercase leading-[0.92] tracking-tight select-none mb-6 text-left text-white"
-              style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)" }}
+            <button
+              onClick={() => handleScrollTo("contact")}
+              className="group inline-flex items-center gap-2.5 px-6 py-3.5 bg-transparent hover:bg-white/5 text-white font-black text-xs uppercase tracking-widest rounded-lg border border-white/20 hover:border-white/40 transition-all duration-300 cursor-pointer"
             >
-              <span className="block">TRANSFORM</span>
-              <span className="block">
-                YOUR <span className="text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.55)]">BODY.</span>
-              </span>
-              <span className="block">TRANSFORM</span>
-              <span className="text-red-500 block drop-shadow-[0_0_20px_rgba(239,68,68,0.65)]">
-                YOUR LIFE
-              </span>
-            </motion.h1>
+              <Phone size={13} className="text-red-500 fill-red-500/10 group-hover:scale-110 transition-transform duration-300" />
+              CONTACT US
+            </button>
+          </motion.div>
 
-            {/* ── Subtitle ── */}
-            <motion.p
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.75, delay: 0.25 }}
-              className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed max-w-lg mb-8 text-left"
-            >
-              Best Gym in Murbad with Professional Equipment &amp; Motivating Environment. Unleash physical peak conditioning with premium strength gears, cardio chambers, and guidance.
-            </motion.p>
-
-            {/* ── CTA Buttons ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.38 }}
-              className="flex flex-wrap gap-4 mb-10"
-            >
-              <button
-                onClick={() => handleScrollTo("membership")}
-                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-red-600 hover:bg-red-500 text-white font-black text-xs uppercase tracking-widest rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.45)] hover:shadow-[0_0_28px_rgba(220,38,38,0.65)] cursor-pointer"
+          {/* Stats bar — 2×2 on mobile, 4-col on sm+ */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.52 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-0 bg-[#0c0c0e]/70 border border-white/10 hover:border-red-500/20 backdrop-blur-md rounded-xl overflow-hidden p-1.5 w-full max-w-[550px] shadow-[0_0_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.1)] transition-all duration-300"
+          >
+            {stats.map((stat, i) => (
+              <div
+                key={i}
+                className={`flex flex-col items-center justify-center gap-1.5 py-4 px-2 text-center ${
+                  i === 0 ? "border-r border-b border-white/8 sm:border-b-0" :
+                  i === 1 ? "border-b border-white/8 sm:border-b-0 sm:border-r" :
+                  i === 2 ? "border-r border-white/8" : ""
+                } border-white/8`}
               >
-                JOIN NOW
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-
-              <button
-                onClick={() => handleScrollTo("contact")}
-                className="group inline-flex items-center gap-2.5 px-6 py-3.5 bg-transparent hover:bg-white/5 text-white font-black text-xs uppercase tracking-widest rounded-lg border border-white/20 hover:border-white/40 transition-all duration-300 cursor-pointer"
-              >
-                <Phone size={13} className="text-red-500 fill-red-500/10 group-hover:scale-110 transition-transform duration-300" />
-                CONTACT US
-              </button>
-            </motion.div>
-
-            {/* ── Stats bar ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.52 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-0 bg-[#0c0c0e]/70 border border-white/10 hover:border-red-500/20 backdrop-blur-md rounded-xl overflow-hidden p-1.5 w-full max-w-[550px] shadow-[0_0_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.1)] transition-all duration-300"
-            >
-              {stats.map((stat, i) => (
-                <div
-                  key={i}
-                  className={`flex flex-col items-center justify-center gap-1.5 py-4 px-2 text-center ${
-                    i === 0 ? "border-r border-b border-white/8" :
-                    i === 1 ? "border-b border-white/8" :
-                    i === 2 ? "border-r border-white/8" : ""
-                  } sm:border-b-0 sm:border-r ${i === 3 ? "sm:border-r-0" : ""} border-white/8`}
-                >
-                  <div className="text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)]">
-                    {stat.icon}
-                  </div>
-                  <div className="font-display font-black text-white text-2xl sm:text-3xl leading-none tracking-tight">
-                    {stat.value}
-                  </div>
-                  <div className="text-[9px] font-black tracking-wider text-stone-400 uppercase leading-none">
-                    {stat.label}
-                  </div>
+                <div className="text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)]">
+                  {stat.icon}
                 </div>
-              ))}
-            </motion.div>
-          </div>
+                <div className="font-display font-black text-white text-2xl sm:text-3xl leading-none tracking-tight">
+                  {stat.value}
+                </div>
+                <div className="text-[9px] font-black tracking-wider text-stone-400 uppercase leading-none">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
 
-          {/* ─── RIGHT IMAGE COLUMN ─── */}
-          <div className="lg:col-span-5 xl:col-span-6 relative h-[450px] sm:h-[550px] lg:h-[620px] w-full select-none overflow-hidden rounded-2xl border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.85)] self-center">
-            {/* Ambient glows behind the photo inside the card */}
-            <div className="absolute inset-0 bg-red-600/5 blur-md scale-95 opacity-50 pointer-events-none"></div>
+        {/* RIGHT IMAGE PANEL */}
+        <div className="relative w-full lg:w-[48%] xl:w-[50%] h-[50vh] min-h-[340px] lg:h-auto lg:min-h-0">
+          {/* Red vertical divider glow */}
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-red-600/60 to-transparent z-10 hidden lg:block" />
+          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#0c0c0e] to-transparent z-10 hidden lg:block" />
 
-            {/* Main image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.1, ease: "easeOut" }}
-              className="absolute inset-0"
-            >
-              <img
-                src={imgSrc}
-                onError={handleImageError}
-                alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
-                className="w-full h-full object-cover object-center"
-                style={{ filter: "brightness(0.75) saturate(1.1) contrast(1.1)" }}
-                referrerPolicy="no-referrer"
-              />
+          {/* Main image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.1, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <img
+              src={imgSrc}
+              onError={handleImageError}
+              alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
+              className="w-full h-full object-cover object-center"
+              style={{ filter: "brightness(0.72) saturate(1.1) contrast(1.1)" }}
+              referrerPolicy="no-referrer"
+            />
 
-              {/* Dark overlay gradients for blend into background card edges */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
-              <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/50 to-transparent" />
+            {/* Dark overlay gradients for blend into background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0c0c0e] via-transparent to-transparent lg:via-[#0c0c0e]/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-[#0c0c0e]/10 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0c0c0e] to-transparent" />
 
-              {/* Smoke overlays simulating premium atmosphere */}
-              <div className="absolute right-0 top-1/4 w-80 h-80 rounded-full bg-white/5 blur-[80px] pointer-events-none mix-blend-screen" />
-              <div className="absolute right-12 bottom-1/3 w-96 h-96 rounded-full bg-stone-500/5 blur-[100px] pointer-events-none mix-blend-screen" />
+            {/* Smoke overlays */}
+            <div className="absolute right-0 top-1/4 w-80 h-80 rounded-full bg-white/5 blur-[80px] pointer-events-none mix-blend-screen" />
+            <div className="absolute right-12 bottom-1/3 w-96 h-96 rounded-full bg-stone-500/5 blur-[100px] pointer-events-none mix-blend-screen" />
 
-              {/* Embers/Sparks flying up at the bottom */}
-              <div className="absolute bottom-10 left-10 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none" />
-              <div className="absolute bottom-20 left-1/4 w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444] pointer-events-none" />
-              <div className="absolute bottom-16 left-1/2 w-1.5 h-1.5 rounded-full bg-red-500/70 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none" />
-              <div className="absolute bottom-28 right-1/4 w-1 h-1 rounded-full bg-red-500/50 shadow-[0_0_6px_#ef4444] pointer-events-none" />
-              <div className="absolute bottom-12 right-10 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] pointer-events-none" />
+            {/* Embers */}
+            <div className="absolute bottom-10 left-10 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none" />
+            <div className="absolute bottom-20 left-1/4 w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444] pointer-events-none" />
+            <div className="absolute bottom-16 left-1/2 w-1.5 h-1.5 rounded-full bg-red-500/70 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none" />
+            <div className="absolute bottom-28 right-1/4 w-1 h-1 rounded-full bg-red-500/50 shadow-[0_0_6px_#ef4444] pointer-events-none" />
+            <div className="absolute bottom-12 right-10 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] pointer-events-none" />
 
-              {/* Red ambient glow at bottom right */}
-              <div className="absolute bottom-0 right-0 w-80 h-80 bg-red-700/20 blur-[80px] rounded-full pointer-events-none" />
-            </motion.div>
-          </div>
-
+            {/* Red ambient glow at bottom right */}
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-red-700/25 blur-[80px] rounded-full pointer-events-none" />
+            {/* Red center spine light */}
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-2 h-2/3 bg-gradient-to-b from-red-500/0 via-red-500/30 to-red-500/0 blur-[20px] pointer-events-none" />
+          </motion.div>
         </div>
       </div>
 
-      {/* ── Scroll indicator ── */}
+      {/* Scroll indicator */}
       <div
         onClick={() => handleScrollTo("about")}
-        className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 text-stone-500 hover:text-white transition-colors duration-200 cursor-pointer hidden lg:flex"
+        className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex-col items-center gap-1 text-stone-500 hover:text-white transition-colors duration-200 cursor-pointer hidden lg:flex"
       >
         <span className="text-[9px] font-bold tracking-widest uppercase">Discover More</span>
         <motion.div
