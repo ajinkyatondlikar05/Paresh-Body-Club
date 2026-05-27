@@ -58,7 +58,7 @@ export default function Gallery() {
         </div>
 
         {/* Dynamic Category Filtering Row */}
-        <div className="flex flex-wrap items-center gap-2 mb-10 overflow-x-auto pb-4 scrollbar-none">
+        <div className="flex flex-nowrap items-center gap-2 mb-10 overflow-x-auto pb-3 scrollbar-none">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -77,7 +77,7 @@ export default function Gallery() {
         {/* Filterable Products/Gallery Grid */}
         <motion.div 
           layout 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
         >
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
@@ -88,7 +88,7 @@ export default function Gallery() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 key={item.id}
-                className="group relative h-72 sm:h-80 rounded-xl overflow-hidden bg-stone-900 border border-white/5 shadow-lg"
+                className="group relative h-48 sm:h-72 md:h-80 rounded-xl overflow-hidden bg-stone-900 border border-white/5 shadow-lg"
               >
                 {/* Product Image */}
                 <img
@@ -102,22 +102,22 @@ export default function Gallery() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-95 transition-opacity duration-300"></div>
 
                 {/* Absolute Top category badge */}
-                <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-md border border-white/10 text-stone-300 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-md z-10 transition-transform duration-300 group-hover:translate-y-[-2px]">
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-black/80 backdrop-blur-md border border-white/10 text-stone-300 text-[8px] sm:text-[10px] font-black uppercase tracking-widest px-2 py-0.5 sm:px-3 sm:py-1 rounded-md z-10 transition-transform duration-300 group-hover:translate-y-[-2px]">
                   {item.category}
                 </div>
 
                 {/* Absolute Center Zoom icon */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white bg-red-650 p-4 rounded-full opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-300 pointer-events-none z-10">
-                  <ZoomIn size={20} />
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white bg-red-650 p-2.5 sm:p-4 rounded-full opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-300 pointer-events-none z-10">
+                  <ZoomIn size={16} className="sm:w-5 sm:h-5" />
                 </div>
 
                 {/* Bottom Details Content */}
-                <div className="absolute bottom-6 left-6 right-6 z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="font-display font-black text-lg text-white uppercase tracking-wider mb-1">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="font-display font-black text-xs sm:text-base md:text-lg text-white uppercase tracking-wider mb-0.5 sm:mb-1 line-clamp-1">
                     {item.title}
                   </h3>
-                  <p className="text-red-500 text-xs font-bold uppercase tracking-widest flex items-center gap-1.5">
-                    Explore Setup Area <MoveRight size={12} className="animate-pulse" />
+                  <p className="text-red-500 text-[9px] sm:text-xs font-bold uppercase tracking-widest flex items-center gap-1">
+                    Explore <span className="hidden sm:inline">Setup Area</span> <MoveRight size={10} className="animate-pulse" />
                   </p>
                 </div>
               </motion.div>

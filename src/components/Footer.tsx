@@ -61,7 +61,7 @@ export default function Footer() {
                 <Facebook size={14} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/paresh_body_club_murbad/"
                 target="_blank"
                 rel="noreferrer"
                 className="p-3 bg-stone-900 hover:bg-red-650 text-stone-400 hover:text-white rounded-lg border border-white/5 transition-all cursor-pointer"
@@ -117,14 +117,6 @@ export default function Footer() {
                   className="hover:text-red-500 transition-colors uppercase tracking-wider cursor-pointer font-bold text-left block"
                 >
                   Facilities List
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => handleScrollTo("trainers")} 
-                  className="hover:text-red-500 transition-colors uppercase tracking-wider cursor-pointer font-bold text-left block"
-                >
-                  Certified Team
                 </button>
               </li>
             </ul>

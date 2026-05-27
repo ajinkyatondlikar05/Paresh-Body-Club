@@ -162,7 +162,7 @@ export default function BMICalculator() {
                 <div className="flex gap-4 pt-2">
                   <button
                     type="submit"
-                    className="flex-1 py-3 px-6 bg-red-600 hover:bg-red-500 text-white text-xs font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 transition-all duration-300 glow-btn-red cursor-pointer"
+                    className="flex-1 py-3.5 px-6 bg-red-600 hover:bg-red-500 text-white text-xs font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 transition-all duration-300 glow-btn-red cursor-pointer"
                   >
                     <Sparkles size={14} /> Calculate
                   </button>
@@ -171,7 +171,7 @@ export default function BMICalculator() {
                     <button
                       type="button"
                       onClick={resetForm}
-                      className="p-3 bg-stone-900 hover:bg-stone-800 border border-white/10 rounded-lg text-stone-400 hover:text-white transition-colors cursor-pointer"
+                      className="p-3.5 bg-stone-900 hover:bg-stone-800 border border-white/10 rounded-lg text-stone-400 hover:text-white transition-colors cursor-pointer flex items-center justify-center"
                       title="Reset values"
                     >
                       <RefreshCw size={16} />

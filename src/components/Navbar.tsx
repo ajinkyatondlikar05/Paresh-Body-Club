@@ -131,13 +131,13 @@ export default function Navbar({ activeSection }: NavbarProps) {
         {isOpen && (
           <motion.div
             id="mobile-nav-panel"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#0c0c0e] border-b border-white/10"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 w-full md:hidden bg-[#0c0c0e]/98 backdrop-blur-xl border-b border-white/10 shadow-[0_15px_30px_rgba(0,0,0,0.85)] max-h-[calc(100vh-80px)] overflow-y-auto"
           >
-            <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+            <div className="px-4 py-6 space-y-2 sm:px-6">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
@@ -154,7 +154,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               <div className="pt-4 pb-2 px-3">
                 <button
                   onClick={() => scrollToSection("membership")}
-                  className="w-full text-center py-3 bg-red-600 hover:bg-red-500 text-white text-sm font-black uppercase tracking-widest rounded-md shadow-lg shadow-red-500/30 cursor-pointer transition-all duration-300 flex items-center justify-center gap-2"
+                  className="w-full text-center py-3.5 bg-red-600 hover:bg-red-500 text-white text-sm font-black uppercase tracking-widest rounded-md shadow-lg shadow-red-500/30 cursor-pointer transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   JOIN NOW <ArrowRight size={16} />
                 </button>

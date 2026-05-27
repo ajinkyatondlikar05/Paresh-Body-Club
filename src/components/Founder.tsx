@@ -72,7 +72,7 @@ export default function Founder() {
         <img
           src="/founder-leaning.png"
           alt="Founder Paresh Hindurao - Bodybuilding Champion"
-          className="w-full h-full object-cover object-center filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] drop-shadow-[0_0_35px_rgba(239,68,68,0.12)] relative z-10"
+          className="w-full h-full object-cover object-[65%_center] filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] drop-shadow-[0_0_35px_rgba(239,68,68,0.12)] relative z-10"
         />
         
         {/* Volumetric Warm Spotlight & Rim Lighting (Face, Shoulder, Bicep) */}
@@ -99,7 +99,7 @@ export default function Founder() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           
           {/* Left Side: Metadata, Philosophy, and Credentials */}
-          <div className="lg:col-span-8 space-y-6 text-left relative z-20">
+          <div className="lg:col-span-7 xl:col-span-8 space-y-6 text-left relative z-20">
             <div>
               <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
                 FOUNDER & HEAD TRAINER
@@ -135,7 +135,7 @@ export default function Founder() {
           </div>
 
           {/* MOBILE ONLY: Render the image inside the normal grid flow */}
-          <div className="lg:col-span-4 block lg:hidden relative h-[450px] sm:h-[550px] w-full select-none overflow-hidden rounded-xl mt-4">
+          <div className="lg:col-span-4 block lg:hidden relative h-[450px] sm:h-[550px] w-full select-none overflow-hidden mt-4">
             <div className="absolute inset-0 bg-red-600/5 blur-[90px] rounded-full pointer-events-none" />
             <img
               src="/founder-leaning.png"

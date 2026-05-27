@@ -40,12 +40,11 @@ export default function About() {
       >
         {/* Cinematic Background Image with CSS Filter (Slightly Darkened) */}
         <div
-          className="absolute inset-0 z-0 pointer-events-none"
+          className="absolute inset-0 z-0 pointer-events-none bg-fixed max-lg:bg-scroll"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center center",
-            backgroundAttachment: "fixed",
             filter: "brightness(0.75)",
           }}
         />
@@ -113,21 +112,21 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.85, delay: 0.2 }}
-              className="flex flex-col items-end justify-center text-right select-none pointer-events-none w-full mt-8 lg:mt-0 relative"
+              className="flex flex-col items-center lg:items-end justify-center text-center lg:text-right select-none pointer-events-none w-full mt-8 lg:mt-0 relative"
             >
               {/* Soft red ambient glow behind quote */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-red-600/5 blur-[100px] pointer-events-none z-0" />
 
               <div
-                className="font-display font-black uppercase leading-[1.05] tracking-tight relative z-10"
-                style={{ fontSize: "clamp(2rem, 4vw, 4.2rem)", opacity: 0.95 }}
+                className="font-display font-black uppercase leading-[1.05] tracking-tight relative z-10 text-center lg:text-right"
+                style={{ fontSize: "clamp(1.5rem, 4vw, 4.2rem)", opacity: 0.95 }}
               >
-                <span className="block text-stone-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] whitespace-nowrap">TODAY IS THE DAY</span>
-                <span className="block text-stone-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] whitespace-nowrap">BECAUSE TODAY</span>
-                <span className="block text-stone-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] whitespace-nowrap">IS YOUR</span>
+                <span className="block text-stone-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">TODAY IS THE DAY</span>
+                <span className="block text-stone-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">BECAUSE TODAY</span>
+                <span className="block text-stone-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">IS YOUR</span>
                 <span
-                  className="block text-red-650 drop-shadow-[0_0_30px_rgba(239,68,68,0.65)] whitespace-nowrap text-red-500"
-                  style={{ fontSize: "clamp(2.4rem, 5vw, 5.2rem)" }}
+                  className="block text-red-650 drop-shadow-[0_0_30px_rgba(239,68,68,0.65)] text-red-500"
+                  style={{ fontSize: "clamp(1.8rem, 5vw, 5.2rem)" }}
                 >
                   DAY.
                 </span>

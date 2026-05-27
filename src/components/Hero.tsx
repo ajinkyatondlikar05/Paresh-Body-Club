@@ -91,7 +91,7 @@ export default function Hero() {
       <div className="flex flex-col lg:flex-row" style={{ minHeight: "100vh" }}>
 
         {/* ─── LEFT TEXT PANEL ─── */}
-        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-16 xl:px-20 pt-32 pb-8 lg:pt-28 lg:pb-0 w-full lg:w-[52%] xl:w-[50%]">
+        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:pl-12 lg:pr-8 xl:pl-20 xl:pr-12 pt-32 pb-8 lg:pt-28 lg:pb-0 w-full lg:w-[55%] xl:w-[50%]">
 
           {/* Ambient red glow behind text */}
           <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-red-600/10 blur-[120px] pointer-events-none" />
@@ -123,7 +123,7 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.75, delay: 0.1 }}
             className="font-display font-black uppercase leading-[0.92] tracking-tight select-none mb-6 text-left text-white"
-            style={{ fontSize: "clamp(3.2rem, 7vw, 6.8rem)" }}
+            style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)" }}
           >
             <span className="block">TRANSFORM</span>
             <span className="block">
@@ -180,8 +180,10 @@ export default function Hero() {
               <div
                 key={i}
                 className={`flex flex-col items-center justify-center gap-1.5 py-4 px-2 text-center ${
-                  i < stats.length - 1 ? "border-r border-white/8" : ""
-                }`}
+                  i === 0 ? "border-r border-b border-white/8" :
+                  i === 1 ? "border-b border-white/8" :
+                  i === 2 ? "border-r border-white/8" : ""
+                } sm:border-b-0 sm:border-r ${i === 3 ? "sm:border-r-0" : ""} border-white/8`}
               >
                 <div className="text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)]">
                   {stat.icon}
@@ -198,7 +200,7 @@ export default function Hero() {
         </div>
 
         {/* ─── RIGHT IMAGE PANEL ─── */}
-        <div className="relative w-full lg:w-[48%] xl:w-[50%] min-h-[65vw] lg:min-h-0">
+        <div className="relative w-full lg:w-[45%] xl:w-[50%] h-[50vh] min-h-[380px] lg:h-auto lg:min-h-0">
           {/* Red vertical divider glow */}
           <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-red-600/60 to-transparent z-10 hidden lg:block" />
           <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#0c0c0e] to-transparent z-10 hidden lg:block" />

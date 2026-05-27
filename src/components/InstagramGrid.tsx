@@ -59,7 +59,7 @@ export default function InstagramGrid() {
           {mockPosts.map((post) => (
             <a
               key={post.id}
-              href="https://instagram.com"
+              href="https://www.instagram.com/paresh_body_club_murbad/"
               target="_blank"
               rel="noreferrer"
               className="group relative rounded-xl overflow-hidden aspect-square border border-white/5 bg-stone-900 block"
@@ -94,7 +94,7 @@ export default function InstagramGrid() {
         {/* Prompt Button */}
         <div className="text-center mt-10">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/paresh_body_club_murbad/"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 hover:bg-white text-stone-300 hover:text-red-600 text-xs font-black uppercase tracking-widest rounded-lg border border-white/10 hover:border-white transition-all duration-300 cursor-pointer shadow-lg"
