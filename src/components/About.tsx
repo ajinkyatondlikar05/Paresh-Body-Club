@@ -36,15 +36,16 @@ export default function About() {
       ══════════════════════════════════════════════ */}
       <div
         className="relative w-full flex flex-col justify-between overflow-hidden"
-        style={{ minHeight: "90vh" }}
+        style={{ minHeight: "70vh" }}
       >
         {/* Cinematic Background Image with CSS Filter (Slightly Darkened) */}
         <div
-          className="absolute inset-0 z-0 pointer-events-none bg-fixed max-lg:bg-scroll"
+          className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center center",
+            backgroundAttachment: "scroll",
             filter: "brightness(0.75)",
           }}
         />
@@ -82,7 +83,7 @@ export default function About() {
               <div className="relative z-10">
                 <h2
                   className="font-display font-black text-white uppercase tracking-tight leading-[0.9] mb-4"
-                  style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.8rem)" }}
+                  style={{ fontSize: "clamp(2rem, 8vw, 4.8rem)" }}
                 >
                   AT OUR CORE
                 </h2>
@@ -119,7 +120,7 @@ export default function About() {
 
               <div
                 className="font-display font-black uppercase leading-[1.05] tracking-tight relative z-10 text-center lg:text-right"
-                style={{ fontSize: "clamp(1.5rem, 4vw, 4.2rem)", opacity: 0.95 }}
+                style={{ fontSize: "clamp(1.2rem, 5vw, 4.2rem)", opacity: 0.95 }}
               >
                 <span className="block text-stone-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">TODAY IS THE DAY</span>
                 <span className="block text-stone-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">BECAUSE TODAY</span>

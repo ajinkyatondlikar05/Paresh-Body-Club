@@ -47,7 +47,7 @@ export default function Founder() {
   return (
     <section 
       id="founder" 
-      className="py-20 lg:py-28 bg-black relative overflow-hidden flex items-center"
+      className="py-16 lg:py-28 bg-black relative overflow-hidden flex items-center"
     >
       {/* 05 Stencil Watermark */}
       <div className="absolute top-12 right-12 text-[140px] font-display font-black text-white/5 select-none pointer-events-none tracking-tighter leading-none z-0">
@@ -104,7 +104,9 @@ export default function Founder() {
               <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
                 FOUNDER &amp; HEAD TRAINER
               </span>
-              <h2 className="font-display font-black text-5xl sm:text-7xl lg:text-[80px] xl:text-[90px] text-white uppercase tracking-tighter leading-[0.85] mb-3">
+              <h2 className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
+                style={{ fontSize: "clamp(2.2rem, 9vw, 6rem)" }}
+              >
                 PARESH HINDURAO
               </h2>
               <div className="text-stone-400 font-sans text-[11px] sm:text-xs font-bold mt-2.5 uppercase tracking-wider flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -135,7 +137,7 @@ export default function Founder() {
           </div>
 
           {/* MOBILE ONLY: image in normal flow (desktop uses absolute background above) */}
-          <div className="lg:col-span-4 block lg:hidden relative h-[420px] sm:h-[500px] w-full select-none overflow-hidden mt-4">
+          <div className="lg:col-span-4 block lg:hidden relative h-[360px] sm:h-[460px] w-full select-none overflow-hidden mt-4">
             <div className="absolute inset-0 bg-red-600/5 blur-[90px] rounded-full pointer-events-none" />
             <img
               src="/founder-leaning.png"

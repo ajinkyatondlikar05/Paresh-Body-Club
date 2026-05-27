@@ -117,7 +117,7 @@ export default function Contact() {
             </div>
 
             {/* Custom Google Maps Embed targeting Mata Nagar, Shirgaon, Murbad */}
-            <div className="h-64 rounded-2xl overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-stone-900 relative">
+            <div className="h-52 sm:h-64 rounded-2xl overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-stone-900 relative">
               <iframe
                 title="PARESH BODY CLUB Google Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.518602652497!2d73.3970222!3d19.2274404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ebd4f1ecb2e9%3A0xe8c7b6ffddb933cc!2sMurbad%2C%20Maharashtra%20421401!5e0!3m2!1sen!2sin!4v1716719138092!5m2!1sen!2sin"

@@ -24,7 +24,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Core footer Grid split */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 items-start mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 items-start mb-12 sm:mb-16">
           
           {/* Gym brand Column */}
           <div className="md:col-span-2 space-y-5">

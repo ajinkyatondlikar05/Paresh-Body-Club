@@ -58,12 +58,12 @@ export default function Gallery() {
         </div>
 
         {/* Dynamic Category Filtering Row */}
-        <div className="flex flex-nowrap items-center gap-2 mb-10 overflow-x-auto pb-3 scrollbar-none">
+        <div className="flex flex-nowrap items-center gap-2 mb-8 sm:mb-10 overflow-x-auto pb-3 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0" style={{ WebkitOverflowScrolling: 'touch' }}>
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest cursor-pointer whitespace-nowrap transition-all duration-300 ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs font-black uppercase tracking-widest cursor-pointer whitespace-nowrap transition-all duration-300 ${
                 selectedCategory === cat
                   ? "bg-red-600 text-white shadow-lg shadow-red-500/20"
                   : "bg-stone-900 text-stone-400 hover:text-white hover:bg-stone-850 border border-white/5"
@@ -77,7 +77,7 @@ export default function Gallery() {
         {/* Filterable Products/Gallery Grid */}
         <motion.div 
           layout 
-          className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6"
         >
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
@@ -88,7 +88,7 @@ export default function Gallery() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 key={item.id}
-                className="group relative h-48 sm:h-72 md:h-80 rounded-xl overflow-hidden bg-stone-900 border border-white/5 shadow-lg"
+                className="group relative h-36 sm:h-56 md:h-80 rounded-xl overflow-hidden bg-stone-900 border border-white/5 shadow-lg"
               >
                 {/* Product Image */}
                 <img

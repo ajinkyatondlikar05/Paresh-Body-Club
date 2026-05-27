@@ -29,7 +29,7 @@ export default function Reviews() {
           </div>
 
           {/* Interactive Rating Badge Grid */}
-          <div className="lg:col-span-5 bg-stone-900/60 border border-white/5 p-6 rounded-2xl flex items-center justify-between backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+          <div className="lg:col-span-5 bg-stone-900/60 border border-white/5 p-4 sm:p-6 rounded-2xl flex items-center justify-between backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.6)] gap-4">
             <div>
               <span className="block text-4xl sm:text-5xl font-mono font-black text-white">4.8</span>
               <div className="flex items-center gap-0.5 mt-1.5 text-yellow-500">

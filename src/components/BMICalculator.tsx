@@ -72,7 +72,7 @@ export default function BMICalculator() {
               Know Your Stats
             </span>
             <h2 className="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight leading-none mb-6">
-              Instant <span className="text-red-500">BMI</span> <br />
+              Instant <span className="text-red-500">BMI</span>{" "}
               Fitness Calculator
             </h2>
             <p className="text-stone-300 font-sans text-sm sm:text-base leading-relaxed mb-6 font-light">
@@ -102,7 +102,7 @@ export default function BMICalculator() {
 
           {/* Right Column - Interactive Form & Live Result Display */}
           <div className="lg:col-span-6">
-            <div className="bg-[#0f0f12] border border-white/10 p-6 sm:p-8 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+            <div className="bg-[#0f0f12] border border-white/10 p-5 sm:p-8 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
               
               <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
                 <div className="p-3 bg-red-600/10 rounded-xl text-red-500">

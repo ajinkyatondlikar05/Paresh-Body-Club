@@ -56,7 +56,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="bg-[#0c0c0e] min-h-screen font-sans antialiased text-white selection:bg-red-650 selection:text-white">
+    <div className="bg-[#0c0c0e] min-h-screen font-sans antialiased text-white selection:bg-red-650 selection:text-white overflow-x-hidden">
       {/* Sticky Top Navbar */}
       <Navbar activeSection={activeSection} />
 

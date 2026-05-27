@@ -84,16 +84,15 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden bg-[#0c0c0e]"
-      style={{ minHeight: "100vh" }}
+      className="relative w-full overflow-x-hidden bg-[#0c0c0e]"
     >
-      {/* Full layout: left text + right image */}
-      <div className="flex flex-col lg:flex-row" style={{ minHeight: "100vh" }}>
+      {/* ─────────────────────────────────────────────────────────────────
+          DESKTOP LAYOUT  (lg and above) — unchanged from original
+      ───────────────────────────────────────────────────────────────── */}
+      <div className="hidden lg:flex flex-row" style={{ minHeight: "100vh" }}>
 
-        {/* LEFT TEXT PANEL */}
-        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:px-16 xl:px-20 pt-32 pb-8 lg:pt-28 lg:pb-0 w-full lg:w-[52%] xl:w-[50%]">
-
-          {/* Ambient red glow behind text */}
+        {/* LEFT TEXT PANEL — desktop */}
+        <div className="relative z-10 flex flex-col justify-center px-16 xl:px-20 pt-28 pb-0 w-[52%] xl:w-[50%]">
           <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-red-600/10 blur-[120px] pointer-events-none" />
 
           {/* Rating badge */}
@@ -140,7 +139,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.75, delay: 0.25 }}
-            className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed max-w-lg mb-8 text-left"
+            className="text-stone-400 text-sm font-light leading-relaxed max-w-lg mb-8 text-left"
           >
             Best Gym in Murbad with Professional Equipment &amp; Motivating Environment. Unleash physical peak conditioning with premium strength gears, cardio chambers, and guidance.
           </motion.p>
@@ -169,26 +168,24 @@ export default function Hero() {
             </button>
           </motion.div>
 
-          {/* Stats bar — 2×2 on mobile, 4-col on sm+ */}
+          {/* Stats bar — 4-col on desktop */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.52 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-0 bg-[#0c0c0e]/70 border border-white/10 hover:border-red-500/20 backdrop-blur-md rounded-xl overflow-hidden p-1.5 w-full max-w-[550px] shadow-[0_0_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.1)] transition-all duration-300"
+            className="grid grid-cols-4 gap-0 bg-[#0c0c0e]/70 border border-white/10 hover:border-red-500/20 backdrop-blur-md rounded-xl overflow-hidden p-1.5 max-w-[550px] shadow-[0_0_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.1)] transition-all duration-300"
           >
             {stats.map((stat, i) => (
               <div
                 key={i}
                 className={`flex flex-col items-center justify-center gap-1.5 py-4 px-2 text-center ${
-                  i === 0 ? "border-r border-b border-white/8 sm:border-b-0" :
-                  i === 1 ? "border-b border-white/8 sm:border-b-0 sm:border-r" :
-                  i === 2 ? "border-r border-white/8" : ""
-                } border-white/8`}
+                  i < 3 ? "border-r border-white/8" : ""
+                }`}
               >
                 <div className="text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)]">
                   {stat.icon}
                 </div>
-                <div className="font-display font-black text-white text-2xl sm:text-3xl leading-none tracking-tight">
+                <div className="font-display font-black text-white text-3xl leading-none tracking-tight">
                   {stat.value}
                 </div>
                 <div className="text-[9px] font-black tracking-wider text-stone-400 uppercase leading-none">
@@ -199,13 +196,11 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT IMAGE PANEL */}
-        <div className="relative w-full lg:w-[48%] xl:w-[50%] h-[50vh] min-h-[340px] lg:h-auto lg:min-h-0">
-          {/* Red vertical divider glow */}
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-red-600/60 to-transparent z-10 hidden lg:block" />
-          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#0c0c0e] to-transparent z-10 hidden lg:block" />
+        {/* RIGHT IMAGE PANEL — desktop */}
+        <div className="relative w-[48%] xl:w-[50%]">
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-red-600/60 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#0c0c0e] to-transparent z-10" />
 
-          {/* Main image */}
           <motion.div
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -220,32 +215,23 @@ export default function Hero() {
               style={{ filter: "brightness(0.72) saturate(1.1) contrast(1.1)" }}
               referrerPolicy="no-referrer"
             />
-
-            {/* Dark overlay gradients for blend into background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0c0c0e] via-transparent to-transparent lg:via-[#0c0c0e]/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0c0c0e] via-[#0c0c0e]/10 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-[#0c0c0e]/10 to-transparent" />
             <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0c0c0e] to-transparent" />
-
-            {/* Smoke overlays */}
             <div className="absolute right-0 top-1/4 w-80 h-80 rounded-full bg-white/5 blur-[80px] pointer-events-none mix-blend-screen" />
             <div className="absolute right-12 bottom-1/3 w-96 h-96 rounded-full bg-stone-500/5 blur-[100px] pointer-events-none mix-blend-screen" />
-
-            {/* Embers */}
             <div className="absolute bottom-10 left-10 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none" />
             <div className="absolute bottom-20 left-1/4 w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444] pointer-events-none" />
             <div className="absolute bottom-16 left-1/2 w-1.5 h-1.5 rounded-full bg-red-500/70 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none" />
             <div className="absolute bottom-28 right-1/4 w-1 h-1 rounded-full bg-red-500/50 shadow-[0_0_6px_#ef4444] pointer-events-none" />
             <div className="absolute bottom-12 right-10 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] pointer-events-none" />
-
-            {/* Red ambient glow at bottom right */}
             <div className="absolute bottom-0 right-0 w-80 h-80 bg-red-700/25 blur-[80px] rounded-full pointer-events-none" />
-            {/* Red center spine light */}
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-2 h-2/3 bg-gradient-to-b from-red-500/0 via-red-500/30 to-red-500/0 blur-[20px] pointer-events-none" />
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — desktop only */}
       <div
         onClick={() => handleScrollTo("about")}
         className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex-col items-center gap-1 text-stone-500 hover:text-white transition-colors duration-200 cursor-pointer hidden lg:flex"
@@ -256,6 +242,151 @@ export default function Hero() {
           transition={{ repeat: Infinity, duration: 1.6 }}
           className="w-1 h-6 bg-red-600 rounded-full"
         />
+      </div>
+
+      {/* ─────────────────────────────────────────────────────────────────
+          MOBILE LAYOUT  (below lg) — stacked, no overflow, no dead space
+      ───────────────────────────────────────────────────────────────── */}
+      <div className="flex flex-col lg:hidden min-h-screen">
+
+        {/* ── MOBILE IMAGE — full width, sits behind the transparent navbar ── */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{ height: "70vw", minHeight: "260px", maxHeight: "380px" }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.1, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <img
+              src={imgSrc}
+              onError={handleImageError}
+              alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
+              className="w-full h-full object-cover object-top"
+              style={{ filter: "brightness(0.72) saturate(1.1) contrast(1.1)" }}
+              referrerPolicy="no-referrer"
+            />
+            {/* Gradient fades to blend seamlessly into the dark bg */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-[#0c0c0e]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c0e]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0c0c0e]/40 via-transparent to-[#0c0c0e]/20" />
+            {/* Decorative embers */}
+            <div className="absolute bottom-6 left-8 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none" />
+            <div className="absolute bottom-12 left-1/3 w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444] pointer-events-none" />
+            <div className="absolute bottom-8 right-8 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-48 h-48 bg-red-700/20 blur-[60px] rounded-full pointer-events-none" />
+          </motion.div>
+        </div>
+
+        {/* ── MOBILE TEXT — tight padding, no excess top gap ── */}
+        <div className="relative z-10 flex flex-col px-4 pt-4 pb-8">
+          {/* Ambient glow */}
+          <div className="absolute top-0 left-0 w-64 h-64 rounded-full bg-red-600/8 blur-[80px] pointer-events-none" />
+
+          {/* Rating badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="inline-flex self-start items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-md mb-4 shadow-xl flex-wrap"
+          >
+            <div className="flex items-center gap-1 text-yellow-400">
+              <Star size={11} className="fill-yellow-400 text-yellow-400" />
+              <span className="text-xs font-black text-white leading-none">4.8</span>
+            </div>
+            <span className="h-3 w-px bg-white/20 mx-0.5" />
+            <span className="text-stone-300 text-[10px] font-bold tracking-wider uppercase leading-none">
+              10 GOOGLE REVIEWS
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-[10px] text-red-500 font-bold tracking-wider uppercase leading-none">
+              MURBAD'S BEST GYM
+            </span>
+          </motion.div>
+
+          {/* Main headline */}
+          <motion.h1
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.75, delay: 0.1 }}
+            className="font-display font-black uppercase leading-[0.88] tracking-tight select-none mb-4 text-left text-white w-full"
+            style={{ fontSize: "clamp(2.6rem, 12vw, 4rem)" }}
+          >
+            <span className="block">TRANSFORM</span>
+            <span className="block">
+              YOUR <span className="text-red-500 drop-shadow-[0_0_12px_rgba(239,68,68,0.55)]">BODY.</span>
+            </span>
+            <span className="block">TRANSFORM</span>
+            <span className="text-red-500 block drop-shadow-[0_0_16px_rgba(239,68,68,0.65)]">
+              YOUR LIFE
+            </span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.75, delay: 0.25 }}
+            className="text-stone-400 text-xs font-light leading-relaxed mb-5 text-left max-w-full"
+          >
+            Best Gym in Murbad with Professional Equipment &amp; Motivating Environment. Unleash peak conditioning with premium gears, cardio chambers, and expert guidance.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.38 }}
+            className="flex flex-row gap-3 mb-5"
+          >
+            <button
+              onClick={() => handleScrollTo("membership")}
+              className="flex-1 group inline-flex items-center justify-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-500 text-white font-black text-xs uppercase tracking-widest rounded-lg transition-all duration-300 shadow-[0_0_16px_rgba(220,38,38,0.45)] cursor-pointer"
+            >
+              JOIN NOW
+              <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+
+            <button
+              onClick={() => handleScrollTo("contact")}
+              className="flex-1 group inline-flex items-center justify-center gap-2 px-4 py-3 bg-transparent text-white font-black text-xs uppercase tracking-widest rounded-lg border border-white/20 transition-all duration-300 cursor-pointer"
+            >
+              <Phone size={12} className="text-red-500" />
+              CONTACT
+            </button>
+          </motion.div>
+
+          {/* Stats bar — 2×2 grid on mobile */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.52 }}
+            className="grid grid-cols-2 gap-0 bg-[#0c0c0e]/80 border border-white/10 backdrop-blur-md rounded-xl overflow-hidden p-1 w-full shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all duration-300"
+          >
+            {stats.map((stat, i) => (
+              <div
+                key={i}
+                className={`flex flex-col items-center justify-center gap-1 py-3.5 px-2 text-center ${
+                  i === 0 ? "border-r border-b border-white/8" :
+                  i === 1 ? "border-b border-white/8" :
+                  i === 2 ? "border-r border-white/8" : ""
+                }`}
+              >
+                <div className="text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)]">
+                  {stat.icon}
+                </div>
+                <div className="font-display font-black text-white text-2xl leading-none tracking-tight mt-0.5">
+                  {stat.value}
+                </div>
+                <div className="text-[8px] font-black tracking-wider text-stone-400 uppercase leading-tight mt-0.5">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
