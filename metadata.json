@@ -1,0 +1,6 @@
+{
+  "name": "PARESH BODY CLUB MURBAD",
+  "description": "Join PARESH BODY CLUB MURBAD for professional fitness training, cardio, bodybuilding, and healthy lifestyle transformation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
