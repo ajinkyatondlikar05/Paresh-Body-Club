@@ -273,24 +273,98 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ────────────────────────────────────────────────────────
-            HERO: true 2-column flex — left content | right image
-            items-stretch keeps image height = left column height
-        ──────────────────────────────────────────────────────── */}
-        <div className="flex flex-row items-stretch px-4 pt-4 pb-0 overflow-hidden">
+        {/* ═══════════════════════════════════════════════════════════════
+            HERO COMPOSITION  — Nike / Gymshark style
+            ┌─ left text (in flow → sets height) ─────────────────────┐
+            │  HEADING                            ╔══ ATHLETE ════════╗│
+            │  description                        ║  absolute, z=1   ║│
+            │  buttons                            ║  mask-image fade  ║│
+            └─────────────────────────────────────╚══════════════════╝┘
+        ═══════════════════════════════════════════════════════════════ */}
+        <div className="relative px-4 pt-4">
 
-          {/* LEFT COLUMN — 55% — heading + description + buttons */}
-          <div className="flex flex-col pr-3 relative z-10" style={{ width: "55%" }}>
+          {/* Subtle red ambient glow — left side, behind heading */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: "-30px", left: "-20px",
+              width: "220px", height: "220px",
+              borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(220,38,38,0.12) 0%, transparent 70%)",
+              filter: "blur(40px)",
+              zIndex: 0,
+            }}
+          />
 
-            {/* Subtle red ambient glow behind text only */}
-            <div className="absolute -top-6 -left-4 w-48 h-48 rounded-full bg-red-600/10 blur-[70px] pointer-events-none z-0" />
+          {/* ── ATHLETE — absolute right, full container height, NO rectangle ── */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.1, delay: 0.15 }}
+            className="absolute top-0 bottom-0 right-0 pointer-events-none"
+            style={{ width: "52%", zIndex: 1 }}
+          >
+            {/* Red glow BEHIND athlete — not over him */}
+            <div
+              className="absolute pointer-events-none"
+              style={{
+                inset: 0,
+                background: "radial-gradient(ellipse at 55% 35%, rgba(220,38,38,0.2) 0%, transparent 60%)",
+                zIndex: 0,
+              }}
+            />
+
+            {/* The athlete image itself — CSS mask creates cutout, no overflow-hidden clipping */}
+            <img
+              src={imgSrc}
+              onError={handleImageError}
+              alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
+              className="absolute inset-0 w-full h-full"
+              style={{
+                objectFit: "cover",
+                objectPosition: "top center",
+                filter: "brightness(0.9) saturate(1.15) contrast(1.12)",
+                /*
+                  Cutout mask:
+                  – left  edge:   fade transparent→visible (keeps heading area clear)
+                  – bottom edge:  fade out below buttons
+                  – top / right:  bleed naturally to edges — no fade
+                */
+                WebkitMaskImage: [
+                  "linear-gradient(to right,  transparent 0%,  rgba(0,0,0,0.85) 25%, black 45%)",
+                  "linear-gradient(to top,    transparent 0%,  black 18%,        black 100%)",
+                ].join(", "),
+                maskImage: [
+                  "linear-gradient(to right,  transparent 0%,  rgba(0,0,0,0.85) 25%, black 45%)",
+                  "linear-gradient(to top,    transparent 0%,  black 18%,        black 100%)",
+                ].join(", "),
+                WebkitMaskComposite: "source-in",
+                maskComposite: "intersect",
+                zIndex: 1,
+              }}
+              referrerPolicy="no-referrer"
+            />
+
+            {/* Ember sparks */}
+            <div
+              className="absolute w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse"
+              style={{ bottom: "14%", right: "12%", zIndex: 2 }}
+            />
+            <div
+              className="absolute w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444]"
+              style={{ bottom: "22%", right: "28%", zIndex: 2 }}
+            />
+          </motion.div>
+
+          {/* ── LEFT TEXT COLUMN — in normal flow, determines hero height ── */}
+          <div className="relative" style={{ width: "58%", zIndex: 10 }}>
 
             {/* Heading */}
             <motion.h1
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.65, delay: 0.2 }}
-              className="font-display font-black uppercase tracking-tight text-white select-none relative z-10"
+              className="font-display font-black uppercase tracking-tight text-white select-none"
               style={{ fontSize: "clamp(1.95rem, 10.2vw, 3rem)", lineHeight: 0.88 }}
             >
               <span className="block">TRANSFORM</span>
@@ -302,26 +376,26 @@ export default function Hero() {
               <span className="block text-red-500 drop-shadow-[0_0_14px_rgba(239,68,68,0.7)]">YOUR LIFE</span>
             </motion.h1>
 
-            {/* Description — directly below heading */}
+            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.35 }}
-              className="text-stone-400 font-light leading-relaxed relative z-10 mt-4"
+              className="text-stone-400 font-light leading-relaxed mt-4"
               style={{ fontSize: "clamp(10px, 2.7vw, 12px)" }}
             >
               Best Gym in Murbad with Professional Equipment &amp; Motivating Environment.
               Unleash peak conditioning with premium gears, cardio chambers, and expert guidance.
             </motion.p>
 
-            {/* Buttons — stacked vertically, full width of left column */}
+            {/* Buttons — stacked, full width of left column */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.48 }}
-              className="flex flex-col gap-3 mt-5 mb-5 relative z-10"
+              className="flex flex-col gap-3 mt-5 pb-6"
             >
-              {/* JOIN NOW — red, full column width */}
+              {/* JOIN NOW */}
               <button
                 onClick={() => handleScrollTo("membership")}
                 className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-red-600 hover:bg-red-500 active:bg-red-700 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_0_18px_rgba(220,38,38,0.45)] cursor-pointer"
@@ -330,7 +404,7 @@ export default function Hero() {
                 <ArrowRight size={13} className="shrink-0" />
               </button>
 
-              {/* CONTACT — dark with border, full column width */}
+              {/* CONTACT */}
               <button
                 onClick={() => handleScrollTo("contact")}
                 className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-black border border-white/20 hover:border-red-500/30 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer"
@@ -340,58 +414,8 @@ export default function Hero() {
               </button>
             </motion.div>
           </div>
-
-          {/* RIGHT COLUMN — 35% anchor (−10% from 45%) — athlete bleeds beyond, no rectangle */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.18 }}
-            className="relative flex-shrink-0"
-            style={{ width: "35%" }}
-          >
-            {/* Red ambient glow — sits BEHIND the athlete */}
-            <div
-              className="absolute pointer-events-none"
-              style={{
-                inset: "-20% -10% -10% -30%",
-                background: "radial-gradient(ellipse at 60% 40%, rgba(220,38,38,0.22) 0%, transparent 70%)",
-                zIndex: 0,
-              }}
-            />
-
-            {/* Athlete image — absolutely positioned, wider than column to bleed right */}
-            <img
-              src={imgSrc}
-              onError={handleImageError}
-              alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
-              className="absolute top-0 right-0 h-full pointer-events-none"
-              style={{
-                width: "140%",           /* bleeds right past column edge */
-                objectFit: "cover",
-                objectPosition: "top center",
-                filter: "brightness(0.92) saturate(1.15) contrast(1.12)",
-                /* Seamless fade: left edge, top edge, bottom edge — no hard box */
-                WebkitMaskImage: [
-                  "linear-gradient(to right,  transparent 0%,  black 30%, black 80%, transparent 100%)",
-                  "linear-gradient(to bottom, transparent 0%,  black 8%,  black 82%, transparent 100%)",
-                ].join(", "),
-                maskImage: [
-                  "linear-gradient(to right,  transparent 0%,  black 30%, black 80%, transparent 100%)",
-                  "linear-gradient(to bottom, transparent 0%,  black 8%,  black 82%, transparent 100%)",
-                ].join(", "),
-                WebkitMaskComposite: "source-in",
-                maskComposite: "intersect",
-                zIndex: 1,
-              }}
-              referrerPolicy="no-referrer"
-            />
-
-            {/* Ember sparks */}
-            <div className="absolute bottom-10 right-0 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none" style={{ zIndex: 2 }} />
-            <div className="absolute bottom-16 right-6 w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444] pointer-events-none" style={{ zIndex: 2 }} />
-          </motion.div>
-
         </div>
+
 
         {/* ── STATS — 2×2 dark cards ── */}
         <motion.div
