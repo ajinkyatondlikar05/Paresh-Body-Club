@@ -384,30 +384,6 @@ export default function Hero() {
           <Particle x="85%" y="42%" size={3}   delay={3}   duration={5}   />
         </div>
 
-        {/* ── TRUST BAR — slide up + fade in (600ms) ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-4 mt-[78px]"
-          style={{ zIndex: 10 }}
-        >
-          <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md w-full">
-            <div className="flex items-center gap-1 shrink-0">
-              <Star size={11} className="fill-yellow-400 text-yellow-400" />
-              <span className="text-[11px] font-black text-white leading-none">4.8</span>
-            </div>
-            <span className="h-3 w-px bg-white/20 shrink-0" />
-            <span className="text-stone-300 text-[10px] font-bold tracking-wide uppercase leading-none shrink-0">
-              10 GOOGLE REVIEWS
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shrink-0" />
-            <span className="text-[10px] text-red-400 font-bold tracking-wide uppercase leading-none shrink-0">
-              MURBAD'S BEST GYM
-            </span>
-          </div>
-        </motion.div>
-
         {/* ═══════════════════════════════════════════════════════════════
             HERO COMPOSITION  — Nike / Gymshark style
             ┌─ left text (in flow → sets height) ─────────────────────┐
@@ -416,7 +392,7 @@ export default function Hero() {
             │  buttons                            ║  mask-image fade  ║│
             └─────────────────────────────────────╚══════════════════╝┘
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="relative px-4 pt-4" style={{ zIndex: 5 }}>
+        <div className="relative px-4 pt-[88px]" style={{ zIndex: 5 }}>
 
           {/* Subtle red ambient glow — left side, behind heading */}
           <div
