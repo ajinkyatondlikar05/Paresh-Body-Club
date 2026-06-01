@@ -1,6 +1,69 @@
-import { useState } from "react";
-import { motion } from "motion/react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "motion/react";
 import { Star, ArrowRight, Phone, Users, Dumbbell, Trophy } from "lucide-react";
+
+/* ─── Reusable animation variants ─────────────────────────────────── */
+
+// Line-by-line text reveal from bottom
+const lineReveal = {
+  hidden: { opacity: 0, y: "100%", clipPath: "inset(0 0 100% 0)" },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: "0%",
+    clipPath: "inset(0 0 0% 0)",
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay },
+  }),
+};
+
+// Fade up
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+  }),
+};
+
+// One-shot red glow pulse on BODY. / YOUR LIFE words
+const redGlowPulse = {
+  hidden: { textShadow: "0 0 0px rgba(239,68,68,0)" },
+  visible: {
+    textShadow: [
+      "0 0 0px rgba(239,68,68,0)",
+      "0 0 22px rgba(239,68,68,0.85)",
+      "0 0 12px rgba(239,68,68,0.5)",
+    ],
+    transition: { duration: 0.9, delay: 0.75, ease: "easeOut" },
+  },
+};
+
+/* ─── Floating particle ────────────────────────────────────────────── */
+interface ParticleProps { x: string; y: string; size: number; delay: number; duration: number; }
+function Particle({ x, y, size, delay, duration }: ParticleProps) {
+  return (
+    <motion.div
+      className="absolute rounded-full bg-red-500 pointer-events-none"
+      style={{
+        left: x, top: y,
+        width: size, height: size,
+        opacity: 0.55,
+        boxShadow: `0 0 ${size * 3}px rgba(239,68,68,0.7)`,
+        willChange: "transform, opacity",
+      }}
+      animate={{
+        y: [0, -14, 4, -8, 0],
+        opacity: [0.55, 0.85, 0.4, 0.7, 0.55],
+      }}
+      transition={{
+        duration,
+        delay,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    />
+  );
+}
 
 export default function Hero() {
   const getOneDriveDirectLink = (url: string) => {
@@ -64,22 +127,14 @@ export default function Hero() {
       value: "10+",
       label: "YEARS EXPERIENCE",
     },
-    {
-      icon: <Users size={20} strokeWidth={1.8} />,
-      value: "500+",
-      label: "HAPPY MEMBERS",
-    },
-    {
-      icon: <Dumbbell size={20} strokeWidth={1.8} />,
-      value: "25+",
-      label: "EQUIPMENTS",
-    },
-    {
-      icon: <Trophy size={20} strokeWidth={1.8} />,
-      value: "100%",
-      label: "DEDICATION",
-    },
+    { icon: <Users size={20} strokeWidth={1.8} />, value: "500+", label: "HAPPY MEMBERS" },
+    { icon: <Dumbbell size={20} strokeWidth={1.8} />, value: "25+", label: "EQUIPMENTS" },
+    { icon: <Trophy size={20} strokeWidth={1.8} />, value: "100%", label: "DEDICATION" },
   ];
+
+  /* Stats viewport detection — animate in when scrolled into view */
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statsInView = useInView(statsRef, { once: true, margin: "-60px" });
 
   return (
     <section
@@ -244,18 +299,43 @@ export default function Hero() {
         />
       </div>
 
-      {/* ─────────────────────────────────────────────────────────────────
+      {/* ═════════════════════════════════════════════════════════════════
           MOBILE LAYOUT  (below lg) — exact reference clone
           Desktop layout above is completely untouched.
-      ───────────────────────────────────────────────────────────────── */}
+      ═════════════════════════════════════════════════════════════════ */}
       <div className="flex flex-col lg:hidden bg-[#0a0a0a]">
 
-        {/* ── TRUST BAR ── */}
+        {/* ── ANIMATED RED AMBIENT BACKGROUND GLOW ── */}
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
+          className="absolute top-16 left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{
+            width: "280px", height: "280px",
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(220,38,38,0.09) 0%, transparent 70%)",
+            filter: "blur(50px)",
+            willChange: "transform",
+            zIndex: 0,
+          }}
+          animate={{ scale: [1, 1.12, 1], opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* ── FLOATING RED PARTICLES (5) ── */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+          <Particle x="8%"  y="25%" size={3}   delay={0}   duration={5.5} />
+          <Particle x="72%" y="18%" size={2}   delay={1.2} duration={7}   />
+          <Particle x="55%" y="55%" size={2.5} delay={2.4} duration={6}   />
+          <Particle x="20%" y="65%" size={2}   delay={0.8} duration={8}   />
+          <Particle x="85%" y="42%" size={3}   delay={3}   duration={5}   />
+        </div>
+
+        {/* ── TRUST BAR — slide up + fade in (600ms) ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mx-4 mt-[78px]"
+          style={{ zIndex: 10 }}
         >
           <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md w-full">
             <div className="flex items-center gap-1 shrink-0">
@@ -281,7 +361,7 @@ export default function Hero() {
             │  buttons                            ║  mask-image fade  ║│
             └─────────────────────────────────────╚══════════════════╝┘
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="relative px-4 pt-4">
+        <div className="relative px-4 pt-4" style={{ zIndex: 5 }}>
 
           {/* Subtle red ambient glow — left side, behind heading */}
           <div
@@ -296,15 +376,15 @@ export default function Hero() {
             }}
           />
 
-          {/* ── ATHLETE — absolute right, full container height, NO rectangle ── */}
+          {/* ── ATHLETE — fade in + scale 0.96→1 (1000ms ease-out) ── */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.1, delay: 0.15 }}
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.0, ease: "easeOut", delay: 0.1 }}
             className="absolute top-0 bottom-0 right-0 pointer-events-none"
-            style={{ width: "52%", zIndex: 1 }}
+            style={{ width: "52%", zIndex: 1, transformOrigin: "right center" }}
           >
-            {/* Red glow BEHIND athlete — not over him */}
+            {/* Red glow BEHIND athlete */}
             <div
               className="absolute pointer-events-none"
               style={{
@@ -313,8 +393,6 @@ export default function Hero() {
                 zIndex: 0,
               }}
             />
-
-            {/* The athlete image itself — CSS mask creates cutout, no overflow-hidden clipping */}
             <img
               src={imgSrc}
               onError={handleImageError}
@@ -324,12 +402,6 @@ export default function Hero() {
                 objectFit: "cover",
                 objectPosition: "top center",
                 filter: "brightness(0.9) saturate(1.15) contrast(1.12)",
-                /*
-                  Cutout mask:
-                  – left  edge:   fade transparent→visible (keeps heading area clear)
-                  – bottom edge:  fade out below buttons
-                  – top / right:  bleed naturally to edges — no fade
-                */
                 WebkitMaskImage: [
                   "linear-gradient(to right,  transparent 0%,  rgba(0,0,0,0.85) 25%, black 45%)",
                   "linear-gradient(to top,    transparent 0%,  black 18%,        black 100%)",
@@ -341,46 +413,101 @@ export default function Hero() {
                 WebkitMaskComposite: "source-in",
                 maskComposite: "intersect",
                 zIndex: 1,
+                willChange: "transform, opacity",
               }}
               referrerPolicy="no-referrer"
             />
-
             {/* Ember sparks */}
-            <div
-              className="absolute w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse"
-              style={{ bottom: "14%", right: "12%", zIndex: 2 }}
-            />
-            <div
-              className="absolute w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444]"
-              style={{ bottom: "22%", right: "28%", zIndex: 2 }}
-            />
+            <div className="absolute w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse"
+              style={{ bottom: "14%", right: "12%", zIndex: 2 }} />
+            <div className="absolute w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444]"
+              style={{ bottom: "22%", right: "28%", zIndex: 2 }} />
           </motion.div>
 
           {/* ── LEFT TEXT COLUMN — in normal flow, determines hero height ── */}
           <div className="relative" style={{ width: "58%", zIndex: 10 }}>
 
-            {/* Heading */}
-            <motion.h1
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.65, delay: 0.2 }}
+            {/* ── HEADING — each line reveals from bottom with stagger ── */}
+            <h1
               className="font-display font-black uppercase tracking-tight text-white select-none"
               style={{ fontSize: "clamp(1.95rem, 10.2vw, 3rem)", lineHeight: 0.88 }}
             >
-              <span className="block">TRANSFORM</span>
-              <span className="block">
-                YOUR{" "}
-                <span className="text-red-500 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)]">BODY.</span>
+              {/* Line 1: TRANSFORM */}
+              <span className="block overflow-hidden">
+                <motion.span
+                  className="block"
+                  variants={lineReveal}
+                  initial="hidden"
+                  animate="visible"
+                  custom={0.15}
+                >
+                  TRANSFORM
+                </motion.span>
               </span>
-              <span className="block">TRANSFORM</span>
-              <span className="block text-red-500 drop-shadow-[0_0_14px_rgba(239,68,68,0.7)]">YOUR LIFE</span>
-            </motion.h1>
 
-            {/* Description */}
+              {/* Line 2: YOUR BODY. */}
+              <span className="block overflow-hidden">
+                <motion.span
+                  className="block"
+                  variants={lineReveal}
+                  initial="hidden"
+                  animate="visible"
+                  custom={0.28}
+                >
+                  YOUR{" "}
+                  <motion.span
+                    className="text-red-500"
+                    variants={redGlowPulse}
+                    initial="hidden"
+                    animate="visible"
+                    style={{ display: "inline", willChange: "text-shadow" }}
+                  >
+                    BODY.
+                  </motion.span>
+                </motion.span>
+              </span>
+
+              {/* Line 3: TRANSFORM */}
+              <span className="block overflow-hidden">
+                <motion.span
+                  className="block"
+                  variants={lineReveal}
+                  initial="hidden"
+                  animate="visible"
+                  custom={0.41}
+                >
+                  TRANSFORM
+                </motion.span>
+              </span>
+
+              {/* Line 4: YOUR LIFE */}
+              <span className="block overflow-hidden">
+                <motion.span
+                  className="block"
+                  variants={lineReveal}
+                  initial="hidden"
+                  animate="visible"
+                  custom={0.54}
+                >
+                  <motion.span
+                    className="block text-red-500"
+                    variants={redGlowPulse}
+                    initial="hidden"
+                    animate="visible"
+                    style={{ willChange: "text-shadow" }}
+                  >
+                    YOUR LIFE
+                  </motion.span>
+                </motion.span>
+              </span>
+            </h1>
+
+            {/* ── DESCRIPTION — fade in after title ── */}
             <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.35 }}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.72}
               className="text-stone-400 font-light leading-relaxed mt-4"
               style={{ fontSize: "clamp(10px, 2.7vw, 12px)" }}
             >
@@ -388,50 +515,60 @@ export default function Hero() {
               Unleash peak conditioning with premium gears, cardio chambers, and expert guidance.
             </motion.p>
 
-            {/* Buttons — stacked, full width of left column */}
+            {/* ── BUTTONS — slide up + interactive press/hover effects ── */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.48 }}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.88}
               className="flex flex-col gap-3 mt-5 pb-6"
             >
-              {/* JOIN NOW */}
-              <button
+              {/* JOIN NOW — red glow on hover/tap, scale on tap */}
+              <motion.button
                 onClick={() => handleScrollTo("membership")}
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-red-600 hover:bg-red-500 active:bg-red-700 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_0_18px_rgba(220,38,38,0.45)] cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-red-600 text-white font-black text-xs uppercase tracking-widest rounded-xl cursor-pointer"
+                style={{ willChange: "transform, box-shadow" }}
+                whileHover={{
+                  backgroundColor: "#ef4444",
+                  boxShadow: "0 0 28px rgba(220,38,38,0.7)",
+                  transition: { duration: 0.2 },
+                }}
+                whileTap={{ scale: 1.03, boxShadow: "0 0 32px rgba(220,38,38,0.8)", transition: { duration: 0.1 } }}
               >
                 JOIN NOW
                 <ArrowRight size={13} className="shrink-0" />
-              </button>
+              </motion.button>
 
-              {/* CONTACT */}
-              <button
+              {/* CONTACT — border glow on hover/tap */}
+              <motion.button
                 onClick={() => handleScrollTo("contact")}
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-black border border-white/20 hover:border-red-500/30 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-black border border-white/20 text-white font-black text-xs uppercase tracking-widest rounded-xl cursor-pointer"
+                style={{ willChange: "transform, box-shadow" }}
+                whileHover={{
+                  borderColor: "rgba(239,68,68,0.55)",
+                  boxShadow: "0 0 16px rgba(239,68,68,0.2)",
+                  transition: { duration: 0.2 },
+                }}
+                whileTap={{ scale: 1.02, transition: { duration: 0.1 } }}
               >
                 <Phone size={12} className="text-red-500 shrink-0" />
                 CONTACT
-              </button>
+              </motion.button>
             </motion.div>
           </div>
         </div>
 
-
-        {/* ── STATS — 2×2 dark cards ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          className="px-4 pt-5 pb-10"
-        >
+        {/* ── STATS — animate on scroll into view, stagger 100ms ── */}
+        <div ref={statsRef} className="px-4 pt-5 pb-10" style={{ zIndex: 5 }}>
           <div className="grid grid-cols-2 gap-3">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.6 + i * 0.07 }}
+                initial={{ opacity: 0, y: 22 }}
+                animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
                 className="flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl bg-[#111111] border border-white/8 text-center"
+                style={{ willChange: "transform, opacity" }}
               >
                 <div className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.65)]">
                   {stat.icon}
@@ -445,7 +582,7 @@ export default function Hero() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>
