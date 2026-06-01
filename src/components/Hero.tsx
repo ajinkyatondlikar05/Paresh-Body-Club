@@ -341,42 +341,56 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT COLUMN — 45% — athlete image, stretches to left-column height */}
+          {/* RIGHT COLUMN — 35% anchor (−10% from 45%) — athlete bleeds beyond, no rectangle */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: 0.18 }}
-            className="relative flex-shrink-0 overflow-hidden"
-            style={{ width: "45%" }}
+            className="relative flex-shrink-0"
+            style={{ width: "35%" }}
           >
-            {/* Subtle red glow ONLY — no heavy overlay */}
-            <div className="absolute inset-0 bg-red-700/8 pointer-events-none z-10" />
+            {/* Red ambient glow — sits BEHIND the athlete */}
+            <div
+              className="absolute pointer-events-none"
+              style={{
+                inset: "-20% -10% -10% -30%",
+                background: "radial-gradient(ellipse at 60% 40%, rgba(220,38,38,0.22) 0%, transparent 70%)",
+                zIndex: 0,
+              }}
+            />
 
+            {/* Athlete image — absolutely positioned, wider than column to bleed right */}
             <img
               src={imgSrc}
               onError={handleImageError}
               alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
-              className="w-full h-full object-cover object-top"
-              style={{ filter: "brightness(0.8) saturate(1.1) contrast(1.08)" }}
+              className="absolute top-0 right-0 h-full pointer-events-none"
+              style={{
+                width: "140%",           /* bleeds right past column edge */
+                objectFit: "cover",
+                objectPosition: "top center",
+                filter: "brightness(0.92) saturate(1.15) contrast(1.12)",
+                /* Seamless fade: left edge, top edge, bottom edge — no hard box */
+                WebkitMaskImage: [
+                  "linear-gradient(to right,  transparent 0%,  black 30%, black 80%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%,  black 8%,  black 82%, transparent 100%)",
+                ].join(", "),
+                maskImage: [
+                  "linear-gradient(to right,  transparent 0%,  black 30%, black 80%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%,  black 8%,  black 82%, transparent 100%)",
+                ].join(", "),
+                WebkitMaskComposite: "source-in",
+                maskComposite: "intersect",
+                zIndex: 1,
+              }}
               referrerPolicy="no-referrer"
             />
 
-            {/* Left-edge fade — softly merges athlete into black background */}
-            <div
-              className="absolute inset-0 pointer-events-none z-20"
-              style={{
-                background: "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.45) 28%, transparent 65%)",
-              }}
-            />
-            {/* Bottom fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none z-20" />
-            {/* Top fade */}
-            <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[#0a0a0a]/35 to-transparent pointer-events-none z-20" />
-
             {/* Ember sparks */}
-            <div className="absolute bottom-10 right-5 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none z-30" />
-            <div className="absolute bottom-16 right-10 w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444] pointer-events-none z-30" />
+            <div className="absolute bottom-10 right-0 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none" style={{ zIndex: 2 }} />
+            <div className="absolute bottom-16 right-6 w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444] pointer-events-none" style={{ zIndex: 2 }} />
           </motion.div>
+
         </div>
 
         {/* ── STATS — 2×2 dark cards ── */}
