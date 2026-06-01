@@ -245,7 +245,7 @@ export default function Hero() {
       </div>
 
       {/* ─────────────────────────────────────────────────────────────────
-          MOBILE LAYOUT  (below lg) — pixel-perfect reference recreation
+          MOBILE LAYOUT  (below lg) — exact reference clone
           Desktop layout above is completely untouched.
       ───────────────────────────────────────────────────────────────── */}
       <div className="flex flex-col lg:hidden bg-[#0a0a0a]">
@@ -255,7 +255,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mx-4 mt-[78px] mb-0"
+          className="mx-4 mt-[78px]"
         >
           <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md w-full">
             <div className="flex items-center gap-1 shrink-0">
@@ -273,115 +273,126 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ── HERO: heading left + athlete absolutely on right ── */}
-        <div className="relative overflow-hidden px-4 pt-4 pb-0">
+        {/* ────────────────────────────────────────────────────────
+            HERO: true 2-column flex — left content | right image
+            items-stretch keeps image height = left column height
+        ──────────────────────────────────────────────────────── */}
+        <div className="flex flex-row items-stretch px-4 pt-4 pb-0 overflow-hidden">
 
-          {/* Red ambient glow behind text */}
-          <div className="absolute -top-8 -left-8 w-60 h-60 rounded-full bg-red-600/12 blur-[80px] pointer-events-none z-0" />
-          {/* Red ambient glow behind athlete */}
-          <div className="absolute top-0 right-0 w-52 h-72 rounded-full bg-red-700/18 blur-[70px] pointer-events-none z-0" />
+          {/* LEFT COLUMN — 55% — heading + description + buttons */}
+          <div className="flex flex-col pr-3 relative z-10" style={{ width: "55%" }}>
 
-          {/* Athlete image — absolute, right side, full hero height, no box */}
+            {/* Subtle red ambient glow behind text only */}
+            <div className="absolute -top-6 -left-4 w-48 h-48 rounded-full bg-red-600/10 blur-[70px] pointer-events-none z-0" />
+
+            {/* Heading */}
+            <motion.h1
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.65, delay: 0.2 }}
+              className="font-display font-black uppercase tracking-tight text-white select-none relative z-10"
+              style={{ fontSize: "clamp(1.95rem, 10.2vw, 3rem)", lineHeight: 0.88 }}
+            >
+              <span className="block">TRANSFORM</span>
+              <span className="block">
+                YOUR{" "}
+                <span className="text-red-500 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)]">BODY.</span>
+              </span>
+              <span className="block">TRANSFORM</span>
+              <span className="block text-red-500 drop-shadow-[0_0_14px_rgba(239,68,68,0.7)]">YOUR LIFE</span>
+            </motion.h1>
+
+            {/* Description — directly below heading */}
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.35 }}
+              className="text-stone-400 font-light leading-relaxed relative z-10 mt-4"
+              style={{ fontSize: "clamp(10px, 2.7vw, 12px)" }}
+            >
+              Best Gym in Murbad with Professional Equipment &amp; Motivating Environment.
+              Unleash peak conditioning with premium gears, cardio chambers, and expert guidance.
+            </motion.p>
+
+            {/* Buttons — stacked vertically, full width of left column */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.48 }}
+              className="flex flex-col gap-3 mt-5 mb-5 relative z-10"
+            >
+              {/* JOIN NOW — red, full column width */}
+              <button
+                onClick={() => handleScrollTo("membership")}
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-red-600 hover:bg-red-500 active:bg-red-700 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_0_18px_rgba(220,38,38,0.45)] cursor-pointer"
+              >
+                JOIN NOW
+                <ArrowRight size={13} className="shrink-0" />
+              </button>
+
+              {/* CONTACT — dark with border, full column width */}
+              <button
+                onClick={() => handleScrollTo("contact")}
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-black border border-white/20 hover:border-red-500/30 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer"
+              >
+                <Phone size={12} className="text-red-500 shrink-0" />
+                CONTACT
+              </button>
+            </motion.div>
+          </div>
+
+          {/* RIGHT COLUMN — 45% — athlete image, stretches to left-column height */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="absolute top-0 right-0 bottom-0 z-0 pointer-events-none"
-            style={{ width: "52%" }}
+            transition={{ duration: 0.9, delay: 0.18 }}
+            className="relative flex-shrink-0 overflow-hidden"
+            style={{ width: "45%" }}
           >
+            {/* Subtle red glow ONLY — no heavy overlay */}
+            <div className="absolute inset-0 bg-red-700/8 pointer-events-none z-10" />
+
             <img
               src={imgSrc}
               onError={handleImageError}
               alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
               className="w-full h-full object-cover object-top"
-              style={{ filter: "brightness(0.82) saturate(1.15) contrast(1.08)" }}
+              style={{ filter: "brightness(0.8) saturate(1.1) contrast(1.08)" }}
               referrerPolicy="no-referrer"
             />
-            {/* Left-edge fade — blends athlete into black bg */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent" />
+
+            {/* Left-edge fade — softly merges athlete into black background */}
+            <div
+              className="absolute inset-0 pointer-events-none z-20"
+              style={{
+                background: "linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,0.45) 28%, transparent 65%)",
+              }}
+            />
             {/* Bottom fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none z-20" />
             {/* Top fade */}
-            <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[#0a0a0a]/50 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[#0a0a0a]/35 to-transparent pointer-events-none z-20" />
+
             {/* Ember sparks */}
-            <div className="absolute bottom-16 right-6 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse" />
-            <div className="absolute bottom-24 right-12 w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444]" />
+            <div className="absolute bottom-10 right-5 w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse pointer-events-none z-30" />
+            <div className="absolute bottom-16 right-10 w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444] pointer-events-none z-30" />
           </motion.div>
-
-          {/* Left content column — heading only, constrained to left 58% */}
-          <div className="relative z-10" style={{ width: "58%" }}>
-            <motion.h1
-              initial={{ opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.22 }}
-              className="font-display font-black uppercase leading-[0.9] tracking-tight text-white select-none mb-0"
-              style={{ fontSize: "clamp(2.1rem, 10.8vw, 3.2rem)" }}
-            >
-              <span className="block">TRANSFORM</span>
-              <span className="block">
-                YOUR{" "}
-                <span className="text-red-500 drop-shadow-[0_0_14px_rgba(239,68,68,0.65)]">BODY.</span>
-              </span>
-              <span className="block">TRANSFORM</span>
-              <span className="block text-red-500 drop-shadow-[0_0_16px_rgba(239,68,68,0.7)]">YOUR LIFE</span>
-            </motion.h1>
-          </div>
-
-          {/* Description — below heading, same left constraint */}
-          <div className="relative z-10 mt-4 pb-5" style={{ width: "58%" }}>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.38 }}
-              className="text-stone-400 leading-relaxed font-light"
-              style={{ fontSize: "clamp(10px, 2.8vw, 12px)" }}
-            >
-              Best Gym in Murbad with Professional Equipment &amp; Motivating Environment.
-              Unleash peak conditioning with premium gears, cardio chambers, and expert guidance.
-            </motion.p>
-          </div>
         </div>
 
-        {/* ── BUTTONS — stacked vertically, full width, below hero ── */}
+        {/* ── STATS — 2×2 dark cards ── */}
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.48 }}
-          className="relative z-10 px-4 pt-1 pb-5 flex flex-col gap-3"
-        >
-          {/* JOIN NOW — red, full width */}
-          <button
-            onClick={() => handleScrollTo("membership")}
-            className="w-full inline-flex items-center justify-center gap-2.5 py-4 bg-red-600 hover:bg-red-500 active:bg-red-700 text-white font-black text-sm uppercase tracking-widest rounded-xl transition-all duration-300 shadow-[0_0_22px_rgba(220,38,38,0.5)] cursor-pointer"
-          >
-            JOIN NOW
-            <ArrowRight size={15} className="shrink-0" />
-          </button>
-
-          {/* CONTACT — dark border, full width */}
-          <button
-            onClick={() => handleScrollTo("contact")}
-            className="w-full inline-flex items-center justify-center gap-2.5 py-4 bg-black border border-white/25 hover:border-red-500/40 text-white font-black text-sm uppercase tracking-widest rounded-xl transition-all duration-300 cursor-pointer"
-          >
-            <Phone size={13} className="text-red-500 shrink-0" />
-            CONTACT
-          </button>
-        </motion.div>
-
-        {/* ── STATS — 2×2 dark glassmorphism cards ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.58 }}
-          className="px-4 pb-10 pt-0"
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="px-4 pt-5 pb-10"
         >
           <div className="grid grid-cols-2 gap-3">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.62 + i * 0.08 }}
+                transition={{ duration: 0.45, delay: 0.6 + i * 0.07 }}
                 className="flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl bg-[#111111] border border-white/8 text-center"
               >
                 <div className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.65)]">
