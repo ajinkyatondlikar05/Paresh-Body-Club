@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "motion/react";
 import { Star, ArrowRight, Phone, Users, Dumbbell, Trophy } from "lucide-react";
 
@@ -37,6 +37,54 @@ const redGlowPulse = {
     transition: { duration: 0.9, delay: 0.75, ease: "easeOut" },
   },
 };
+
+/* ─── Smooth counter hook (rAF, ease-out cubic, 60 FPS) ───────────── */
+function useCounter(target: number, durationSecs: number, started: boolean, delayMs: number = 0): number {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!started) return;
+    let raf: number;
+    let timeoutId: number;
+    let startTs: number | null = null;
+    const ms = durationSecs * 1000;
+
+    const startCounting = () => {
+      const tick = (ts: number) => {
+        if (!startTs) startTs = ts;
+        const elapsed = ts - startTs;
+        const progress = Math.min(elapsed / ms, 1);
+        // Ease-out cubic: decelerates into final value
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setCount(Math.round(eased * target));
+        if (progress < 1) {
+          raf = requestAnimationFrame(tick);
+        } else {
+          setCount(target);
+        }
+      };
+      raf = requestAnimationFrame(tick);
+    };
+
+    if (delayMs > 0) {
+      timeoutId = window.setTimeout(startCounting, delayMs);
+    } else {
+      startCounting();
+    }
+
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [started, target, durationSecs, delayMs]);
+  return count;
+}
+
+/* ─── Animated stat number ─────────────────────────────────────────── */
+interface CounterProps { target: number; suffix: string; started: boolean; delayMs?: number; }
+function AnimatedCounter({ target, suffix, started, delayMs = 0 }: CounterProps) {
+  const count = useCounter(target, 1.8, started, delayMs);
+  return <>{count}{suffix}</>;
+}
 
 /* ─── Floating particle ────────────────────────────────────────────── */
 interface ParticleProps { x: string; y: string; size: number; delay: number; duration: number; }
@@ -124,17 +172,19 @@ export default function Hero() {
           <path d="M14.5 8.5h.1" />
         </svg>
       ),
-      value: "10+",
+      value: "10+",  target: 10,  suffix: "+",
       label: "YEARS EXPERIENCE",
     },
-    { icon: <Users size={20} strokeWidth={1.8} />, value: "500+", label: "HAPPY MEMBERS" },
-    { icon: <Dumbbell size={20} strokeWidth={1.8} />, value: "25+", label: "EQUIPMENTS" },
-    { icon: <Trophy size={20} strokeWidth={1.8} />, value: "100%", label: "DEDICATION" },
+    { icon: <Users size={20} strokeWidth={1.8} />,   value: "500+", target: 500, suffix: "+", label: "HAPPY MEMBERS" },
+    { icon: <Dumbbell size={20} strokeWidth={1.8} />, value: "25+",  target: 25,  suffix: "+", label: "EQUIPMENTS" },
+    { icon: <Trophy size={20} strokeWidth={1.8} />,   value: "100%", target: 100, suffix: "%", label: "DEDICATION" },
   ];
 
   /* Stats viewport detection — animate in when scrolled into view */
   const statsRef = useRef<HTMLDivElement>(null);
   const statsInView = useInView(statsRef, { once: true, margin: "-60px" });
+
+  // Counters will be triggered individually by statsInView and page load delay
 
   return (
     <section
@@ -241,7 +291,12 @@ export default function Hero() {
                   {stat.icon}
                 </div>
                 <div className="font-display font-black text-white text-3xl leading-none tracking-tight">
-                  {stat.value}
+                  <AnimatedCounter
+                    target={stat.target}
+                    suffix={stat.suffix}
+                    started={true}
+                    delayMs={1270 + (i * 100)}
+                  />
                 </div>
                 <div className="text-[9px] font-black tracking-wider text-stone-400 uppercase leading-none">
                   {stat.label}
@@ -558,7 +613,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── STATS — animate on scroll into view, stagger 100ms ── */}
+        {/* ── STATS — animate on scroll, counters start after card fade-up ── */}
         <div ref={statsRef} className="px-4 pt-5 pb-10" style={{ zIndex: 5 }}>
           <div className="grid grid-cols-2 gap-3">
             {stats.map((stat, i) => (
@@ -573,8 +628,14 @@ export default function Hero() {
                 <div className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.65)]">
                   {stat.icon}
                 </div>
+                {/* Counter: animates 0 → target once counterStarted fires */}
                 <div className="font-display font-black text-white text-2xl leading-none tracking-tight">
-                  {stat.value}
+                  <AnimatedCounter
+                    target={stat.target}
+                    suffix={stat.suffix}
+                    started={statsInView}
+                    delayMs={500 + (i * 100)}
+                  />
                 </div>
                 <div className="text-[9px] font-bold tracking-widest text-stone-500 uppercase leading-tight">
                   {stat.label}
