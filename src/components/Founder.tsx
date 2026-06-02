@@ -194,19 +194,28 @@ export default function Founder() {
       ══════════════════════════════════════════════════════════════════════ */}
       <div className="lg:hidden relative z-10">
 
-        {/* ── Hero row: text left + image right ─────────────────────────────
-            KEY: overflow-hidden here is what clips the image.
-            The image is absolute WITHIN this div, not the section.
-        ──────────────────────────────────────────────────────────────────── */}
-        <div className="relative overflow-hidden" style={{ minHeight: "320px" }}>
+        {/* ── Hero row: flex-row layout ──────────────────────────────────────
+            ARCHITECTURE CHANGE: switch from absolute-positioned image to
+            flex-row so the image column has h-auto (natural portrait height).
 
-          {/* Left: Text content — constrained to 57% so image sits beside it */}
+            Previously: image was "absolute top-0 bottom-0" → forced to match
+            text height (~320px) → heavy zoom into face only.
+
+            Now: image is in-flow with h-auto → renders at full natural portrait
+            proportions → full body visible (head, shoulders, chest, arms).
+
+            overflow-hidden on parent still prevents any bleed outside.
+        ──────────────────────────────────────────────────────────────────── */}
+        <div className="flex flex-row items-start overflow-hidden">
+
+          {/* Left: Text column — takes remaining width, starts from top */}
           <div
-            className="relative z-20 pt-12 pb-6 pl-4 pr-2 space-y-2"
-            style={{ width: "57%" }}
+            className="relative z-20 pt-10 pb-4 pl-4 pr-2 space-y-2 flex-1 min-w-0"
           >
-            <span className="text-red-500 font-display font-black uppercase tracking-widest block"
-              style={{ fontSize: "clamp(0.55rem, 2.2vw, 0.7rem)" }}>
+            <span
+              className="text-red-500 font-display font-black uppercase tracking-widest block"
+              style={{ fontSize: "clamp(0.55rem, 2.2vw, 0.7rem)" }}
+            >
               FOUNDER &amp; HEAD TRAINER
             </span>
 
@@ -232,50 +241,48 @@ export default function Founder() {
               className="text-stone-300 font-sans leading-relaxed font-light"
               style={{ fontSize: "clamp(0.6rem, 2vw, 0.78rem)" }}
             >
-              "Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
-              dedicated to transforming lives through fitness and discipline. With multiple
-              bodybuilding titles and years of gym training experience, he founded PARESH BODY
-              CLUB MURBAD to inspire the youth of Murbad towards health, strength, and
-              confidence."
+              "Paresh Hindurao is a passionate fitness trainer and professional
+              bodybuilder dedicated to transforming lives through fitness and
+              discipline. With multiple bodybuilding titles and years of gym
+              training experience, he founded PARESH BODY CLUB MURBAD to inspire
+              the youth of Murbad towards health, strength, and confidence."
             </p>
           </div>
 
-          {/* Right: Image — ABSOLUTELY POSITIONED WITHIN THIS OVERFLOW-HIDDEN DIV ONLY.
-              It cannot leak outside because the parent has overflow:hidden.
-              No section-level positioning. Completely self-contained. */}
+          {/* Right: Image column — in-flow, h-auto = no forced zoom/crop.
+              The image renders at its FULL NATURAL portrait proportions.
+              Width is 47% of the section; height grows to show full body. */}
           <div
-            className="absolute right-0 top-0 bottom-0 overflow-hidden pointer-events-none select-none z-10"
-            style={{ width: "46%" }}
+            className="relative shrink-0 overflow-hidden pointer-events-none select-none"
+            style={{ width: "47%" }}
           >
-            {/* Ambient red glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-red-600/8 to-transparent blur-[60px] pointer-events-none z-0" />
+            {/* Ambient red glow behind photo */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent blur-[50px] pointer-events-none z-0" />
 
             {/*
-              object-position: 50% 8%
-                → 50% horizontal: centers the face (not shifted to arm side)
-                → 8% vertical: pulls view upward so head/face fills the frame
-              brightness-[1.32]: compensates for left-fade overlay darkening
-              contrast-[1.15]: crisp cinematic look without washing out
-              object-cover keeps full container filled without empty space
+              h-auto + w-full = image renders at its natural aspect ratio.
+              No object-cover zooming. Full head, shoulders, chest, arms visible.
+              object-position: center top — preference for upper body when any
+              clipping occurs on very small screens.
             */}
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="w-full h-full object-cover filter brightness-[1.32] contrast-[1.15] saturate-[1.1] hue-rotate-[2deg] relative z-10"
-              style={{ objectPosition: "50% 8%" }}
+              className="relative z-10 block w-full h-auto filter brightness-[1.28] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg]"
+              style={{ objectFit: "contain", objectPosition: "center top" }}
             />
 
-            {/* Volumetric warm spotlight */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(254,215,170,0.1)_0%,rgba(239,68,68,0.05)_35%,transparent_65%)] pointer-events-none mix-blend-screen z-20" />
+            {/* Volumetric warm spotlight overlay */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_28%,rgba(254,215,170,0.09)_0%,rgba(239,68,68,0.04)_40%,transparent_70%)] pointer-events-none mix-blend-screen z-20" />
 
-            {/* Left fade — reduced to 22% so it only blends the edge, not the face */}
-            <div className="absolute left-0 inset-y-0 w-[22%] bg-gradient-to-r from-black/90 to-transparent z-20" />
-            {/* Top fade — subtle */}
-            <div className="absolute top-0 inset-x-0 h-[36px] bg-gradient-to-b from-black to-transparent z-20" />
-            {/* Bottom fade */}
-            <div className="absolute bottom-0 inset-x-0 h-[50px] bg-gradient-to-t from-black to-transparent z-20" />
-            {/* Right fade */}
-            <div className="absolute right-0 inset-y-0 w-[10%] bg-gradient-to-l from-black/40 to-transparent z-20" />
+            {/* Left edge fade — blends into text, narrow so face isn't darkened */}
+            <div className="absolute left-0 top-0 bottom-0 w-[18%] bg-gradient-to-r from-black/85 to-transparent z-20" />
+            {/* Top edge fade */}
+            <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-black to-transparent z-20" />
+            {/* Bottom edge fade */}
+            <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black to-transparent z-20" />
+            {/* Right edge fade */}
+            <div className="absolute right-0 top-0 bottom-0 w-[8%] bg-gradient-to-l from-black/30 to-transparent z-20" />
           </div>
         </div>
         {/* ── End of overflow-hidden hero. Image is fully clipped above this line. ── */}
