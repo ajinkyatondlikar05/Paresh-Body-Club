@@ -47,7 +47,7 @@ export default function Founder() {
   return (
     <section 
       id="founder" 
-      className="py-16 lg:py-28 bg-black relative overflow-hidden flex items-center"
+      className="py-0 lg:py-28 bg-black relative overflow-hidden flex items-center"
     >
       {/* 05 Stencil Watermark */}
       <div className="absolute top-12 right-12 text-[140px] font-display font-black text-white/5 select-none pointer-events-none tracking-tighter leading-none z-0">
@@ -93,7 +93,35 @@ export default function Founder() {
         <div className="absolute right-0 inset-y-0 w-[15%] bg-gradient-to-l from-black to-transparent z-20" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+      {/* ═══════════════════════════════════════════
+          MOBILE ONLY: Full-width image — appears FIRST
+          (desktop version uses the absolute bg image above)
+      ═══════════════════════════════════════════ */}
+      <div className="block lg:hidden w-full relative select-none overflow-hidden" style={{ aspectRatio: '3/4' }}>
+        {/* Red ambient glow */}
+        <div className="absolute inset-0 bg-red-600/5 blur-[90px] rounded-full pointer-events-none z-0" />
+
+        <img
+          src="/founder-leaning.png"
+          alt="Founder Paresh Hindurao - Bodybuilding Champion"
+          className="w-full h-full object-cover object-[60%_top] filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] relative z-10"
+          style={{ display: 'block' }}
+        />
+
+        {/* Volumetric warm spotlight */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_32%,rgba(254,215,170,0.12)_0%,rgba(239,68,68,0.06)_30%,transparent_60%)] pointer-events-none mix-blend-screen z-20" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_45%,rgba(254,215,170,0.08)_0%,rgba(239,68,68,0.04)_35%,transparent_70%)] pointer-events-none mix-blend-screen z-20" />
+
+        {/* Edge blending — subtle only, keep face fully visible */}
+        <div className="absolute left-0 inset-y-0 w-[8%] bg-gradient-to-r from-black/60 to-transparent z-30 pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-[8%] bg-gradient-to-l from-black/60 to-transparent z-30 pointer-events-none" />
+        {/* Bottom fade into the content below */}
+        <div className="absolute bottom-0 inset-x-0 h-[80px] bg-gradient-to-t from-black to-transparent z-30 pointer-events-none" />
+        {/* Top red accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent z-30 pointer-events-none" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-6 pb-10 lg:pt-0 lg:pb-0">
         
         {/* TOP PANEL: left text col + right col (empty on desktop — photo is absolute) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
@@ -123,7 +151,7 @@ export default function Founder() {
             </p>
 
             {/* Philosophy Room Glassmorphism Quote Card */}
-            <div className="border border-red-500/15 bg-red-950/15 backdrop-blur-lg p-6 sm:p-7 rounded-r-xl border-l-4 border-l-red-500 relative group overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-full lg:max-w-3xl transition-all duration-500 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.18)]">
+            <div className="border border-red-500/15 bg-red-950/15 backdrop-blur-lg p-4 sm:p-7 rounded-r-xl border-l-4 border-l-red-500 relative group overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-full lg:max-w-3xl transition-all duration-500 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.18)]">
               <span className="text-stone-500 text-[10px] uppercase font-bold tracking-widest block mb-2">
                 PERSONAL PHILOSOPHY ROOM
               </span>
@@ -136,26 +164,8 @@ export default function Founder() {
             </div>
           </div>
 
-          {/* MOBILE ONLY: image in normal flow (desktop uses absolute background above) */}
-          <div className="lg:col-span-4 block lg:hidden relative h-[360px] sm:h-[460px] w-full select-none overflow-hidden mt-4">
-            <div className="absolute inset-0 bg-red-600/5 blur-[90px] rounded-full pointer-events-none" />
-            <img
-              src="/founder-leaning.png"
-              alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="w-full h-full object-cover object-center filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] relative z-10"
-            />
-            {/* Volumetric Warm Spotlight for mobile */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_32%,rgba(254,215,170,0.12)_0%,rgba(239,68,68,0.06)_30%,transparent_60%)] pointer-events-none mix-blend-screen z-20" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_45%,rgba(254,215,170,0.08)_0%,rgba(239,68,68,0.04)_35%,transparent_70%)] pointer-events-none mix-blend-screen z-20" />
-
-            {/* Edge blending */}
-            <div className="absolute left-0 inset-y-0 w-[20%] bg-gradient-to-r from-black via-black/60 to-transparent z-30 pointer-events-none" />
-            {/* Bottom watermark mask */}
-            <div className="absolute bottom-0 inset-x-0 h-[80px] bg-black z-30 pointer-events-none" />
-            <div className="absolute bottom-[80px] inset-x-0 h-[100px] bg-gradient-to-t from-black to-transparent z-30 pointer-events-none" />
-            <div className="absolute top-0 inset-x-0 h-[50px] bg-gradient-to-b from-black to-transparent z-30 pointer-events-none" />
-            <div className="absolute right-0 inset-y-0 w-[15%] bg-gradient-to-l from-black to-transparent z-30 pointer-events-none" />
-          </div>
+          {/* Desktop right col spacer — the photo is absolute-positioned on desktop */}
+          <div className="hidden lg:block lg:col-span-4" />
 
         </div>
 
@@ -170,8 +180,8 @@ export default function Founder() {
             </h3>
           </div>
 
-          {/* 2×2 accomplishments grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Achievement cards — single column on mobile, 2-col on sm+ */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {achievements.map((ach) => {
               const IconComp = ach.icon;
               return (
@@ -199,9 +209,9 @@ export default function Founder() {
           </div>
 
           {/* Footer Instagram bar */}
-          <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
             <div className="flex items-center gap-4 text-left">
-              <div className="p-3 bg-red-600/10 rounded-xl border border-red-500/20 text-red-500 shadow-[0_0_15px_rgba(239,68,68,0.15)]">
+              <div className="p-3 bg-red-600/10 rounded-xl border border-red-500/20 text-red-500 shadow-[0_0_15px_rgba(239,68,68,0.15)] shrink-0">
                 <Instagram size={22} />
               </div>
               <div>
@@ -221,7 +231,7 @@ export default function Founder() {
               href="https://instagram.com/pareshhindurao"
               target="_blank"
               rel="noreferrer"
-              className="px-8 py-3.5 bg-neutral-900/40 hover:bg-red-600/20 text-stone-200 hover:text-white hover:border-red-500/35 text-xs font-black uppercase tracking-widest rounded-lg border border-white/10 flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(239,68,68,0.15)]"
+              className="w-full sm:w-auto px-8 py-3.5 bg-neutral-900/40 hover:bg-red-600/20 text-stone-200 hover:text-white hover:border-red-500/35 text-xs font-black uppercase tracking-widest rounded-lg border border-white/10 flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(239,68,68,0.15)]"
             >
               FOLLOW ON INSTAGRAM
             </a>
