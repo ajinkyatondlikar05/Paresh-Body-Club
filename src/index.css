@@ -85,3 +85,69 @@ body {
     max-width: 100%;
   }
 }
+
+/* ─── Founder Section Custom Mobile Override Styles ─────────────────────── */
+@media (max-width: 768px) {
+  /* 1. Founder Wrapper Grid */
+  .founder-mobile-wrapper {
+    display: grid !important;
+    grid-template-columns: 65% 35% !important;
+    gap: 12px !important;
+    align-items: start !important;
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+
+  /* 2. Left Content */
+  .founder-mobile-left {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* 3. Right Image Container */
+  .founder-mobile-right-container {
+    width: 100% !important;
+    max-width: 260px !important;
+    height: 520px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
+    align-self: start !important;
+  }
+
+  /* Right Image Element */
+  .founder-mobile-image {
+    width: 100% !important;
+    height: 520px !important; /* Explicitly fixed height, no h-full/100% scaling */
+    object-fit: cover !important;
+    object-position: center top !important;
+    opacity: 0.75 !important;
+  }
+
+  /* 4. Biography details */
+  .founder-mobile-bio {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    max-width: 100% !important;
+  }
+
+  /* 5. Founder heading font size and line height */
+  .founder-mobile-heading {
+    font-size: clamp(48px, 13vw, 70px) !important;
+    line-height: 0.85 !important;
+  }
+
+  /* 6. Philosophy card placement */
+  .founder-mobile-philosophy-card {
+    margin-top: 30px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* 7. Philosophy quote styling */
+  .founder-mobile-philosophy-card .philosophy-quote-text {
+    font-size: clamp(16px, 4vw, 24px) !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+}

@@ -4,16 +4,16 @@ import { Trophy, Award, Flame, Crown, Instagram } from "lucide-react";
    Reusable sub-component: Philosophy Quote Card
    Used in both the mobile block and the desktop block below.
 ───────────────────────────────────────────────────────────── */
-function PhilosophyCard({ compact = false }: { compact?: boolean }) {
+function PhilosophyCard({ compact = false, className = "" }: { compact?: boolean; className?: string }) {
   return (
     <div
-      className={`border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-full lg:max-w-3xl transition-all duration-500 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.18)] ${compact ? "p-3" : "p-4 sm:p-7"}`}
+      className={`border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-full lg:max-w-3xl transition-all duration-500 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.18)] ${compact ? "p-3" : "p-4 sm:p-7"} ${className}`}
     >
       <span className="text-stone-500 text-[10px] uppercase font-bold tracking-widest block mb-1.5">
         PERSONAL PHILOSOPHY ROOM
       </span>
       <p
-        className={`font-display font-black text-neutral-100 uppercase tracking-wide italic leading-snug ${compact ? "text-[0.7rem]" : "text-sm sm:text-xl"}`}
+        className={`font-display font-black text-neutral-100 uppercase tracking-wide italic leading-snug philosophy-quote-text ${compact ? "text-[0.7rem]" : "text-sm sm:text-xl"}`}
       >
         "DISCIPLINE, DEDICATION &amp; HARD WORK BUILD CHAMPIONS."
       </p>
@@ -175,11 +175,11 @@ export default function Founder() {
           ══════════════════════════════════════════════════════════════════════ */}
       <div className="lg:hidden relative z-10 bg-black">
         {/* Founder Section */}
-        <div className="flex flex-row items-center gap-[20px] px-[24px] pt-[24px] pb-[24px] relative overflow-hidden">
+        <div className="founder-mobile-wrapper flex flex-row items-center gap-[20px] px-[24px] pt-[24px] pb-[24px] relative overflow-hidden">
           
           {/* Left: Text column — 62% */}
           <div
-            className="z-20 space-y-4 min-w-0"
+            className="founder-mobile-left z-20 space-y-4 min-w-0"
             style={{ width: "62%" }}
           >
             <div>
@@ -187,7 +187,7 @@ export default function Founder() {
                 FOUNDER &amp; HEAD TRAINER
               </span>
               <h2
-                className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
+                className="founder-mobile-heading font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
                 style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)" }}
               >
                 PARESH<br />HINDURAO
@@ -201,7 +201,7 @@ export default function Founder() {
               </div>
             </div>
 
-            <p className="text-stone-300 font-sans text-sm leading-relaxed font-light">
+            <p className="founder-mobile-bio text-stone-300 font-sans text-sm leading-relaxed font-light">
               "Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
               dedicated to transforming lives through fitness and discipline. With multiple
               bodybuilding titles and years of gym training experience, he founded PARESH BODY
@@ -212,7 +212,7 @@ export default function Founder() {
 
           {/* Right: Image column — 38% */}
           <div
-            className="relative shrink-0 overflow-hidden pointer-events-none select-none self-stretch rounded-lg"
+            className="founder-mobile-right-container relative shrink-0 overflow-hidden pointer-events-none select-none self-stretch rounded-lg"
             style={{ width: "38%" }}
           >
             {/* Ambient red glow behind photo */}
@@ -221,7 +221,7 @@ export default function Founder() {
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="w-full h-full filter brightness-[1.28] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg] relative z-10"
+              className="founder-mobile-image w-full h-full filter brightness-[1.28] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg] relative z-10"
               style={{ objectFit: "cover", objectPosition: "center top" }}
             />
 
@@ -241,7 +241,7 @@ export default function Founder() {
 
         {/* Philosophy card — starts immediately after founder section */}
         <div className="px-[24px] pb-[24px] pt-0">
-          <PhilosophyCard />
+          <PhilosophyCard className="founder-mobile-philosophy-card" />
         </div>
       </div>
       {/* ── End of mobile layout ── */}
