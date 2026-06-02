@@ -54,11 +54,11 @@ export default function Navbar({ activeSection }: NavbarProps) {
           {/* Logo — hexagon barbell shield matching screenshot */}
           <div
             onClick={() => scrollToSection("home")}
-            className="flex items-center gap-3.5 md:gap-3 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer group"
           >
             {/* Hexagon / shield SVG icon with barbell */}
-            <div className="relative w-[54px] h-[54px] md:w-11 md:h-11 flex items-center justify-center shrink-0">
-              <svg viewBox="0 0 44 44" className="w-[54px] h-[54px] md:w-11 md:h-11" fill="none">
+            <div className="relative w-10 h-10 md:w-11 md:h-11 flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 44 44" className="w-10 h-10 md:w-11 md:h-11" fill="none">
                 {/* Hexagon shield */}
                 <path
                   d="M22 2 L40 12 L40 32 L22 42 L4 32 L4 12 Z"
@@ -75,13 +75,13 @@ export default function Navbar({ activeSection }: NavbarProps) {
               </svg>
             </div>
             <div className="leading-[1.05] flex flex-col justify-center">
-              <div className="font-display font-black text-white text-[19px] md:text-base tracking-tight leading-none">
+              <div className="font-display font-black text-white text-[13px] md:text-[15px] tracking-tight leading-none">
                 PARESH
               </div>
-              <div className="font-display font-black text-red-500 text-[19px] md:text-base tracking-tight leading-none mt-0.5">
+              <div className="font-display font-black text-red-500 text-[13px] md:text-[15px] tracking-tight leading-none mt-0.5">
                 BODY CLUB
               </div>
-              <div className="text-[11px] md:text-[9px] uppercase tracking-[0.16em] text-stone-400 font-extrabold leading-none mt-1">
+              <div className="text-[8px] md:text-[9px] uppercase tracking-[0.16em] text-stone-400 font-extrabold leading-none mt-1">
                 MURBAD BRANCH
               </div>
             </div>

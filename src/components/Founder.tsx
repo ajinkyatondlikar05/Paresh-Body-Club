@@ -80,7 +80,7 @@ export default function Founder() {
       {/* ══ Shared background decorations (all screen sizes) ═══════════════ */}
 
       {/* 05 Stencil Watermark */}
-      <div className="absolute top-12 right-12 text-[140px] font-display font-black text-white/5 select-none pointer-events-none tracking-tighter leading-none z-0">
+      <div className="founder-watermark absolute top-12 right-12 text-[140px] font-display font-black text-white/5 select-none pointer-events-none tracking-tighter leading-none z-0">
         05
       </div>
 
@@ -177,22 +177,16 @@ export default function Founder() {
         {/* Founder Section */}
         <div className="founder-mobile-wrapper flex flex-row items-center gap-[20px] px-[24px] pt-[24px] pb-[24px] relative overflow-hidden">
           
-          {/* Left: Text column — 62% */}
-          <div
-            className="founder-mobile-left z-20 space-y-4 min-w-0"
-            style={{ width: "62%" }}
-          >
+          {/* Left: Text column — 42% via grid */}
+          <div className="founder-mobile-left z-20 space-y-2 min-w-0">
             <div>
               <span className="text-red-500 font-display font-black uppercase text-xs tracking-widest block mb-2">
                 FOUNDER &amp; HEAD TRAINER
               </span>
-              <h2
-                className="founder-mobile-heading font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
-                style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)" }}
-              >
+              <h2 className="founder-mobile-heading font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3">
                 PARESH<br />HINDURAO
               </h2>
-              <div className="text-stone-400 font-sans text-[11px] font-bold mt-2.5 uppercase tracking-wider flex flex-wrap items-center gap-x-2 gap-y-1">
+              <div className="founder-mobile-tagline text-stone-400 font-sans text-[11px] font-bold mt-2.5 uppercase tracking-wider flex flex-wrap items-center gap-x-2 gap-y-1">
                 <span>PROFESSIONAL BODYBUILDER</span>
                 <span className="text-red-500 font-black">{"\u2022"}</span>
                 <span>IFSA CERTIFIED TRAINER</span>
@@ -210,19 +204,15 @@ export default function Founder() {
             </p>
           </div>
 
-          {/* Right: Image column — 38% */}
-          <div
-            className="founder-mobile-right-container relative shrink-0 overflow-hidden pointer-events-none select-none self-stretch rounded-lg"
-            style={{ width: "38%" }}
-          >
+          {/* Right: Image column — 58% via grid */}
+          <div className="founder-mobile-right-container relative shrink-0 overflow-hidden pointer-events-none select-none rounded-lg">
             {/* Ambient red glow behind photo */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent blur-[50px] pointer-events-none z-0" />
 
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="founder-mobile-image w-full h-full filter brightness-[1.28] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg] relative z-10"
-              style={{ objectFit: "cover", objectPosition: "center top" }}
+              className="founder-mobile-image filter brightness-[1.28] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg] relative z-10"
             />
 
             {/* Volumetric warm spotlight overlay */}
@@ -240,7 +230,7 @@ export default function Founder() {
         </div>
 
         {/* Philosophy card — starts immediately after founder section */}
-        <div className="px-[24px] pb-[24px] pt-0">
+        <div className="founder-mobile-philosophy-card-container px-[32px] pb-[32px] pt-0 bg-black">
           <PhilosophyCard className="founder-mobile-philosophy-card" />
         </div>
       </div>
@@ -257,7 +247,7 @@ export default function Founder() {
           RESULT: Zero image bleed into this area on any screen size.
       ══════════════════════════════════════════════════════════════════════ */}
       <div className="relative z-30 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16">
+        <div className="max-w-7xl mx-auto px-[32px] sm:px-6 lg:px-8 pb-12 lg:pb-16">
           <div className="space-y-6 lg:space-y-8 pt-8 border-t border-white/5">
 
             {/* Section header */}
