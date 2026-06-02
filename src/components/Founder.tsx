@@ -177,10 +177,10 @@ export default function Founder() {
         {/* Founder Section */}
         <div className="flex flex-row items-center gap-[20px] px-[24px] pt-[24px] pb-[24px] relative overflow-hidden">
           
-          {/* Left: Text column — 55% */}
+          {/* Left: Text column — 62% */}
           <div
             className="z-20 space-y-4 min-w-0"
-            style={{ width: "55%" }}
+            style={{ width: "62%" }}
           >
             <div>
               <span className="text-red-500 font-display font-black uppercase text-xs tracking-widest block mb-2">
@@ -188,7 +188,7 @@ export default function Founder() {
               </span>
               <h2
                 className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
-                style={{ fontSize: "clamp(2.2rem, 9vw, 6rem)" }}
+                style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)" }}
               >
                 PARESH<br />HINDURAO
               </h2>
@@ -210,10 +210,10 @@ export default function Founder() {
             </p>
           </div>
 
-          {/* Right: Image column — 45% */}
+          {/* Right: Image column — 38% */}
           <div
             className="relative shrink-0 overflow-hidden pointer-events-none select-none self-stretch rounded-lg"
-            style={{ width: "45%" }}
+            style={{ width: "38%" }}
           >
             {/* Ambient red glow behind photo */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent blur-[50px] pointer-events-none z-0" />
@@ -241,7 +241,7 @@ export default function Founder() {
 
         {/* Philosophy card — starts immediately after founder section */}
         <div className="px-[24px] pb-[24px] pt-0">
-          <PhilosophyCard compact />
+          <PhilosophyCard />
         </div>
       </div>
       {/* ── End of mobile layout ── */}
