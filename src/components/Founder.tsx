@@ -170,106 +170,59 @@ export default function Founder() {
         </div>
       </div>
 
-
       {/* ══════════════════════════════════════════════════════════════════════
           MOBILE ONLY LAYOUT  (lg:hidden)
-
-          ARCHITECTURE:
-          ┌─────────────────────────────────────────────────┐
-          │  Mobile Hero  (position: relative; overflow: hidden) │
-          │  ┌──────────────────────┐ ┌───────────────────┐  │
-          │  │  Text content (57%)  │ │  Image (43%)      │  │
-          │  │  z-index: 20         │ │  position:absolute│  │
-          │  │                      │ │  contained here   │  │
-          │  └──────────────────────┘ └───────────────────┘  │
-          └─────────────────────────────────────────────────┘
-          ┌─────────────────────────────────────────────────┐
-          │  Philosophy Card  (normal flow, no image bleed) │
-          └─────────────────────────────────────────────────┘
-
-          The image CANNOT escape the hero wrapper because:
-          - Hero wrapper has overflow: hidden
-          - Image is absolute ONLY within that wrapper
-          - No section-level absolute image on mobile
-      ══════════════════════════════════════════════════════════════════════ */}
-      <div className="lg:hidden relative z-10">
-
-        {/* ── Hero row: flex-row layout ──────────────────────────────────────
-            ARCHITECTURE CHANGE: switch from absolute-positioned image to
-            flex-row so the image column has h-auto (natural portrait height).
-
-            Previously: image was "absolute top-0 bottom-0" → forced to match
-            text height (~320px) → heavy zoom into face only.
-
-            Now: image is in-flow with h-auto → renders at full natural portrait
-            proportions → full body visible (head, shoulders, chest, arms).
-
-            overflow-hidden on parent still prevents any bleed outside.
-        ──────────────────────────────────────────────────────────────────── */}
-        <div className="flex flex-row items-start overflow-hidden">
-
-          {/* Left: Text column — takes remaining width, starts from top */}
+          ══════════════════════════════════════════════════════════════════════ */}
+      <div className="lg:hidden relative z-10 bg-black">
+        {/* Founder Section */}
+        <div className="flex flex-row items-center gap-[20px] px-[24px] pt-[24px] pb-[24px] relative overflow-hidden">
+          
+          {/* Left: Text column — 55% */}
           <div
-            className="relative z-20 pt-10 pb-4 pl-4 pr-2 space-y-2 flex-1 min-w-0"
+            className="z-20 space-y-4 min-w-0"
+            style={{ width: "55%" }}
           >
-            <span
-              className="text-red-500 font-display font-black uppercase tracking-widest block"
-              style={{ fontSize: "clamp(0.55rem, 2.2vw, 0.7rem)" }}
-            >
-              FOUNDER &amp; HEAD TRAINER
-            </span>
-
-            <h2
-              className="font-display font-black text-white uppercase tracking-tighter leading-[0.88]"
-              style={{ fontSize: "clamp(1.65rem, 7.5vw, 2.8rem)" }}
-            >
-              PARESH HINDURAO
-            </h2>
-
-            <div
-              className="text-stone-400 font-sans font-bold uppercase tracking-wider leading-snug"
-              style={{ fontSize: "clamp(0.52rem, 1.8vw, 0.65rem)" }}
-            >
-              <span>PROFESSIONAL BODYBUILDER</span>
-              <span className="text-red-500 font-black mx-1">•</span>
-              <span>IFSA CERTIFIED TRAINER</span>
-              <span className="text-red-500 font-black mx-1">•</span>
-              <span className="text-red-500">PARESH BODY CLUB</span>
+            <div>
+              <span className="text-red-500 font-display font-black uppercase text-xs tracking-widest block mb-2">
+                FOUNDER &amp; HEAD TRAINER
+              </span>
+              <h2
+                className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
+                style={{ fontSize: "clamp(2.2rem, 9vw, 6rem)" }}
+              >
+                PARESH<br />HINDURAO
+              </h2>
+              <div className="text-stone-400 font-sans text-[11px] font-bold mt-2.5 uppercase tracking-wider flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span>PROFESSIONAL BODYBUILDER</span>
+                <span className="text-red-500 font-black">{"\u2022"}</span>
+                <span>IFSA CERTIFIED TRAINER</span>
+                <span className="text-red-500 font-black">{"\u2022"}</span>
+                <span className="text-red-500">PARESH BODY CLUB</span>
+              </div>
             </div>
 
-            <p
-              className="text-stone-300 font-sans leading-relaxed font-light"
-              style={{ fontSize: "clamp(0.6rem, 2vw, 0.78rem)" }}
-            >
-              "Paresh Hindurao is a passionate fitness trainer and professional
-              bodybuilder dedicated to transforming lives through fitness and
-              discipline. With multiple bodybuilding titles and years of gym
-              training experience, he founded PARESH BODY CLUB MURBAD to inspire
-              the youth of Murbad towards health, strength, and confidence."
+            <p className="text-stone-300 font-sans text-sm leading-relaxed font-light">
+              "Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
+              dedicated to transforming lives through fitness and discipline. With multiple
+              bodybuilding titles and years of gym training experience, he founded PARESH BODY
+              CLUB MURBAD to inspire the youth of Murbad towards health, strength, and
+              confidence."
             </p>
           </div>
 
-          {/* Right: Image column — in-flow, h-auto = no forced zoom/crop.
-              The image renders at its FULL NATURAL portrait proportions.
-              Width is 47% of the section; height grows to show full body. */}
+          {/* Right: Image column — 45% */}
           <div
-            className="relative shrink-0 overflow-hidden pointer-events-none select-none"
-            style={{ width: "47%" }}
+            className="relative shrink-0 overflow-hidden pointer-events-none select-none self-stretch rounded-lg"
+            style={{ width: "45%" }}
           >
             {/* Ambient red glow behind photo */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent blur-[50px] pointer-events-none z-0" />
 
-            {/*
-              h-auto + w-full = image renders at its natural aspect ratio.
-              No object-cover zooming. Full head, shoulders, chest, arms visible.
-              object-position: center top — preference for upper body when any
-              clipping occurs on very small screens.
-            */}
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="relative z-10 block w-full h-auto filter brightness-[1.28] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg]"
-              style={{ objectFit: "contain", objectPosition: "center top" }}
+              className="w-full h-full filter brightness-[1.28] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg] relative z-10"
+              style={{ objectFit: "cover", objectPosition: "center top" }}
             />
 
             {/* Volumetric warm spotlight overlay */}
@@ -285,17 +238,15 @@ export default function Founder() {
             <div className="absolute right-0 top-0 bottom-0 w-[8%] bg-gradient-to-l from-black/30 to-transparent z-20" />
           </div>
         </div>
-        {/* ── End of overflow-hidden hero. Image is fully clipped above this line. ── */}
 
-        {/* Philosophy card — normal document flow, zero risk of image bleed */}
-        <div className="px-4 pb-6 pt-1">
+        {/* Philosophy card — starts immediately after founder section */}
+        <div className="px-[24px] pb-[24px] pt-0">
           <PhilosophyCard compact />
         </div>
       </div>
       {/* ── End of mobile layout ── */}
 
-
-      {/* ══════════════════════════════════════════════════════════════════════
+{/* ══════════════════════════════════════════════════════════════════════
           ACHIEVEMENTS + INSTAGRAM
           Shared between mobile and desktop.
 
