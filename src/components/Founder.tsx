@@ -47,7 +47,7 @@ export default function Founder() {
   return (
     <section 
       id="founder" 
-      className="py-0 lg:py-28 bg-black relative overflow-hidden flex items-center"
+      className="py-16 lg:py-28 bg-black relative overflow-hidden flex items-center"
     >
       {/* 05 Stencil Watermark */}
       <div className="absolute top-12 right-12 text-[140px] font-display font-black text-white/5 select-none pointer-events-none tracking-tighter leading-none z-0">
@@ -63,71 +63,44 @@ export default function Founder() {
       {/* Top Red Accent Line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-red-500/30 to-transparent z-10 pointer-events-none" />
 
-      {/* DESKTOP ONLY: Cinematic background-style full-height image wrapper */}
-      <div className="absolute right-0 top-0 bottom-0 w-[50vw] xl:w-[46vw] hidden lg:block z-10 pointer-events-none select-none overflow-hidden">
+      {/* Cinematic background-style full-height image — visible on ALL screen sizes */}
+      {/* Mobile: 45% width | Desktop: 50vw — preserves the two-column composition */}
+      <div className="absolute right-0 top-0 bottom-0 w-[45%] lg:w-[50vw] xl:w-[46vw] z-10 pointer-events-none select-none overflow-hidden">
         {/* Subtle red background glows behind the photo */}
         <div className="absolute -right-12 bottom-12 w-[350px] h-[350px] bg-gradient-to-tr from-red-600/15 to-transparent blur-[100px] rounded-full pointer-events-none z-0" />
         <div className="absolute right-24 top-24 w-[250px] h-[250px] bg-gradient-to-bl from-red-600/10 to-transparent blur-[80px] rounded-full pointer-events-none z-0" />
-        
+
         <img
           src="/founder-leaning.png"
           alt="Founder Paresh Hindurao - Bodybuilding Champion"
           className="w-full h-full object-cover object-[65%_center] filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] drop-shadow-[0_0_35px_rgba(239,68,68,0.12)] relative z-10"
         />
-        
+
         {/* Volumetric Warm Spotlight & Rim Lighting */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_32%,rgba(254,215,170,0.12)_0%,rgba(239,68,68,0.06)_30%,transparent_60%)] z-15 pointer-events-none mix-blend-screen" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_45%,rgba(254,215,170,0.08)_0%,rgba(239,68,68,0.04)_35%,transparent_70%)] z-15 pointer-events-none mix-blend-screen" />
 
-        {/* Gradient masks to seamlessly blend the edges */}
-        {/* Left edge fade */}
-        <div className="absolute left-0 inset-y-0 w-[28%] bg-gradient-to-r from-black via-black/50 to-transparent z-20" />
-        
-        {/* Bottom edge fade — solid black block + gradient above it to mask watermark */}
-        <div className="absolute bottom-0 inset-x-0 h-[140px] bg-black z-20" />
-        <div className="absolute bottom-[140px] inset-x-0 h-[140px] bg-gradient-to-t from-black to-transparent z-20" />
-        
+        {/* Left edge fade — blends image into text */}
+        <div className="absolute left-0 inset-y-0 w-[30%] lg:w-[28%] bg-gradient-to-r from-black via-black/60 to-transparent z-20" />
+
+        {/* Bottom edge fade — masks watermark */}
+        <div className="absolute bottom-0 inset-x-0 h-[100px] lg:h-[140px] bg-black z-20" />
+        <div className="absolute bottom-[100px] lg:bottom-[140px] inset-x-0 h-[100px] lg:h-[140px] bg-gradient-to-t from-black to-transparent z-20" />
+
         {/* Top edge fade */}
-        <div className="absolute top-0 inset-x-0 h-[70px] bg-gradient-to-b from-black to-transparent z-20" />
+        <div className="absolute top-0 inset-x-0 h-[50px] lg:h-[70px] bg-gradient-to-b from-black to-transparent z-20" />
         {/* Right edge fade */}
         <div className="absolute right-0 inset-y-0 w-[15%] bg-gradient-to-l from-black to-transparent z-20" />
       </div>
 
-      {/* ═══════════════════════════════════════════
-          MOBILE ONLY: Full-width image — appears FIRST
-          (desktop version uses the absolute bg image above)
-      ═══════════════════════════════════════════ */}
-      <div className="block lg:hidden w-full relative select-none overflow-hidden" style={{ aspectRatio: '3/4' }}>
-        {/* Red ambient glow */}
-        <div className="absolute inset-0 bg-red-600/5 blur-[90px] rounded-full pointer-events-none z-0" />
-
-        <img
-          src="/founder-leaning.png"
-          alt="Founder Paresh Hindurao - Bodybuilding Champion"
-          className="w-full h-full object-cover object-[60%_top] filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] relative z-10"
-          style={{ display: 'block' }}
-        />
-
-        {/* Volumetric warm spotlight */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_32%,rgba(254,215,170,0.12)_0%,rgba(239,68,68,0.06)_30%,transparent_60%)] pointer-events-none mix-blend-screen z-20" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_45%,rgba(254,215,170,0.08)_0%,rgba(239,68,68,0.04)_35%,transparent_70%)] pointer-events-none mix-blend-screen z-20" />
-
-        {/* Edge blending — subtle only, keep face fully visible */}
-        <div className="absolute left-0 inset-y-0 w-[8%] bg-gradient-to-r from-black/60 to-transparent z-30 pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-[8%] bg-gradient-to-l from-black/60 to-transparent z-30 pointer-events-none" />
-        {/* Bottom fade into the content below */}
-        <div className="absolute bottom-0 inset-x-0 h-[80px] bg-gradient-to-t from-black to-transparent z-30 pointer-events-none" />
-        {/* Top red accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent z-30 pointer-events-none" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-6 pb-10 lg:pt-0 lg:pb-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
         
         {/* TOP PANEL: left text col + right col (empty on desktop — photo is absolute) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           
           {/* Left Side: Metadata, Philosophy, and Credentials */}
-          <div className="lg:col-span-8 space-y-6 text-left relative z-20">
+          {/* On mobile: content fits left ~55% naturally; image overlaps from right (same as desktop) */}
+          <div className="lg:col-span-8 space-y-4 lg:space-y-6 text-left relative z-20" style={{ maxWidth: 'min(100%, 58vw)', minWidth: 0 }}>
             <div>
               <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
                 FOUNDER &amp; HEAD TRAINER
@@ -146,7 +119,7 @@ export default function Founder() {
               </div>
             </div>
 
-            <p className="text-stone-300 font-sans text-sm sm:text-base leading-relaxed font-light max-w-3xl">
+            <p className="text-stone-300 font-sans leading-relaxed font-light max-w-3xl" style={{ fontSize: 'clamp(0.7rem, 2.2vw, 1rem)' }}>
               "Paresh Hindurao is a passionate fitness trainer and professional bodybuilder dedicated to transforming lives through fitness and discipline. With multiple bodybuilding titles and years of gym training experience, he founded PARESH BODY CLUB MURBAD to inspire the youth of Murbad towards health, strength, and confidence."
             </p>
 
@@ -164,7 +137,7 @@ export default function Founder() {
             </div>
           </div>
 
-          {/* Desktop right col spacer — the photo is absolute-positioned on desktop */}
+          {/* Right col spacer — image is absolute-positioned on all screen sizes */}
           <div className="hidden lg:block lg:col-span-4" />
 
         </div>
@@ -180,8 +153,8 @@ export default function Founder() {
             </h3>
           </div>
 
-          {/* Achievement cards — single column on mobile, 2-col on sm+ */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          {/* Achievement cards — always single column to match screenshot */}
+          <div className="grid grid-cols-1 gap-3">
             {achievements.map((ach) => {
               const IconComp = ach.icon;
               return (
