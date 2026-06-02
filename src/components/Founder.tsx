@@ -198,7 +198,7 @@ export default function Founder() {
             KEY: overflow-hidden here is what clips the image.
             The image is absolute WITHIN this div, not the section.
         ──────────────────────────────────────────────────────────────────── */}
-        <div className="relative overflow-hidden" style={{ minHeight: "280px" }}>
+        <div className="relative overflow-hidden" style={{ minHeight: "320px" }}>
 
           {/* Left: Text content — constrained to 57% so image sits beside it */}
           <div
@@ -245,28 +245,37 @@ export default function Founder() {
               No section-level positioning. Completely self-contained. */}
           <div
             className="absolute right-0 top-0 bottom-0 overflow-hidden pointer-events-none select-none z-10"
-            style={{ width: "44%" }}
+            style={{ width: "46%" }}
           >
             {/* Ambient red glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-red-600/10 to-transparent blur-[60px] pointer-events-none z-0" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-red-600/8 to-transparent blur-[60px] pointer-events-none z-0" />
 
+            {/*
+              object-position: 50% 8%
+                → 50% horizontal: centers the face (not shifted to arm side)
+                → 8% vertical: pulls view upward so head/face fills the frame
+              brightness-[1.32]: compensates for left-fade overlay darkening
+              contrast-[1.15]: crisp cinematic look without washing out
+              object-cover keeps full container filled without empty space
+            */}
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="w-full h-full object-cover object-[65%_top] filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] relative z-10"
+              className="w-full h-full object-cover filter brightness-[1.32] contrast-[1.15] saturate-[1.1] hue-rotate-[2deg] relative z-10"
+              style={{ objectPosition: "50% 8%" }}
             />
 
             {/* Volumetric warm spotlight */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_32%,rgba(254,215,170,0.12)_0%,rgba(239,68,68,0.06)_30%,transparent_60%)] pointer-events-none mix-blend-screen z-20" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(254,215,170,0.1)_0%,rgba(239,68,68,0.05)_35%,transparent_65%)] pointer-events-none mix-blend-screen z-20" />
 
-            {/* Left fade — blends image into the text beside it */}
-            <div className="absolute left-0 inset-y-0 w-[42%] bg-gradient-to-r from-black via-black/80 to-transparent z-20" />
-            {/* Top fade */}
-            <div className="absolute top-0 inset-x-0 h-[50px] bg-gradient-to-b from-black to-transparent z-20" />
+            {/* Left fade — reduced to 22% so it only blends the edge, not the face */}
+            <div className="absolute left-0 inset-y-0 w-[22%] bg-gradient-to-r from-black/90 to-transparent z-20" />
+            {/* Top fade — subtle */}
+            <div className="absolute top-0 inset-x-0 h-[36px] bg-gradient-to-b from-black to-transparent z-20" />
             {/* Bottom fade */}
-            <div className="absolute bottom-0 inset-x-0 h-[60px] bg-gradient-to-t from-black to-transparent z-20" />
+            <div className="absolute bottom-0 inset-x-0 h-[50px] bg-gradient-to-t from-black to-transparent z-20" />
             {/* Right fade */}
-            <div className="absolute right-0 inset-y-0 w-[12%] bg-gradient-to-l from-black/50 to-transparent z-20" />
+            <div className="absolute right-0 inset-y-0 w-[10%] bg-gradient-to-l from-black/40 to-transparent z-20" />
           </div>
         </div>
         {/* ── End of overflow-hidden hero. Image is fully clipped above this line. ── */}
