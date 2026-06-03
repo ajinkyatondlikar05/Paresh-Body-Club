@@ -160,82 +160,86 @@ export default function Founder() {
 
       {/* ══════════════════════════════════════════════════════════════════════
           MOBILE ONLY LAYOUT  (lg:hidden)
-          Pixel-perfect match to the reference screenshot.
+          Matches image 2 exactly — full-width text, large name, face-visible image.
       ══════════════════════════════════════════════════════════════════════ */}
       <div className="lg:hidden bg-black">
 
-        {/* ── TOP BLOCK: full-height image + overlaid text ─────────────── */}
-        <div className="relative overflow-hidden" style={{ minHeight: "540px" }}>
+        {/* ── HERO BLOCK: image top-right + full-width overlaid text ──── */}
+        <div className="relative overflow-hidden">
 
-          {/* Background image — absolute, anchored right, covers right 65% */}
-          <div className="absolute inset-y-0 right-0 w-[65%] pointer-events-none select-none">
+          {/* Image — anchored top-right, fixed height to show face/upper body only */}
+          <div
+            className="absolute top-0 right-0 pointer-events-none select-none"
+            style={{ width: "56%", height: "460px" }}
+          >
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="w-full h-full object-cover object-[60%_top] filter brightness-[1.22] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg]"
+              className="w-full h-full object-cover filter brightness-[1.2] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg]"
+              style={{ objectPosition: "50% 8%" }}
             />
-            {/* Subtle red ambient glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-600/15 via-transparent to-transparent pointer-events-none" />
-            {/* Left-edge fade — blends smoothly into black text area */}
-            <div className="absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-black via-black/75 to-transparent" />
+            {/* Red ambient glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-600/15 via-transparent to-transparent" />
+            {/* Left-edge fade into black */}
+            <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-black via-black/70 to-transparent" />
             {/* Top fade */}
-            <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black to-transparent" />
-            {/* Bottom fade */}
-            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-black to-transparent" />
+            {/* Bottom fade — strong, image merges into black */}
+            <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black to-transparent" />
           </div>
 
-          {/* Left text column — overlaid on top of image */}
-          <div className="relative z-20 px-6 pt-10 pb-8 flex flex-col" style={{ maxWidth: "57%" }}>
+          {/* Full-width text content — z-20 sits above image */}
+          <div className="relative z-20 px-6 pt-10 pb-8">
 
             {/* Red label */}
             <span
               className="text-red-500 font-display font-black uppercase block"
-              style={{ fontSize: "10px", letterSpacing: "0.13em" }}
+              style={{ fontSize: "11px", letterSpacing: "0.13em" }}
             >
               FOUNDER &amp; HEAD TRAINER
             </span>
 
-            {/* Red underline */}
-            <div style={{ width: "48px", height: "2px", background: "#ef4444", marginTop: "6px", marginBottom: "14px" }} />
+            {/* Red underline accent */}
+            <div style={{ width: "52px", height: "2px", background: "#ef4444", marginTop: "6px", marginBottom: "14px" }} />
 
-            {/* Name — two lines */}
+            {/* Name — large, two lines, left-aligned */}
             <h2
               className="font-display font-black text-white uppercase tracking-tighter leading-[0.87] mb-3"
-              style={{ fontSize: "clamp(28px, 8.5vw, 42px)" }}
+              style={{ fontSize: "clamp(46px, 13vw, 64px)" }}
             >
               PARESH<br />HINDURAO
             </h2>
 
-            {/* Professional tagline — two lines */}
+            {/* Tagline — two lines */}
             <div
               className="text-stone-400 font-display font-bold uppercase mb-5"
-              style={{ fontSize: "11px", letterSpacing: "0.1em", lineHeight: 1.45 }}
+              style={{ fontSize: "12px", letterSpacing: "0.1em", lineHeight: 1.45 }}
             >
               PROFESSIONAL<br />BODYBUILDER
             </div>
 
-            {/* Credentials block — top divider + two rows */}
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+            {/* Credentials — full-width dividers */}
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}>
 
               {/* Row 1: IFSA Certified Trainer */}
               <div
                 className="flex items-center gap-3"
-                style={{ paddingTop: "10px", paddingBottom: "10px", borderBottom: "1px solid rgba(255,255,255,0.1)" }}
+                style={{ paddingTop: "11px", paddingBottom: "11px", borderBottom: "1px solid rgba(255,255,255,0.12)" }}
               >
                 <div
                   className="flex items-center justify-center shrink-0 text-red-500"
                   style={{
-                    width: "34px", height: "34px",
+                    width: "36px", height: "36px",
                     borderRadius: "8px",
-                    border: "1px solid rgba(239,68,68,0.35)",
-                    background: "rgba(127,29,29,0.15)",
+                    border: "1px solid rgba(239,68,68,0.4)",
+                    background: "rgba(127,29,29,0.18)",
                   }}
                 >
-                  <Award size={15} />
+                  <Award size={16} />
                 </div>
                 <span
                   className="font-sans font-bold uppercase text-stone-200"
-                  style={{ fontSize: "9px", letterSpacing: "0.09em" }}
+                  style={{ fontSize: "10px", letterSpacing: "0.09em" }}
                 >
                   IFSA CERTIFIED TRAINER
                 </span>
@@ -244,40 +248,44 @@ export default function Founder() {
               {/* Row 2: Paresh Body Club */}
               <div
                 className="flex items-center gap-3"
-                style={{ paddingTop: "10px", paddingBottom: "10px", borderBottom: "1px solid rgba(255,255,255,0.1)" }}
+                style={{ paddingTop: "11px", paddingBottom: "11px", borderBottom: "1px solid rgba(255,255,255,0.12)" }}
               >
                 <div
                   className="flex items-center justify-center shrink-0 text-red-500"
                   style={{
-                    width: "34px", height: "34px",
+                    width: "36px", height: "36px",
                     borderRadius: "8px",
-                    border: "1px solid rgba(239,68,68,0.35)",
-                    background: "rgba(127,29,29,0.15)",
+                    border: "1px solid rgba(239,68,68,0.4)",
+                    background: "rgba(127,29,29,0.18)",
                   }}
                 >
-                  <Dumbbell size={15} />
+                  <Dumbbell size={16} />
                 </div>
                 <span
                   className="font-sans font-bold uppercase text-stone-200"
-                  style={{ fontSize: "9px", letterSpacing: "0.09em" }}
+                  style={{ fontSize: "10px", letterSpacing: "0.09em" }}
                 >
                   PARESH BODY CLUB
                 </span>
               </div>
             </div>
 
-            {/* Bio paragraph */}
+            {/* Bio — full width, "PARESH BODY CLUB MURBAD" in red */}
             <p
-              className="text-stone-300 font-sans font-light leading-relaxed mt-4"
-              style={{ fontSize: "11px", lineHeight: 1.55 }}
+              className="text-stone-300 font-sans font-light leading-relaxed mt-6"
+              style={{ fontSize: "13px", lineHeight: 1.65 }}
             >
-              Paresh Hindurao is a passionate fitness trainer and professional bodybuilder dedicated to transforming lives through fitness and discipline. With multiple bodybuilding titles and years of gym training experience, he founded PARESH BODY CLUB MURBAD to inspire the youth of Murbad towards health, strength, and confidence.
+              Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
+              dedicated to transforming lives through fitness and discipline. With multiple
+              bodybuilding titles and years of gym training experience, he founded{" "}
+              <span className="text-red-500 font-semibold">PARESH BODY CLUB MURBAD</span>
+              {" "}to inspire the youth of Murbad towards health, strength, and confidence.
             </p>
           </div>
         </div>
 
-        {/* ── PHILOSOPHY CARD ─────────────────────────────────────────── */}
-        <div className="px-5 pb-10 pt-1 bg-black relative z-20">
+        {/* ── PHILOSOPHY CARD ───────────────────────────────────────────── */}
+        <div className="px-5 pb-10 pt-2 bg-black relative z-20">
           <div
             className="relative overflow-hidden"
             style={{
@@ -289,20 +297,20 @@ export default function Founder() {
               boxShadow: "0 0 32px rgba(239,68,68,0.1)",
             }}
           >
-            {/* Header row: circle "66" icon + PERSONAL PHILOSOPHY label */}
+            {/* Header: circle quote icon + label */}
             <div className="flex items-center gap-3 mb-4">
               <div
                 className="flex items-center justify-center shrink-0"
                 style={{
-                  width: "28px", height: "28px",
+                  width: "30px", height: "30px",
                   borderRadius: "50%",
-                  border: "1px solid rgba(239,68,68,0.3)",
+                  border: "1px solid rgba(239,68,68,0.35)",
                   background: "rgba(69,10,10,0.3)",
                 }}
               >
                 <span
                   className="font-display font-black text-stone-300"
-                  style={{ fontSize: "13px", lineHeight: 1 }}
+                  style={{ fontSize: "14px", lineHeight: 1 }}
                 >
                   ❝
                 </span>
