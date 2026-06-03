@@ -385,11 +385,11 @@ export default function Hero() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════════
-            HERO COMPOSITION — Reference-exact split layout
-            Left 45%: heading + desc + buttons (in flow → sets height)
-            Right 55%: athlete absolutely positioned, full height
+            HERO COMPOSITION — fixed height 520px, overflow hidden
+            Athlete is absolutely positioned inside and cannot bleed
+            into the stats section below.
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="relative pt-[68px]" style={{ zIndex: 5 }}>
+        <div className="relative" style={{ height: "520px", overflow: "hidden", zIndex: 5 }}>
 
           {/* Red glow top-left ambient */}
           <div
@@ -404,16 +404,16 @@ export default function Hero() {
             }}
           />
 
-          {/* ── ATHLETE — absolute, right 55%, full section height ── */}
+          {/* ── ATHLETE — absolute inside 520px hero, right side ── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.0, ease: "easeOut", delay: 0.05 }}
             className="absolute right-0 pointer-events-none"
             style={{
-              top: "120px",
+              top: "68px",
               width: "58%",
-              height: "620px",
+              height: "452px",
               zIndex: 1,
               overflow: "hidden",
             }}
@@ -434,17 +434,17 @@ export default function Hero() {
               className="w-full h-full"
               style={{
                 objectFit: "cover",
-                objectPosition: "center 18%",
-                transform: "scale(1.08)",
+                objectPosition: "center top",
+                transform: "scale(1)",
                 transformOrigin: "top center",
                 filter: "brightness(0.88) saturate(1.2) contrast(1.12)",
                 maskImage: [
                   "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
-                  "linear-gradient(to bottom, black 0%, black 82%, transparent 100%)",
+                  "linear-gradient(to bottom, black 0%, black 85%, transparent 100%)",
                 ].join(", "),
                 WebkitMaskImage: [
                   "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
-                  "linear-gradient(to bottom, black 0%, black 82%, transparent 100%)",
+                  "linear-gradient(to bottom, black 0%, black 85%, transparent 100%)",
                 ].join(", "),
                 WebkitMaskComposite: "source-in",
                 maskComposite: "intersect",
@@ -468,8 +468,8 @@ export default function Hero() {
               style={{ bottom: "22%", right: "30%", zIndex: 3 }} />
           </motion.div>
 
-          {/* ── LEFT TEXT COLUMN — 45% width, in flow, sets hero height ── */}
-          <div className="relative px-4" style={{ width: "50%", zIndex: 10 }}>
+          {/* ── LEFT TEXT COLUMN — absolute, top 68px, left 0 ── */}
+          <div className="absolute px-4" style={{ top: "68px", left: 0, width: "50%", zIndex: 10 }}>
 
             {/* ── HEADING ── */}
             <h1
@@ -602,8 +602,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── STATS — 2-col grid, dark cards with red glow border ── */}
-        <div ref={statsRef} className="px-4 pt-4 pb-10" style={{ zIndex: 5 }}>
+        {/* ── STATS — solid bg, z-index above hero so athlete never bleeds through ── */}
+        <div ref={statsRef} className="px-4 pt-4 pb-10" style={{ position: "relative", zIndex: 10, background: "#0a0a0a" }}>
           <div className="grid grid-cols-2 gap-3">
             {stats.map((stat, i) => (
               <motion.div
