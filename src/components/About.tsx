@@ -136,17 +136,18 @@ export default function About() {
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
       <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-16 pb-24 overflow-hidden">
-        {/* Background Athlete Image - right side background, opacity 28% */}
+        {/* Background Athlete Image - right side background, scaled 280% (250-300%), opacity 32% */}
         <div
           className="absolute top-0 right-0 h-full pointer-events-none"
           style={{
-            width: "48%",
+            width: "45%",
             backgroundImage: "url('/about-bg.png')",
-            backgroundSize: "contain",
-            backgroundPosition: "right center",
+            backgroundSize: "280%",
+            backgroundPosition: "center top 60px",
             backgroundRepeat: "no-repeat",
-            opacity: 0.28,
+            opacity: 0.32,
             zIndex: 0,
+            filter: "grayscale(100%) contrast(1.3) brightness(1.0)",
           }}
         />
 
