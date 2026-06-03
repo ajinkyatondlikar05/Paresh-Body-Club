@@ -136,36 +136,36 @@ export default function About() {
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
       <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-16 pb-24 overflow-hidden">
-        {/* Background Athlete Image — right 45%, face/chest/fist visible, not overlapping text */}
+        {/* Background Athlete Image — 65% wide, face at top-right, matches reference image 2 */}
         <div
           className="absolute top-0 right-0 h-full pointer-events-none"
           style={{
-            width: "47%",
+            width: "65%",
             backgroundImage: "url('/about-bg.png')",
-            backgroundSize: "230%",
-            backgroundPosition: "60% top 20px",
+            backgroundSize: "210%",
+            backgroundPosition: "center top 10px",
             backgroundRepeat: "no-repeat",
-            opacity: 0.50,
+            opacity: 0.55,
             zIndex: 0,
-            filter: "grayscale(100%) contrast(2.1) brightness(1.22)",
+            filter: "grayscale(100%) contrast(2.2) brightness(1.30)",
           }}
         />
 
-        {/* Rim light — warm glow on face, subtle red on shoulder */}
+        {/* Rim light — warm glow on face edge, red on shoulder */}
         <div
           className="absolute top-0 right-0 h-full pointer-events-none"
           style={{
-            width: "47%",
+            width: "65%",
             zIndex: 1,
-            background: "radial-gradient(ellipse 45% 35% at 75% 22%, rgba(255,220,200,0.10) 0%, transparent 65%), radial-gradient(ellipse 35% 28% at 70% 52%, rgba(239,68,68,0.06) 0%, transparent 60%)",
+            background: "radial-gradient(ellipse 42% 32% at 72% 20%, rgba(255,220,200,0.10) 0%, transparent 65%), radial-gradient(ellipse 32% 26% at 68% 50%, rgba(239,68,68,0.06) 0%, transparent 60%)",
           }}
         />
 
-        {/* Cinematic blend gradient — solid black left 38%, fades by 62%, transparent by 85% */}
+        {/* Cinematic gradient — solid black left 28%, diagonal fade, fully transparent at 80% */}
         <div 
           className="absolute inset-0 z-0 pointer-events-none" 
           style={{
-            background: "linear-gradient(to right, #050505 38%, rgba(5,5,5,0.6) 55%, rgba(5,5,5,0.18) 75%, transparent 100%)",
+            background: "linear-gradient(to right, #050505 28%, rgba(5,5,5,0.52) 45%, rgba(5,5,5,0.12) 65%, transparent 100%)",
             zIndex: 1,
           }}
         />
@@ -202,20 +202,20 @@ export default function About() {
             <div className="w-16 h-[3px] bg-[#ef4444] mt-2 shadow-[0_0_6px_rgba(239,68,68,0.6)]" />
           </motion.div>
 
-          {/* Description Block (constrained to 82% max-width, line-height 1.7) */}
+          {/* Description Block — 55% max-width to match reference image 2 composition */}
           <motion.p
             variants={fadeUp}
             custom={0.25}
-            className="text-stone-100 font-sans text-[13.5px] leading-[1.7] font-light pr-2 max-w-[82%] mt-[30px] text-left"
+            className="text-stone-100 font-sans text-[13.5px] leading-[1.7] font-light pr-2 max-w-[55%] mt-[30px] text-left"
           >
             <strong className="font-black text-white tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
           </motion.p>
 
-          {/* Quote Section (simple red line on left, text beside it, no container/border/bg/shadow) */}
+          {/* Quote Section — 55% max-width to match reference image 2 */}
           <motion.div
             variants={fadeUp}
             custom={0.4}
-            className="flex items-start gap-3 mt-[40px] max-w-[82%]"
+            className="flex items-start gap-3 mt-[40px] max-w-[55%]"
           >
             <div className="shrink-0 w-[2px] self-stretch bg-[#ef4444]/70 rounded-full" />
             <p className="text-stone-100 font-sans text-[12px] leading-[1.65] font-light text-left">
