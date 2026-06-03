@@ -136,9 +136,9 @@ export default function About() {
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
       <div className="md:hidden relative w-full min-h-[100dvh] bg-[#050505] flex flex-col justify-start pt-20 pb-[80px] overflow-hidden">
-        {/* Background Athlete Image - positioned in lower half, right-aligned, 20% opacity, acts as background accent only */}
+        {/* Background Athlete Image - dominant full-height background accent spanning 75-85% height on the right */}
         <motion.div
-          className="absolute right-[-20px] bottom-[95px] w-[45%] h-[300px] z-0 pointer-events-none"
+          className="absolute right-[-20px] top-[12%] bottom-[80px] w-[58%] z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
@@ -152,11 +152,11 @@ export default function About() {
           transition={{ duration: 15, ease: "linear" }}
         />
 
-        {/* Ambient Overlays to blend bodybuilder & text (stronger black gradient behind text area) */}
-        <div className="absolute inset-0 bg-black/20 z-0 pointer-events-none" />
+        {/* Cinematic blend gradient overlay (left side dark, right side brighter around athlete face) */}
+        <div className="absolute inset-0 bg-black/25 z-0 pointer-events-none" />
         <div 
           className="absolute inset-0 z-0 pointer-events-none" 
-          style={{ backgroundImage: "linear-gradient(to right, rgba(5,5,5,1.0) 38%, rgba(5,5,5,0.85) 55%, transparent 100%)" }}
+          style={{ backgroundImage: "linear-gradient(to right, rgba(5,5,5,1.0) 35%, rgba(5,5,5,0.75) 60%, transparent 100%)" }}
         />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-0 pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#050505]/60 to-transparent z-0 pointer-events-none" />
@@ -164,8 +164,9 @@ export default function About() {
         {/* Slight cinematic vignette around edges */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(5,5,5,0.70)_100%)] z-0 pointer-events-none" />
 
-        {/* Strong red rim light behind bodybuilder's silhouette */}
-        <div className="absolute top-[25%] right-[-20px] w-64 h-64 rounded-full bg-red-600/25 blur-[60px] pointer-events-none z-0 mix-blend-screen animate-pulse" style={{ animationDuration: "4s" }} />
+        {/* Soft red rim light around shoulders and face */}
+        <div className="absolute top-[20%] right-[-10px] w-48 h-48 rounded-full bg-red-600/15 blur-[45px] pointer-events-none z-0 mix-blend-screen animate-pulse" style={{ animationDuration: "5s" }} />
+        <div className="absolute bottom-[25%] right-[-20px] w-56 h-56 rounded-full bg-red-650/10 blur-[50px] pointer-events-none z-0 mix-blend-screen" />
 
         {/* Thin glowing red vertical accent line on the far left edge (4px wide, 70% opacity, soft glow) */}
         <div className="absolute top-0 left-0 w-[4px] h-full bg-red-600/70 shadow-[0_0_10px_rgba(239,68,68,0.4)] z-20" />
