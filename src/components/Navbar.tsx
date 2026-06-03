@@ -152,43 +152,60 @@ export default function Navbar({ activeSection }: NavbarProps) {
         {isOpen && (
           <motion.div
             id="mobile-nav-panel"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed inset-0 md:hidden bg-[#050505]/98 backdrop-blur-xl border-b border-red-500/20 shadow-[0_15px_30px_rgba(239,68,68,0.15)] flex flex-col pt-[100px] px-6 pb-10 overflow-y-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="mobile-menu md:hidden"
             style={{
-              zIndex: 9999,
               position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              height: "100vh",
+              inset: 0,
+              background: "rgba(0,0,0,0.96)",
+              zIndex: 99999,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <div className="flex flex-col justify-center items-center gap-6 mt-4">
+            {/* Close X icon top-right inside overlay */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-6 right-6 text-gray-400 hover:text-white p-2 cursor-pointer transition-colors duration-200"
+              style={{ zIndex: 100000 }}
+              aria-label="Close menu"
+            >
+              <X className="h-8 w-8 text-white hover:text-red-500" />
+            </button>
+
+            {/* Vertically centered links list */}
+            <div className="flex flex-col items-center justify-center">
               {navLinks.map((link) => (
-                <button
+                <a
                   key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className={`text-lg font-black uppercase tracking-widest transition-all duration-200 cursor-pointer ${
-                    activeSection === link.id
-                      ? "text-red-500 scale-105 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]"
-                      : "text-white hover:text-red-500"
-                  }`}
+                  href={`#${link.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.id);
+                  }}
+                  className="hover:text-[#ff1a1a]"
+                  style={{
+                    display: "block",
+                    color: activeSection === link.id ? "#ff1a1a" : "white",
+                    fontSize: "28px",
+                    fontWeight: 800,
+                    textTransform: "uppercase",
+                    letterSpacing: "2px",
+                    margin: "14px 0",
+                    opacity: 1,
+                    visibility: "visible",
+                    cursor: "pointer",
+                    transition: "color 0.2s ease, transform 0.2s ease",
+                  }}
                 >
                   {link.label}
-                </button>
+                </a>
               ))}
-              <div className="pt-6 w-full max-w-[280px] pb-8">
-                <button
-                  onClick={() => scrollToSection("membership")}
-                  className="w-full text-center py-4 bg-red-600 hover:bg-red-500 text-white text-sm font-black uppercase tracking-widest rounded-full shadow-[0_0_20px_rgba(239,68,68,0.45)] cursor-pointer transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  JOIN NOW <ArrowRight size={16} />
-                </button>
-              </div>
             </div>
           </motion.div>
         )}
