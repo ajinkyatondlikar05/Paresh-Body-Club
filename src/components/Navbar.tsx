@@ -192,19 +192,19 @@ export default function Navbar({ activeSection }: NavbarProps) {
             >
               {/* Top Area: Logo on top-left, Close button on top-right */}
               <div
-                className="flex items-center justify-between w-full"
+                className="flex items-center justify-between w-full shrink-0"
                 style={{
-                  paddingTop: "28px",
+                  height: "115px",
                   paddingLeft: "32px",
                   paddingRight: "24px",
-                  marginBottom: "20px",
                 }}
               >
                 {/* Logo and Brand Text on top-left */}
-                <div className="flex items-center gap-3.5 shrink-0">
-                  {/* Logo SVG Icon */}
-                  <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
-                    <svg viewBox="0 0 44 44" className="w-10 h-10 filter drop-shadow-[0_2px_6px_rgba(239,68,68,0.35)]" fill="none">
+                <div className="flex items-center gap-4 shrink-0">
+                  {/* Logo SVG Icon with subtle red glow behind it */}
+                  <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
+                    <div className="absolute inset-0 bg-[#ff1a1a]/20 blur-[8px] rounded-full scale-95 pointer-events-none" />
+                    <svg viewBox="0 0 44 44" className="relative w-12 h-12 filter drop-shadow-[0_2px_8px_rgba(255,26,26,0.4)]" fill="none">
                       <path
                         d="M22 2 L40 12 L40 32 L22 42 L4 32 L4 12 Z"
                         fill="#dc2626"
@@ -220,15 +220,26 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   </div>
                   {/* Brand Text block */}
                   <div className="flex flex-col text-left justify-center leading-none">
-                    <div className="flex items-baseline gap-1 leading-none">
-                      <span className="font-display font-bold text-white text-[12px] antialiased">
+                    <div className="flex flex-col leading-none">
+                      <span 
+                        className="font-display font-extrabold text-white text-[24px] tracking-wide leading-none antialiased"
+                        style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
+                      >
                         PARESH
                       </span>
-                      <span className="font-display font-black text-red-500 text-[13px] antialiased">
+                      <span 
+                        className="font-display font-black text-[#ff1a1a] text-[26px] tracking-tight leading-none mt-0.5 antialiased relative inline-block pb-1.5"
+                        style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
+                      >
                         BODY CLUB
+                        {/* Subtle red underline below BODY CLUB */}
+                        <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-[#ff1a1a] rounded-full shadow-[0_0_6px_rgba(255,26,26,0.8)]" />
                       </span>
                     </div>
-                    <div className="text-[6.5px] uppercase tracking-[0.2em] text-stone-400 font-semibold leading-none mt-1 antialiased">
+                    <div 
+                      className="text-[12px] uppercase text-white/75 font-bold leading-none mt-2.5 antialiased"
+                      style={{ letterSpacing: "4px" }}
+                    >
                       MURBAD BRANCH
                     </div>
                   </div>
