@@ -389,7 +389,7 @@ export default function Hero() {
             Left 45%: heading + desc + buttons (in flow → sets height)
             Right 55%: athlete absolutely positioned, full height
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="relative pt-[68px]" style={{ zIndex: 5 }}>
+        <div className="relative pt-[68px]" style={{ zIndex: 5, overflow: "visible" }}>
 
           {/* Red glow top-left ambient */}
           <div
@@ -427,16 +427,18 @@ export default function Hero() {
               alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
               className="absolute inset-0 w-full h-full"
               style={{
-                objectFit: "cover",
+                objectFit: "contain",
                 objectPosition: "center top",
+                transform: "translateY(45px) scale(0.94)",
+                transformOrigin: "top center",
                 filter: "brightness(0.88) saturate(1.2) contrast(1.12)",
                 maskImage: [
                   "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
-                  "linear-gradient(to bottom, transparent 0%, black 0%, black 88%, transparent 100%)",
+                  "linear-gradient(to bottom, black 0%, black 80%, transparent 100%)",
                 ].join(", "),
                 WebkitMaskImage: [
                   "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
-                  "linear-gradient(to bottom, transparent 0%, black 0%, black 88%, transparent 100%)",
+                  "linear-gradient(to bottom, black 0%, black 80%, transparent 100%)",
                 ].join(", "),
                 WebkitMaskComposite: "source-in",
                 maskComposite: "intersect",
