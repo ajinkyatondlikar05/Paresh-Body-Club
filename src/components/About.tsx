@@ -135,15 +135,15 @@ export default function About() {
       {/* ══════════════════════════════════════════════
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden relative w-full min-h-[82vh] bg-[#050505] flex flex-col justify-between px-6 pt-20 pb-8 overflow-hidden">
-        {/* Ken Burns Background with Bodybuilder image shifted right & 40% brighter */}
+      <div className="md:hidden relative w-full min-h-[70vh] bg-[#050505] flex flex-col justify-start gap-5 px-6 pt-16 pb-6 overflow-hidden">
+        {/* Ken Burns Background with Bodybuilder image shifted right & 20% more visible than previous iteration */}
         <motion.div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
-            backgroundPosition: "38% center",
-            filter: "brightness(0.82)",
+            backgroundPosition: "35% center",
+            filter: "brightness(0.95)",
             willChange: "transform",
           }}
           initial={{ scale: 1 }}
@@ -152,18 +152,21 @@ export default function About() {
         />
 
         {/* Ambient Overlays to blend bodybuilder & text (65% darkness overlay instead of 85%) */}
-        <div className="absolute inset-0 bg-black/25 z-0 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/95 via-[#050505]/55 to-[#050505]/15 z-0 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050505] via-[#050505]/30 to-transparent z-0 pointer-events-none" />
-        <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#050505]/70 to-transparent z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/15 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/95 via-[#050505]/45 to-transparent z-0 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-0 pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#050505]/60 to-transparent z-0 pointer-events-none" />
 
-        {/* Subtle red rim light behind shoulder and jawline */}
-        <div className="absolute top-[26%] right-[12%] w-48 h-48 rounded-full bg-red-600/25 blur-[60px] pointer-events-none z-0 mix-blend-screen" />
+        {/* Slight cinematic vignette around edges */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(5,5,5,0.70)_100%)] z-0 pointer-events-none" />
+
+        {/* Subtle red rim light around bodybuilder's face and shoulder */}
+        <div className="absolute top-[21%] right-[8%] w-44 h-44 rounded-full bg-red-600/30 blur-[50px] pointer-events-none z-0 mix-blend-screen" />
         {/* Subtle red glow around bodybuilder's silhouette */}
-        <div className="absolute top-[32%] right-[2%] w-52 h-52 rounded-full bg-red-650/15 blur-[70px] pointer-events-none z-0" />
+        <div className="absolute top-[28%] right-[1%] w-48 h-48 rounded-full bg-red-650/15 blur-[60px] pointer-events-none z-0" />
 
-        {/* Left vertical red accent line with softer, less aggressive glow */}
-        <div className="absolute top-0 left-0 w-[4px] h-full bg-[#ef4444]/90 shadow-[0_0_8px_rgba(239,68,68,0.5)] z-20" />
+        {/* Left vertical red accent line (5px wide, 70% opacity, soft glow) */}
+        <div className="absolute top-0 left-0 w-[5px] h-full bg-[#ef4444]/70 shadow-[0_0_10px_rgba(239,68,68,0.4)] z-20" />
 
         {/* Drifting smoke effect */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -179,7 +182,7 @@ export default function About() {
         </div>
 
         {/* Top/Middle Content Block */}
-        <div className="relative z-10 flex flex-col gap-4">
+        <div className="relative z-10 flex flex-col gap-3">
           {/* Heading */}
           <motion.div
             variants={fadeUp}
@@ -196,18 +199,18 @@ export default function About() {
           <motion.p
             variants={fadeUp}
             custom={0.25}
-            className="text-stone-100 font-sans text-[13.5px] leading-relaxed font-light pr-2 max-w-[85%] mt-0.5"
+            className="text-stone-100 font-sans text-[13.5px] leading-[1.7] font-light pr-2 max-w-[80%] mt-0.5 text-left"
           >
             <strong className="font-black text-white tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
           </motion.p>
 
-          {/* Quote Section with glass effect & black transparent panel */}
+          {/* Quote Section with enhanced glass effect and subtle red border glow */}
           <motion.div
             variants={fadeUp}
             custom={0.4}
-            className="border-l-[3.5px] border-[#ef4444] bg-black/35 backdrop-blur-[6px] border border-white/5 p-4 rounded-lg max-w-[85%] mt-1 shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+            className="border-l-[3.5px] border-[#ef4444]/80 bg-black/40 backdrop-blur-[12px] border border-[#ef4444]/15 p-3 rounded-lg max-w-[80%] mt-0.5 shadow-[0_0_15px_rgba(239,68,68,0.12),_0_8px_20px_rgba(0,0,0,0.6)]"
           >
-            <p className="text-stone-200 font-sans text-[12.5px] leading-relaxed font-light">
+            <p className="text-stone-200 font-sans text-[12px] leading-relaxed font-light text-left">
               Whether you are a local beginner stepping into the weights room for the first time, or an elite bodybuilder aiming for stage progression, Master Paresh and his team offer scientifically structured regimes to turn aspiration into heavy concrete results.
             </p>
           </motion.div>
@@ -217,13 +220,13 @@ export default function About() {
         <motion.div
           variants={fadeUp}
           custom={0.5}
-          className="relative z-10 w-full flex flex-col items-center justify-center mt-3 pt-2"
+          className="relative z-10 w-full flex flex-col items-center justify-center mt-2 pt-1"
         >
           {/* Flanking lines container */}
-          <div className="w-full flex items-center justify-center gap-3 my-1">
+          <div className="w-full flex items-center justify-center gap-2.5 my-0.5">
             {/* Left glowing line (shorter with softer glow) */}
-            <div className="flex-1 max-w-[50px] h-[1.5px] bg-gradient-to-r from-transparent to-[#ef4444]/80 shadow-[0_0_4px_rgba(239,68,68,0.4)] relative">
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2.5px] h-[2.5px] rounded-full bg-white shadow-[0_0_6px_rgba(239,68,68,0.8)]" />
+            <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-r from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
             </div>
 
             {/* Center text (+30% size, DAY much larger, red glow) */}
@@ -239,8 +242,8 @@ export default function About() {
             </div>
 
             {/* Right glowing line (shorter with softer glow) */}
-            <div className="flex-1 max-w-[50px] h-[1.5px] bg-gradient-to-l from-transparent to-[#ef4444]/80 shadow-[0_0_4px_rgba(239,68,68,0.4)] relative">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2.5px] h-[2.5px] rounded-full bg-white shadow-[0_0_6px_rgba(239,68,68,0.8)]" />
+            <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-l from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
             </div>
           </div>
         </motion.div>
