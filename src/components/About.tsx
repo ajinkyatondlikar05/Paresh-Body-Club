@@ -136,14 +136,14 @@ export default function About() {
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
       <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-16 pb-24 overflow-hidden">
-        {/* Ken Burns Background with Bodybuilder image shifted further right */}
+        {/* Ken Burns Background with Bodybuilder image shifted slightly more to the right & reduced brightness/opacity by 15% */}
         <motion.div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
-            backgroundPosition: "8% center",
-            filter: "brightness(1.15)",
+            backgroundPosition: "6% center",
+            filter: "brightness(0.98)",
             willChange: "transform",
           }}
           initial={{ scale: 1 }}
@@ -152,10 +152,10 @@ export default function About() {
         />
 
         {/* Ambient Overlays to blend bodybuilder & text (stronger black gradient behind text area) */}
-        <div className="absolute inset-0 bg-black/15 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/10 z-0 pointer-events-none" />
         <div 
           className="absolute inset-0 z-0 pointer-events-none" 
-          style={{ backgroundImage: "linear-gradient(to right, rgba(0,0,0,1.0) 25%, rgba(0,0,0,0.85) 55%, transparent 100%)" }}
+          style={{ backgroundImage: "linear-gradient(to right, rgba(0,0,0,1.0) 35%, rgba(0,0,0,0.90) 65%, transparent 100%)" }}
         />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-0 pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#050505]/60 to-transparent z-0 pointer-events-none" />
@@ -205,11 +205,11 @@ export default function About() {
             <strong className="font-black text-white tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
           </motion.p>
 
-          {/* Quote Section (exactly where it is, current styling, mt-[40px]) */}
+          {/* Quote Section (quote box width slightly to 88%, self-centered, darker glass backdrop, thin red border) */}
           <motion.div
             variants={fadeUp}
             custom={0.4}
-            className="border-l-[3px] border-[#ef4444]/70 bg-black/65 backdrop-blur-[16px] border border-[#ef4444]/10 py-1.5 px-3 rounded-lg max-w-[82%] mt-[40px] shadow-[0_0_10px_rgba(239,68,68,0.06),_0_4px_12px_rgba(0,0,0,0.8)]"
+            className="border-l-[3px] border-[#ef4444]/70 bg-black/65 backdrop-blur-[14px] border border-[#ef4444]/10 py-1.5 px-3 rounded-lg max-w-[88%] mt-[40px] self-center shadow-[0_0_10px_rgba(239,68,68,0.06),_0_4px_12px_rgba(0,0,0,0.8)]"
           >
             <p className="text-stone-100 font-sans text-[12px] leading-[1.65] font-light text-left">
               Whether you are a local beginner stepping into the weights room for the first time, or an elite bodybuilder aiming for stage progression, Master Paresh and his team offer scientifically structured regimes to turn aspiration into heavy concrete results.
@@ -229,16 +229,16 @@ export default function About() {
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
               </div>
 
-              {/* Center text (+30% size, DAY much larger with premium glow and mt-4 spacing) */}
+              {/* Center text (+30% size, DAY much larger with premium glow and mt-1 spacing) */}
               <div className="font-display font-black leading-[1.0] tracking-tight text-center z-10 shrink-0 select-none pointer-events-none">
                 <span className="block text-stone-150 text-[25px] tracking-tight uppercase">TODAY IS THE DAY</span>
                 <span className="block text-stone-150 text-[25px] tracking-tight uppercase">BECAUSE TODAY</span>
                 <span className="block text-stone-150 text-[25px] tracking-tight uppercase">IS YOUR</span>
                 
-                {/* DAY. with red glow */}
+                {/* DAY. with red glow (glow intensity reduced by 20%) */}
                 <span 
-                  className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-4"
-                  style={{ textShadow: "0 0 25px rgba(239,68,68,0.85)" }}
+                  className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-1"
+                  style={{ textShadow: "0 0 16px rgba(239,68,68,0.65)" }}
                 >
                   DAY.
                 </span>
