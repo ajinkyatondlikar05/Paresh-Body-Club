@@ -385,42 +385,39 @@ export default function Hero() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════════
-            HERO COMPOSITION  — Nike / Gymshark style
-            ┌─ left text (in flow → sets height) ─────────────────────┐
-            │  HEADING                            ╔══ ATHLETE ════════╗│
-            │  description                        ║  absolute, z=1   ║│
-            │  buttons                            ║  mask-image fade  ║│
-            └─────────────────────────────────────╚══════════════════╝┘
+            HERO COMPOSITION — Reference-exact split layout
+            Left 45%: heading + desc + buttons (in flow → sets height)
+            Right 55%: athlete absolutely positioned, full height
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="relative px-4 pt-[88px]" style={{ zIndex: 5 }}>
+        <div className="relative pt-[72px]" style={{ zIndex: 5 }}>
 
-          {/* Subtle red ambient glow — left side, behind heading */}
+          {/* Red glow top-left ambient */}
           <div
             className="absolute pointer-events-none"
             style={{
-              top: "-30px", left: "-20px",
-              width: "220px", height: "220px",
+              top: "60px", left: "-20px",
+              width: "200px", height: "200px",
               borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(220,38,38,0.12) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(220,38,38,0.13) 0%, transparent 70%)",
               filter: "blur(40px)",
               zIndex: 0,
             }}
           />
 
-          {/* ── ATHLETE — fade in + scale 0.96→1 (1000ms ease-out) ── */}
+          {/* ── ATHLETE — absolute, right 55%, full section height ── */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.0, ease: "easeOut", delay: 0.1 }}
-            className="absolute top-0 bottom-0 right-0 pointer-events-none"
-            style={{ width: "52%", zIndex: 1, transformOrigin: "right center" }}
+            transition={{ duration: 1.0, ease: "easeOut", delay: 0.05 }}
+            className="absolute top-0 right-0 bottom-0 pointer-events-none"
+            style={{ width: "57%", zIndex: 1, transformOrigin: "right top" }}
           >
             {/* Red glow BEHIND athlete */}
             <div
               className="absolute pointer-events-none"
               style={{
                 inset: 0,
-                background: "radial-gradient(ellipse at 55% 35%, rgba(220,38,38,0.2) 0%, transparent 60%)",
+                background: "radial-gradient(ellipse at 60% 30%, rgba(220,38,38,0.22) 0%, transparent 60%)",
                 zIndex: 0,
               }}
             />
@@ -432,14 +429,14 @@ export default function Hero() {
               style={{
                 objectFit: "cover",
                 objectPosition: "top center",
-                filter: "brightness(0.9) saturate(1.15) contrast(1.12)",
+                filter: "brightness(0.88) saturate(1.2) contrast(1.12)",
                 WebkitMaskImage: [
-                  "linear-gradient(to right,  transparent 0%,  rgba(0,0,0,0.85) 25%, black 45%)",
-                  "linear-gradient(to top,    transparent 0%,  black 18%,        black 100%)",
+                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.7) 20%, black 42%)",
+                  "linear-gradient(to top,   transparent 0%, black 12%, black 100%)",
                 ].join(", "),
                 maskImage: [
-                  "linear-gradient(to right,  transparent 0%,  rgba(0,0,0,0.85) 25%, black 45%)",
-                  "linear-gradient(to top,    transparent 0%,  black 18%,        black 100%)",
+                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.7) 20%, black 42%)",
+                  "linear-gradient(to top,   transparent 0%, black 12%, black 100%)",
                 ].join(", "),
                 WebkitMaskComposite: "source-in",
                 maskComposite: "intersect",
@@ -448,20 +445,29 @@ export default function Hero() {
               }}
               referrerPolicy="no-referrer"
             />
+            {/* Subtle red rim light on right edge */}
+            <div
+              className="absolute right-0 top-0 bottom-0 pointer-events-none"
+              style={{
+                width: "40px",
+                background: "linear-gradient(to left, rgba(220,38,38,0.12) 0%, transparent 100%)",
+                zIndex: 2,
+              }}
+            />
             {/* Ember sparks */}
             <div className="absolute w-1.5 h-1.5 rounded-full bg-red-500/80 shadow-[0_0_8px_#ef4444] animate-pulse"
-              style={{ bottom: "14%", right: "12%", zIndex: 2 }} />
+              style={{ bottom: "14%", right: "14%", zIndex: 3 }} />
             <div className="absolute w-1 h-1 rounded-full bg-red-500/60 shadow-[0_0_6px_#ef4444]"
-              style={{ bottom: "22%", right: "28%", zIndex: 2 }} />
+              style={{ bottom: "22%", right: "30%", zIndex: 3 }} />
           </motion.div>
 
-          {/* ── LEFT TEXT COLUMN — in normal flow, determines hero height ── */}
-          <div className="relative" style={{ width: "58%", zIndex: 10 }}>
+          {/* ── LEFT TEXT COLUMN — 45% width, in flow, sets hero height ── */}
+          <div className="relative px-4" style={{ width: "50%", zIndex: 10 }}>
 
-            {/* ── HEADING — each line reveals from bottom with stagger ── */}
+            {/* ── HEADING ── */}
             <h1
-              className="font-display font-black uppercase tracking-tight text-white select-none"
-              style={{ fontSize: "clamp(1.95rem, 10.2vw, 3rem)", lineHeight: 0.88 }}
+              className="font-display font-black uppercase text-white select-none"
+              style={{ fontSize: "clamp(1.85rem, 9.8vw, 2.9rem)", lineHeight: 0.9, letterSpacing: "-0.01em" }}
             >
               {/* Line 1: TRANSFORM */}
               <span className="block overflow-hidden">
@@ -533,32 +539,32 @@ export default function Hero() {
               </span>
             </h1>
 
-            {/* ── DESCRIPTION — fade in after title ── */}
+            {/* ── DESCRIPTION ── */}
             <motion.p
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               custom={0.72}
-              className="text-stone-400 font-light leading-relaxed mt-4"
-              style={{ fontSize: "clamp(10px, 2.7vw, 12px)" }}
+              className="font-light leading-relaxed mt-3"
+              style={{ fontSize: "clamp(9.5px, 2.55vw, 11.5px)", color: "#B3B3B3" }}
             >
               Best Gym in Murbad with Professional Equipment &amp; Motivating Environment.
               Unleash peak conditioning with premium gears, cardio chambers, and expert guidance.
             </motion.p>
 
-            {/* ── BUTTONS — slide up + interactive press/hover effects ── */}
+            {/* ── BUTTONS ── */}
             <motion.div
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               custom={0.88}
-              className="flex flex-col gap-3 mt-5 pb-6"
+              className="flex flex-col gap-2.5 mt-4 pb-5"
             >
-              {/* JOIN NOW — red glow on hover/tap, scale on tap */}
+              {/* JOIN NOW — red pill */}
               <motion.button
                 onClick={() => handleScrollTo("membership")}
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-red-600 text-white font-black text-xs uppercase tracking-widest rounded-xl cursor-pointer"
-                style={{ willChange: "transform, box-shadow" }}
+                className="w-full inline-flex items-center justify-center gap-2 py-3 bg-red-600 text-white font-black text-[11px] uppercase tracking-widest rounded-full cursor-pointer"
+                style={{ willChange: "transform, box-shadow", boxShadow: "0 0 18px rgba(220,38,38,0.45)" }}
                 whileHover={{
                   backgroundColor: "#ef4444",
                   boxShadow: "0 0 28px rgba(220,38,38,0.7)",
@@ -567,13 +573,13 @@ export default function Hero() {
                 whileTap={{ scale: 1.03, boxShadow: "0 0 32px rgba(220,38,38,0.8)", transition: { duration: 0.1 } }}
               >
                 JOIN NOW
-                <ArrowRight size={13} className="shrink-0" />
+                <ArrowRight size={12} className="shrink-0" />
               </motion.button>
 
-              {/* CONTACT — border glow on hover/tap */}
+              {/* CONTACT — black border pill */}
               <motion.button
                 onClick={() => handleScrollTo("contact")}
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-black border border-white/20 text-white font-black text-xs uppercase tracking-widest rounded-xl cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 bg-black border border-white/25 text-white font-black text-[11px] uppercase tracking-widest rounded-full cursor-pointer"
                 style={{ willChange: "transform, box-shadow" }}
                 whileHover={{
                   borderColor: "rgba(239,68,68,0.55)",
@@ -582,15 +588,15 @@ export default function Hero() {
                 }}
                 whileTap={{ scale: 1.02, transition: { duration: 0.1 } }}
               >
-                <Phone size={12} className="text-red-500 shrink-0" />
+                <Phone size={11} className="text-red-500 shrink-0" />
                 CONTACT
               </motion.button>
             </motion.div>
           </div>
         </div>
 
-        {/* ── STATS — animate on scroll, counters start after card fade-up ── */}
-        <div ref={statsRef} className="px-4 pt-5 pb-10" style={{ zIndex: 5 }}>
+        {/* ── STATS — 2-col grid, dark cards with red glow border ── */}
+        <div ref={statsRef} className="px-4 pt-4 pb-10" style={{ zIndex: 5 }}>
           <div className="grid grid-cols-2 gap-3">
             {stats.map((stat, i) => (
               <motion.div
@@ -598,14 +604,14 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
-                className="flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl bg-[#111111] border border-white/8 text-center"
+                className="stat-card-glow flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl bg-[#111111] text-center"
                 style={{ willChange: "transform, opacity" }}
               >
                 <div className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.65)]">
                   {stat.icon}
                 </div>
                 {/* Counter: animates 0 → target once counterStarted fires */}
-                <div className="font-display font-black text-white text-2xl leading-none tracking-tight">
+                <div className="font-display font-black text-white leading-none tracking-tight" style={{ fontSize: "clamp(1.7rem, 8.5vw, 2.2rem)" }}>
                   <AnimatedCounter
                     target={stat.target}
                     suffix={stat.suffix}

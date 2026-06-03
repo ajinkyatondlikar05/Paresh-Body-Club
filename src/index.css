@@ -86,11 +86,17 @@ body {
   }
 }
 
+/* ─── Stat card red glow border ──────────────────────────────────────────── */
+.stat-card-glow {
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.12), inset 0 0 12px rgba(239, 68, 68, 0.04);
+}
+
 /* ─── Founder Section Custom Mobile Override Styles ─────────────────────── */
 @media (max-width: 768px) {
-  /* Navbar height and flex alignment */
+  /* Navbar height and flex alignment — compact, matches reference */
   nav#main-navbar {
-    height: 105px !important;
+    height: auto !important;
     display: flex !important;
     align-items: center !important;
   }
