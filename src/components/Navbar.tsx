@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface NavbarProps {
@@ -152,34 +152,42 @@ export default function Navbar({ activeSection }: NavbarProps) {
         {isOpen && (
           <motion.div
             id="mobile-nav-panel"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="mobile-menu md:hidden"
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="fixed inset-0 md:hidden"
             style={{
               position: "fixed",
               inset: 0,
-              background: "rgba(0,0,0,0.96)",
+              background: "#0b1117",
               zIndex: 99999,
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
+              height: "100vh",
+              width: "100vw",
             }}
           >
-            {/* Close X icon top-right inside overlay */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 text-gray-400 hover:text-white p-2 cursor-pointer transition-colors duration-200"
-              style={{ zIndex: 100000 }}
-              aria-label="Close menu"
-            >
-              <X className="h-8 w-8 text-white hover:text-red-500" />
-            </button>
+            {/* Top right: bag/cart icon and X close icon */}
+            <div className="absolute top-[40px] right-[50px] flex items-center gap-6" style={{ zIndex: 100000 }}>
+              <ShoppingBag size={34} className="text-white cursor-pointer hover:text-blue-500 transition-colors" />
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-blue-500 cursor-pointer transition-colors p-1"
+                aria-label="Close menu"
+              >
+                <X size={34} />
+              </button>
+            </div>
 
-            {/* Vertically centered links list */}
-            <div className="flex flex-col items-center justify-center">
+            {/* Menu links aligned to the right, starting ~28% from the top */}
+            <div
+              className="flex flex-col items-end w-full"
+              style={{
+                marginTop: "28vh",
+                paddingRight: "50px",
+              }}
+            >
               {navLinks.map((link) => (
                 <a
                   key={link.id}
@@ -188,20 +196,21 @@ export default function Navbar({ activeSection }: NavbarProps) {
                     e.preventDefault();
                     scrollToSection(link.id);
                   }}
-                  className="hover:text-[#ff1a1a]"
                   style={{
                     display: "block",
-                    color: activeSection === link.id ? "#ff1a1a" : "white",
-                    fontSize: "28px",
-                    fontWeight: 800,
+                    color: activeSection === link.id ? "#3b82f6" : "white",
+                    textDecoration: activeSection === link.id ? "underline" : "none",
+                    textUnderlineOffset: "8px",
+                    textDecorationColor: "#3b82f6",
+                    fontSize: "30px",
+                    fontWeight: 500,
                     textTransform: "uppercase",
-                    letterSpacing: "2px",
-                    margin: "14px 0",
-                    opacity: 1,
-                    visibility: "visible",
+                    margin: "21px 0",
                     cursor: "pointer",
-                    transition: "color 0.2s ease, transform 0.2s ease",
+                    textAlign: "right",
+                    transition: "color 0.2s ease",
                   }}
+                  className="hover:text-blue-500"
                 >
                   {link.label}
                 </a>
