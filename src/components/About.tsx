@@ -136,36 +136,36 @@ export default function About() {
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
       <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-16 pb-24 overflow-hidden">
-        {/* Background Athlete Image — 65% wide, high opacity, full body visible to match reference */}
+        {/* Background Athlete Image — right 45%, face/chest/fist visible, not overlapping text */}
         <div
           className="absolute top-0 right-0 h-full pointer-events-none"
           style={{
-            width: "65%",
+            width: "47%",
             backgroundImage: "url('/about-bg.png')",
-            backgroundSize: "220%",
-            backgroundPosition: "center top 20px",
+            backgroundSize: "230%",
+            backgroundPosition: "60% top 20px",
             backgroundRepeat: "no-repeat",
             opacity: 0.50,
             zIndex: 0,
-            filter: "grayscale(100%) contrast(2.1) brightness(1.45)",
+            filter: "grayscale(100%) contrast(2.1) brightness(1.22)",
           }}
         />
 
-        {/* Rim light — warm glow on face edge, red glow on shoulder/chest */}
+        {/* Rim light — warm glow on face, subtle red on shoulder */}
         <div
           className="absolute top-0 right-0 h-full pointer-events-none"
           style={{
-            width: "65%",
+            width: "47%",
             zIndex: 1,
-            background: "radial-gradient(ellipse 40% 35% at 80% 20%, rgba(255,220,200,0.11) 0%, transparent 70%), radial-gradient(ellipse 30% 30% at 75% 50%, rgba(239,68,68,0.07) 0%, transparent 65%)",
+            background: "radial-gradient(ellipse 45% 35% at 75% 22%, rgba(255,220,200,0.10) 0%, transparent 65%), radial-gradient(ellipse 35% 28% at 70% 52%, rgba(239,68,68,0.06) 0%, transparent 60%)",
           }}
         />
 
-        {/* Cinematic blend gradient — solid black on left 30%, fades to transparent by 70% so athlete breathes through */}
+        {/* Cinematic blend gradient — solid black left 38%, fades by 62%, transparent by 85% */}
         <div 
           className="absolute inset-0 z-0 pointer-events-none" 
           style={{
-            background: "linear-gradient(to right, #050505 30%, rgba(5,5,5,0.55) 50%, rgba(5,5,5,0.15) 72%, transparent 100%)",
+            background: "linear-gradient(to right, #050505 38%, rgba(5,5,5,0.6) 55%, rgba(5,5,5,0.18) 75%, transparent 100%)",
             zIndex: 1,
           }}
         />
