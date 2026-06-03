@@ -389,7 +389,7 @@ export default function Hero() {
             Left 45%: heading + desc + buttons (in flow → sets height)
             Right 55%: athlete absolutely positioned, full height
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="relative pt-[68px]" style={{ zIndex: 5, overflow: "visible" }}>
+        <div className="relative pt-[68px]" style={{ zIndex: 5 }}>
 
           {/* Red glow top-left ambient */}
           <div
@@ -409,8 +409,14 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.0, ease: "easeOut", delay: 0.05 }}
-            className="absolute top-0 right-0 bottom-0 pointer-events-none"
-            style={{ width: "57%", zIndex: 1, transformOrigin: "right top", overflow: "visible" }}
+            className="absolute right-0 pointer-events-none"
+            style={{
+              top: "120px",
+              width: "58%",
+              height: "620px",
+              zIndex: 1,
+              overflow: "hidden",
+            }}
           >
             {/* Red glow BEHIND athlete */}
             <div
@@ -425,24 +431,23 @@ export default function Hero() {
               src={imgSrc}
               onError={handleImageError}
               alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
-              className="absolute inset-0 w-full h-full"
+              className="w-full h-full"
               style={{
-                objectFit: "contain",
-                objectPosition: "center top",
-                transform: "translateY(45px) scale(0.94)",
+                objectFit: "cover",
+                objectPosition: "center 18%",
+                transform: "scale(1.08)",
                 transformOrigin: "top center",
                 filter: "brightness(0.88) saturate(1.2) contrast(1.12)",
                 maskImage: [
                   "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
-                  "linear-gradient(to bottom, black 0%, black 80%, transparent 100%)",
+                  "linear-gradient(to bottom, black 0%, black 82%, transparent 100%)",
                 ].join(", "),
                 WebkitMaskImage: [
                   "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
-                  "linear-gradient(to bottom, black 0%, black 80%, transparent 100%)",
+                  "linear-gradient(to bottom, black 0%, black 82%, transparent 100%)",
                 ].join(", "),
                 WebkitMaskComposite: "source-in",
                 maskComposite: "intersect",
-                zIndex: 1,
                 willChange: "transform, opacity",
               }}
               referrerPolicy="no-referrer"
