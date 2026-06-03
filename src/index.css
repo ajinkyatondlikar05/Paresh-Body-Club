@@ -216,3 +216,53 @@ body {
   }
 }
 
+/* Smoke Drift & Embers Rising Animations */
+@keyframes smokeDrift {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.12;
+  }
+  50% {
+    transform: translate(5%, -3%) scale(1.08) rotate(4deg);
+    opacity: 0.22;
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.12;
+  }
+}
+
+@keyframes emberFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.55;
+  }
+  90% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(20px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.animate-smoke-slow {
+  animation: smokeDrift 18s infinite ease-in-out;
+}
+
+.animate-ember-1 {
+  animation: emberFloat 14s infinite linear;
+}
+
+.animate-ember-2 {
+  animation: emberFloat 18s infinite linear 4s;
+}
+
+.animate-ember-3 {
+  animation: emberFloat 22s infinite linear 8s;
+}
+
+
