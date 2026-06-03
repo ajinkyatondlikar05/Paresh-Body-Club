@@ -147,7 +147,17 @@ export default function About() {
             backgroundRepeat: "no-repeat",
             opacity: 0.32,
             zIndex: 0,
-            filter: "grayscale(100%) contrast(1.3) brightness(1.0)",
+            filter: "grayscale(100%) contrast(1.82) brightness(1.35)",
+          }}
+        />
+
+        {/* Rim light — soft radial glow along the athlete's face/shoulder edge */}
+        <div
+          className="absolute top-0 right-0 h-full pointer-events-none"
+          style={{
+            width: "45%",
+            zIndex: 1,
+            background: "radial-gradient(ellipse 30% 45% at 92% 28%, rgba(255,220,200,0.08) 0%, transparent 70%), radial-gradient(ellipse 20% 30% at 88% 52%, rgba(239,68,68,0.06) 0%, transparent 65%)",
           }}
         />
 
