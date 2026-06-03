@@ -389,7 +389,7 @@ export default function Hero() {
             Athlete is absolutely positioned inside and cannot bleed
             into the stats section below.
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="relative" style={{ position: "relative", minHeight: "auto", height: "420px", paddingBottom: "35px", overflow: "hidden", zIndex: 5 }}>
+        <div className="relative" style={{ position: "relative", paddingBottom: "45px", overflow: "visible", zIndex: 5 }}>
 
           {/* Red glow top-left ambient */}
           <div
@@ -566,8 +566,8 @@ export default function Hero() {
             />
           </motion.div>
 
-          {/* ── LEFT TEXT COLUMN — absolute, top 68px, left 0 ── */}
-          <div className="absolute px-4" style={{ top: "68px", marginTop: "50px", left: 0, width: "50%", zIndex: 10 }}>
+          {/* ── LEFT TEXT COLUMN — relative, top 68px, left 0 ── */}
+          <div className="relative px-4" style={{ top: "68px", marginTop: "50px", left: 0, width: "50%", zIndex: 10 }}>
 
             {/* ── HEADING ── */}
             <h1
@@ -663,8 +663,8 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               custom={0.88}
-              className="flex flex-col gap-2.5 mt-4"
-              style={{ marginBottom: "40px" }}
+              className="flex flex-col mt-[32px]"
+              style={{ display: "flex", flexDirection: "column", gap: "18px", marginBottom: "45px", position: "relative", zIndex: 20 }}
             >
               {/* JOIN NOW — red pill */}
               <motion.button
@@ -702,7 +702,7 @@ export default function Hero() {
         </div>
 
         {/* ── STATS — solid bg, z-index above hero so athlete never bleeds through ── */}
-        <div ref={statsRef} className="px-4 pb-10" style={{ position: "relative", zIndex: 10, background: "#050505", marginTop: "0px", paddingTop: "35px" }}>
+        <div ref={statsRef} className="px-4 pb-10" style={{ position: "relative", zIndex: 10, background: "#050505", marginTop: "0px", paddingTop: "0px" }}>
           <div className="grid grid-cols-2" style={{ gap: "24px" }}>
             {stats.map((stat, i) => (
               <motion.div
