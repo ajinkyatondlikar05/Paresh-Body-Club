@@ -136,18 +136,17 @@ export default function About() {
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
       <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-16 pb-24 overflow-hidden">
-        {/* Background Athlete Image - right side background, opacity 25% */}
+        {/* Background Athlete Image - right side background, opacity 28% */}
         <div
           className="absolute top-0 right-0 h-full pointer-events-none"
           style={{
-            width: "55%",
+            width: "48%",
             backgroundImage: "url('/about-bg.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top 72px",
+            backgroundSize: "contain",
+            backgroundPosition: "right center",
             backgroundRepeat: "no-repeat",
-            opacity: 0.25,
+            opacity: 0.28,
             zIndex: 0,
-            filter: "grayscale(100%) contrast(1.15) brightness(0.9)",
           }}
         />
 
@@ -155,15 +154,12 @@ export default function About() {
         <div 
           className="absolute inset-0 z-0 pointer-events-none" 
           style={{
-            background: "linear-gradient(to right, #050505 40%, rgba(5,5,5,0.85) 75%, rgba(5,5,5,0.4) 100%)",
+            background: "linear-gradient(to right, #050505 40%, rgba(5,5,5,0.7) 68%, transparent 100%)",
             zIndex: 1,
           }}
         />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-0 pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#050505]/60 to-transparent z-0 pointer-events-none" />
-
-        {/* Slight cinematic vignette around edges */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(5,5,5,0.70)_100%)] z-0 pointer-events-none" />
 
         {/* Left vertical red accent line (4px wide, 70% opacity, soft glow) */}
         <div className="absolute top-0 left-0 w-[4px] h-full bg-[#ef4444]/70 shadow-[0_0_8px_rgba(239,68,68,0.3)] z-20" />
@@ -204,12 +200,13 @@ export default function About() {
             <strong className="font-black text-white tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
           </motion.p>
 
-          {/* Quote Section (quote box width slightly to 88%, self-centered, darker glass backdrop, thin red border) */}
+          {/* Quote Section (simple red line on left, text beside it, no container/border/bg/shadow) */}
           <motion.div
             variants={fadeUp}
             custom={0.4}
-            className="border-l-[3px] border-[#ef4444]/70 bg-black/65 backdrop-blur-[14px] border border-[#ef4444]/10 py-1.5 px-3 rounded-lg max-w-[88%] mt-[40px] self-center shadow-[0_0_10px_rgba(239,68,68,0.06),_0_4px_12px_rgba(0,0,0,0.8)]"
+            className="flex items-start gap-3 mt-[40px] max-w-[82%]"
           >
+            <div className="shrink-0 w-[2px] self-stretch bg-[#ef4444]/70 rounded-full" />
             <p className="text-stone-100 font-sans text-[12px] leading-[1.65] font-light text-left">
               Whether you are a local beginner stepping into the weights room for the first time, or an elite bodybuilder aiming for stage progression, Master Paresh and his team offer scientifically structured regimes to turn aspiration into heavy concrete results.
             </p>
