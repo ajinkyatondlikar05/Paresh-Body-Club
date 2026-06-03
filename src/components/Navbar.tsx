@@ -45,26 +45,27 @@ export default function Navbar({ activeSection }: NavbarProps) {
       id="main-navbar"
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0a0a0c]/97 backdrop-blur-md border-b border-white/8 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.9)]"
-          : "bg-[#0a0a0c]/90 backdrop-blur-sm py-4"
+          ? "bg-[#0a0a0c]/97 backdrop-blur-md border-b border-white/8 py-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.9)]"
+          : "bg-[#0a0a0c]/90 backdrop-blur-sm py-5"
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between w-full">
-          {/* Logo — hexagon barbell shield matching screenshot */}
+          {/* Logo — hexagon barbell shield with premium upgrades */}
           <div
             onClick={() => scrollToSection("home")}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-4 md:gap-[20px] cursor-pointer group"
           >
-            {/* Hexagon / shield SVG icon with barbell */}
-            <div className="relative w-10 h-10 md:w-11 md:h-11 flex items-center justify-center shrink-0">
-              <svg viewBox="0 0 44 44" className="w-10 h-10 md:w-11 md:h-11" fill="none">
+            {/* Hexagon / shield SVG icon with barbell and subtle red glow */}
+            <div className="relative w-11 h-11 md:w-[48px] md:h-[48px] flex items-center justify-center shrink-0">
+              <div className="absolute inset-0 bg-red-500/20 blur-[10px] rounded-full scale-90 group-hover:scale-105 transition-transform duration-300 pointer-events-none" />
+              <svg viewBox="0 0 44 44" className="relative w-11 h-11 md:w-[48px] md:h-[48px] filter drop-shadow-[0_2px_8px_rgba(239,68,68,0.35)]" fill="none">
                 {/* Hexagon shield */}
                 <path
                   d="M22 2 L40 12 L40 32 L22 42 L4 32 L4 12 Z"
                   fill="#dc2626"
                   stroke="#ef4444"
-                  strokeWidth="1"
+                  strokeWidth="1.5"
                 />
                 {/* Barbell icon inside */}
                 <rect x="10" y="20" width="24" height="4" rx="2" fill="white" />
@@ -74,14 +75,18 @@ export default function Navbar({ activeSection }: NavbarProps) {
                 <rect x="34" y="18" width="4" height="8" rx="1.5" fill="white" />
               </svg>
             </div>
-            <div className="leading-[1.05] flex flex-col justify-center">
-              <div className="font-display font-black text-white text-[13px] md:text-[15px] tracking-tight leading-none">
+            
+            {/* Text block with premium typography & custom red accent line */}
+            <div className="leading-none flex flex-col justify-center text-left">
+              <div className="font-display font-extrabold text-white text-[13px] md:text-[15.5px] tracking-wide leading-none antialiased">
                 PARESH
               </div>
-              <div className="font-display font-black text-red-500 text-[13px] md:text-[15px] tracking-tight leading-none mt-0.5">
+              <div className="font-display font-black text-red-500 text-[16px] md:text-[19px] tracking-tight leading-none mt-0.5 antialiased">
                 BODY CLUB
               </div>
-              <div className="text-[8px] md:text-[9px] uppercase tracking-[0.16em] text-stone-400 font-extrabold leading-none mt-1">
+              {/* Subtle red accent line under BODY CLUB */}
+              <div className="w-8 h-[2px] bg-red-500 mt-1.5 rounded-full shadow-[0_0_6px_rgba(239,68,68,0.7)]" />
+              <div className="text-[7.5px] md:text-[8.5px] uppercase tracking-[0.24em] text-stone-400 font-bold leading-none mt-1.5 antialiased">
                 MURBAD BRANCH
               </div>
             </div>
