@@ -135,14 +135,14 @@ export default function About() {
       {/* ══════════════════════════════════════════════
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden relative w-full min-h-[65vh] bg-[#050505] flex flex-col justify-start gap-3.5 px-6 pt-16 pb-36 overflow-hidden">
-        {/* Ken Burns Background with Bodybuilder image shifted further right & 15% brighter */}
+      <div className="md:hidden relative w-full min-h-[56vh] bg-[#050505] flex flex-col justify-start gap-3 px-6 pt-16 pb-24 overflow-hidden">
+        {/* Ken Burns Background with Bodybuilder image shifted slightly more to the right */}
         <motion.div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
-            backgroundPosition: "24% center",
+            backgroundPosition: "18% center",
             filter: "brightness(1.15)",
             willChange: "transform",
           }}
@@ -183,7 +183,7 @@ export default function About() {
         </div>
 
         {/* Top/Middle Content Block */}
-        <div className="relative z-10 flex flex-col gap-2.5">
+        <div className="relative z-10 flex flex-col gap-2">
           {/* Heading */}
           <motion.div
             variants={fadeUp}
@@ -205,11 +205,11 @@ export default function About() {
             <strong className="font-black text-white tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
           </motion.p>
 
-          {/* Quote Section (moved slightly lower, max-w 86%, dark glass background, subtle red border) */}
+          {/* Quote Section (moved slightly upward, max-w 82%, darker background rgba(0,0,0,0.65), reduced padding, thin red border) */}
           <motion.div
             variants={fadeUp}
             custom={0.4}
-            className="border-l-[3px] border-[#ef4444]/70 bg-[#060608]/75 backdrop-blur-[18px] border border-[#ef4444]/10 py-2 px-3.5 rounded-lg max-w-[86%] mt-3 shadow-[0_0_10px_rgba(239,68,68,0.06),_0_4px_12px_rgba(0,0,0,0.8)]"
+            className="border-l-[3px] border-[#ef4444]/70 bg-black/65 backdrop-blur-[16px] border border-[#ef4444]/10 py-1.5 px-3 rounded-lg max-w-[82%] mt-1.5 shadow-[0_0_10px_rgba(239,68,68,0.06),_0_4px_12px_rgba(0,0,0,0.8)]"
           >
             <p className="text-stone-100 font-sans text-[12px] leading-[1.65] font-light text-left">
               Whether you are a local beginner stepping into the weights room for the first time, or an elite bodybuilder aiming for stage progression, Master Paresh and his team offer scientifically structured regimes to turn aspiration into heavy concrete results.
@@ -217,11 +217,11 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Bottom Motivational Block (moved slightly lower, no negative translation, centered with flanking lines) */}
+        {/* Bottom Motivational Block (moved upward by 35px via translate, reduced vertical gap) */}
         <motion.div
           variants={fadeUp}
           custom={0.5}
-          className="relative z-10 w-full flex flex-col items-center justify-center mt-6 pt-1"
+          className="relative z-10 w-full flex flex-col items-center justify-center mt-3 pt-1 -translate-y-9"
         >
           {/* Flanking lines container */}
           <div className="w-full flex items-center justify-center gap-2.5 my-0.5">
