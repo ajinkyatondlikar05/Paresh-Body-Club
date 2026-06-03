@@ -29,6 +29,18 @@ export default function Navbar({ activeSection }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scrolling while menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     const element = document.getElementById(id);
@@ -43,11 +55,12 @@ export default function Navbar({ activeSection }: NavbarProps) {
   return (
     <nav
       id="main-navbar"
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full transition-all duration-300 ${
         scrolled
           ? "bg-[#0a0a0c]/97 backdrop-blur-md border-b border-white/8 py-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.9)]"
           : "bg-[#0a0a0c]/90 backdrop-blur-sm py-5"
       }`}
+      style={{ zIndex: 10000 }}
     >
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between w-full">
@@ -126,8 +139,9 @@ export default function Navbar({ activeSection }: NavbarProps) {
               id="mobile-menu-toggle"
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-400 hover:text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none cursor-pointer"
+              style={{ zIndex: 10001, position: "relative" }}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
             </button>
           </div>
         </div>
@@ -138,30 +152,39 @@ export default function Navbar({ activeSection }: NavbarProps) {
         {isOpen && (
           <motion.div
             id="mobile-nav-panel"
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 w-full md:hidden bg-[#0c0c0e]/98 backdrop-blur-xl border-b border-white/10 shadow-[0_15px_30px_rgba(0,0,0,0.85)] max-h-[calc(100vh-80px)] overflow-y-auto"
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed inset-0 md:hidden bg-[#050505]/98 backdrop-blur-xl border-b border-red-500/20 shadow-[0_15px_30px_rgba(239,68,68,0.15)] flex flex-col pt-[100px] px-6 pb-10 overflow-y-auto"
+            style={{
+              zIndex: 9999,
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: "100vh",
+            }}
           >
-            <div className="px-4 py-6 space-y-2 sm:px-6">
+            <div className="flex flex-col justify-center items-center gap-6 mt-4">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`block w-full text-left px-3 py-2.5 rounded-md text-sm font-bold uppercase tracking-wider cursor-pointer ${
+                  className={`text-lg font-black uppercase tracking-widest transition-all duration-200 cursor-pointer ${
                     activeSection === link.id
-                      ? "text-red-500 bg-red-900/20 pl-4 border-l-4 border-red-500"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
+                      ? "text-red-500 scale-105 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]"
+                      : "text-white hover:text-red-500"
                   }`}
                 >
                   {link.label}
                 </button>
               ))}
-              <div className="pt-4 pb-2 px-3">
+              <div className="pt-6 w-full max-w-[280px] pb-8">
                 <button
                   onClick={() => scrollToSection("membership")}
-                  className="w-full text-center py-3.5 bg-red-600 hover:bg-red-500 text-white text-sm font-black uppercase tracking-widest rounded-md shadow-lg shadow-red-500/30 cursor-pointer transition-all duration-300 flex items-center justify-center gap-2"
+                  className="w-full text-center py-4 bg-red-600 hover:bg-red-500 text-white text-sm font-black uppercase tracking-widest rounded-full shadow-[0_0_20px_rgba(239,68,68,0.45)] cursor-pointer transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   JOIN NOW <ArrowRight size={16} />
                 </button>
