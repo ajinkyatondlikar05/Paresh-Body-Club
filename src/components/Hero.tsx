@@ -389,7 +389,7 @@ export default function Hero() {
             Athlete is absolutely positioned inside and cannot bleed
             into the stats section below.
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="relative" style={{ height: "520px", overflow: "hidden", zIndex: 5 }}>
+        <div className="relative" style={{ height: "520px", paddingBottom: "55px", overflow: "hidden", zIndex: 5 }}>
 
           {/* Red glow top-left ambient */}
           <div
@@ -663,7 +663,8 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               custom={0.88}
-              className="flex flex-col gap-2.5 mt-4 pb-5"
+              className="flex flex-col gap-2.5 mt-4"
+              style={{ marginBottom: "55px" }}
             >
               {/* JOIN NOW — red pill */}
               <motion.button
@@ -701,8 +702,8 @@ export default function Hero() {
         </div>
 
         {/* ── STATS — solid bg, z-index above hero so athlete never bleeds through ── */}
-        <div ref={statsRef} className="px-4 pt-4 pb-10" style={{ position: "relative", zIndex: 10, background: "#0a0a0a" }}>
-          <div className="grid grid-cols-2 gap-3">
+        <div ref={statsRef} className="px-4 pb-10" style={{ position: "relative", zIndex: 5, background: "#0a0a0a", marginTop: "35px", paddingTop: "20px" }}>
+          <div className="grid grid-cols-2" style={{ gap: "28px" }}>
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
