@@ -147,7 +147,7 @@ export default function About() {
             backgroundRepeat: "no-repeat",
             opacity: 0.55,
             zIndex: 0,
-            filter: "grayscale(100%) contrast(2.2) brightness(1.30)",
+            filter: "contrast(2.2) brightness(1.30)",
           }}
         />
 
@@ -157,7 +157,7 @@ export default function About() {
           style={{
             width: "65%",
             zIndex: 1,
-            background: "radial-gradient(ellipse 42% 32% at 72% 20%, rgba(255,220,200,0.10) 0%, transparent 65%), radial-gradient(ellipse 32% 26% at 68% 50%, rgba(239,68,68,0.06) 0%, transparent 60%)",
+            background: "radial-gradient(ellipse 42% 32% at 72% 20%, rgba(255,210,170,0.22) 0%, transparent 65%), radial-gradient(ellipse 32% 26% at 68% 50%, rgba(239,68,68,0.06) 0%, transparent 60%)",
           }}
         />
 
