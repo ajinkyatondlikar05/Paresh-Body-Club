@@ -135,15 +135,15 @@ export default function About() {
       {/* ══════════════════════════════════════════════
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden relative w-full min-h-[63vh] bg-[#050505] flex flex-col justify-start gap-4 px-6 pt-16 pb-32 overflow-hidden">
-        {/* Ken Burns Background with Bodybuilder image shifted right & 15% brighter (brightness 1.10) */}
+      <div className="md:hidden relative w-full min-h-[65vh] bg-[#050505] flex flex-col justify-start gap-3.5 px-6 pt-16 pb-36 overflow-hidden">
+        {/* Ken Burns Background with Bodybuilder image shifted further right & 15% brighter */}
         <motion.div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
-            backgroundPosition: "35% center",
-            filter: "brightness(1.10)",
+            backgroundPosition: "24% center",
+            filter: "brightness(1.15)",
             willChange: "transform",
           }}
           initial={{ scale: 1 }}
@@ -151,17 +151,20 @@ export default function About() {
           transition={{ duration: 15, ease: "linear" }}
         />
 
-        {/* Ambient Overlays to blend bodybuilder & text (soft overlay to keep face natural) */}
+        {/* Ambient Overlays to blend bodybuilder & text (stronger black gradient behind text area) */}
         <div className="absolute inset-0 bg-black/10 z-0 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/95 via-[#050505]/35 to-transparent z-0 pointer-events-none" />
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none" 
+          style={{ backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.65), transparent)" }}
+        />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-0 pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#050505]/60 to-transparent z-0 pointer-events-none" />
 
         {/* Slight cinematic vignette around edges */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(5,5,5,0.70)_100%)] z-0 pointer-events-none" />
 
-        {/* Subtle red rim light around bodybuilder's silhouette (shoulder only, face remains clean and natural) */}
-        <div className="absolute top-[25%] right-0 w-36 h-36 rounded-full bg-red-650/15 blur-[50px] pointer-events-none z-0 mix-blend-screen" />
+        {/* Subtle red rim light around bodybuilder's silhouette (silhouette only, face is clean and natural) */}
+        <div className="absolute top-[32%] right-0 w-36 h-36 rounded-full bg-red-650/10 blur-[45px] pointer-events-none z-0 mix-blend-screen" />
 
         {/* Left vertical red accent line (4px wide, 70% opacity, soft glow) */}
         <div className="absolute top-0 left-0 w-[4px] h-full bg-[#ef4444]/70 shadow-[0_0_8px_rgba(239,68,68,0.3)] z-20" />
@@ -193,32 +196,32 @@ export default function About() {
             <div className="w-16 h-[3px] bg-[#ef4444] mt-2 shadow-[0_0_6px_rgba(239,68,68,0.6)]" />
           </motion.div>
 
-          {/* Description Block (constrained to 72% to ensure zero overlap with face) */}
+          {/* Description Block (constrained to 82% max-width, line-height 1.7) */}
           <motion.p
             variants={fadeUp}
             custom={0.25}
-            className="text-stone-100 font-sans text-[13.5px] leading-[1.7] font-light pr-2 max-w-[72%] mt-0.5 text-left"
+            className="text-stone-100 font-sans text-[13.5px] leading-[1.7] font-light pr-2 max-w-[82%] mt-0.5 text-left"
           >
             <strong className="font-black text-white tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
           </motion.p>
 
-          {/* Quote Section with enhanced glass effect and subtle red border glow (reduced width and height) */}
+          {/* Quote Section (moved slightly lower, max-w 86%, dark glass background, subtle red border) */}
           <motion.div
             variants={fadeUp}
             custom={0.4}
-            className="border-l-[3px] border-[#ef4444]/75 bg-[#08080a]/50 backdrop-blur-[16px] border border-[#ef4444]/10 py-2.5 px-3.5 rounded-lg max-w-[72%] mt-0.5 shadow-[0_0_12px_rgba(239,68,68,0.08),_0_4px_12px_rgba(0,0,0,0.75)]"
+            className="border-l-[3px] border-[#ef4444]/70 bg-[#060608]/75 backdrop-blur-[18px] border border-[#ef4444]/10 py-2 px-3.5 rounded-lg max-w-[86%] mt-3 shadow-[0_0_10px_rgba(239,68,68,0.06),_0_4px_12px_rgba(0,0,0,0.8)]"
           >
-            <p className="text-stone-150 font-sans text-[12px] leading-[1.65] font-light text-left">
+            <p className="text-stone-100 font-sans text-[12px] leading-[1.65] font-light text-left">
               Whether you are a local beginner stepping into the weights room for the first time, or an elite bodybuilder aiming for stage progression, Master Paresh and his team offer scientifically structured regimes to turn aspiration into heavy concrete results.
             </p>
           </motion.div>
         </div>
 
-        {/* Bottom Motivational Block (-translate-y-6 shifts it up 24px, mt-4 reduces gap, pb-32 bottom padding guarantees 120px+ WhatsApp clearance) */}
+        {/* Bottom Motivational Block (moved slightly lower, no negative translation, centered with flanking lines) */}
         <motion.div
           variants={fadeUp}
           custom={0.5}
-          className="relative z-10 w-full flex flex-col items-center justify-center mt-4 pt-1 -translate-y-6"
+          className="relative z-10 w-full flex flex-col items-center justify-center mt-6 pt-1"
         >
           {/* Flanking lines container */}
           <div className="w-full flex items-center justify-center gap-2.5 my-0.5">
@@ -227,7 +230,7 @@ export default function About() {
               <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
             </div>
 
-            {/* Center text (+30% size, DAY much larger, red glow) */}
+            {/* Center text (+30% size, DAY much larger with premium glow and mt-4 spacing) */}
             <div className="font-display font-black leading-[1.0] tracking-tight text-center z-10 shrink-0 select-none pointer-events-none">
               <span className="block text-stone-150 text-[25px] tracking-tight uppercase">TODAY IS THE DAY</span>
               <span className="block text-stone-150 text-[25px] tracking-tight uppercase">BECAUSE TODAY</span>
@@ -235,7 +238,7 @@ export default function About() {
               
               {/* DAY. with red glow */}
               <span 
-                className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-3"
+                className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-4"
                 style={{ textShadow: "0 0 25px rgba(239,68,68,0.85)" }}
               >
                 DAY.
