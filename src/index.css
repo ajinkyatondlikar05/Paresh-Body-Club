@@ -201,3 +201,18 @@ body {
     font-size: 9px !important;
   }
 }
+
+/* About Section Mobile Optimization (< 768px) */
+@media (max-width: 767px) {
+  .about-stats,
+  .about-stats-grid,
+  .about-metric-card {
+    display: none !important;
+  }
+
+  .about-section {
+    padding-bottom: 40px;
+    min-height: auto;
+  }
+}
+

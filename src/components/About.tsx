@@ -127,7 +127,7 @@ export default function About() {
     <motion.section
       id="about"
       ref={sectionRef}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden about-section"
       initial="hidden"
       animate={sectionInView ? "visible" : "hidden"}
     >
@@ -281,8 +281,8 @@ export default function About() {
           </div>
 
           {/* ── Stats Cards ── */}
-          <div ref={statsRef} className="relative z-10 w-full mt-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+          <div ref={statsRef} className="relative z-10 w-full mt-10 about-stats">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full about-stats-grid">
               {STATS.map((stat, i) => {
                 const IconComp = stat.icon;
                 return (
@@ -298,7 +298,7 @@ export default function About() {
                       boxShadow: "0 0 24px 4px rgba(239,68,68,0.22)",
                       transition: { duration: 0.3, ease: "easeOut" },
                     }}
-                    className="flex flex-col items-center justify-center p-6 text-center rounded-xl bg-black/45 border border-white/10 backdrop-blur-sm relative overflow-hidden group hover:border-red-500/30 transition-colors duration-300 cursor-default"
+                    className="flex flex-col items-center justify-center p-6 text-center rounded-xl bg-black/45 border border-white/10 backdrop-blur-sm relative overflow-hidden group hover:border-red-500/30 transition-colors duration-300 cursor-default about-metric-card"
                     style={{ willChange: "transform" }}
                   >
                     {/* Red circle icon */}
