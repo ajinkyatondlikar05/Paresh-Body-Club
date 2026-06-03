@@ -135,15 +135,15 @@ export default function About() {
       {/* ══════════════════════════════════════════════
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden relative w-full min-h-[100dvh] bg-[#050505] flex flex-col justify-start pt-20 pb-28 overflow-hidden">
-        {/* Background Athlete Image - positioned in lower half, right-aligned, 15% opacity, acts as background accent only */}
+      <div className="md:hidden relative w-full min-h-[100dvh] bg-[#050505] flex flex-col justify-start pt-20 pb-[80px] overflow-hidden">
+        {/* Background Athlete Image - positioned in lower half, right-aligned, 20% opacity, acts as background accent only */}
         <motion.div
-          className="absolute right-[-20px] bottom-[40px] w-[45%] h-[300px] z-0 pointer-events-none"
+          className="absolute right-[-20px] bottom-[95px] w-[45%] h-[300px] z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "35% center",
-            opacity: 0.15,
+            opacity: 0.20,
             filter: "grayscale(100%) contrast(1.3) brightness(0.95)",
             willChange: "transform",
           }}
@@ -221,11 +221,11 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* Bottom Motivational Block (moved lower by mt-[40px] to prevent overlapping, centered with flanking lines) */}
+          {/* Bottom Motivational Block (moved lower by mt-[20px] to prevent overlapping, centered with flanking lines) */}
           <motion.div
             variants={fadeUp}
             custom={0.5}
-            className="w-full flex flex-col items-center justify-center mt-[40px]"
+            className="w-full flex flex-col items-center justify-center mt-[20px]"
           >
             {/* Flanking lines container */}
             <div className="w-full flex items-center justify-center gap-4 my-1">
