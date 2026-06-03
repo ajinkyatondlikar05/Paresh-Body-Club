@@ -54,12 +54,12 @@ export default function Navbar({ activeSection }: NavbarProps) {
           {/* Logo — hexagon barbell shield with premium upgrades */}
           <div
             onClick={() => scrollToSection("home")}
-            className="flex items-center gap-4 md:gap-[20px] cursor-pointer group"
+            className="flex items-center gap-5 cursor-pointer group"
           >
             {/* Hexagon / shield SVG icon with barbell and subtle red glow */}
-            <div className="relative w-11 h-11 md:w-[48px] md:h-[48px] flex items-center justify-center shrink-0">
+            <div className="relative w-11 h-11 md:w-[50px] md:h-[50px] flex items-center justify-center shrink-0">
               <div className="absolute inset-0 bg-red-500/20 blur-[10px] rounded-full scale-90 group-hover:scale-105 transition-transform duration-300 pointer-events-none" />
-              <svg viewBox="0 0 44 44" className="relative w-11 h-11 md:w-[48px] md:h-[48px] filter drop-shadow-[0_2px_8px_rgba(239,68,68,0.35)]" fill="none">
+              <svg viewBox="0 0 44 44" className="relative w-11 h-11 md:w-[50px] md:h-[50px] filter drop-shadow-[0_2px_8px_rgba(239,68,68,0.35)]" fill="none">
                 {/* Hexagon shield */}
                 <path
                   d="M22 2 L40 12 L40 32 L22 42 L4 32 L4 12 Z"
@@ -77,16 +77,18 @@ export default function Navbar({ activeSection }: NavbarProps) {
             </div>
             
             {/* Text block with premium typography & custom red accent line */}
-            <div className="leading-none flex flex-col justify-center text-left">
-              <div className="font-display font-extrabold text-white text-[13px] md:text-[15.5px] tracking-wide leading-none antialiased">
-                PARESH
+            <div className="flex flex-col justify-center text-left">
+              <div className="flex items-baseline gap-1.5 leading-none">
+                <span className="font-display font-bold text-white text-[14.5px] md:text-[17px] antialiased">
+                  PARESH
+                </span>
+                <span className="font-display font-black text-red-500 text-[15.5px] md:text-[18px] antialiased">
+                  BODY CLUB
+                </span>
               </div>
-              <div className="font-display font-black text-red-500 text-[16px] md:text-[19px] tracking-tight leading-none mt-0.5 antialiased">
-                BODY CLUB
-              </div>
-              {/* Subtle red accent line under BODY CLUB */}
-              <div className="w-8 h-[2px] bg-red-500 mt-1.5 rounded-full shadow-[0_0_6px_rgba(239,68,68,0.7)]" />
-              <div className="text-[7.5px] md:text-[8.5px] uppercase tracking-[0.24em] text-stone-400 font-bold leading-none mt-1.5 antialiased">
+              {/* Subtle red accent line under branding */}
+              <div className="w-9 h-[1.5px] bg-red-500 mt-1.5 rounded-full shadow-[0_0_4px_rgba(239,68,68,0.6)]" />
+              <div className="text-[7.5px] md:text-[8.5px] uppercase tracking-[0.24em] text-stone-400 font-semibold leading-none mt-1.5 antialiased">
                 MURBAD BRANCH
               </div>
             </div>

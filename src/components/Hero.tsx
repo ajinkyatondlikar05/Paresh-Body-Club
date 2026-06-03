@@ -567,7 +567,7 @@ export default function Hero() {
           </motion.div>
 
           {/* ── LEFT TEXT COLUMN — absolute, top 68px, left 0 ── */}
-          <div className="absolute px-4" style={{ top: "68px", left: 0, width: "50%", zIndex: 10 }}>
+          <div className="absolute px-4" style={{ top: "68px", marginTop: "50px", left: 0, width: "50%", zIndex: 10 }}>
 
             {/* ── HEADING ── */}
             <h1
