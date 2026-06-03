@@ -135,14 +135,14 @@ export default function About() {
       {/* ══════════════════════════════════════════════
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden relative w-full min-h-[56vh] bg-[#050505] flex flex-col justify-start gap-3 px-6 pt-16 pb-24 overflow-hidden">
-        {/* Ken Burns Background with Bodybuilder image shifted slightly more to the right */}
+      <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-16 pb-24 overflow-hidden">
+        {/* Ken Burns Background with Bodybuilder image shifted further right */}
         <motion.div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
-            backgroundPosition: "18% center",
+            backgroundPosition: "8% center",
             filter: "brightness(1.15)",
             willChange: "transform",
           }}
@@ -152,10 +152,10 @@ export default function About() {
         />
 
         {/* Ambient Overlays to blend bodybuilder & text (stronger black gradient behind text area) */}
-        <div className="absolute inset-0 bg-black/10 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/15 z-0 pointer-events-none" />
         <div 
           className="absolute inset-0 z-0 pointer-events-none" 
-          style={{ backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.65), transparent)" }}
+          style={{ backgroundImage: "linear-gradient(to right, rgba(0,0,0,1.0) 25%, rgba(0,0,0,0.85) 55%, transparent 100%)" }}
         />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-0 pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#050505]/60 to-transparent z-0 pointer-events-none" />
@@ -182,8 +182,8 @@ export default function About() {
           <div className="absolute left-[48%] w-2 h-2 bg-red-500 rounded-full blur-[2px] animate-ember-3" />
         </div>
 
-        {/* Top/Middle Content Block */}
-        <div className="relative z-10 flex flex-col gap-2">
+        {/* Content Block (Single vertical flow with explicit margins, no translation or negative margins) */}
+        <div className="relative z-10 flex flex-col items-start w-full">
           {/* Heading */}
           <motion.div
             variants={fadeUp}
@@ -200,57 +200,57 @@ export default function About() {
           <motion.p
             variants={fadeUp}
             custom={0.25}
-            className="text-stone-100 font-sans text-[13.5px] leading-[1.7] font-light pr-2 max-w-[82%] mt-0.5 text-left"
+            className="text-stone-100 font-sans text-[13.5px] leading-[1.7] font-light pr-2 max-w-[82%] mt-[30px] text-left"
           >
             <strong className="font-black text-white tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
           </motion.p>
 
-          {/* Quote Section (moved slightly upward, max-w 82%, darker background rgba(0,0,0,0.65), reduced padding, thin red border) */}
+          {/* Quote Section (exactly where it is, current styling, mt-[40px]) */}
           <motion.div
             variants={fadeUp}
             custom={0.4}
-            className="border-l-[3px] border-[#ef4444]/70 bg-black/65 backdrop-blur-[16px] border border-[#ef4444]/10 py-1.5 px-3 rounded-lg max-w-[82%] mt-1.5 shadow-[0_0_10px_rgba(239,68,68,0.06),_0_4px_12px_rgba(0,0,0,0.8)]"
+            className="border-l-[3px] border-[#ef4444]/70 bg-black/65 backdrop-blur-[16px] border border-[#ef4444]/10 py-1.5 px-3 rounded-lg max-w-[82%] mt-[40px] shadow-[0_0_10px_rgba(239,68,68,0.06),_0_4px_12px_rgba(0,0,0,0.8)]"
           >
             <p className="text-stone-100 font-sans text-[12px] leading-[1.65] font-light text-left">
               Whether you are a local beginner stepping into the weights room for the first time, or an elite bodybuilder aiming for stage progression, Master Paresh and his team offer scientifically structured regimes to turn aspiration into heavy concrete results.
             </p>
           </motion.div>
+
+          {/* Bottom Motivational Block (moved lower by mt-[60px] to prevent overlapping, centered with flanking lines) */}
+          <motion.div
+            variants={fadeUp}
+            custom={0.5}
+            className="w-full flex flex-col items-center justify-center mt-[60px] pt-1"
+          >
+            {/* Flanking lines container */}
+            <div className="w-full flex items-center justify-center gap-2.5 my-0.5">
+              {/* Left glowing line (shorter with softer glow) */}
+              <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-r from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
+              </div>
+
+              {/* Center text (+30% size, DAY much larger with premium glow and mt-4 spacing) */}
+              <div className="font-display font-black leading-[1.0] tracking-tight text-center z-10 shrink-0 select-none pointer-events-none">
+                <span className="block text-stone-150 text-[25px] tracking-tight uppercase">TODAY IS THE DAY</span>
+                <span className="block text-stone-150 text-[25px] tracking-tight uppercase">BECAUSE TODAY</span>
+                <span className="block text-stone-150 text-[25px] tracking-tight uppercase">IS YOUR</span>
+                
+                {/* DAY. with red glow */}
+                <span 
+                  className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-4"
+                  style={{ textShadow: "0 0 25px rgba(239,68,68,0.85)" }}
+                >
+                  DAY.
+                </span>
+              </div>
+
+              {/* Right glowing line (shorter with softer glow) */}
+              <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-l from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* Bottom Motivational Block (moved upward by 35px via translate, reduced vertical gap) */}
-        <motion.div
-          variants={fadeUp}
-          custom={0.5}
-          className="relative z-10 w-full flex flex-col items-center justify-center mt-3 pt-1 -translate-y-9"
-        >
-          {/* Flanking lines container */}
-          <div className="w-full flex items-center justify-center gap-2.5 my-0.5">
-            {/* Left glowing line (shorter with softer glow) */}
-            <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-r from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
-            </div>
-
-            {/* Center text (+30% size, DAY much larger with premium glow and mt-4 spacing) */}
-            <div className="font-display font-black leading-[1.0] tracking-tight text-center z-10 shrink-0 select-none pointer-events-none">
-              <span className="block text-stone-150 text-[25px] tracking-tight uppercase">TODAY IS THE DAY</span>
-              <span className="block text-stone-150 text-[25px] tracking-tight uppercase">BECAUSE TODAY</span>
-              <span className="block text-stone-150 text-[25px] tracking-tight uppercase">IS YOUR</span>
-              
-              {/* DAY. with red glow */}
-              <span 
-                className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-4"
-                style={{ textShadow: "0 0 25px rgba(239,68,68,0.85)" }}
-              >
-                DAY.
-              </span>
-            </div>
-
-            {/* Right glowing line (shorter with softer glow) */}
-            <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-l from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
-            </div>
-          </div>
-        </motion.div>
       </div>
 
       {/* ══════════════════════════════════════════════
