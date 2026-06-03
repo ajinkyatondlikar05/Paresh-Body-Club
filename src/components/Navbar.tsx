@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface NavbarProps {
@@ -147,76 +147,121 @@ export default function Navbar({ activeSection }: NavbarProps) {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Drawer Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            id="mobile-nav-panel"
-            initial={{ x: "100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "100%", opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            className="fixed inset-0 md:hidden"
-            style={{
-              position: "fixed",
-              inset: 0,
-              background: "#0b1117",
-              zIndex: 99999,
-              display: "flex",
-              flexDirection: "column",
-              height: "100vh",
-              width: "100vw",
-            }}
-          >
-            {/* Top right: bag/cart icon and X close icon */}
-            <div className="absolute top-[40px] right-[50px] flex items-center gap-6" style={{ zIndex: 100000 }}>
-              <ShoppingBag size={34} className="text-white cursor-pointer hover:text-blue-500 transition-colors" />
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-blue-500 cursor-pointer transition-colors p-1"
-                aria-label="Close menu"
-              >
-                <X size={34} />
-              </button>
-            </div>
-
-            {/* Menu links aligned to the right, starting ~28% from the top */}
-            <div
-              className="flex flex-col items-end w-full"
+          <>
+            {/* Dark backdrop overlay on remaining right side */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 md:hidden bg-black/60"
               style={{
-                marginTop: "28vh",
-                paddingRight: "50px",
+                position: "fixed",
+                inset: 0,
+                zIndex: 99998,
+              }}
+            />
+
+            {/* Left Side Drawer */}
+            <motion.div
+              id="mobile-nav-panel"
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
+              className="fixed top-0 left-0 h-full w-[80%] max-w-[340px] md:hidden bg-[#202020] flex flex-col shadow-[10px_0_30px_rgba(0,0,0,0.5)] overflow-y-auto"
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                bottom: 0,
+                height: "100vh",
+                zIndex: 99999,
               }}
             >
-              {navLinks.map((link) => (
-                <a
-                  key={link.id}
-                  href={`#${link.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(link.id);
-                  }}
-                  style={{
-                    display: "block",
-                    color: activeSection === link.id ? "#3b82f6" : "white",
-                    textDecoration: activeSection === link.id ? "underline" : "none",
-                    textUnderlineOffset: "8px",
-                    textDecorationColor: "#3b82f6",
-                    fontSize: "30px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    margin: "21px 0",
-                    cursor: "pointer",
-                    textAlign: "right",
-                    transition: "color 0.2s ease",
-                  }}
-                  className="hover:text-blue-500"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </motion.div>
+              {/* Close X icon top-right inside drawer */}
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-6 right-5 text-white hover:text-[#ff1a1a] cursor-pointer p-1 transition-colors duration-200"
+                aria-label="Close menu"
+              >
+                <X size={32} />
+              </button>
+
+              {/* Top Logo Area — aligned left, padding: 28px top, 32px left */}
+              <div className="pt-[28px] pl-[32px] flex items-center gap-3.5 mb-6">
+                <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
+                  <svg viewBox="0 0 44 44" className="w-10 h-10 filter drop-shadow-[0_2px_6px_rgba(239,68,68,0.3)]" fill="none">
+                    <path
+                      d="M22 2 L40 12 L40 32 L22 42 L4 32 L4 12 Z"
+                      fill="#dc2626"
+                      stroke="#ef4444"
+                      strokeWidth="1.5"
+                    />
+                    <rect x="10" y="20" width="24" height="4" rx="2" fill="white" />
+                    <rect x="9" y="16" width="4" height="12" rx="2" fill="white" />
+                    <rect x="31" y="16" width="4" height="12" rx="2" fill="white" />
+                    <rect x="6" y="18" width="4" height="8" rx="1.5" fill="white" />
+                    <rect x="34" y="18" width="4" height="8" rx="1.5" fill="white" />
+                  </svg>
+                </div>
+                <div className="flex flex-col text-left justify-center leading-none">
+                  <span className="font-display font-extrabold text-white text-[12px] tracking-wide leading-none antialiased">
+                    PARESH
+                  </span>
+                  <span className="font-display font-black text-red-500 text-[13px] tracking-tight leading-none mt-0.5 antialiased">
+                    BODY CLUB
+                  </span>
+                </div>
+              </div>
+
+              {/* Menu links list */}
+              <div className="flex flex-col w-full">
+                {navLinks.map((link) => {
+                  const isHome = link.id === "home";
+                  const isExpandable = link.id === "membership" || link.id === "facilities";
+                  const isActive = activeSection === link.id;
+
+                  return (
+                    <a
+                      key={link.id}
+                      href={`#${link.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(link.id);
+                      }}
+                      className="flex items-center justify-between w-full border-b border-white/8 hover:text-[#ff1a1a] transition-colors duration-200 cursor-pointer text-left pl-[32px] group"
+                      style={{
+                        height: "72px",
+                        color: isActive ? "#ff1a1a" : "white",
+                        fontSize: "22px",
+                        fontWeight: 700,
+                        textTransform: isHome ? "none" : "uppercase",
+                      }}
+                    >
+                      <span>{isHome ? "Home" : link.label}</span>
+                      {isExpandable && (
+                        <svg
+                          className="w-5 h-5 mr-8 text-stone-400 group-hover:text-[#ff1a1a] transition-colors"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      )}
+                    </a>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
