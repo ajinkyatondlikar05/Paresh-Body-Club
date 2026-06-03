@@ -49,8 +49,8 @@ export default function Navbar({ activeSection }: NavbarProps) {
           : "bg-[#0a0a0c]/90 backdrop-blur-sm py-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between w-full">
           {/* Logo — hexagon barbell shield matching screenshot */}
           <div
             onClick={() => scrollToSection("home")}

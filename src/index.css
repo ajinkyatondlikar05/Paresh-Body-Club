@@ -94,10 +94,25 @@ body {
 
 /* ─── Founder Section Custom Mobile Override Styles ─────────────────────── */
 @media (max-width: 768px) {
-  /* Navbar: auto height, block layout — inner div handles flex justify-between */
+  /* Navbar: block element, inner wrapper fills full viewport width */
   nav#main-navbar {
     height: auto !important;
     display: block !important;
+  }
+  /* Inner wrapper must be full-width so justify-between works correctly */
+  nav#main-navbar > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  /* Inner flex row spans full width */
+  nav#main-navbar > div > div {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 
   /* 05 Stencil Watermark */

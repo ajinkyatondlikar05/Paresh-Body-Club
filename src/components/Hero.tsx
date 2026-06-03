@@ -389,7 +389,7 @@ export default function Hero() {
             Left 45%: heading + desc + buttons (in flow → sets height)
             Right 55%: athlete absolutely positioned, full height
         ═══════════════════════════════════════════════════════════════ */}
-        <div className="relative pt-[72px]" style={{ zIndex: 5 }}>
+        <div className="relative pt-[68px]" style={{ zIndex: 5 }}>
 
           {/* Red glow top-left ambient */}
           <div
@@ -409,8 +409,8 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.0, ease: "easeOut", delay: 0.05 }}
-            className="absolute top-[20px] right-0 bottom-0 pointer-events-none"
-            style={{ width: "57%", zIndex: 1, transformOrigin: "right top" }}
+            className="absolute top-0 right-0 bottom-0 pointer-events-none"
+            style={{ width: "57%", zIndex: 1, transformOrigin: "right top", overflow: "visible" }}
           >
             {/* Red glow BEHIND athlete */}
             <div
@@ -428,15 +428,15 @@ export default function Hero() {
               className="absolute inset-0 w-full h-full"
               style={{
                 objectFit: "cover",
-                objectPosition: "15% center",
+                objectPosition: "center top",
                 filter: "brightness(0.88) saturate(1.2) contrast(1.12)",
-                WebkitMaskImage: [
-                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 18%, black 38%)",
-                  "linear-gradient(to top,   transparent 0%, black 6%, black 100%)",
-                ].join(", "),
                 maskImage: [
-                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 18%, black 38%)",
-                  "linear-gradient(to top,   transparent 0%, black 6%, black 100%)",
+                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
+                  "linear-gradient(to bottom, transparent 0%, black 0%, black 88%, transparent 100%)",
+                ].join(", "),
+                WebkitMaskImage: [
+                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
+                  "linear-gradient(to bottom, transparent 0%, black 0%, black 88%, transparent 100%)",
                 ].join(", "),
                 WebkitMaskComposite: "source-in",
                 maskComposite: "intersect",
@@ -467,10 +467,10 @@ export default function Hero() {
             {/* ── HEADING ── */}
             <h1
               className="font-display font-black uppercase text-white select-none"
-              style={{ fontSize: "clamp(1.85rem, 9.8vw, 2.9rem)", lineHeight: 0.9, letterSpacing: "-0.01em" }}
+              style={{ fontSize: "clamp(1.85rem, 9.8vw, 2.9rem)", lineHeight: 0.92, letterSpacing: "-0.01em", paddingTop: "2px" }}
             >
               {/* Line 1: TRANSFORM */}
-              <span className="block overflow-hidden">
+              <span className="block" style={{ overflow: "clip", paddingTop: "3px" }}>
                 <motion.span
                   className="block"
                   variants={lineReveal}
@@ -483,7 +483,7 @@ export default function Hero() {
               </span>
 
               {/* Line 2: YOUR BODY. */}
-              <span className="block overflow-hidden">
+              <span className="block" style={{ overflow: "clip" }}>
                 <motion.span
                   className="block"
                   variants={lineReveal}
@@ -505,7 +505,7 @@ export default function Hero() {
               </span>
 
               {/* Line 3: TRANSFORM */}
-              <span className="block overflow-hidden">
+              <span className="block" style={{ overflow: "clip" }}>
                 <motion.span
                   className="block"
                   variants={lineReveal}
@@ -518,7 +518,7 @@ export default function Hero() {
               </span>
 
               {/* Line 4: YOUR LIFE */}
-              <span className="block overflow-hidden">
+              <span className="block" style={{ overflow: "clip" }}>
                 <motion.span
                   className="block"
                   variants={lineReveal}
