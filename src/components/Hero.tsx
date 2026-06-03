@@ -409,7 +409,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.0, ease: "easeOut", delay: 0.05 }}
-            className="absolute top-0 right-0 bottom-0 pointer-events-none"
+            className="absolute top-[20px] right-0 bottom-0 pointer-events-none"
             style={{ width: "57%", zIndex: 1, transformOrigin: "right top" }}
           >
             {/* Red glow BEHIND athlete */}
@@ -428,15 +428,15 @@ export default function Hero() {
               className="absolute inset-0 w-full h-full"
               style={{
                 objectFit: "cover",
-                objectPosition: "top center",
+                objectPosition: "15% center",
                 filter: "brightness(0.88) saturate(1.2) contrast(1.12)",
                 WebkitMaskImage: [
-                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.7) 20%, black 42%)",
-                  "linear-gradient(to top,   transparent 0%, black 12%, black 100%)",
+                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 18%, black 38%)",
+                  "linear-gradient(to top,   transparent 0%, black 6%, black 100%)",
                 ].join(", "),
                 maskImage: [
-                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.7) 20%, black 42%)",
-                  "linear-gradient(to top,   transparent 0%, black 12%, black 100%)",
+                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 18%, black 38%)",
+                  "linear-gradient(to top,   transparent 0%, black 6%, black 100%)",
                 ].join(", "),
                 WebkitMaskComposite: "source-in",
                 maskComposite: "intersect",

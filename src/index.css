@@ -94,11 +94,10 @@ body {
 
 /* ─── Founder Section Custom Mobile Override Styles ─────────────────────── */
 @media (max-width: 768px) {
-  /* Navbar height and flex alignment — compact, matches reference */
+  /* Navbar: auto height, block layout — inner div handles flex justify-between */
   nav#main-navbar {
     height: auto !important;
-    display: flex !important;
-    align-items: center !important;
+    display: block !important;
   }
 
   /* 05 Stencil Watermark */
