@@ -167,25 +167,28 @@ export default function Founder() {
         {/* ── HERO BLOCK: image top-right + full-width overlaid text ──── */}
         <div className="relative overflow-hidden">
 
-          {/* Image — anchored top-right, sized to show Paresh's face & upper body */}
+          {/* Image — right side, shows face & upper body of founder */}
           <div
             className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden"
-            style={{ width: "52%", height: "420px" }}
+            style={{ width: "55%", height: "480px" }}
           >
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="w-full h-full object-cover filter brightness-[1.15] contrast-[1.15] saturate-[1.08] hue-rotate-[2deg]"
-              style={{ objectPosition: "40% 5%" }}
+              className="w-full h-full object-cover"
+              style={{
+                objectPosition: "50% 22%",
+                filter: "brightness(1.45) contrast(1.18) saturate(1.15) hue-rotate(2deg)",
+              }}
             />
-            {/* Red ambient glow overlay */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-red-900/20 via-transparent to-transparent" />
-            {/* Left-edge fade — blends photo into the text side */}
-            <div className="absolute inset-y-0 left-0 w-[50%] bg-gradient-to-r from-black via-black/65 to-transparent" />
+            {/* Warm red glow in upper-right corner */}
+            <div className="absolute inset-0 bg-gradient-to-bl from-red-700/25 via-red-900/5 to-transparent" />
+            {/* Left-edge gradient — text area merges smoothly with photo */}
+            <div className="absolute inset-y-0 left-0 w-[52%] bg-gradient-to-r from-black via-black/60 to-transparent" />
             {/* Top fade */}
-            <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-black to-transparent" />
-            {/* Bottom fade — strong so image merges smoothly into content below */}
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-black to-transparent" />
+            {/* Bottom fade */}
+            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black to-transparent" />
           </div>
 
           {/* Full-width text content — z-20 sits above image */}
