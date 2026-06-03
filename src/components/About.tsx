@@ -136,14 +136,14 @@ export default function About() {
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
       <div className="md:hidden relative w-full min-h-[100dvh] bg-[#050505] flex flex-col justify-start pt-20 pb-28 overflow-hidden">
-        {/* Background Athlete Image - act as background accent, 25% opacity, positioned on right edge */}
+        {/* Background Athlete Image - right side only, 15% opacity, shifted 30px right, outside reading area */}
         <motion.div
-          className="absolute right-0 top-0 bottom-0 w-[65%] z-0 pointer-events-none"
+          className="absolute right-[-30px] top-[18%] w-[38%] h-[360px] z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "35% center",
-            opacity: 0.25,
+            opacity: 0.15,
             filter: "grayscale(100%) contrast(1.3) brightness(0.95)",
             willChange: "transform",
           }}
@@ -201,31 +201,31 @@ export default function About() {
             <div className="w-16 h-[3px] bg-red-600 mt-2 shadow-[0_0_8px_rgba(239,68,68,0.7)]" />
           </motion.div>
 
-          {/* Description Block (full width of container, font size 17px, line height 1.8) */}
+          {/* Description Block (constrained to 60% width, font size 17px, line height 1.8) */}
           <motion.p
             variants={fadeUp}
             custom={0.25}
-            className="text-white/85 font-sans text-[17px] leading-[1.8] font-light w-full mt-[40px] text-left"
+            className="text-white/85 font-sans text-[17px] leading-[1.8] font-light max-w-[60%] mt-[40px] text-left"
           >
             <strong className="font-bold text-white tracking-wide">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
           </motion.p>
 
-          {/* Quote Section (editorial thin vertical red line, transparent background, full width) */}
+          {/* Quote Section (editorial thin vertical red line, transparent background, normal non-italic text, max-w-[60%]) */}
           <motion.div
             variants={fadeUp}
             custom={0.4}
-            className="border-l-[3px] border-red-600/70 bg-transparent py-1.5 pl-4 w-full mt-[30px] text-left"
+            className="border-l-[3px] border-red-600/70 bg-transparent py-1.5 pl-4 max-w-[60%] mt-[30px] text-left"
           >
-            <p className="text-white/80 font-sans italic text-[14.5px] leading-[1.7] font-light">
+            <p className="text-white/80 font-sans text-[14.5px] leading-[1.7] font-light">
               Whether you are a local beginner stepping into the weights room for the first time, or an elite bodybuilder aiming for stage progression, Master Paresh and his team offer scientifically structured regimes to turn aspiration into heavy concrete results.
             </p>
           </motion.div>
 
-          {/* Bottom Motivational Block (moved lower by mt-[40px] to prevent overlapping, centered with flanking lines) */}
+          {/* Bottom Motivational Block (moved lower by mt-[60px] to prevent overlapping, centered with flanking lines) */}
           <motion.div
             variants={fadeUp}
             custom={0.5}
-            className="w-full flex flex-col items-center justify-center mt-[40px]"
+            className="w-full flex flex-col items-center justify-center mt-[60px]"
           >
             {/* Flanking lines container */}
             <div className="w-full flex items-center justify-center gap-4 my-1">
