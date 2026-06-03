@@ -135,15 +135,15 @@ export default function About() {
       {/* ══════════════════════════════════════════════
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-16 pb-24 overflow-hidden">
-        {/* Ken Burns Background with Bodybuilder image shifted slightly more to the right & reduced brightness/opacity by 15% */}
+      <div className="md:hidden relative w-full min-h-[100dvh] bg-[#050505] flex flex-col justify-start px-6 pt-20 pb-28 overflow-hidden">
+        {/* Ken Burns Background with Bodybuilder image shifted slightly more to the right, high-contrast B&W treatment */}
         <motion.div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
-            backgroundPosition: "6% center",
-            filter: "brightness(0.98)",
+            backgroundPosition: "8% center",
+            filter: "grayscale(100%) contrast(1.25) brightness(0.98)",
             willChange: "transform",
           }}
           initial={{ scale: 1 }}
@@ -152,10 +152,10 @@ export default function About() {
         />
 
         {/* Ambient Overlays to blend bodybuilder & text (stronger black gradient behind text area) */}
-        <div className="absolute inset-0 bg-black/10 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/20 z-0 pointer-events-none" />
         <div 
           className="absolute inset-0 z-0 pointer-events-none" 
-          style={{ backgroundImage: "linear-gradient(to right, rgba(0,0,0,1.0) 35%, rgba(0,0,0,0.90) 65%, transparent 100%)" }}
+          style={{ backgroundImage: "linear-gradient(to right, rgba(5,5,5,1.0) 38%, rgba(5,5,5,0.85) 55%, transparent 100%)" }}
         />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-0 pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#050505]/60 to-transparent z-0 pointer-events-none" />
@@ -163,23 +163,27 @@ export default function About() {
         {/* Slight cinematic vignette around edges */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(5,5,5,0.70)_100%)] z-0 pointer-events-none" />
 
-        {/* Subtle red rim light around bodybuilder's silhouette (silhouette only, face is clean and natural) */}
-        <div className="absolute top-[32%] right-0 w-36 h-36 rounded-full bg-red-650/10 blur-[45px] pointer-events-none z-0 mix-blend-screen" />
+        {/* Strong red rim light behind bodybuilder's silhouette */}
+        <div className="absolute top-[25%] right-[-20px] w-64 h-64 rounded-full bg-red-600/25 blur-[60px] pointer-events-none z-0 mix-blend-screen animate-pulse" style={{ animationDuration: "4s" }} />
 
-        {/* Left vertical red accent line (4px wide, 70% opacity, soft glow) */}
-        <div className="absolute top-0 left-0 w-[4px] h-full bg-[#ef4444]/70 shadow-[0_0_8px_rgba(239,68,68,0.3)] z-20" />
+        {/* Thin glowing red vertical accent line on the far left edge (4px wide, 70% opacity, soft glow) */}
+        <div className="absolute top-0 left-0 w-[4px] h-full bg-red-600/70 shadow-[0_0_10px_rgba(239,68,68,0.4)] z-20" />
 
-        {/* Drifting smoke effect */}
+        {/* Drifting smoke & ambient red lighting effects */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-stone-900/10 blur-[60px] rounded-full animate-smoke-slow" />
-          <div className="absolute top-10 -left-10 w-80 h-80 bg-stone-900/5 blur-[50px] rounded-full animate-smoke-slow" style={{ animationDelay: '-10s' }} />
+          <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-red-950/15 blur-[80px] rounded-full animate-smoke-slow" />
+          <div className="absolute top-10 -left-10 w-80 h-80 bg-stone-900/10 blur-[60px] rounded-full animate-smoke-slow" style={{ animationDelay: "-10s" }} />
+          <div className="absolute top-[40%] right-[-5%] w-72 h-72 bg-red-900/10 blur-[70px] rounded-full animate-smoke-slow" style={{ animationDelay: "-5s" }} />
         </div>
 
         {/* Soft Red Embers rising (restricted to left/center to avoid overlapping the face) */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <div className="absolute left-[10%] w-1.5 h-1.5 bg-red-500 rounded-full blur-[1px] animate-ember-1" />
-          <div className="absolute left-[28%] w-1 h-1 bg-red-500 rounded-full blur-[1px] animate-ember-2" />
-          <div className="absolute left-[48%] w-2 h-2 bg-red-500 rounded-full blur-[2px] animate-ember-3" />
+          <div className="absolute left-[8%] w-1.5 h-1.5 bg-red-500 rounded-full blur-[1px] animate-ember-1" />
+          <div className="absolute left-[22%] w-1 h-1 bg-red-500 rounded-full blur-[1px] animate-ember-2" />
+          <div className="absolute left-[38%] w-2 h-2 bg-red-500 rounded-full blur-[2px] animate-ember-3" />
+          <div className="absolute left-[55%] w-1.5 h-1.5 bg-red-500 rounded-full blur-[1px] animate-ember-1" style={{ animationDelay: "-3s" }} />
+          <div className="absolute left-[70%] w-1 h-1 bg-red-500 rounded-full blur-[1px] animate-ember-2" style={{ animationDelay: "-7s" }} />
+          <div className="absolute left-[88%] w-2.5 h-2.5 bg-red-500 rounded-full blur-[2px] animate-ember-3" style={{ animationDelay: "-11s" }} />
         </div>
 
         {/* Content Block (Single vertical flow with explicit margins, no translation or negative margins) */}
@@ -192,26 +196,26 @@ export default function About() {
             <h2 className="font-display font-black text-white uppercase tracking-tight text-[44px] leading-[0.95] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               AT OUR CORE
             </h2>
-            {/* Red Underline */}
-            <div className="w-16 h-[3px] bg-[#ef4444] mt-2 shadow-[0_0_6px_rgba(239,68,68,0.6)]" />
+            {/* Red Underline Glow */}
+            <div className="w-16 h-[3px] bg-red-600 mt-2 shadow-[0_0_8px_rgba(239,68,68,0.7)]" />
           </motion.div>
 
-          {/* Description Block (constrained to 82% max-width, line-height 1.7) */}
+          {/* Description Block (constrained to 48% max-width, line-height 1.8) */}
           <motion.p
             variants={fadeUp}
             custom={0.25}
-            className="text-stone-100 font-sans text-[13.5px] leading-[1.7] font-light pr-2 max-w-[82%] mt-[30px] text-left"
+            className="text-white/85 font-sans text-[17px] leading-[1.8] font-light pr-2 max-w-[48%] mt-[30px] text-left"
           >
-            <strong className="font-black text-white tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
+            <strong className="font-bold text-white tracking-wide">PARESH BODY CLUB MURBAD</strong> is one of the most trusted fitness destinations in Murbad. The gym provides a motivating environment, quality workout equipment, strength training facilities, cardio training, and expert guidance for fitness enthusiasts.
           </motion.p>
 
-          {/* Quote Section (quote box width slightly to 88%, self-centered, darker glass backdrop, thin red border) */}
+          {/* Quote Section (editorial thin vertical red line, transparent background, max-w-[48%]) */}
           <motion.div
             variants={fadeUp}
             custom={0.4}
-            className="border-l-[3px] border-[#ef4444]/70 bg-black/65 backdrop-blur-[14px] border border-[#ef4444]/10 py-1.5 px-3 rounded-lg max-w-[88%] mt-[40px] self-center shadow-[0_0_10px_rgba(239,68,68,0.06),_0_4px_12px_rgba(0,0,0,0.8)]"
+            className="border-l-[3px] border-red-600/70 bg-transparent py-1.5 pl-4 max-w-[48%] mt-[40px] text-left"
           >
-            <p className="text-stone-100 font-sans text-[12px] leading-[1.65] font-light text-left">
+            <p className="text-white/80 font-sans italic text-[14px] leading-[1.7] font-light">
               Whether you are a local beginner stepping into the weights room for the first time, or an elite bodybuilder aiming for stage progression, Master Paresh and his team offer scientifically structured regimes to turn aspiration into heavy concrete results.
             </p>
           </motion.div>
@@ -223,31 +227,27 @@ export default function About() {
             className="w-full flex flex-col items-center justify-center mt-[60px] pt-1"
           >
             {/* Flanking lines container */}
-            <div className="w-full flex items-center justify-center gap-2.5 my-0.5">
-              {/* Left glowing line (shorter with softer glow) */}
-              <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-r from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
-              </div>
+            <div className="w-full flex items-center justify-center gap-4 my-1">
+              {/* Left glowing line */}
+              <div className="flex-1 max-w-[48px] h-[1.5px] bg-gradient-to-r from-transparent via-red-500/70 to-red-600 shadow-[0_0_6px_rgba(239,68,68,0.6)]" />
 
-              {/* Center text (+30% size, DAY much larger with premium glow and mt-1 spacing) */}
-              <div className="font-display font-black leading-[1.0] tracking-tight text-center z-10 shrink-0 select-none pointer-events-none">
-                <span className="block text-stone-150 text-[25px] tracking-tight uppercase">TODAY IS THE DAY</span>
-                <span className="block text-stone-150 text-[25px] tracking-tight uppercase">BECAUSE TODAY</span>
-                <span className="block text-stone-150 text-[25px] tracking-tight uppercase">IS YOUR</span>
+              {/* Center text (DAY much larger with premium glow) */}
+              <div className="font-display font-black leading-[1.1] tracking-tight text-center z-10 shrink-0 select-none pointer-events-none">
+                <span className="block text-white text-[20px] sm:text-[22px] tracking-tight uppercase">TODAY IS THE DAY</span>
+                <span className="block text-white text-[20px] sm:text-[22px] tracking-tight uppercase">BECAUSE TODAY</span>
+                <span className="block text-white text-[20px] sm:text-[22px] tracking-tight uppercase">IS YOUR</span>
                 
-                {/* DAY. with red glow (glow intensity reduced by 20%) */}
+                {/* DAY. with strong red glow */}
                 <span 
-                  className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-1"
-                  style={{ textShadow: "0 0 16px rgba(239,68,68,0.65)" }}
+                  className="block text-[#ff1a1a] text-[84px] font-black uppercase tracking-tighter mt-2"
+                  style={{ textShadow: "0 0 20px rgba(255,26,26,0.85), 0 0 40px rgba(255,26,26,0.45)" }}
                 >
                   DAY.
                 </span>
               </div>
 
-              {/* Right glowing line (shorter with softer glow) */}
-              <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-l from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
-              </div>
+              {/* Right glowing line */}
+              <div className="flex-1 max-w-[48px] h-[1.5px] bg-gradient-to-l from-transparent via-red-500/70 to-red-600 shadow-[0_0_6px_rgba(239,68,68,0.6)]" />
             </div>
           </motion.div>
         </div>
