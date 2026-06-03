@@ -15,6 +15,32 @@ const fadeUp = {
   }),
 };
 
+const fadeUpSubtle = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+  }),
+};
+
+const lineGrow = {
+  hidden: { scaleY: 0 },
+  visible: {
+    scaleY: 1,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.4 }
+  }
+};
+
+const quoteTextFade = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut", delay: 0.9 }
+  }
+};
+
 const slideLeft = {
   hidden: { opacity: 0, x: -60 },
   visible: {
@@ -138,7 +164,7 @@ export default function About() {
       <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-16 pb-24 overflow-hidden">
         {/* Background Athlete Image — 65% wide, face at top-right, matches reference image 2 */}
         <div
-          className="absolute top-0 right-0 h-full pointer-events-none"
+          className="absolute top-0 right-0 h-full pointer-events-none animate-bodybuilder-breathe"
           style={{
             width: "65%",
             backgroundImage: "url('/about-bg.png')",
@@ -153,7 +179,7 @@ export default function About() {
 
         {/* Rim light — warm glow on face edge, red on shoulder */}
         <div
-          className="absolute top-0 right-0 h-full pointer-events-none"
+          className="absolute top-0 right-0 h-full pointer-events-none animate-glow-pulse"
           style={{
             width: "65%",
             zIndex: 1,
@@ -177,15 +203,15 @@ export default function About() {
 
         {/* Drifting smoke effect */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-stone-900/10 blur-[60px] rounded-full animate-smoke-slow" />
-          <div className="absolute top-10 -left-10 w-80 h-80 bg-stone-900/5 blur-[50px] rounded-full animate-smoke-slow" style={{ animationDelay: '-10s' }} />
+          <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-stone-900/10 blur-[60px] rounded-full animate-smoke-cinematic" />
+          <div className="absolute top-10 -left-10 w-80 h-80 bg-stone-900/5 blur-[50px] rounded-full animate-smoke-cinematic" style={{ animationDelay: '-5s' }} />
         </div>
 
         {/* Soft Red Embers rising (restricted to left/center to avoid overlapping the face) */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <div className="absolute left-[10%] w-1.5 h-1.5 bg-red-500 rounded-full blur-[1px] animate-ember-1" />
-          <div className="absolute left-[28%] w-1 h-1 bg-red-500 rounded-full blur-[1px] animate-ember-2" />
-          <div className="absolute left-[48%] w-2 h-2 bg-red-500 rounded-full blur-[2px] animate-ember-3" />
+          <div className="absolute left-[10%] w-[1.5px] h-[1.5px] bg-red-500 rounded-full blur-[0.5px] animate-ember-cinematic-1" />
+          <div className="absolute left-[28%] w-[1px] h-[1px] bg-red-500 rounded-full blur-[0.5px] animate-ember-cinematic-2" />
+          <div className="absolute left-[48%] w-[2.5px] h-[2.5px] bg-red-500 rounded-full blur-[1px] animate-ember-cinematic-3" />
         </div>
 
         {/* Content Block (Single vertical flow with explicit margins, no translation or negative margins) */}
@@ -204,7 +230,7 @@ export default function About() {
 
           {/* Description Block — 55% max-width to match reference image 2 composition */}
           <motion.p
-            variants={fadeUp}
+            variants={fadeUpSubtle}
             custom={0.25}
             className="text-stone-100 font-sans text-[13.5px] leading-[1.7] font-light pr-2 max-w-[55%] mt-[30px] text-left"
           >
@@ -212,16 +238,19 @@ export default function About() {
           </motion.p>
 
           {/* Quote Section — 55% max-width to match reference image 2 */}
-          <motion.div
-            variants={fadeUp}
-            custom={0.4}
-            className="flex items-start gap-3 mt-[40px] max-w-[55%]"
-          >
-            <div className="shrink-0 w-[2px] self-stretch bg-[#ef4444]/70 rounded-full" />
-            <p className="text-stone-100 font-sans text-[12px] leading-[1.65] font-light text-left">
+          <div className="flex items-start gap-3 mt-[40px] max-w-[55%]">
+            <motion.div
+              variants={lineGrow}
+              style={{ transformOrigin: "top" }}
+              className="shrink-0 w-[2px] self-stretch bg-[#ef4444]/70 rounded-full"
+            />
+            <motion.p
+              variants={quoteTextFade}
+              className="text-stone-100 font-sans text-[12px] leading-[1.65] font-light text-left"
+            >
               Whether you are a local beginner stepping into the weights room for the first time, or an elite bodybuilder aiming for stage progression, Master Paresh and his team offer scientifically structured regimes to turn aspiration into heavy concrete results.
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
 
           {/* Bottom Motivational Block (moved lower by mt-[60px] to prevent overlapping, centered with flanking lines) */}
           <motion.div
@@ -232,7 +261,8 @@ export default function About() {
             {/* Flanking lines container */}
             <div className="w-full flex items-center justify-center gap-2.5 my-0.5">
               {/* Left glowing line (shorter with softer glow) */}
-              <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-r from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
+              <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-r from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-l from-white/70 to-transparent animate-sweep-left" />
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
               </div>
 
@@ -244,15 +274,15 @@ export default function About() {
                 
                 {/* DAY. with red glow (glow intensity reduced by 20%) */}
                 <span 
-                  className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-1"
-                  style={{ textShadow: "0 0 16px rgba(239,68,68,0.65)" }}
+                  className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-1 animate-text-glow-pulse"
                 >
                   DAY.
                 </span>
               </div>
 
               {/* Right glowing line (shorter with softer glow) */}
-              <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-l from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative">
+              <div className="flex-1 max-w-[32px] h-[1.5px] bg-gradient-to-l from-transparent to-[#ef4444]/60 shadow-[0_0_3px_rgba(239,68,68,0.3)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/70 to-transparent animate-sweep-right" />
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-[2px] rounded-full bg-white shadow-[0_0_5px_rgba(239,68,68,0.7)]" />
               </div>
             </div>
