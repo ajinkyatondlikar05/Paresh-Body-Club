@@ -1,28 +1,4 @@
-import { Trophy, Award, Flame, Crown, Instagram } from "lucide-react";
-
-/* ─────────────────────────────────────────────────────────────
-   Reusable sub-component: Philosophy Quote Card
-   Used in both the mobile block and the desktop block below.
-───────────────────────────────────────────────────────────── */
-function PhilosophyCard({ compact = false, className = "" }: { compact?: boolean; className?: string }) {
-  return (
-    <div
-      className={`border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-full lg:max-w-3xl transition-all duration-500 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.18)] ${compact ? "p-3" : "p-4 sm:p-7"} ${className}`}
-    >
-      <span className="text-stone-500 text-[10px] uppercase font-bold tracking-widest block mb-1.5">
-        PERSONAL PHILOSOPHY ROOM
-      </span>
-      <p
-        className={`font-display font-black text-neutral-100 uppercase tracking-wide italic leading-snug philosophy-quote-text ${compact ? "text-[0.7rem]" : "text-sm sm:text-xl"}`}
-      >
-        "DISCIPLINE, DEDICATION &amp; HARD WORK BUILD CHAMPIONS."
-      </p>
-      <span className={`block text-right text-red-500 uppercase font-bold mt-1.5 tracking-widest ${compact ? "text-[0.6rem]" : "text-xs"}`}>
-        — PARESH HINDURAO
-      </span>
-    </div>
-  );
-}
+import { Trophy, Award, Flame, Crown, Instagram, Dumbbell } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────
    MAIN COMPONENT
@@ -161,7 +137,18 @@ export default function Founder() {
                 confidence."
               </p>
 
-              <PhilosophyCard />
+              {/* Desktop philosophy card */}
+              <div className="border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-3xl p-4 sm:p-7 transition-all duration-500 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.18)]">
+                <span className="text-stone-500 text-[10px] uppercase font-bold tracking-widest block mb-1.5">
+                  PERSONAL PHILOSOPHY ROOM
+                </span>
+                <p className="font-display font-black text-neutral-100 uppercase tracking-wide italic leading-snug text-sm sm:text-xl">
+                  "DISCIPLINE, DEDICATION &amp; HARD WORK BUILD CHAMPIONS."
+                </p>
+                <span className="block text-right text-red-500 uppercase font-bold mt-1.5 tracking-widest text-xs">
+                  — PARESH HINDURAO
+                </span>
+              </div>
             </div>
 
             {/* Desktop: Right col spacer (photo is absolute-positioned above) */}
@@ -170,73 +157,188 @@ export default function Founder() {
         </div>
       </div>
 
+
       {/* ══════════════════════════════════════════════════════════════════════
           MOBILE ONLY LAYOUT  (lg:hidden)
-          ══════════════════════════════════════════════════════════════════════ */}
-      <div className="lg:hidden relative z-10 bg-black">
-        {/* Founder Section */}
-        <div className="founder-mobile-wrapper flex flex-row items-center gap-[20px] px-[24px] pt-[24px] pb-[24px] relative overflow-hidden">
-          
-          {/* Left: Text column — 42% via grid */}
-          <div className="founder-mobile-left z-20 space-y-2 min-w-0">
-            <div>
-              <span className="text-red-500 font-display font-black uppercase text-xs tracking-widest block mb-2">
-                FOUNDER &amp; HEAD TRAINER
-              </span>
-              <h2 className="founder-mobile-heading font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3">
-                PARESH<br />HINDURAO
-              </h2>
-              <div className="founder-mobile-tagline text-stone-400 font-sans text-[11px] font-bold mt-2.5 uppercase tracking-wider flex flex-wrap items-center gap-x-2 gap-y-1">
-                <span>PROFESSIONAL BODYBUILDER</span>
-                <span className="text-red-500 font-black">{"\u2022"}</span>
-                <span>IFSA CERTIFIED TRAINER</span>
-                <span className="text-red-500 font-black">{"\u2022"}</span>
-                <span className="text-red-500">PARESH BODY CLUB</span>
-              </div>
-            </div>
+          Pixel-perfect match to the reference screenshot.
+      ══════════════════════════════════════════════════════════════════════ */}
+      <div className="lg:hidden bg-black">
 
-            <p className="founder-mobile-bio text-stone-300 font-sans text-sm leading-relaxed font-light">
-              "Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
-              dedicated to transforming lives through fitness and discipline. With multiple
-              bodybuilding titles and years of gym training experience, he founded PARESH BODY
-              CLUB MURBAD to inspire the youth of Murbad towards health, strength, and
-              confidence."
-            </p>
-          </div>
+        {/* ── TOP BLOCK: full-height image + overlaid text ─────────────── */}
+        <div className="relative overflow-hidden" style={{ minHeight: "540px" }}>
 
-          {/* Right: Image column — 58% via grid */}
-          <div className="founder-mobile-right-container relative shrink-0 overflow-hidden pointer-events-none select-none rounded-lg">
-            {/* Ambient red glow behind photo */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent blur-[50px] pointer-events-none z-0" />
-
+          {/* Background image — absolute, anchored right, covers right 65% */}
+          <div className="absolute inset-y-0 right-0 w-[65%] pointer-events-none select-none">
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="founder-mobile-image filter brightness-[1.28] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg] relative z-10"
+              className="w-full h-full object-cover object-[60%_top] filter brightness-[1.22] contrast-[1.12] saturate-[1.1] hue-rotate-[2deg]"
             />
+            {/* Subtle red ambient glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-600/15 via-transparent to-transparent pointer-events-none" />
+            {/* Left-edge fade — blends smoothly into black text area */}
+            <div className="absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-black via-black/75 to-transparent" />
+            {/* Top fade */}
+            <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black to-transparent" />
+            {/* Bottom fade */}
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent" />
+          </div>
 
-            {/* Volumetric warm spotlight overlay */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_28%,rgba(254,215,170,0.09)_0%,rgba(239,68,68,0.04)_40%,transparent_70%)] pointer-events-none mix-blend-screen z-20" />
+          {/* Left text column — overlaid on top of image */}
+          <div className="relative z-20 px-6 pt-10 pb-8 flex flex-col" style={{ maxWidth: "57%" }}>
 
-            {/* Left edge fade — blends into text, narrow so face isn't darkened */}
-            <div className="absolute left-0 top-0 bottom-0 w-[18%] bg-gradient-to-r from-black/85 to-transparent z-20" />
-            {/* Top edge fade */}
-            <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-black to-transparent z-20" />
-            {/* Bottom edge fade */}
-            <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black to-transparent z-20" />
-            {/* Right edge fade */}
-            <div className="absolute right-0 top-0 bottom-0 w-[8%] bg-gradient-to-l from-black/30 to-transparent z-20" />
+            {/* Red label */}
+            <span
+              className="text-red-500 font-display font-black uppercase block"
+              style={{ fontSize: "10px", letterSpacing: "0.13em" }}
+            >
+              FOUNDER &amp; HEAD TRAINER
+            </span>
+
+            {/* Red underline */}
+            <div style={{ width: "48px", height: "2px", background: "#ef4444", marginTop: "6px", marginBottom: "14px" }} />
+
+            {/* Name — two lines */}
+            <h2
+              className="font-display font-black text-white uppercase tracking-tighter leading-[0.87] mb-3"
+              style={{ fontSize: "clamp(28px, 8.5vw, 42px)" }}
+            >
+              PARESH<br />HINDURAO
+            </h2>
+
+            {/* Professional tagline — two lines */}
+            <div
+              className="text-stone-400 font-display font-bold uppercase mb-5"
+              style={{ fontSize: "11px", letterSpacing: "0.1em", lineHeight: 1.45 }}
+            >
+              PROFESSIONAL<br />BODYBUILDER
+            </div>
+
+            {/* Credentials block — top divider + two rows */}
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+
+              {/* Row 1: IFSA Certified Trainer */}
+              <div
+                className="flex items-center gap-3"
+                style={{ paddingTop: "10px", paddingBottom: "10px", borderBottom: "1px solid rgba(255,255,255,0.1)" }}
+              >
+                <div
+                  className="flex items-center justify-center shrink-0 text-red-500"
+                  style={{
+                    width: "34px", height: "34px",
+                    borderRadius: "8px",
+                    border: "1px solid rgba(239,68,68,0.35)",
+                    background: "rgba(127,29,29,0.15)",
+                  }}
+                >
+                  <Award size={15} />
+                </div>
+                <span
+                  className="font-sans font-bold uppercase text-stone-200"
+                  style={{ fontSize: "9px", letterSpacing: "0.09em" }}
+                >
+                  IFSA CERTIFIED TRAINER
+                </span>
+              </div>
+
+              {/* Row 2: Paresh Body Club */}
+              <div
+                className="flex items-center gap-3"
+                style={{ paddingTop: "10px", paddingBottom: "10px", borderBottom: "1px solid rgba(255,255,255,0.1)" }}
+              >
+                <div
+                  className="flex items-center justify-center shrink-0 text-red-500"
+                  style={{
+                    width: "34px", height: "34px",
+                    borderRadius: "8px",
+                    border: "1px solid rgba(239,68,68,0.35)",
+                    background: "rgba(127,29,29,0.15)",
+                  }}
+                >
+                  <Dumbbell size={15} />
+                </div>
+                <span
+                  className="font-sans font-bold uppercase text-stone-200"
+                  style={{ fontSize: "9px", letterSpacing: "0.09em" }}
+                >
+                  PARESH BODY CLUB
+                </span>
+              </div>
+            </div>
+
+            {/* Bio paragraph */}
+            <p
+              className="text-stone-300 font-sans font-light leading-relaxed mt-4"
+              style={{ fontSize: "11px", lineHeight: 1.55 }}
+            >
+              Paresh Hindurao is a passionate fitness trainer and professional bodybuilder dedicated to transforming lives through fitness and discipline. With multiple bodybuilding titles and years of gym training experience, he founded PARESH BODY CLUB MURBAD to inspire the youth of Murbad towards health, strength, and confidence.
+            </p>
           </div>
         </div>
 
-        {/* Philosophy card — starts immediately after founder section */}
-        <div className="founder-mobile-philosophy-card-container px-[32px] pb-[32px] pt-0 bg-black">
-          <PhilosophyCard className="founder-mobile-philosophy-card" />
+        {/* ── PHILOSOPHY CARD ─────────────────────────────────────────── */}
+        <div className="px-5 pb-10 pt-1 bg-black relative z-20">
+          <div
+            className="relative overflow-hidden"
+            style={{
+              border: "1px solid rgba(239,68,68,0.18)",
+              borderLeft: "4px solid #ef4444",
+              borderRadius: "12px",
+              background: "rgba(69,10,10,0.08)",
+              padding: "18px 20px 16px 20px",
+              boxShadow: "0 0 32px rgba(239,68,68,0.1)",
+            }}
+          >
+            {/* Header row: circle "66" icon + PERSONAL PHILOSOPHY label */}
+            <div className="flex items-center gap-3 mb-4">
+              <div
+                className="flex items-center justify-center shrink-0"
+                style={{
+                  width: "28px", height: "28px",
+                  borderRadius: "50%",
+                  border: "1px solid rgba(239,68,68,0.3)",
+                  background: "rgba(69,10,10,0.3)",
+                }}
+              >
+                <span
+                  className="font-display font-black text-stone-300"
+                  style={{ fontSize: "13px", lineHeight: 1 }}
+                >
+                  ❝
+                </span>
+              </div>
+              <span
+                className="font-sans font-bold uppercase text-stone-400"
+                style={{ fontSize: "8.5px", letterSpacing: "0.14em" }}
+              >
+                PERSONAL PHILOSOPHY
+              </span>
+            </div>
+
+            {/* Quote text — italic bold, last part in red */}
+            <p
+              className="font-display font-black uppercase italic text-neutral-100 leading-snug"
+              style={{ fontSize: "clamp(16px, 5vw, 22px)", letterSpacing: "0.01em" }}
+            >
+              "DISCIPLINE, DEDICATION &amp;<br />HARD WORK{" "}
+              <span className="text-red-500">BUILD CHAMPIONS."</span>
+            </p>
+
+            {/* Signature */}
+            <p
+              className="text-right text-red-500 font-sans font-bold uppercase mt-4"
+              style={{ fontSize: "9px", letterSpacing: "0.12em" }}
+            >
+              — PARESH HINDURAO
+            </p>
+          </div>
         </div>
+
       </div>
       {/* ── End of mobile layout ── */}
 
-{/* ══════════════════════════════════════════════════════════════════════
+
+      {/* ══════════════════════════════════════════════════════════════════════
           ACHIEVEMENTS + INSTAGRAM
           Shared between mobile and desktop.
 
