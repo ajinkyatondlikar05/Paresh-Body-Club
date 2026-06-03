@@ -160,17 +160,19 @@ export default function Founder() {
 
       {/* ══════════════════════════════════════════════════════════════════════
           MOBILE ONLY LAYOUT  (lg:hidden)
-          Matches image 2 exactly — full-width text, large name, face-visible image.
+          Image: right 48% of screen (starts at 52% from left).
+          Text: left side, no overlap with image.
+          NO left fade needed — face sits at 58-88% of screen width, fully exposed.
       ══════════════════════════════════════════════════════════════════════ */}
       <div className="lg:hidden bg-black">
 
-        {/* ── HERO BLOCK: image top-right + full-width overlaid text ──── */}
+        {/* ── HERO BLOCK: image right 48% + text left ─── */}
         <div className="relative overflow-hidden">
 
-          {/* Image — right side, shows face & upper body of founder */}
+          {/* Image — right 48%, NO left fade so face is fully visible */}
           <div
             className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden"
-            style={{ width: "58%", height: "460px" }}
+            style={{ width: "48%", height: "470px" }}
           >
             <img
               src="/founder-leaning.png"
@@ -178,17 +180,15 @@ export default function Founder() {
               className="w-full h-full object-cover"
               style={{
                 objectPosition: "50% 18%",
-                filter: "brightness(1.65) contrast(1.18) saturate(1.12) hue-rotate(2deg)",
+                filter: "brightness(1.7) contrast(1.18) saturate(1.05) hue-rotate(2deg)",
               }}
             />
-            {/* Warm red glow — upper-right corner */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-red-700/25 via-transparent to-transparent" />
-            {/* Left-edge fade — NARROW (18%) so it doesn't cover the face which starts at ~30% */}
-            <div className="absolute inset-y-0 left-0 w-[18%] bg-gradient-to-r from-black via-black/40 to-transparent" />
+            {/* Warm red glow in upper-right corner */}
+            <div className="absolute inset-0 bg-gradient-to-bl from-red-700/20 via-transparent to-transparent" />
             {/* Top fade */}
             <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-black to-transparent" />
-            {/* Bottom fade — merges smoothly into bio section */}
-            <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black to-transparent" />
+            {/* Bottom fade — covers arms, merges into black */}
+            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black to-transparent" />
           </div>
 
           {/* Full-width text content — z-20 sits above image */}
