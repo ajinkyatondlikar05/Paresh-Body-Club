@@ -241,8 +241,13 @@ export default function Founder() {
 
             {/* Red label */}
             <span
-              className="text-red-500 font-display font-black uppercase block"
-              style={{ fontSize: "11px", letterSpacing: "0.13em" }}
+              className="text-red-500 font-display uppercase block"
+              style={{ 
+                fontSize: "clamp(20px, 5.5vw, 24px)", 
+                fontWeight: 900, 
+                letterSpacing: "5px",
+                textShadow: "0 0 12px rgba(239, 68, 68, 0.45)"
+              }}
             >
               FOUNDER &amp; HEAD TRAINER
             </span>
