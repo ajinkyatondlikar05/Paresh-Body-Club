@@ -169,28 +169,28 @@ export default function Founder() {
         {/* ── HERO BLOCK: image right 48% + text left ─── */}
         <div className="relative overflow-hidden">
 
-          {/* Image — right 48%, NO left fade so face is fully visible */}
+          {/* Image — right 52%, face visible, same horizontal focus as desktop */}
           <div
             className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden"
-            style={{ width: "48%", height: "500px" }}
+            style={{ width: "52%", height: "520px" }}
           >
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
               className="w-full h-full object-cover"
               style={{
-                objectPosition: "55% 12%",
-                filter: "brightness(1.08) contrast(1.22) saturate(1.12) hue-rotate(2deg)",
+                objectPosition: "65% 0%",
+                filter: "brightness(1.15) contrast(1.2) saturate(1.1) hue-rotate(2deg)",
               }}
             />
             {/* Warm red glow in upper-right corner */}
             <div className="absolute inset-0 bg-gradient-to-bl from-red-700/15 via-transparent to-transparent" />
-            {/* Top fade */}
-            <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-black to-transparent" />
-            {/* Bottom fade — covers arms, merges into black */}
-            <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black to-transparent" />
+            {/* Top fade — subtle */}
+            <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-black to-transparent" />
+            {/* Bottom fade — gentle so torso remains visible */}
+            <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black to-transparent" />
             {/* Right edge fade */}
-            <div className="absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-black to-transparent" />
+            <div className="absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-black to-transparent" />
           </div>
 
           {/* Full-width text content — z-20 sits above image */}
