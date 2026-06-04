@@ -41,7 +41,7 @@ export default function Membership() {
               key={plan.id}
               className={`relative rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 border ${
                 plan.isPopular 
-                  ? "bg-[#0f0f13] border-red-500/80 shadow-[0_15px_40px_rgba(239,68,68,0.15)] md:-translate-y-4" 
+                  ? "bg-[#0f0f13] border-red-500/80 shadow-[0_15px_40px_rgba(239,68,68,0.15)]" 
                   : "bg-[#0a0a0c] border-white/5 hover:border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
               } group`}
             >

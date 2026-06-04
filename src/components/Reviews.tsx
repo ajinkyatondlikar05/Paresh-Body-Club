@@ -15,8 +15,8 @@ export default function Reviews() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header containing the 4.8 rating metric summary details */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
-          <div className="lg:col-span-7 text-left">
+        <div className="flex flex-col gap-8 mb-16">
+          <div className="text-left">
             <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
               Customer Experiences
             </span>
@@ -24,12 +24,12 @@ export default function Reviews() {
               Testimonials & <span className="text-red-500">Reviews</span>
             </h2>
             <p className="text-stone-300 font-sans text-xs sm:text-sm md:text-base max-w-xl mt-3 leading-relaxed font-light">
-              Don’t just take our word for it. Read honest reviews from our dedicated member network who successfully rebuilt their physical confidence.
+              Don't just take our word for it. Read honest reviews from our dedicated member network who successfully rebuilt their physical confidence.
             </p>
           </div>
 
           {/* Interactive Rating Badge Grid */}
-          <div className="lg:col-span-5 bg-stone-900/60 border border-white/5 p-4 sm:p-6 rounded-2xl flex items-center justify-between backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.6)] gap-4">
+          <div className="bg-stone-900/60 border border-white/5 p-4 sm:p-6 rounded-2xl flex items-center justify-between backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.6)] gap-4 max-w-lg">
             <div>
               <span className="block text-4xl sm:text-5xl font-mono font-black text-white">4.8</span>
               <div className="flex items-center gap-0.5 mt-1.5 text-yellow-500">
@@ -57,7 +57,7 @@ export default function Reviews() {
         </div>
 
         {/* glassmorphism reviews layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {REVIEWS.map((rev) => (
             <div
               key={rev.id}

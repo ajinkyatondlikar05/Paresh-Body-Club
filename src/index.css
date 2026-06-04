@@ -326,3 +326,163 @@ body {
 }
 
 
+/* ═══════════════════════════════════════════════════════════════════════
+   MOBILE-FIRST RESPONSIVE FIXES  (max-width: 767px)
+   Desktop/laptop layout is 100% untouched — all rules scoped to mobile.
+   Matches the reference screenshot design precisely.
+═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+
+  /* ── Global section padding reduction on mobile ── */
+  section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  /* ── Membership section ── */
+  #membership .grid {
+    gap: 20px !important;
+  }
+  #membership [class*="md:-translate-y"] {
+    transform: none !important;
+  }
+  /* Ensure MOST RECOMMENDED badge doesn't clip */
+  #membership .relative.rounded-2xl {
+    margin-top: 20px !important;
+  }
+
+  /* ── Facilities grid — single column on mobile ── */
+  #facilities .grid-cols-1 {
+    grid-template-columns: 1fr !important;
+  }
+  #facilities .p-8 {
+    padding: 20px !important;
+  }
+
+  /* ── Reviews: Rating badge block stacks correctly ── */
+  #reviews .grid.lg\:grid-cols-12 {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  #reviews .lg\:col-span-5 {
+    grid-column: span 1 !important;
+  }
+  #reviews .lg\:col-span-7 {
+    grid-column: span 1 !important;
+  }
+  /* Review cards: 1 column on very small screens */
+  #reviews .grid.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Gallery: Scrollable category filter ── */
+  #gallery .flex-nowrap {
+    padding-bottom: 8px;
+  }
+  /* Gallery grid stays 2-col on mobile (looks good) */
+
+  /* ── BMI Calculator: Remove forced col-span, stack vertically ── */
+  #bmi-calculator .grid.lg\:grid-cols-12 {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  #bmi-calculator .lg\:col-span-6 {
+    grid-column: span 1 !important;
+  }
+
+  /* ── Contact: Full single column layout ── */
+  #contact .grid.lg\:grid-cols-12 {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  #contact .lg\:col-span-5,
+  #contact .lg\:col-span-7 {
+    grid-column: span 1 !important;
+  }
+  #contact .h-52 {
+    height: 180px !important;
+  }
+  /* Form inputs - full width and comfortable touch targets */
+  #contact input,
+  #contact textarea {
+    font-size: 16px !important; /* prevents iOS zoom */
+  }
+
+  /* ── Footer: Stack all columns ── */
+  #main-footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  #main-footer .md\:col-span-2 {
+    grid-column: span 1 !important;
+  }
+  #main-footer .border-t.pt-8 {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+
+  /* ── FAQ: Comfortable tap targets ── */
+  #faq button.w-full {
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  #faq .px-6 {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* ── Instagram grid: 2-col, comfortable height ── */
+  #instagram .grid-cols-2 {
+    gap: 10px !important;
+  }
+
+  /* ── WhatsApp FAB: Better position on small screens ── */
+  #whatsapp-floating-btn {
+    bottom: 18px !important;
+    right: 16px !important;
+    padding: 14px !important;
+  }
+
+  /* ── General typography shrink for tiny viewports ── */
+  .font-display.text-3xl {
+    font-size: 1.6rem !important;
+  }
+  .font-display.text-5xl,
+  .font-display.text-6xl {
+    font-size: 2.2rem !important;
+  }
+
+  /* ── Remove horizontal scroll risk globally ── */
+  html, body, #root, main {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+}
+
+/* Extra-small devices (< 400px) */
+@media (max-width: 399px) {
+  /* Hero heading smaller on tiny phones */
+  #home h1 {
+    font-size: clamp(1.55rem, 9vw, 2.4rem) !important;
+  }
+
+  /* Membership price */
+  #membership .text-4xl,
+  #membership .text-5xl {
+    font-size: 2rem !important;
+  }
+
+  /* Founder name */
+  #founder h2 {
+    font-size: clamp(40px, 12vw, 56px) !important;
+  }
+
+  /* About heading */
+  #about h2 {
+    font-size: 36px !important;
+  }
+}
