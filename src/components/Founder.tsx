@@ -172,23 +172,25 @@ export default function Founder() {
           {/* Image — right 48%, NO left fade so face is fully visible */}
           <div
             className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden"
-            style={{ width: "48%", height: "470px" }}
+            style={{ width: "48%", height: "500px" }}
           >
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
               className="w-full h-full object-cover"
               style={{
-                objectPosition: "50% 18%",
-                filter: "brightness(1.7) contrast(1.18) saturate(1.05) hue-rotate(2deg)",
+                objectPosition: "55% 12%",
+                filter: "brightness(1.08) contrast(1.22) saturate(1.12) hue-rotate(2deg)",
               }}
             />
             {/* Warm red glow in upper-right corner */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-red-700/20 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-red-700/15 via-transparent to-transparent" />
             {/* Top fade */}
-            <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-black to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-black to-transparent" />
             {/* Bottom fade — covers arms, merges into black */}
-            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black to-transparent" />
+            {/* Right edge fade */}
+            <div className="absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-black to-transparent" />
           </div>
 
           {/* Full-width text content — z-20 sits above image */}
