@@ -418,8 +418,14 @@ export default function Founder() {
                   <span className="w-1 h-1 rounded-full bg-red-500/70" />
                   <div className="h-[1px] w-12 bg-gradient-to-r from-red-500/20 to-red-500" />
                 </div>
-                
-                <h3 className="font-display font-black text-[11px] sm:text-xs uppercase tracking-widest text-white whitespace-nowrap">
+                <h3 
+                  className="font-display font-black uppercase text-white text-center"
+                  style={{
+                    fontSize: "clamp(26px, 7vw, 36px)",
+                    lineHeight: 1.1,
+                    letterSpacing: "0.08em"
+                  }}
+                >
                   OFFICIAL BODYBUILDING ACCOMPLISHMENTS
                 </h3>
                 
