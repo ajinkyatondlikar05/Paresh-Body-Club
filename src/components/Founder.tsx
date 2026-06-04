@@ -61,7 +61,7 @@ export default function Founder() {
       </div>
 
       {/* Smooth Dark Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.85)_95%)] z-[2] pointer-events-none" />
+      <div className="hidden lg:block absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.85)_95%)] z-[2] pointer-events-none" />
 
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.05] z-0 pointer-events-none" />
@@ -170,7 +170,7 @@ export default function Founder() {
 
           {/* Image — right 58%, face + upper body visible at top */}
           <div
-            className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden"
+            className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden z-10"
             style={{ width: "58%", height: "520px" }}
           >
             <img
@@ -178,7 +178,7 @@ export default function Founder() {
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
               className="w-full h-full object-cover"
               style={{
-                objectPosition: "65% top",
+                objectPosition: "25% top",
                 filter: "brightness(1.16) contrast(1.18) saturate(1.12) hue-rotate(2deg)",
               }}
             />
