@@ -169,7 +169,7 @@ export default function Founder() {
         {/* ── HERO BLOCK: image right 48% + text left ─── */}
         <div className="relative overflow-hidden">
 
-          {/* Image — right 52%, face visible at x~35% of original image */}
+          {/* Image — right 52%, face prominent at top of section */}
           <div
             className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden"
             style={{ width: "52%", height: "520px" }}
@@ -179,20 +179,18 @@ export default function Founder() {
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
               className="w-full h-full object-cover"
               style={{
-                objectPosition: "35% 0%",
-                filter: "brightness(1.15) contrast(1.2) saturate(1.08) hue-rotate(2deg)",
+                objectPosition: "28% 0%",
+                filter: "brightness(1.55) contrast(1.05) saturate(1.2) hue-rotate(2deg)",
               }}
             />
-            {/* Warm red glow top-right */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-red-700/15 via-transparent to-transparent" />
-            {/* Top fade — subtle */}
-            <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-black to-transparent" />
-            {/* Bottom fade — gentle merge into section background */}
-            <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black to-transparent" />
+            {/* Subtle warm red glow */}
+            <div className="absolute inset-0 bg-gradient-to-bl from-red-700/10 via-transparent to-transparent" />
+            {/* Top fade — very subtle, just enough to blend into section top */}
+            <div className="absolute inset-x-0 top-0 h-5 bg-gradient-to-b from-black to-transparent" />
+            {/* Bottom fade — smooth merge into black, hides watermark */}
+            <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black to-transparent" />
             {/* Right edge fade */}
             <div className="absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-black to-transparent" />
-            {/* Left edge fade — blends into text area */}
-            <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-black to-transparent" />
           </div>
 
           {/* Full-width text content — z-20 sits above image */}
