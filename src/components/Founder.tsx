@@ -180,7 +180,7 @@ export default function Founder() {
               className="w-full h-full object-cover"
               style={{
                 objectPosition: "30% 0%",
-                filter: "brightness(1.25) contrast(1.18) saturate(0.88)",
+                filter: "brightness(1.12) contrast(1.4) saturate(0.85)",
               }}
             />
             {/* Subtle warm red glow */}
