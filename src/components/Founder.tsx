@@ -149,7 +149,7 @@ export default function Founder() {
             <div className="lg:col-span-8 space-y-6 text-left relative z-20">
               <div>
                 <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
-                  FOUNDER &amp; HEAD TRAINER
+                  FOUNDER
                 </span>
                 <h2
                   className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
@@ -243,13 +243,13 @@ export default function Founder() {
             <span
               className="text-red-500 font-display uppercase block"
               style={{ 
-                fontSize: "clamp(20px, 5.5vw, 24px)", 
+                fontSize: "clamp(24px, 6.5vw, 28px)", 
                 fontWeight: 900, 
                 letterSpacing: "5px",
                 textShadow: "0 0 12px rgba(239, 68, 68, 0.45)"
               }}
             >
-              FOUNDER &amp; HEAD TRAINER
+              FOUNDER
             </span>
 
             {/* Red underline accent */}
