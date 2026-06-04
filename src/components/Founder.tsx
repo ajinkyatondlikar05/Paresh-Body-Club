@@ -179,8 +179,8 @@ export default function Founder() {
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
               className="w-full h-full object-cover"
               style={{
-                objectPosition: "28% 0%",
-                filter: "brightness(1.55) contrast(1.05) saturate(1.2) hue-rotate(2deg)",
+                objectPosition: "30% 0%",
+                filter: "brightness(1.25) contrast(1.18) saturate(0.88)",
               }}
             />
             {/* Subtle warm red glow */}
