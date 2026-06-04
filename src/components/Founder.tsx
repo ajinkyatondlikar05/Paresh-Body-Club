@@ -160,37 +160,43 @@ export default function Founder() {
 
       {/* ══════════════════════════════════════════════════════════════════════
           MOBILE ONLY LAYOUT  (lg:hidden)
-          Image: right 48% of screen (starts at 52% from left).
-          Text: left side, no overlap with image.
-          NO left fade needed — face sits at 58-88% of screen width, fully exposed.
+          Image: right 58% of screen — face at top, warm skin tone, matches ref image 2.
+          Text: left side, overlaps image slightly for cinematic look.
       ══════════════════════════════════════════════════════════════════════ */}
       <div className="lg:hidden bg-black">
 
-        {/* ── HERO BLOCK: image right 48% + text left ─── */}
+        {/* ── HERO BLOCK: image right 58% + text left ─── */}
         <div className="relative overflow-hidden">
 
-          {/* Image — right 52%, face prominent at top of section */}
+          {/* Image — right 58%, face + upper body visible at top */}
           <div
             className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden"
-            style={{ width: "52%", height: "520px" }}
+            style={{ width: "58%", height: "520px" }}
           >
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
               className="w-full h-full object-cover"
               style={{
-                objectPosition: "30% 0%",
-                filter: "brightness(1.12) contrast(1.4) saturate(0.85)",
+                objectPosition: "65% top",
+                filter: "brightness(1.16) contrast(1.18) saturate(1.12) hue-rotate(2deg)",
               }}
             />
-            {/* Subtle warm red glow */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-red-700/10 via-transparent to-transparent" />
-            {/* Top fade — very subtle, just enough to blend into section top */}
-            <div className="absolute inset-x-0 top-0 h-5 bg-gradient-to-b from-black to-transparent" />
-            {/* Bottom fade — smooth merge into black, hides watermark */}
+            {/* Warm red ambient glow — matches reference image 2 skin tone */}
+            <div className="absolute inset-0" style={{
+              background: [
+                "radial-gradient(ellipse 55% 40% at 60% 25%, rgba(220,38,38,0.18) 0%, transparent 65%)",
+                "radial-gradient(ellipse 40% 30% at 55% 50%, rgba(185,28,28,0.12) 0%, transparent 60%)",
+              ].join(", "),
+            }} />
+            {/* Top fade */}
+            <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-black to-transparent" />
+            {/* Bottom fade — smooth merge into black */}
             <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black to-transparent" />
-            {/* Right edge fade */}
-            <div className="absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-black to-transparent" />
+            {/* Left edge — blends into text area */}
+            <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-black to-transparent" />
+            {/* Right edge */}
+            <div className="absolute inset-y-0 right-0 w-3 bg-gradient-to-l from-black to-transparent" />
           </div>
 
           {/* Full-width text content — z-20 sits above image */}
