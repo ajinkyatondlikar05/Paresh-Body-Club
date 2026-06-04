@@ -1,6 +1,22 @@
 import { Trophy, Award, Flame, Crown, Instagram, Dumbbell } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────
+   EAGLE ICON SILHOUETTE FOR ACCOMPLISHMENTS
+───────────────────────────────────────────────────────────── */
+const EagleIcon = ({ className, size = 14 }: { className?: string; size?: number }) => (
+  <svg
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    className={className}
+    fill="currentColor"
+  >
+    <path d="M2 14 Q 12 4 22 14 Q 12 9 2 14 Z" />
+    <circle cx="12" cy="7.5" r="1.5" />
+  </svg>
+);
+
+/* ─────────────────────────────────────────────────────────────
    MAIN COMPONENT
 ───────────────────────────────────────────────────────────── */
 export default function Founder() {
@@ -8,42 +24,63 @@ export default function Founder() {
     {
       id: "ach-1",
       number: "5",
-      suffix: "x",
-      suffixColor: "text-red-500",
+      suffix: "TIMES",
       label: "MURBAD SHREE CHAMPION",
       icon: Crown,
-      badgeClass: "bg-red-500/10 border border-red-500/20 text-red-500",
-      iconColor: "text-red-500",
+      borderColor: "border-red-500/35 hover:border-red-500/60",
+      glowColor: "shadow-[0_0_20px_rgba(239,68,68,0.06)] hover:shadow-[0_0_30px_rgba(239,68,68,0.16)]",
+      iconBoxClass: "border-red-500/40 bg-red-500/10 text-red-500",
+      numColor: "text-red-500",
+      watermarkIcon: Crown,
+      watermarkColor: "text-red-500/5",
+      eagleCount: 5,
+      eagleColor: "text-red-500",
     },
     {
       id: "ach-2",
       number: "2",
-      suffix: "x",
-      suffixColor: "text-red-500",
+      suffix: "TIMES",
       label: "SHAHAPUR SHREE CHAMPION",
       icon: Trophy,
-      badgeClass: "bg-amber-500/10 border border-amber-500/20 text-amber-500",
-      iconColor: "text-amber-500",
+      borderColor: "border-amber-500/35 hover:border-amber-500/60",
+      glowColor: "shadow-[0_0_20px_rgba(245,158,11,0.06)] hover:shadow-[0_0_30px_rgba(245,158,11,0.16)]",
+      iconBoxClass: "border-amber-500/40 bg-amber-500/10 text-amber-500",
+      numColor: "text-amber-500",
+      watermarkIcon: Trophy,
+      watermarkColor: "text-amber-500/5",
+      eagleCount: 2,
+      eagleColor: "text-amber-500",
     },
     {
       id: "ach-3",
       number: "1",
-      suffix: "🥈",
-      suffixColor: "",
+      suffix: "TIME",
       label: "THANE SHREE RUNNER-UP",
       icon: Award,
-      badgeClass: "bg-stone-500/10 border border-stone-500/20 text-stone-300",
-      iconColor: "text-zinc-400",
+      borderColor: "border-blue-500/35 hover:border-blue-500/60",
+      glowColor: "shadow-[0_0_20px_rgba(59,130,246,0.06)] hover:shadow-[0_0_30px_rgba(59,130,246,0.16)]",
+      iconBoxClass: "border-blue-500/40 bg-blue-500/10 text-blue-500",
+      numColor: "text-blue-500",
+      watermarkIcon: Award,
+      watermarkColor: "text-blue-500/4",
+      eagleCount: 1,
+      eagleColor: "text-blue-500",
     },
     {
       id: "ach-4",
       number: "IFSA",
-      suffix: "✔",
-      suffixColor: "text-red-500",
+      suffix: "",
       label: "CERTIFIED GYM TRAINER",
       icon: Flame,
-      badgeClass: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-450",
-      iconColor: "text-emerald-450",
+      borderColor: "border-emerald-500/35 hover:border-emerald-500/60",
+      glowColor: "shadow-[0_0_20px_rgba(16,185,129,0.06)] hover:shadow-[0_0_30px_rgba(16,185,129,0.16)]",
+      iconBoxClass: "border-emerald-500/40 bg-emerald-500/10 text-emerald-500",
+      numColor: "text-white",
+      watermarkIcon: Flame,
+      watermarkColor: "text-emerald-500/4",
+      eagleCount: 0,
+      eagleColor: "",
+      isIfsa: true,
     },
   ];
 
@@ -368,76 +405,136 @@ export default function Founder() {
           RESULT: Zero image bleed into this area on any screen size.
       ══════════════════════════════════════════════════════════════════════ */}
       <div className="relative z-30 bg-black">
-        <div className="max-w-7xl mx-auto px-[32px] sm:px-6 lg:px-8 pb-12 lg:pb-16">
-          <div className="space-y-6 lg:space-y-8 pt-8 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16 pt-8 border-t border-white/5">
+          <div className="space-y-8">
 
-            {/* Section header */}
-            <div className="flex items-center gap-2 pb-1">
-              <Crown size={16} className="text-red-500" />
-              <h3 className="font-display font-black text-xs uppercase tracking-widest text-[#9ca3af]">
-                OFFICIAL BODYBUILDING ACCOMPLISHMENTS
-              </h3>
+            {/* Section Header with Centered Crown & Lines */}
+            <div className="flex flex-col items-center text-center space-y-3.5 mb-10">
+              <Crown size={22} className="text-red-500" />
+              <div className="flex items-center justify-center gap-3 w-full max-w-xl px-4">
+                {/* Left decoration */}
+                <div className="flex items-center gap-1.5 flex-grow justify-end opacity-60">
+                  <span className="w-1 h-1 rounded-full bg-red-500/40" />
+                  <span className="w-1 h-1 rounded-full bg-red-500/70" />
+                  <div className="h-[1px] w-12 bg-gradient-to-r from-red-500/20 to-red-500" />
+                </div>
+                
+                <h3 className="font-display font-black text-[11px] sm:text-xs uppercase tracking-widest text-white whitespace-nowrap">
+                  OFFICIAL BODYBUILDING ACCOMPLISHMENTS
+                </h3>
+                
+                {/* Right decoration */}
+                <div className="flex items-center gap-1.5 flex-grow justify-start opacity-60">
+                  <div className="h-[1px] w-12 bg-gradient-to-l from-red-500/20 to-red-500" />
+                  <span className="w-1 h-1 rounded-full bg-red-500/70" />
+                  <span className="w-1 h-1 rounded-full bg-red-500/40" />
+                </div>
+              </div>
             </div>
 
             {/* Achievement cards — single column (matches screenshot) */}
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 gap-3.5">
               {achievements.map((ach) => {
                 const IconComp = ach.icon;
+                const WatermarkComp = ach.watermarkIcon;
                 return (
                   <div
                     key={ach.id}
-                    className="p-5 lg:p-6 border border-white/5 hover:border-red-500/20 rounded-xl flex items-center gap-4 lg:gap-5 bg-neutral-900/10 hover:bg-neutral-900/20 relative group transition-all duration-500 hover:shadow-[0_0_25px_rgba(239,68,68,0.06)]"
+                    className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 ${ach.glowColor}`}
                   >
+                    {/* Watermark background */}
+                    <WatermarkComp
+                      size={140}
+                      className={`absolute -right-4 -bottom-6 ${ach.watermarkColor} pointer-events-none select-none z-0`}
+                    />
+
+                    {/* Left Icon Badge */}
                     <div
-                      className={`p-3 lg:p-3.5 rounded-lg shrink-0 transition-transform duration-300 group-hover:scale-105 ${ach.badgeClass}`}
+                      className={`p-3 lg:p-3.5 rounded-xl shrink-0 transition-transform duration-300 group-hover:scale-105 border z-10 ${ach.iconBoxClass}`}
                     >
-                      <IconComp size={18} className={ach.iconColor} />
+                      <IconComp size={18} />
                     </div>
-                    <div>
-                      <div className="font-display font-black text-xl sm:text-2xl flex items-baseline gap-1 leading-none">
-                        <span className="text-white">{ach.number}</span>
-                        <span className={`${ach.suffixColor || "text-white"} text-base sm:text-lg font-extrabold`}>
-                          {ach.suffix}
-                        </span>
-                      </div>
-                      <span className="text-[#9ca3af] font-sans text-xs font-semibold uppercase tracking-wider block mt-1.5 leading-tight">
+
+                    {/* Content */}
+                    <div className="z-10 flex-grow text-left">
+                      {ach.isIfsa ? (
+                        <div className="flex items-center leading-none">
+                          <span className="font-display font-black text-xl sm:text-2xl text-white">
+                            {ach.number}
+                          </span>
+                          <span className="inline-flex items-center justify-center bg-emerald-500 text-black rounded-full w-4 h-4 ml-1.5 shrink-0" style={{ fontSize: "9px", fontWeight: "bold" }}>
+                            ✓
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="font-display font-black text-xl sm:text-2xl flex items-baseline gap-1.5 leading-none">
+                          <span className={ach.numColor}>{ach.number}</span>
+                          <span className="text-[#9ca3af] text-xs font-black tracking-wider ml-1">
+                            {ach.suffix}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Eagle row */}
+                      {ach.eagleCount > 0 && (
+                        <div className="flex items-center gap-1 mt-1.5 mb-1">
+                          {Array.from({ length: ach.eagleCount }).map((_, idx) => (
+                            <EagleIcon key={idx} className={ach.eagleColor} size={14} />
+                          ))}
+                        </div>
+                      )}
+
+                      <span className="text-[#9ca3af] font-sans text-[11px] font-semibold uppercase tracking-widest block mt-1.5 leading-tight">
                         {ach.label}
                       </span>
                     </div>
                   </div>
                 );
               })}
-            </div>
 
-            {/* Instagram bar */}
-            <div className="pt-5 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
-              <div className="flex items-center gap-4 text-left">
-                <div className="p-3 bg-red-600/10 rounded-xl border border-red-500/20 text-red-500 shadow-[0_0_15px_rgba(239,68,68,0.15)] shrink-0">
-                  <Instagram size={22} />
+              {/* Instagram Card (Card 5) */}
+              <div
+                className="p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)]"
+              >
+                {/* Watermark background */}
+                <Instagram
+                  size={140}
+                  className="absolute -right-4 -bottom-6 text-pink-500/5 pointer-events-none select-none z-0"
+                />
+
+                {/* Left Icon Badge */}
+                <div
+                  className="p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 shadow-[0_0_10px_rgba(236,72,153,0.15)] transition-transform duration-300 group-hover:scale-105 z-10"
+                >
+                  <Instagram size={18} />
                 </div>
-                <div>
-                  <span className="text-[10px] text-stone-500 uppercase font-bold block tracking-wider">
+
+                {/* Content */}
+                <div className="z-10 flex-grow flex flex-col items-start text-left">
+                  <span className="text-[9px] text-[#9ca3af] uppercase font-bold tracking-widest">
                     FOLLOW PARESH ON INSTAGRAM
                   </span>
                   <a
                     href="https://instagram.com/pareshhindurao"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-white hover:text-red-500 text-sm sm:text-base font-black uppercase tracking-wider block mt-0.5 transition-colors duration-300"
+                    className="text-white hover:text-pink-500 text-lg sm:text-xl font-display font-black uppercase tracking-wider block mt-0.5 transition-colors duration-300"
                   >
                     @pareshhindurao
                   </a>
+                  
+                  {/* Button */}
+                  <a
+                    href="https://instagram.com/pareshhindurao"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit"
+                  >
+                    <Instagram size={13} />
+                    FOLLOW ON INSTAGRAM
+                  </a>
                 </div>
               </div>
-
-              <a
-                href="https://instagram.com/pareshhindurao"
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto px-8 py-3.5 bg-neutral-900/40 hover:bg-red-600/20 text-stone-200 hover:text-white hover:border-red-500/35 text-xs font-black uppercase tracking-widest rounded-lg border border-white/10 flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(239,68,68,0.15)]"
-              >
-                FOLLOW ON INSTAGRAM
-              </a>
             </div>
 
           </div>
