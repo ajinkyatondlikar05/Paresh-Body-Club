@@ -124,6 +124,13 @@ body {
   }
 }
 
+/* Reduce spacing above Founder section on mobile viewports (< 1024px) */
+@media (max-width: 1023px) {
+  #founder {
+    margin-top: -140px !important;
+  }
+}
+
 /* About Section Mobile Optimization (< 768px) */
 @media (max-width: 767px) {
   .about-stats,
