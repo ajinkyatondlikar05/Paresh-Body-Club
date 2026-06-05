@@ -702,7 +702,7 @@ export default function Hero() {
         </div>
 
         {/* ── STATS — solid bg, z-index above hero so athlete never bleeds through ── */}
-        <div ref={statsRef} className="px-4 pb-4" style={{ position: "relative", zIndex: 10, background: "#050505", marginTop: "0px", paddingTop: "0px" }}>
+        <div ref={statsRef} className="px-4 pb-3" style={{ position: "relative", zIndex: 10, background: "#050505", marginTop: "0px", paddingTop: "0px" }}>
           <div className="grid grid-cols-2" style={{ gap: "24px" }}>
             {stats.map((stat, i) => (
               <motion.div
