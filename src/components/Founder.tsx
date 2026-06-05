@@ -1,5 +1,7 @@
+import { useState, useEffect } from "react";
 import { Trophy, Award, Flame, Crown, Instagram, Dumbbell } from "lucide-react";
 import { motion } from "motion/react";
+
 
 
 /* ─────────────────────────────────────────────────────────────
@@ -22,6 +24,14 @@ const EagleIcon = ({ className, size = 14 }: { className?: string; size?: number
    MAIN COMPONENT
 ───────────────────────────────────────────────────────────── */
 export default function Founder() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const achievements = [
     {
       id: "ach-1",
@@ -472,34 +482,75 @@ export default function Founder() {
             a solid black bottom mask so it doesn't show here either
           RESULT: Zero image bleed into this area on any screen size.
       ══════════════════════════════════════════════════════════════════════ */}
-      <div className="relative z-30 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16 pt-8 border-t border-white/5">
+      <div className="relative z-30 bg-black overflow-hidden">
+        {/* Subtle color-matched floating particles for mobile Achievements section */}
+        {isMobile && (
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            {/* Red particle (top left) */}
+            <div className="absolute left-[15%] top-[20%] w-[3px] h-[3px] bg-red-500/20 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '0s', animationDuration: '12s' }} />
+            {/* Amber/Orange particle (mid right) */}
+            <div className="absolute right-[10%] top-[40%] w-[4px] h-[4px] bg-amber-500/15 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '3s', animationDuration: '15s' }} />
+            {/* Blue particle (mid left) */}
+            <div className="absolute left-[8%] top-[60%] w-[3px] h-[3px] bg-blue-500/20 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '6s', animationDuration: '14s' }} />
+            {/* Emerald/Green particle (bottom right) */}
+            <div className="absolute right-[20%] top-[80%] w-[4px] h-[4px] bg-emerald-500/15 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '9s', animationDuration: '16s' }} />
+            {/* Pink/Instagram particle (bottom left) */}
+            <div className="absolute left-[25%] top-[90%] w-[3px] h-[3px] bg-pink-500/20 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '2s', animationDuration: '18s' }} />
+          </div>
+        )}
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16 pt-8 border-t border-white/5 relative z-10">
           <div className="space-y-8">
 
             {/* Section Header with Centered Crown & Lines */}
             <div className="flex flex-col items-center text-center space-y-3.5 mb-10">
-              <Crown size={22} className="text-red-500" />
+              <motion.div
+                initial={isMobile ? { opacity: 0, scale: 0.8 } : false}
+                whileInView={isMobile ? { opacity: 1, scale: 1 } : false}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <Crown size={22} className="text-red-500" />
+              </motion.div>
               <div className="flex items-center justify-center gap-3 w-full max-w-xl px-4">
                 {/* Left decoration */}
                 <div className="flex items-center gap-1.5 flex-grow justify-end opacity-60">
                   <span className="w-1 h-1 rounded-full bg-red-500/40" />
                   <span className="w-1 h-1 rounded-full bg-red-500/70" />
-                  <div className="h-[1px] w-12 bg-gradient-to-r from-red-500/20 to-red-500" />
+                  <motion.div 
+                    className="h-[1px] w-12 bg-gradient-to-r from-red-500/20 to-red-500" 
+                    initial={isMobile ? { scaleX: 0 } : false}
+                    whileInView={isMobile ? { scaleX: 1 } : false}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    style={{ transformOrigin: "right" }}
+                  />
                 </div>
-                <h3 
+                <motion.h3 
                   className="font-display font-black uppercase text-white text-center"
                   style={{
                     fontSize: "clamp(26px, 7vw, 36px)",
                     lineHeight: 1.1,
                     letterSpacing: "0.08em"
                   }}
+                  initial={isMobile ? { opacity: 0, y: 20 } : false}
+                  whileInView={isMobile ? { opacity: 1, y: 0 } : false}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
                 >
                   OFFICIAL BODYBUILDING ACCOMPLISHMENTS
-                </h3>
+                </motion.h3>
                 
                 {/* Right decoration */}
                 <div className="flex items-center gap-1.5 flex-grow justify-start opacity-60">
-                  <div className="h-[1px] w-12 bg-gradient-to-l from-red-500/20 to-red-500" />
+                  <motion.div 
+                    className="h-[1px] w-12 bg-gradient-to-l from-red-500/20 to-red-500" 
+                    initial={isMobile ? { scaleX: 0 } : false}
+                    whileInView={isMobile ? { scaleX: 1 } : false}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    style={{ transformOrigin: "left" }}
+                  />
                   <span className="w-1 h-1 rounded-full bg-red-500/70" />
                   <span className="w-1 h-1 rounded-full bg-red-500/40" />
                 </div>
@@ -508,13 +559,31 @@ export default function Founder() {
 
             {/* Achievement cards — single column (matches screenshot) */}
             <div className="grid grid-cols-1 gap-3.5">
-              {achievements.map((ach) => {
+              {achievements.map((ach, index) => {
                 const IconComp = ach.icon;
                 const WatermarkComp = ach.watermarkIcon;
+                
+                // Determine pulse border animation class on mobile
+                const pulseClass = isMobile
+                  ? ach.id === "ach-1"
+                    ? "ach-pulse-red"
+                    : ach.id === "ach-2"
+                    ? "ach-pulse-amber"
+                    : ach.id === "ach-3"
+                    ? "ach-pulse-blue"
+                    : ach.id === "ach-4"
+                    ? "ach-pulse-emerald"
+                    : ""
+                  : "";
+
                 return (
-                  <div
+                  <motion.div
                     key={ach.id}
-                    className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 ${ach.glowColor}`}
+                    initial={isMobile ? { opacity: 0, y: 25, scale: 0.96 } : false}
+                    whileInView={isMobile ? { opacity: 1, y: 0, scale: 1 } : false}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: index * 0.15 }}
+                    className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 ${ach.glowColor} ${pulseClass}`}
                   >
                     {/* Watermark background */}
                     <WatermarkComp
@@ -523,11 +592,14 @@ export default function Founder() {
                     />
 
                     {/* Left Icon Badge */}
-                    <div
-                      className={`p-3 lg:p-3.5 rounded-xl shrink-0 transition-transform duration-300 group-hover:scale-105 border z-10 ${ach.iconBoxClass}`}
+                    <motion.div
+                      className={`p-3 lg:p-3.5 rounded-xl shrink-0 border z-10 ${ach.iconBoxClass} ${isMobile ? 'ach-icon-glow' : 'transition-transform duration-300 group-hover:scale-105'}`}
+                      whileHover={isMobile ? { scale: 1.08 } : {}}
+                      whileTap={isMobile ? { scale: 1.08 } : {}}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
                     >
                       <IconComp size={18} />
-                    </div>
+                    </motion.div>
 
                     {/* Content */}
                     <div className="z-10 flex-grow text-left">
@@ -553,7 +625,16 @@ export default function Founder() {
                       {ach.eagleCount > 0 && (
                         <div className="flex items-center gap-1 mt-1.5 mb-1">
                           {Array.from({ length: ach.eagleCount }).map((_, idx) => (
-                            <EagleIcon key={idx} className={ach.eagleColor} size={14} />
+                            <motion.div
+                              key={idx}
+                              initial={isMobile ? { opacity: 0, y: 5 } : false}
+                              whileInView={isMobile ? { opacity: 1, y: 0 } : false}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.4, ease: "easeOut", delay: (index * 0.15) + (idx * 0.08) }}
+                              className="inline-block"
+                            >
+                              <EagleIcon className={ach.eagleColor} size={14} />
+                            </motion.div>
                           ))}
                         </div>
                       )}
@@ -562,13 +643,17 @@ export default function Founder() {
                         {ach.label}
                       </span>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
 
               {/* Instagram Card (Card 5) */}
-              <div
-                className="p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)]"
+              <motion.div
+                initial={isMobile ? { opacity: 0, y: 25, scale: 0.96 } : false}
+                whileInView={isMobile ? { opacity: 1, y: 0, scale: 1 } : false}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: 0.6 }}
+                className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] ${isMobile ? 'ach-pulse-pink' : ''}`}
               >
                 {/* Watermark background */}
                 <Instagram
@@ -577,11 +662,14 @@ export default function Founder() {
                 />
 
                 {/* Left Icon Badge */}
-                <div
-                  className="p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 shadow-[0_0_10px_rgba(236,72,153,0.15)] transition-transform duration-300 group-hover:scale-105 z-10"
+                <motion.div
+                  className={`p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 z-10 ${isMobile ? 'ach-icon-glow animate-neon-pulse-pink' : 'shadow-[0_0_10px_rgba(236,72,153,0.15)] transition-transform duration-300 group-hover:scale-105 z-10'}`}
+                  whileHover={isMobile ? { scale: 1.08 } : {}}
+                  whileTap={isMobile ? { scale: 1.08 } : {}}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
                   <Instagram size={18} />
-                </div>
+                </motion.div>
 
                 {/* Content */}
                 <div className="z-10 flex-grow flex flex-col items-start text-left">
@@ -598,17 +686,20 @@ export default function Founder() {
                   </a>
                   
                   {/* Button */}
-                  <a
+                  <motion.a
                     href="https://instagram.com/pareshhindurao"
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit"
+                    className={`mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit ${isMobile ? 'btn-shine-animation' : ''}`}
+                    whileHover={isMobile ? { scale: 1.03 } : {}}
+                    whileTap={isMobile ? { scale: 1.03 } : {}}
+                    transition={{ type: "spring", stiffness: 500, damping: 15 }}
                   >
                     <Instagram size={13} />
                     FOLLOW ON INSTAGRAM
-                  </a>
+                  </motion.a>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
           </div>

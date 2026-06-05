@@ -557,3 +557,152 @@ body {
   animation: whatsappGlowPulse 2.5s infinite ease-in-out;
 }
 
+/* ── Achievements section animations (Mobile only) ── */
+@media (max-width: 1023px) {
+  /* Soft glowing border pulses for cards */
+  .ach-pulse-red {
+    animation: pulseBorderRed 4s infinite ease-in-out;
+  }
+  .ach-pulse-amber {
+    animation: pulseBorderAmber 4s infinite ease-in-out;
+  }
+  .ach-pulse-blue {
+    animation: pulseBorderBlue 4s infinite ease-in-out;
+  }
+  .ach-pulse-emerald {
+    animation: pulseBorderEmerald 4s infinite ease-in-out;
+  }
+  .ach-pulse-pink {
+    animation: pulseBorderPink 4s infinite ease-in-out;
+  }
+
+  /* Icons soft glow */
+  .ach-icon-glow {
+    box-shadow: 0 0 14px currentColor;
+  }
+
+  /* Instagram icon neon pulse */
+  .animate-neon-pulse-pink {
+    animation: neonPulsePink 2.5s infinite ease-in-out;
+  }
+
+  /* Button gradient shine */
+  .btn-shine-animation {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shine-animation::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
+    transform: skewX(-25deg);
+    animation: shine 4.5s infinite ease-in-out;
+  }
+
+  /* Floating background particles */
+  .animate-particle-float-slow {
+    animation: particleFloatSlow 15s infinite linear;
+  }
+}
+
+@keyframes pulseBorderRed {
+  0%, 100% {
+    border-color: rgba(239, 68, 68, 0.25);
+    box-shadow: 0 0 16px rgba(239, 68, 68, 0.05);
+  }
+  50% {
+    border-color: rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0 24px rgba(239, 68, 68, 0.12);
+  }
+}
+@keyframes pulseBorderAmber {
+  0%, 100% {
+    border-color: rgba(245, 158, 11, 0.25);
+    box-shadow: 0 0 16px rgba(245, 158, 11, 0.05);
+  }
+  50% {
+    border-color: rgba(245, 158, 11, 0.5);
+    box-shadow: 0 0 24px rgba(245, 158, 11, 0.12);
+  }
+}
+@keyframes pulseBorderBlue {
+  0%, 100% {
+    border-color: rgba(59, 130, 246, 0.25);
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.05);
+  }
+  50% {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 24px rgba(59, 130, 246, 0.12);
+  }
+}
+@keyframes pulseBorderEmerald {
+  0%, 100% {
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.05);
+  }
+  50% {
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 24px rgba(16, 185, 129, 0.12);
+  }
+}
+@keyframes pulseBorderPink {
+  0%, 100% {
+    border-color: rgba(236, 72, 153, 0.25);
+    box-shadow: 0 0 16px rgba(236, 72, 153, 0.05);
+  }
+  50% {
+    border-color: rgba(236, 72, 153, 0.5);
+    box-shadow: 0 0 24px rgba(236, 72, 153, 0.12);
+  }
+}
+@keyframes neonPulsePink {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(236, 72, 153, 0.35);
+    border-color: rgba(236, 72, 153, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(236, 72, 153, 0.75);
+    border-color: rgba(236, 72, 153, 0.6);
+  }
+}
+@keyframes shine {
+  0% {
+    left: -150%;
+  }
+  50% {
+    left: -150%;
+  }
+  80% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+@keyframes particleFloatSlow {
+  0% {
+    transform: translateY(30px) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-90px) scale(1.25);
+    opacity: 0;
+  }
+}
+
+
