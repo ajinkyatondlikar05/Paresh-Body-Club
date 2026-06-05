@@ -173,7 +173,7 @@ export default function About() {
             backgroundRepeat: "no-repeat",
             opacity: 0.55,
             zIndex: 0,
-            filter: "contrast(2.2) brightness(1.30)",
+            filter: "contrast(1.9) brightness(1.28) saturate(0.68)",
           }}
         />
 
