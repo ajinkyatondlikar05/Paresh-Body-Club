@@ -567,12 +567,12 @@ export default function Hero() {
           </motion.div>
 
           {/* ── LEFT TEXT COLUMN — relative, top 42px, left 0 ── */}
-          <div className="relative px-4" style={{ top: "42px", marginTop: "50px", left: 0, width: "55%", zIndex: 10 }}>
+          <div className="relative px-4" style={{ top: "42px", marginTop: "50px", left: 0, width: "53%", zIndex: 10 }}>
 
             {/* ── HEADING ── */}
             <h1
               className="font-display font-black uppercase text-white select-none"
-              style={{ fontSize: "clamp(1.85rem, 9.8vw, 2.9rem)", lineHeight: 0.92, letterSpacing: "-0.01em", paddingTop: "2px" }}
+              style={{ fontSize: "clamp(1.76rem, 9.3vw, 2.76rem)", lineHeight: 0.92, letterSpacing: "-0.03em", paddingTop: "2px" }}
             >
               {/* Line 1: TRANSFORM */}
               <span className="block" style={{ overflow: "visible", paddingTop: "3px" }}>
