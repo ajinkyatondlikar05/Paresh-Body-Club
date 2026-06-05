@@ -604,20 +604,47 @@ export default function Founder() {
                     {/* Content */}
                     <div className="z-10 flex-grow text-left">
                       {ach.isIfsa ? (
-                        <div className="flex items-center leading-none">
-                          <span className="font-display font-black text-xl sm:text-2xl text-white">
+                        <div className="flex items-center leading-none overflow-hidden">
+                          <motion.span 
+                            className="font-display font-black text-xl sm:text-2xl text-white block"
+                            initial={isMobile ? { opacity: 0, y: 15 } : false}
+                            whileInView={isMobile ? { opacity: 1, y: 0 } : false}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: "easeOut", delay: (index * 0.15) + 0.1 }}
+                          >
                             {ach.number}
-                          </span>
-                          <span className="inline-flex items-center justify-center bg-emerald-500 text-black rounded-full w-4 h-4 ml-1.5 shrink-0" style={{ fontSize: "9px", fontWeight: "bold" }}>
+                          </motion.span>
+                          <motion.span 
+                            className="inline-flex items-center justify-center bg-emerald-500 text-black rounded-full w-4 h-4 ml-1.5 shrink-0" 
+                            style={{ fontSize: "9px", fontWeight: "bold" }}
+                            initial={isMobile ? { opacity: 0, scale: 0 } : false}
+                            whileInView={isMobile ? { opacity: 1, scale: 1 } : false}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, type: "spring", stiffness: 300, delay: (index * 0.15) + 0.25 }}
+                          >
                             ✓
-                          </span>
+                          </motion.span>
                         </div>
                       ) : (
-                        <div className="font-display font-black text-xl sm:text-2xl flex items-baseline gap-1.5 leading-none">
-                          <span className={ach.numColor}>{ach.number}</span>
-                          <span className="text-[#9ca3af] text-xs font-black tracking-wider ml-1">
+                        <div className="font-display font-black text-xl sm:text-2xl flex items-baseline gap-1.5 leading-none overflow-hidden">
+                          <motion.span 
+                            className={`${ach.numColor} block`}
+                            initial={isMobile ? { opacity: 0, y: 15 } : false}
+                            whileInView={isMobile ? { opacity: 1, y: 0 } : false}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: "easeOut", delay: (index * 0.15) + 0.1 }}
+                          >
+                            {ach.number}
+                          </motion.span>
+                          <motion.span 
+                            className="text-[#9ca3af] text-xs font-black tracking-wider ml-1 block"
+                            initial={isMobile ? { opacity: 0 } : false}
+                            whileInView={isMobile ? { opacity: 1 } : false}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: (index * 0.15) + 0.25 }}
+                          >
                             {ach.suffix}
-                          </span>
+                          </motion.span>
                         </div>
                       )}
 
