@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Trophy, Award, Flame, Crown, Instagram, Dumbbell } from "lucide-react";
-import { motion, useInView, useMotionValue, useSpring } from "motion/react";
+import { motion, useMotionValue, useSpring } from "motion/react";
 
 
 
@@ -22,104 +22,64 @@ const EagleIcon = ({ className, size = 14 }: { className?: string; size?: number
 
 
 /* ─────────────────────────────────────────────────────────────
-   ANIMATION VARIANTS FOR MOBILE ACHIEVEMENTS
+   MOBILE ACHIEVEMENTS — timing constants
+   heading: 0s | cards: 0.2 + index*0.18s | count starts after card
    ───────────────────────────────────────────────────────────── */
-
-/** Per-card scroll-triggered animation — no stagger container needed */
-const cardMotion = (isMobile: boolean) =>
-  isMobile
-    ? {
-        initial: { opacity: 0, y: 28, scale: 0.96 },
-        whileInView: { opacity: 1, y: 0, scale: 1 },
-        viewport: { once: true, margin: "-30px" },
-        transition: { duration: 0.55, ease: [0.25, 1, 0.5, 1] },
-      }
-    : {};
-
-/** Suffix fade-in after number */
-const suffixVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.4, delay: 0.25 },
-  },
-};
-
-/** Eagle icons stagger */
-const eagleVariants = (idx: number) => ({
-  hidden: { opacity: 0, y: 5 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, ease: "easeOut", delay: 0.2 + idx * 0.08 },
-  },
-});
-
-/** Checkmark pop for IFSA card */
-const checkmarkVariants = {
-  hidden: { opacity: 0, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.3, type: "spring", stiffness: 320, delay: 0.3 },
-  },
-};
+const ACH_HEADING_DELAY  = 0;          // crown / heading appear first
+const ACH_CARD_BASE      = 0.2;        // first card starts at 0.2s
+const ACH_CARD_STAGGER   = 0.18;       // 0.18s between cards
+const ACH_ENTRY_DUR      = 0.6;        // card entry duration
+const achCardDelay  = (i: number) => ACH_CARD_BASE + i * ACH_CARD_STAGGER;
+const achCountDelay = (i: number) => achCardDelay(i) + ACH_ENTRY_DUR + 0.05;
 
 /* ─────────────────────────────────────────────────────────────
    COUNT-UP COMPONENT  (mobile only)
-   Counts from 0 → target over ~0.8s when the element enters view.
-   For IFSA (non-numeric) it just reveals the text as a fade.
+   Starts counting only when shouldStart becomes true, after
+   startDelay seconds — so numbers reveal after the card appears.
    ───────────────────────────────────────────────────────────── */
 function CountUp({
   target,
   color,
   isIfsa = false,
+  shouldStart = false,
+  startDelay = 0,
 }: {
   target: string;
   color: string;
   isIfsa?: boolean;
+  shouldStart?: boolean;
+  startDelay?: number;
 }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-20px" });
   const motionVal = useMotionValue(0);
-  const spring = useSpring(motionVal, { stiffness: 60, damping: 14, mass: 0.8 });
+  const spring = useSpring(motionVal, { stiffness: 55, damping: 14, mass: 0.8 });
   const [display, setDisplay] = useState(isIfsa ? "" : "0");
 
+  // Trigger count / reveal once shouldStart flips to true
   useEffect(() => {
-    if (!isIfsa && inView) {
-      motionVal.set(Number(target));
-    }
-    if (isIfsa && inView) {
-      // simple delay reveal for text
-      const t = setTimeout(() => setDisplay("IFSA"), 160);
+    if (!shouldStart) return;
+    const ms = Math.round(startDelay * 1000);
+    if (isIfsa) {
+      const t = setTimeout(() => setDisplay("IFSA"), ms);
+      return () => clearTimeout(t);
+    } else {
+      const t = setTimeout(() => motionVal.set(Number(target)), ms);
       return () => clearTimeout(t);
     }
-  }, [inView, isIfsa, motionVal, target]);
+  }, [shouldStart, isIfsa, motionVal, target, startDelay]);
 
-  // Subscribe to spring for numeric update
+  // Subscribe spring → display
   useEffect(() => {
     if (isIfsa) return;
-    const unsub = spring.on("change", (v) =>
-      setDisplay(String(Math.round(v)))
-    );
+    const unsub = spring.on("change", (v) => setDisplay(String(Math.round(v))));
     return unsub;
   }, [spring, isIfsa]);
 
-  if (isIfsa) {
-    return (
-      <span
-        ref={ref}
-        className={`font-display font-black text-xl sm:text-2xl text-white block transition-all duration-500 ${
-          inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-        }`}
-      >
-        {display}
-      </span>
-    );
-  }
-
   return (
-    <span ref={ref} className={`font-display font-black text-xl sm:text-2xl block ${color}`}>
+    <span
+      className={`font-display font-black text-xl sm:text-2xl block ${
+        isIfsa ? "text-white" : color
+      }`}
+    >
       {display}
     </span>
   );
@@ -129,12 +89,33 @@ function CountUp({
    MAIN COMPONENT
 ───────────────────────────────────────────────────────────── */
 export default function Founder() {
-  const [isMobile, setIsMobile] = useState(false);
+  // Initialise synchronously so mobile state is correct before first paint
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth < 1024
+  );
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  /* ── Single observer drives ALL achievement animations on mobile ── */
+  const [achVisible, setAchVisible] = useState(false);
+  const achRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = achRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAchVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   const achievements = [
@@ -587,7 +568,7 @@ export default function Founder() {
             a solid black bottom mask so it doesn't show here either
           RESULT: Zero image bleed into this area on any screen size.
       ══════════════════════════════════════════════════════════════════════ */}
-      <div className="relative z-30 bg-black overflow-hidden">
+      <div ref={achRef} className="relative z-30 bg-black overflow-hidden">
         {/* Subtle color-matched floating particles for mobile Achievements section */}
         {isMobile && (
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -609,51 +590,75 @@ export default function Founder() {
 
             {/* Section Header with Centered Crown & Lines */}
             <div className="flex flex-col items-center text-center space-y-3.5 mb-10">
+              {/* Crown icon — appears first */}
               <motion.div
-                initial={isMobile ? { opacity: 0, scale: 0.8 } : false}
-                whileInView={isMobile ? { opacity: 1, scale: 1 } : false}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                initial={isMobile ? { opacity: 0, scale: 0.75 } : false}
+                animate={
+                  isMobile
+                    ? achVisible
+                      ? { opacity: 1, scale: 1 }
+                      : { opacity: 0, scale: 0.75 }
+                    : {}
+                }
+                transition={{ duration: 0.55, ease: "easeOut", delay: ACH_HEADING_DELAY }}
               >
                 <Crown size={22} className="text-red-500" />
               </motion.div>
+
               <div className="flex items-center justify-center gap-3 w-full max-w-xl px-4">
                 {/* Left decoration */}
                 <div className="flex items-center gap-1.5 flex-grow justify-end opacity-60">
                   <span className="w-1 h-1 rounded-full bg-red-500/40" />
                   <span className="w-1 h-1 rounded-full bg-red-500/70" />
-                  <motion.div 
-                    className="h-[1px] w-12 bg-gradient-to-r from-red-500/20 to-red-500" 
+                  <motion.div
+                    className="h-[1px] w-12 bg-gradient-to-r from-red-500/20 to-red-500"
                     initial={isMobile ? { scaleX: 0 } : false}
-                    whileInView={isMobile ? { scaleX: 1 } : false}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    animate={
+                      isMobile
+                        ? achVisible
+                          ? { scaleX: 1 }
+                          : { scaleX: 0 }
+                        : {}
+                    }
+                    transition={{ duration: 0.7, ease: "easeOut", delay: ACH_HEADING_DELAY + 0.08 }}
                     style={{ transformOrigin: "right" }}
                   />
                 </div>
-                <motion.h3 
+
+                {/* Heading */}
+                <motion.h3
                   className="font-display font-black uppercase text-white text-center"
                   style={{
                     fontSize: "clamp(26px, 7vw, 36px)",
                     lineHeight: 1.1,
                     letterSpacing: "0.08em"
                   }}
-                  initial={isMobile ? { opacity: 0, y: 20 } : false}
-                  whileInView={isMobile ? { opacity: 1, y: 0 } : false}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+                  initial={isMobile ? { opacity: 0, y: 18 } : false}
+                  animate={
+                    isMobile
+                      ? achVisible
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: 18 }
+                      : {}
+                  }
+                  transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1], delay: ACH_HEADING_DELAY + 0.08 }}
                 >
                   OFFICIAL BODYBUILDING ACCOMPLISHMENTS
                 </motion.h3>
-                
+
                 {/* Right decoration */}
                 <div className="flex items-center gap-1.5 flex-grow justify-start opacity-60">
-                  <motion.div 
-                    className="h-[1px] w-12 bg-gradient-to-l from-red-500/20 to-red-500" 
+                  <motion.div
+                    className="h-[1px] w-12 bg-gradient-to-l from-red-500/20 to-red-500"
                     initial={isMobile ? { scaleX: 0 } : false}
-                    whileInView={isMobile ? { scaleX: 1 } : false}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    animate={
+                      isMobile
+                        ? achVisible
+                          ? { scaleX: 1 }
+                          : { scaleX: 0 }
+                        : {}
+                    }
+                    transition={{ duration: 0.7, ease: "easeOut", delay: ACH_HEADING_DELAY + 0.08 }}
                     style={{ transformOrigin: "left" }}
                   />
                   <span className="w-1 h-1 rounded-full bg-red-500/70" />
@@ -662,34 +667,41 @@ export default function Founder() {
               </div>
             </div>
 
-            {/* Achievement cards — single column (matches screenshot) */}
+            {/* Achievement cards — single column, ordered sequential reveal */}
             <div className="grid grid-cols-1 gap-3.5">
+
               {achievements.map((ach, index) => {
                 const IconComp = ach.icon;
+                const delay     = achCardDelay(index);   // entry start
+                const cntDelay  = achCountDelay(index);  // count starts after card fully in
 
-                // Pulse border animation class (mobile only)
                 const pulseClass = isMobile
-                  ? ach.id === "ach-1"
-                    ? "ach-pulse-red"
-                    : ach.id === "ach-2"
-                    ? "ach-pulse-amber"
-                    : ach.id === "ach-3"
-                    ? "ach-pulse-blue"
-                    : ach.id === "ach-4"
-                    ? "ach-pulse-emerald"
-                    : ""
+                  ? ach.id === "ach-1" ? "ach-pulse-red"
+                  : ach.id === "ach-2" ? "ach-pulse-amber"
+                  : ach.id === "ach-3" ? "ach-pulse-blue"
+                  : ach.id === "ach-4" ? "ach-pulse-emerald"
+                  : ""
                   : "";
-
-                const props = cardMotion(isMobile);
 
                 return (
                   <motion.div
                     key={ach.id}
-                    {...props}
-                    style={{ transitionDelay: isMobile ? `${index * 0.12}s` : undefined }}
+                    initial={isMobile ? { opacity: 0, y: 40, scale: 0.96 } : false}
+                    animate={
+                      isMobile
+                        ? achVisible
+                          ? { opacity: 1, y: 0, scale: 1 }
+                          : { opacity: 0, y: 40, scale: 0.96 }
+                        : {}
+                    }
+                    transition={{
+                      duration: ACH_ENTRY_DUR,
+                      ease: [0.25, 1, 0.5, 1],
+                      delay: isMobile ? delay : 0,
+                    }}
                     className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 ${ach.glowColor} ${pulseClass}`}
                   >
-                    {/* ── Desktop only: watermark background icon ── */}
+                    {/* Desktop-only watermark */}
                     {!isMobile && (() => {
                       const WM = ach.watermarkIcon;
                       return (
@@ -701,7 +713,9 @@ export default function Founder() {
 
                     {/* Left Icon Badge */}
                     <motion.div
-                      className={`p-3 lg:p-3.5 rounded-xl shrink-0 border z-10 ${ach.iconBoxClass} ${isMobile ? 'ach-icon-glow-pulse' : 'transition-transform duration-300 group-hover:scale-105'}`}
+                      className={`p-3 lg:p-3.5 rounded-xl shrink-0 border z-10 ${ach.iconBoxClass} ${
+                        isMobile ? "ach-icon-glow-pulse" : "transition-transform duration-300 group-hover:scale-105"
+                      }`}
                       whileHover={isMobile ? { scale: 1.08 } : {}}
                       whileTap={isMobile ? { scale: 1.08 } : {}}
                       transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -710,29 +724,35 @@ export default function Founder() {
                     </motion.div>
 
                     {/* Content */}
-                    <motion.div
-                      className="z-10 flex-grow text-left"
-                      initial={isMobile ? { opacity: 0 } : false}
-                      whileInView={isMobile ? { opacity: 1 } : false}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.12 + 0.25 }}
-                    >
+                    <div className="z-10 flex-grow text-left">
                       {ach.isIfsa ? (
                         <div className="flex items-center leading-none overflow-hidden">
                           {isMobile ? (
-                            <CountUp target={ach.number} color="text-white" isIfsa />
+                            <CountUp
+                              target={ach.number}
+                              color="text-white"
+                              isIfsa
+                              shouldStart={achVisible}
+                              startDelay={cntDelay}
+                            />
                           ) : (
                             <span className="font-display font-black text-xl sm:text-2xl text-white block">
                               {ach.number}
                             </span>
                           )}
+                          {/* Checkmark — pops in after count */}
                           <motion.span
                             className="inline-flex items-center justify-center bg-emerald-500 text-black rounded-full w-4 h-4 ml-1.5 shrink-0"
                             style={{ fontSize: "9px", fontWeight: "bold" }}
                             initial={isMobile ? { opacity: 0, scale: 0 } : false}
-                            whileInView={isMobile ? { opacity: 1, scale: 1 } : false}
-                            viewport={{ once: true }}
-                            transition={{ type: "spring", stiffness: 320, delay: index * 0.12 + 0.45 }}
+                            animate={
+                              isMobile
+                                ? achVisible
+                                  ? { opacity: 1, scale: 1 }
+                                  : { opacity: 0, scale: 0 }
+                                : {}
+                            }
+                            transition={{ type: "spring", stiffness: 320, delay: isMobile ? cntDelay + 0.1 : 0 }}
                           >
                             ✓
                           </motion.span>
@@ -740,32 +760,51 @@ export default function Founder() {
                       ) : (
                         <div className="font-display font-black text-xl sm:text-2xl flex items-baseline gap-1.5 leading-none overflow-hidden">
                           {isMobile ? (
-                            <CountUp target={ach.number} color={ach.numColor} />
+                            <CountUp
+                              target={ach.number}
+                              color={ach.numColor}
+                              shouldStart={achVisible}
+                              startDelay={cntDelay}
+                            />
                           ) : (
                             <span className={`${ach.numColor} block`}>{ach.number}</span>
                           )}
+                          {/* Suffix fades in after number */}
                           <motion.span
                             className="text-[#9ca3af] text-xs font-black tracking-wider ml-1 block"
                             initial={isMobile ? { opacity: 0 } : false}
-                            whileInView={isMobile ? { opacity: 1 } : false}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.12 + 0.35 }}
+                            animate={
+                              isMobile
+                                ? achVisible
+                                  ? { opacity: 1 }
+                                  : { opacity: 0 }
+                                : {}
+                            }
+                            transition={{ duration: 0.4, delay: isMobile ? cntDelay : 0 }}
                           >
                             {ach.suffix}
                           </motion.span>
                         </div>
                       )}
 
-                      {/* Eagle row */}
+                      {/* Eagle tally — each dot staggers in */}
                       {ach.eagleCount > 0 && (
                         <div className="flex items-center gap-1 mt-1.5 mb-1">
                           {Array.from({ length: ach.eagleCount }).map((_, idx) => (
                             <motion.div
                               key={idx}
-                              initial={isMobile ? { opacity: 0, y: 5 } : false}
-                              whileInView={isMobile ? { opacity: 1, y: 0 } : false}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.3, delay: index * 0.12 + 0.35 + idx * 0.08 }}
+                              initial={isMobile ? { opacity: 0, y: 4 } : false}
+                              animate={
+                                isMobile
+                                  ? achVisible
+                                    ? { opacity: 1, y: 0 }
+                                    : { opacity: 0, y: 4 }
+                                  : {}
+                              }
+                              transition={{
+                                duration: 0.28,
+                                delay: isMobile ? cntDelay + idx * 0.06 : 0,
+                              }}
                               className="inline-block"
                             >
                               <EagleIcon className={ach.eagleColor} size={14} />
@@ -777,24 +816,31 @@ export default function Founder() {
                       <span className="text-[#9ca3af] font-sans text-[11px] font-semibold uppercase tracking-widest block mt-1.5 leading-tight">
                         {ach.label}
                       </span>
-                    </motion.div>
+                    </div>
                   </motion.div>
                 );
               })}
 
-              {/* Instagram Card (Card 5) */}
+              {/* ── Instagram Card (Card 5) ── */}
               <motion.div
-                {...(isMobile
-                  ? {
-                      initial: { opacity: 0, y: 28, scale: 0.96 },
-                      whileInView: { opacity: 1, y: 0, scale: 1 },
-                      viewport: { once: true, margin: "-30px" },
-                      transition: { duration: 0.55, ease: [0.25, 1, 0.5, 1], delay: achievements.length * 0.12 },
-                    }
-                  : {})}
-                className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] ${isMobile ? 'ach-pulse-pink' : ''}`}
+                initial={isMobile ? { opacity: 0, y: 40, scale: 0.96 } : false}
+                animate={
+                  isMobile
+                    ? achVisible
+                      ? { opacity: 1, y: 0, scale: 1 }
+                      : { opacity: 0, y: 40, scale: 0.96 }
+                    : {}
+                }
+                transition={{
+                  duration: ACH_ENTRY_DUR,
+                  ease: [0.25, 1, 0.5, 1],
+                  delay: isMobile ? achCardDelay(achievements.length) : 0,
+                }}
+                className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] ${
+                  isMobile ? "ach-pulse-pink" : ""
+                }`}
               >
-                {/* ── Desktop only: watermark background icon ── */}
+                {/* Desktop-only watermark */}
                 {!isMobile && (
                   <Instagram
                     size={140}
@@ -804,7 +850,11 @@ export default function Founder() {
 
                 {/* Left Icon Badge */}
                 <motion.div
-                  className={`p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 z-10 ${isMobile ? 'ach-icon-glow-pulse animate-neon-pulse-pink' : 'shadow-[0_0_10px_rgba(236,72,153,0.15)] transition-transform duration-300 group-hover:scale-105 z-10'}`}
+                  className={`p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 z-10 ${
+                    isMobile
+                      ? "ach-icon-glow-pulse animate-neon-pulse-pink"
+                      : "shadow-[0_0_10px_rgba(236,72,153,0.15)] transition-transform duration-300 group-hover:scale-105 z-10"
+                  }`}
                   whileHover={isMobile ? { scale: 1.08 } : {}}
                   whileTap={isMobile ? { scale: 1.08 } : {}}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -826,12 +876,14 @@ export default function Founder() {
                     @pareshhindurao
                   </a>
 
-                  {/* Button */}
+                  {/* CTA Button */}
                   <motion.a
                     href="https://instagram.com/pareshhindurao"
                     target="_blank"
                     rel="noreferrer"
-                    className={`mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit ${isMobile ? 'btn-shine-animation' : ''}`}
+                    className={`mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit ${
+                      isMobile ? "btn-shine-animation" : ""
+                    }`}
                     whileHover={isMobile ? { scale: 1.03 } : {}}
                     whileTap={isMobile ? { scale: 1.03 } : {}}
                     transition={{ type: "spring", stiffness: 500, damping: 15 }}
@@ -841,6 +893,7 @@ export default function Founder() {
                   </motion.a>
                 </div>
               </motion.div>
+
             </div>
 
           </div>
