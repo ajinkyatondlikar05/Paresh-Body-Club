@@ -63,17 +63,17 @@ export default function Navbar({ activeSection }: NavbarProps) {
         }`}
         style={{ zIndex: 10000 }}
       >
-        <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex items-center justify-between w-full">
             {/* Logo — hexagon barbell shield with premium upgrades */}
             <div
               onClick={() => scrollToSection("home")}
-              className="flex items-center gap-5 cursor-pointer group"
+              className="flex items-center gap-3.5 md:gap-5 cursor-pointer group"
             >
               {/* Hexagon / shield SVG icon with barbell and subtle red glow */}
-              <div className="relative w-11 h-11 md:w-[50px] md:h-[50px] flex items-center justify-center shrink-0">
+              <div className="relative w-12 h-12 md:w-[50px] md:h-[50px] flex items-center justify-center shrink-0">
                 <div className="absolute inset-0 bg-red-500/20 blur-[10px] rounded-full scale-90 group-hover:scale-105 transition-transform duration-300 pointer-events-none" />
-                <svg viewBox="0 0 44 44" className="relative w-11 h-11 md:w-[50px] md:h-[50px] filter drop-shadow-[0_2px_8px_rgba(239,68,68,0.35)]" fill="none">
+                <svg viewBox="0 0 44 44" className="relative w-12 h-12 md:w-[50px] md:h-[50px] filter drop-shadow-[0_2px_8px_rgba(239,68,68,0.35)]" fill="none">
                   {/* Hexagon shield */}
                   <path
                     d="M22 2 L40 12 L40 32 L22 42 L4 32 L4 12 Z"
@@ -92,17 +92,17 @@ export default function Navbar({ activeSection }: NavbarProps) {
               
               {/* Text block with premium typography & custom red accent line */}
               <div className="flex flex-col justify-center text-left">
-                <div className="flex items-baseline gap-1.5 leading-none">
-                  <span className="font-display font-bold text-white text-[14.5px] md:text-[17px] antialiased">
+                <div className="flex items-baseline gap-1 md:gap-1.5 leading-none">
+                  <span className="font-display font-black text-white text-[17.5px] md:text-[17px] antialiased tracking-wide">
                     PARESH
                   </span>
-                  <span className="font-display font-black text-red-500 text-[15.5px] md:text-[18px] antialiased">
+                  <span className="font-display font-black text-red-500 text-[19.0px] md:text-[18px] antialiased tracking-wide">
                     BODY CLUB
                   </span>
                 </div>
                 {/* Subtle red accent line under branding */}
-                <div className="w-9 h-[1.5px] bg-red-500 mt-1.5 rounded-full shadow-[0_0_4px_rgba(239,68,68,0.6)]" />
-                <div className="text-[7.5px] md:text-[8.5px] uppercase tracking-[0.24em] text-stone-400 font-semibold leading-none mt-1.5 antialiased">
+                <div className="w-10 md:w-9 h-[1.5px] bg-red-500 mt-1.5 rounded-full shadow-[0_0_4px_rgba(239,68,68,0.6)]" />
+                <div className="text-[9.0px] md:text-[8.5px] uppercase tracking-[0.24em] text-stone-400 font-bold leading-none mt-1.5 antialiased">
                   MURBAD BRANCH
                 </div>
               </div>
