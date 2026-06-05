@@ -567,7 +567,7 @@ export default function Hero() {
           </motion.div>
 
           {/* ── LEFT TEXT COLUMN — relative, top 42px, left 0 ── */}
-          <div className="relative px-4" style={{ top: "42px", marginTop: "50px", left: 0, width: "50%", zIndex: 10 }}>
+          <div className="relative px-4" style={{ top: "42px", marginTop: "50px", left: 0, width: "55%", zIndex: 10 }}>
 
             {/* ── HEADING ── */}
             <h1
@@ -575,7 +575,7 @@ export default function Hero() {
               style={{ fontSize: "clamp(1.85rem, 9.8vw, 2.9rem)", lineHeight: 0.92, letterSpacing: "-0.01em", paddingTop: "2px" }}
             >
               {/* Line 1: TRANSFORM */}
-              <span className="block" style={{ overflow: "clip", paddingTop: "3px" }}>
+              <span className="block" style={{ overflow: "visible", paddingTop: "3px" }}>
                 <motion.span
                   className="block"
                   variants={lineReveal}
@@ -588,7 +588,7 @@ export default function Hero() {
               </span>
 
               {/* Line 2: YOUR BODY. */}
-              <span className="block" style={{ overflow: "clip" }}>
+              <span className="block" style={{ overflow: "visible" }}>
                 <motion.span
                   className="block"
                   variants={lineReveal}
@@ -610,7 +610,7 @@ export default function Hero() {
               </span>
 
               {/* Line 3: TRANSFORM */}
-              <span className="block" style={{ overflow: "clip" }}>
+              <span className="block" style={{ overflow: "visible" }}>
                 <motion.span
                   className="block"
                   variants={lineReveal}
@@ -623,7 +623,7 @@ export default function Hero() {
               </span>
 
               {/* Line 4: YOUR LIFE */}
-              <span className="block" style={{ overflow: "clip" }}>
+              <span className="block" style={{ overflow: "visible" }}>
                 <motion.span
                   className="block"
                   variants={lineReveal}
