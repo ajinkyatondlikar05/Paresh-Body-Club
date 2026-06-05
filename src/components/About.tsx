@@ -161,7 +161,7 @@ export default function About() {
       {/* ══════════════════════════════════════════════
           MOBILE HERO BANNER — optimized for < 768px
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-3 pb-24 overflow-hidden">
+      <div className="md:hidden relative w-full min-h-[58vh] bg-[#050505] flex flex-col justify-start px-6 pt-6 pb-24 overflow-hidden">
         {/* Background Athlete Image — 65% wide, face at top-right, matches reference image 2 */}
         <div
           className="absolute top-0 right-0 h-full pointer-events-none animate-bodybuilder-breathe"
