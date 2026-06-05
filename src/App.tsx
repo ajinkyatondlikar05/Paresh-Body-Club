@@ -17,6 +17,7 @@ import Reviews from "./components/Reviews";
 import InstagramGrid from "./components/InstagramGrid";
 import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
+import Headquarters from "./components/Headquarters";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -93,6 +94,9 @@ export default function App() {
 
         {/* Toggable collapsible accordion FAQs addressing timings and women hygiene */}
         <FAQ />
+
+        {/* Mobile-only section for headquarters details and map */}
+        <Headquarters />
 
         {/* Contact info, physical location address, and secure submission success modal */}
         <Contact />
