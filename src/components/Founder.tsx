@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Trophy, Award, Flame, Crown, Instagram, Dumbbell } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useInView, useMotionValue, useSpring } from "motion/react";
 
 
 
@@ -19,6 +19,111 @@ const EagleIcon = ({ className, size = 14 }: { className?: string; size?: number
     <circle cx="12" cy="7.5" r="1.5" />
   </svg>
 );
+
+
+/* ─────────────────────────────────────────────────────────────
+   ANIMATION VARIANTS FOR MOBILE ACHIEVEMENTS
+   ───────────────────────────────────────────────────────────── */
+
+/** Per-card scroll-triggered animation — no stagger container needed */
+const cardMotion = (isMobile: boolean) =>
+  isMobile
+    ? {
+        initial: { opacity: 0, y: 28, scale: 0.96 },
+        whileInView: { opacity: 1, y: 0, scale: 1 },
+        viewport: { once: true, margin: "-30px" },
+        transition: { duration: 0.55, ease: [0.25, 1, 0.5, 1] },
+      }
+    : {};
+
+/** Suffix fade-in after number */
+const suffixVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.4, delay: 0.25 },
+  },
+};
+
+/** Eagle icons stagger */
+const eagleVariants = (idx: number) => ({
+  hidden: { opacity: 0, y: 5 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: "easeOut", delay: 0.2 + idx * 0.08 },
+  },
+});
+
+/** Checkmark pop for IFSA card */
+const checkmarkVariants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.3, type: "spring", stiffness: 320, delay: 0.3 },
+  },
+};
+
+/* ─────────────────────────────────────────────────────────────
+   COUNT-UP COMPONENT  (mobile only)
+   Counts from 0 → target over ~0.8s when the element enters view.
+   For IFSA (non-numeric) it just reveals the text as a fade.
+   ───────────────────────────────────────────────────────────── */
+function CountUp({
+  target,
+  color,
+  isIfsa = false,
+}: {
+  target: string;
+  color: string;
+  isIfsa?: boolean;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-20px" });
+  const motionVal = useMotionValue(0);
+  const spring = useSpring(motionVal, { stiffness: 60, damping: 14, mass: 0.8 });
+  const [display, setDisplay] = useState(isIfsa ? "" : "0");
+
+  useEffect(() => {
+    if (!isIfsa && inView) {
+      motionVal.set(Number(target));
+    }
+    if (isIfsa && inView) {
+      // simple delay reveal for text
+      const t = setTimeout(() => setDisplay("IFSA"), 160);
+      return () => clearTimeout(t);
+    }
+  }, [inView, isIfsa, motionVal, target]);
+
+  // Subscribe to spring for numeric update
+  useEffect(() => {
+    if (isIfsa) return;
+    const unsub = spring.on("change", (v) =>
+      setDisplay(String(Math.round(v)))
+    );
+    return unsub;
+  }, [spring, isIfsa]);
+
+  if (isIfsa) {
+    return (
+      <span
+        ref={ref}
+        className={`font-display font-black text-xl sm:text-2xl text-white block transition-all duration-500 ${
+          inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+        }`}
+      >
+        {display}
+      </span>
+    );
+  }
+
+  return (
+    <span ref={ref} className={`font-display font-black text-xl sm:text-2xl block ${color}`}>
+      {display}
+    </span>
+  );
+}
 
 /* ─────────────────────────────────────────────────────────────
    MAIN COMPONENT
@@ -561,9 +666,8 @@ export default function Founder() {
             <div className="grid grid-cols-1 gap-3.5">
               {achievements.map((ach, index) => {
                 const IconComp = ach.icon;
-                const WatermarkComp = ach.watermarkIcon;
-                
-                // Determine pulse border animation class on mobile
+
+                // Pulse border animation class (mobile only)
                 const pulseClass = isMobile
                   ? ach.id === "ach-1"
                     ? "ach-pulse-red"
@@ -576,24 +680,28 @@ export default function Founder() {
                     : ""
                   : "";
 
+                const props = cardMotion(isMobile);
+
                 return (
                   <motion.div
                     key={ach.id}
-                    initial={isMobile ? { opacity: 0, y: 25, scale: 0.96 } : false}
-                    whileInView={isMobile ? { opacity: 1, y: 0, scale: 1 } : false}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: index * 0.15 }}
+                    {...props}
+                    style={{ transitionDelay: isMobile ? `${index * 0.12}s` : undefined }}
                     className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 ${ach.glowColor} ${pulseClass}`}
                   >
-                    {/* Watermark background */}
-                    <WatermarkComp
-                      size={140}
-                      className={`absolute -right-4 -bottom-6 ${ach.watermarkColor} pointer-events-none select-none z-0`}
-                    />
+                    {/* ── Desktop only: watermark background icon ── */}
+                    {!isMobile && (() => {
+                      const WM = ach.watermarkIcon;
+                      return (
+                        <WM
+                          size={140}
+                          className={`absolute -right-4 -bottom-6 ${ach.watermarkColor} pointer-events-none select-none z-0 hidden lg:block`}
+                        />);
+                    })()}
 
                     {/* Left Icon Badge */}
                     <motion.div
-                      className={`p-3 lg:p-3.5 rounded-xl shrink-0 border z-10 ${ach.iconBoxClass} ${isMobile ? 'ach-icon-glow' : 'transition-transform duration-300 group-hover:scale-105'}`}
+                      className={`p-3 lg:p-3.5 rounded-xl shrink-0 border z-10 ${ach.iconBoxClass} ${isMobile ? 'ach-icon-glow-pulse' : 'transition-transform duration-300 group-hover:scale-105'}`}
                       whileHover={isMobile ? { scale: 1.08 } : {}}
                       whileTap={isMobile ? { scale: 1.08 } : {}}
                       transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -602,46 +710,46 @@ export default function Founder() {
                     </motion.div>
 
                     {/* Content */}
-                    <div className="z-10 flex-grow text-left">
+                    <motion.div
+                      className="z-10 flex-grow text-left"
+                      initial={isMobile ? { opacity: 0 } : false}
+                      whileInView={isMobile ? { opacity: 1 } : false}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.12 + 0.25 }}
+                    >
                       {ach.isIfsa ? (
                         <div className="flex items-center leading-none overflow-hidden">
-                          <motion.span 
-                            className="font-display font-black text-xl sm:text-2xl text-white block"
-                            initial={isMobile ? { opacity: 0, y: 15 } : false}
-                            whileInView={isMobile ? { opacity: 1, y: 0 } : false}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, ease: "easeOut", delay: (index * 0.15) + 0.1 }}
-                          >
-                            {ach.number}
-                          </motion.span>
-                          <motion.span 
-                            className="inline-flex items-center justify-center bg-emerald-500 text-black rounded-full w-4 h-4 ml-1.5 shrink-0" 
+                          {isMobile ? (
+                            <CountUp target={ach.number} color="text-white" isIfsa />
+                          ) : (
+                            <span className="font-display font-black text-xl sm:text-2xl text-white block">
+                              {ach.number}
+                            </span>
+                          )}
+                          <motion.span
+                            className="inline-flex items-center justify-center bg-emerald-500 text-black rounded-full w-4 h-4 ml-1.5 shrink-0"
                             style={{ fontSize: "9px", fontWeight: "bold" }}
                             initial={isMobile ? { opacity: 0, scale: 0 } : false}
                             whileInView={isMobile ? { opacity: 1, scale: 1 } : false}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.3, type: "spring", stiffness: 300, delay: (index * 0.15) + 0.25 }}
+                            transition={{ type: "spring", stiffness: 320, delay: index * 0.12 + 0.45 }}
                           >
                             ✓
                           </motion.span>
                         </div>
                       ) : (
                         <div className="font-display font-black text-xl sm:text-2xl flex items-baseline gap-1.5 leading-none overflow-hidden">
-                          <motion.span 
-                            className={`${ach.numColor} block`}
-                            initial={isMobile ? { opacity: 0, y: 15 } : false}
-                            whileInView={isMobile ? { opacity: 1, y: 0 } : false}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, ease: "easeOut", delay: (index * 0.15) + 0.1 }}
-                          >
-                            {ach.number}
-                          </motion.span>
-                          <motion.span 
+                          {isMobile ? (
+                            <CountUp target={ach.number} color={ach.numColor} />
+                          ) : (
+                            <span className={`${ach.numColor} block`}>{ach.number}</span>
+                          )}
+                          <motion.span
                             className="text-[#9ca3af] text-xs font-black tracking-wider ml-1 block"
                             initial={isMobile ? { opacity: 0 } : false}
                             whileInView={isMobile ? { opacity: 1 } : false}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: (index * 0.15) + 0.25 }}
+                            transition={{ duration: 0.4, delay: index * 0.12 + 0.35 }}
                           >
                             {ach.suffix}
                           </motion.span>
@@ -657,7 +765,7 @@ export default function Founder() {
                               initial={isMobile ? { opacity: 0, y: 5 } : false}
                               whileInView={isMobile ? { opacity: 1, y: 0 } : false}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.4, ease: "easeOut", delay: (index * 0.15) + (idx * 0.08) }}
+                              transition={{ duration: 0.3, delay: index * 0.12 + 0.35 + idx * 0.08 }}
                               className="inline-block"
                             >
                               <EagleIcon className={ach.eagleColor} size={14} />
@@ -669,28 +777,34 @@ export default function Founder() {
                       <span className="text-[#9ca3af] font-sans text-[11px] font-semibold uppercase tracking-widest block mt-1.5 leading-tight">
                         {ach.label}
                       </span>
-                    </div>
+                    </motion.div>
                   </motion.div>
                 );
               })}
 
               {/* Instagram Card (Card 5) */}
               <motion.div
-                initial={isMobile ? { opacity: 0, y: 25, scale: 0.96 } : false}
-                whileInView={isMobile ? { opacity: 1, y: 0, scale: 1 } : false}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: 0.6 }}
+                {...(isMobile
+                  ? {
+                      initial: { opacity: 0, y: 28, scale: 0.96 },
+                      whileInView: { opacity: 1, y: 0, scale: 1 },
+                      viewport: { once: true, margin: "-30px" },
+                      transition: { duration: 0.55, ease: [0.25, 1, 0.5, 1], delay: achievements.length * 0.12 },
+                    }
+                  : {})}
                 className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] ${isMobile ? 'ach-pulse-pink' : ''}`}
               >
-                {/* Watermark background */}
-                <Instagram
-                  size={140}
-                  className="absolute -right-4 -bottom-6 text-pink-500/5 pointer-events-none select-none z-0"
-                />
+                {/* ── Desktop only: watermark background icon ── */}
+                {!isMobile && (
+                  <Instagram
+                    size={140}
+                    className="absolute -right-4 -bottom-6 text-pink-500/5 pointer-events-none select-none z-0 hidden lg:block"
+                  />
+                )}
 
                 {/* Left Icon Badge */}
                 <motion.div
-                  className={`p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 z-10 ${isMobile ? 'ach-icon-glow animate-neon-pulse-pink' : 'shadow-[0_0_10px_rgba(236,72,153,0.15)] transition-transform duration-300 group-hover:scale-105 z-10'}`}
+                  className={`p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 z-10 ${isMobile ? 'ach-icon-glow-pulse animate-neon-pulse-pink' : 'shadow-[0_0_10px_rgba(236,72,153,0.15)] transition-transform duration-300 group-hover:scale-105 z-10'}`}
                   whileHover={isMobile ? { scale: 1.08 } : {}}
                   whileTap={isMobile ? { scale: 1.08 } : {}}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -711,7 +825,7 @@ export default function Founder() {
                   >
                     @pareshhindurao
                   </a>
-                  
+
                   {/* Button */}
                   <motion.a
                     href="https://instagram.com/pareshhindurao"

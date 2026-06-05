@@ -577,8 +577,8 @@ body {
   }
 
   /* Icons soft glow */
-  .ach-icon-glow {
-    box-shadow: 0 0 14px currentColor;
+  .ach-icon-glow-pulse {
+    animation: iconGlowPulse 3s infinite ease-in-out;
   }
 
   /* Instagram icon neon pulse */
@@ -704,5 +704,17 @@ body {
     opacity: 0;
   }
 }
+
+@keyframes iconGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px currentColor;
+    opacity: 0.85;
+  }
+  50% {
+    box-shadow: 0 0 18px currentColor;
+    opacity: 1;
+  }
+}
+
 
 
