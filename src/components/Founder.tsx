@@ -1,4 +1,6 @@
 import { Trophy, Award, Flame, Crown, Instagram, Dumbbell } from "lucide-react";
+import { motion } from "motion/react";
+
 
 /* ─────────────────────────────────────────────────────────────
    EAGLE ICON SILHOUETTE FOR ACCOMPLISHMENTS
@@ -213,7 +215,7 @@ export default function Founder() {
             <img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover animate-founder-breathe"
               style={{
                 objectPosition: "25% top",
                 filter: "brightness(1.16) contrast(1.18) saturate(1.12) hue-rotate(2deg)",
@@ -236,21 +238,39 @@ export default function Founder() {
             <div className="absolute inset-y-0 right-0 w-3 bg-gradient-to-l from-black to-transparent" />
           </div>
 
+          {/* Background effects for mobile layout */}
+          {/* Drifting smoke effect behind the bodybuilder */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div className="absolute -bottom-10 -right-10 w-72 h-72 bg-stone-900/10 blur-[45px] rounded-full animate-smoke-cinematic" />
+            <div className="absolute top-10 -left-10 w-64 h-64 bg-stone-900/5 blur-[40px] rounded-full animate-smoke-cinematic" style={{ animationDelay: '-5s' }} />
+          </div>
+
+          {/* Soft Red Embers rising upward */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div className="absolute left-[12%] w-[1.5px] h-[1.5px] bg-red-500 rounded-full blur-[0.5px] animate-ember-cinematic-1" />
+            <div className="absolute left-[26%] w-[1px] h-[1px] bg-red-500 rounded-full blur-[0.5px] animate-ember-cinematic-2" />
+            <div className="absolute left-[42%] w-[2px] h-[2px] bg-red-500 rounded-full blur-[0.8px] animate-ember-cinematic-3" />
+          </div>
+
           {/* Full-width text content — z-20 sits above image */}
           <div className="relative z-20 px-6 pt-10 pb-8">
 
             {/* Red label */}
-            <span
-              className="text-red-500 font-display uppercase block"
+            <motion.span
+              className="text-red-500 font-display uppercase block animate-text-glow-pulse"
               style={{ 
                 fontSize: "clamp(24px, 6.5vw, 28px)", 
                 fontWeight: 900, 
                 letterSpacing: "5px",
                 textShadow: "0 0 12px rgba(239, 68, 68, 0.45)"
               }}
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               FOUNDER
-            </span>
+            </motion.span>
 
             {/* Red underline accent */}
             <div style={{ width: "52px", height: "2px", background: "#ef4444", marginTop: "6px", marginBottom: "14px" }} />
@@ -260,7 +280,28 @@ export default function Founder() {
               className="font-display font-black text-white uppercase tracking-tighter leading-[0.87] mb-3"
               style={{ fontSize: "clamp(46px, 13vw, 64px)" }}
             >
-              PARESH<br />HINDURAO
+              <span className="block overflow-hidden">
+                <motion.span 
+                  className="block"
+                  initial={{ opacity: 0, y: 15, x: -10 }}
+                  whileInView={{ opacity: 1, y: 0, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1], delay: 0.05 }}
+                >
+                  PARESH
+                </motion.span>
+              </span>
+              <span className="block overflow-hidden">
+                <motion.span 
+                  className="block"
+                  initial={{ opacity: 0, y: 15, x: -10 }}
+                  whileInView={{ opacity: 1, y: 0, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1], delay: 0.2 }}
+                >
+                  HINDURAO
+                </motion.span>
+              </span>
             </h2>
 
             {/* Tagline — two lines */}
@@ -275,9 +316,13 @@ export default function Founder() {
             <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}>
 
               {/* Row 1: IFSA Certified Trainer */}
-              <div
+              <motion.div
                 className="flex items-center gap-3"
                 style={{ paddingTop: "11px", paddingBottom: "11px", borderBottom: "1px solid rgba(255,255,255,0.12)" }}
+                initial={{ opacity: 0, x: -25 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
               >
                 <div
                   className="flex items-center justify-center shrink-0 text-red-500"
@@ -296,12 +341,16 @@ export default function Founder() {
                 >
                   IFSA CERTIFIED TRAINER
                 </span>
-              </div>
+              </motion.div>
 
               {/* Row 2: Paresh Body Club */}
-              <div
+              <motion.div
                 className="flex items-center gap-3"
                 style={{ paddingTop: "11px", paddingBottom: "11px", borderBottom: "1px solid rgba(255,255,255,0.12)" }}
+                initial={{ opacity: 0, x: -25 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
               >
                 <div
                   className="flex items-center justify-center shrink-0 text-red-500"
@@ -320,27 +369,37 @@ export default function Founder() {
                 >
                   PARESH BODY CLUB
                 </span>
-              </div>
+              </motion.div>
             </div>
 
             {/* Bio — full width, "PARESH BODY CLUB MURBAD" in red */}
-            <p
+            <motion.p
               className="text-stone-300 font-sans font-light leading-relaxed mt-6"
               style={{ fontSize: "13px", lineHeight: 1.65 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1], delay: 0.35 }}
             >
               Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
               dedicated to transforming lives through fitness and discipline. With multiple
               bodybuilding titles and years of gym training experience, he founded{" "}
               <span className="text-red-500 font-semibold">PARESH BODY CLUB MURBAD</span>
               {" "}to inspire the youth of Murbad towards health, strength, and confidence.
-            </p>
+            </motion.p>
           </div>
         </div>
 
         {/* ── PHILOSOPHY CARD ───────────────────────────────────────────── */}
-        <div className="px-5 pb-10 pt-2 bg-black relative z-20">
+        <motion.div 
+          className="px-5 pb-10 pt-2 bg-black relative z-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+        >
           <div
-            className="relative overflow-hidden"
+            className="relative overflow-hidden animate-philosophy-glow"
             style={{
               border: "1px solid rgba(239,68,68,0.18)",
               borderLeft: "4px solid #ef4444",
@@ -377,13 +436,17 @@ export default function Founder() {
             </div>
 
             {/* Quote text — italic bold, last part in red */}
-            <p
+            <motion.p
               className="font-display font-black uppercase italic text-neutral-100 leading-snug"
               style={{ fontSize: "clamp(16px, 5vw, 22px)", letterSpacing: "0.01em" }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
               "DISCIPLINE, DEDICATION &amp;<br />HARD WORK{" "}
               <span className="text-red-500">BUILD CHAMPIONS."</span>
-            </p>
+            </motion.p>
 
             {/* Signature */}
             <p
@@ -393,7 +456,7 @@ export default function Founder() {
               — PARESH HINDURAO
             </p>
           </div>
-        </div>
+        </motion.div>
 
       </div>
       {/* ── End of mobile layout ── */}
