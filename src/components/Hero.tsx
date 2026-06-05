@@ -395,7 +395,7 @@ export default function Hero() {
           <div
             className="absolute pointer-events-none"
             style={{
-              top: "60px", left: "-20px",
+              top: "34px", left: "-20px",
               width: "200px", height: "200px",
               borderRadius: "50%",
               background: "radial-gradient(circle, rgba(220,38,38,0.13) 0%, transparent 70%)",
@@ -411,7 +411,7 @@ export default function Hero() {
             transition={{ duration: 1.0, ease: "easeOut", delay: 0.05 }}
             className="absolute right-0 pointer-events-none"
             style={{
-              top: "68px",
+              top: "42px",
               width: "58%",
               height: "452px",
               zIndex: 1,
@@ -566,8 +566,8 @@ export default function Hero() {
             />
           </motion.div>
 
-          {/* ── LEFT TEXT COLUMN — relative, top 68px, left 0 ── */}
-          <div className="relative px-4" style={{ top: "68px", marginTop: "50px", left: 0, width: "50%", zIndex: 10 }}>
+          {/* ── LEFT TEXT COLUMN — relative, top 42px, left 0 ── */}
+          <div className="relative px-4" style={{ top: "42px", marginTop: "50px", left: 0, width: "50%", zIndex: 10 }}>
 
             {/* ── HEADING ── */}
             <h1

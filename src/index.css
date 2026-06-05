@@ -347,6 +347,11 @@ body {
     padding-bottom: 56px !important;
   }
 
+  /* Reduce Hero section top padding by 78.5% */
+  #home {
+    padding-top: 12px !important;
+  }
+
   /* ── Membership section ── */
   #membership .grid {
     gap: 20px !important;
