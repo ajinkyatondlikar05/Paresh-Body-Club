@@ -716,5 +716,22 @@ body {
   }
 }
 
+/* Membership Card Neon Glow Pulse */
+@keyframes borderNeonPulse {
+  0%, 100% {
+    border-color: rgba(239, 68, 68, 0.25);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.15), inset 0 0 10px rgba(239, 68, 68, 0.04);
+  }
+  50% {
+    border-color: rgba(239, 68, 68, 0.6);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.45), inset 0 0 15px rgba(239, 68, 68, 0.15);
+  }
+}
+
+.animate-border-pulse {
+  animation: borderNeonPulse 4.5s infinite ease-in-out;
+}
+
+
 
 
