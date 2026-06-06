@@ -486,254 +486,358 @@ export default function Membership() {
           </motion.div>
 
         </motion.div>
+      </div> {/* Close max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 */}
 
-        {/* ── STAY STRONG. STAY FOCUSED. STAY YOU. — PREMIUM CINEMATIC SECTION ── */}
-        <div className="mt-20 relative z-10 max-w-4xl mx-auto">
+      {/* ── STAY STRONG. STAY FOCUSED. STAY YOU. — PREMIUM CINEMATIC SECTION ── */}
+      <div className="w-full relative z-10 mt-32 py-16 sm:py-24 bg-[#09090b] overflow-hidden border-t border-white/5">
 
-          {/* Outer cinematic frame */}
-          <div className="relative rounded-2xl overflow-hidden border border-red-500/25 shadow-[0_0_60px_rgba(239,68,68,0.18)] bg-[#070709]">
+        {/* ── BACKGROUND LAYERS (Floating directly on the section background) ── */}
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
+          {/* Deep ambient glows */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-red-700/12 rounded-full blur-[120px]" />
+          <div className="absolute top-0 left-1/4 w-[400px] h-[300px] bg-red-600/10 rounded-full blur-[100px] animate-glow-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-[350px] h-[250px] bg-red-800/12 rounded-full blur-[90px] animate-glow-pulse" style={{ animationDelay: "-3s" }} />
 
-            {/* ── BACKGROUND LAYERS ── */}
-            <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+          {/* Red lens flare glow centered behind headline */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[350px] h-[180px] bg-red-500/20 rounded-full blur-[60px] animate-lens-flare-pulse" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[160px] h-[100px] bg-red-400/30 rounded-full blur-[35px] animate-lens-flare-pulse" style={{ animationDelay: "-1.5s" }} />
 
-              {/* Deep ambient glows */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[260px] bg-red-700/12 rounded-full blur-[100px]" />
-              <div className="absolute top-0 left-1/4 w-[300px] h-[200px] bg-red-600/10 rounded-full blur-[80px] animate-glow-pulse" />
-              <div className="absolute bottom-0 right-1/4 w-[280px] h-[180px] bg-red-800/12 rounded-full blur-[70px] animate-glow-pulse" style={{ animationDelay: "-3s" }} />
+          {/* Cinematic smoke */}
+          <div className="absolute top-10 -left-10 w-96 h-96 bg-zinc-900/35 blur-[80px] rounded-full animate-smoke-cinematic" />
+          <div className="absolute bottom-0 -right-10 w-96 h-96 bg-zinc-900/35 blur-[80px] rounded-full animate-smoke-cinematic" style={{ animationDelay: "-8s" }} />
 
-              {/* Red lens flare glow centered behind headline */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[280px] h-[140px] bg-red-500/20 rounded-full blur-[50px] animate-lens-flare-pulse" />
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[80px] bg-red-400/30 rounded-full blur-[28px] animate-lens-flare-pulse" style={{ animationDelay: "-1.5s" }} />
+          {/* Floating red sparks */}
+          <div className="absolute bottom-12 left-[10%] w-[2px] h-[2px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-1" />
+          <div className="absolute bottom-8 left-[28%] w-[1.5px] h-[1.5px] bg-red-400 rounded-full blur-[0.5px] animate-spark-float-2" />
+          <div className="absolute bottom-16 left-[55%] w-[2px] h-[2px] bg-red-600 rounded-full blur-[0.5px] animate-spark-float-3" />
+          <div className="absolute bottom-6 left-[72%] w-[1px] h-[1px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-1" style={{ animationDelay: "-6s" }} />
+          <div className="absolute bottom-20 left-[85%] w-[2px] h-[2px] bg-red-400 rounded-full blur-[0.5px] animate-spark-float-2" style={{ animationDelay: "-3s" }} />
+          <div className="absolute bottom-10 left-[42%] w-[1.5px] h-[1.5px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-3" style={{ animationDelay: "-9s" }} />
 
-              {/* Cinematic smoke */}
-              <div className="absolute top-10 -left-10 w-72 h-72 bg-zinc-900/30 blur-[60px] rounded-full animate-smoke-cinematic" />
-              <div className="absolute bottom-0 -right-10 w-72 h-72 bg-zinc-900/30 blur-[60px] rounded-full animate-smoke-cinematic" style={{ animationDelay: "-8s" }} />
+          {/* Red energy light streaks */}
+          <div className="absolute top-[30%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-500/15 to-transparent animate-sweep-left" />
+          <div className="absolute top-[60%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-600/10 to-transparent animate-sweep-right" style={{ animationDelay: "-2s" }} />
 
-              {/* Floating red sparks */}
-              <div className="absolute bottom-12 left-[10%] w-[2px] h-[2px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-1" />
-              <div className="absolute bottom-8 left-[28%] w-[1.5px] h-[1.5px] bg-red-400 rounded-full blur-[0.5px] animate-spark-float-2" />
-              <div className="absolute bottom-16 left-[55%] w-[2px] h-[2px] bg-red-600 rounded-full blur-[0.5px] animate-spark-float-3" />
-              <div className="absolute bottom-6 left-[72%] w-[1px] h-[1px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-1" style={{ animationDelay: "-6s" }} />
-              <div className="absolute bottom-20 left-[85%] w-[2px] h-[2px] bg-red-400 rounded-full blur-[0.5px] animate-spark-float-2" style={{ animationDelay: "-3s" }} />
-              <div className="absolute bottom-10 left-[42%] w-[1.5px] h-[1.5px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-3" style={{ animationDelay: "-9s" }} />
+          {/* TOP-LEFT neon diagonal corner beam (positioned relative to screen boundaries) */}
+          <div className="absolute top-0 left-0 w-40 h-40 overflow-hidden pointer-events-none z-30">
+            <div className="absolute top-[-20px] left-[-60px] w-[200px] h-[20px] bg-red-600 -rotate-45 shadow-[0_0_18px_#ff0000,0_0_35px_rgba(239,68,68,0.5)] animate-beam-pulse" />
+            <div className="absolute top-[4px] left-[-55px] w-[200px] h-[5px] bg-red-400 -rotate-45 opacity-60 shadow-[0_0_10px_#ff0000] animate-beam-pulse" style={{ animationDelay: "-0.5s" }} />
+          </div>
 
-              {/* Red energy light streaks */}
-              <div className="absolute top-[30%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-500/15 to-transparent animate-sweep-left" />
-              <div className="absolute top-[60%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-600/10 to-transparent animate-sweep-right" style={{ animationDelay: "-2s" }} />
-
-              {/* TOP-LEFT neon diagonal corner beam */}
-              <div className="absolute top-0 left-0 w-40 h-40 overflow-hidden pointer-events-none z-30">
-                <div className="absolute top-[-20px] left-[-60px] w-[200px] h-[20px] bg-red-600 -rotate-45 shadow-[0_0_18px_#ff0000,0_0_35px_rgba(239,68,68,0.5)] animate-beam-pulse" />
-                <div className="absolute top-[4px] left-[-55px] w-[200px] h-[5px] bg-red-400 -rotate-45 opacity-60 shadow-[0_0_10px_#ff0000] animate-beam-pulse" style={{ animationDelay: "-0.5s" }} />
-              </div>
-
-              {/* TOP-RIGHT neon diagonal corner beam */}
-              <div className="absolute top-0 right-0 w-40 h-40 overflow-hidden pointer-events-none z-30">
-                <div className="absolute top-[-20px] right-[-60px] w-[200px] h-[20px] bg-red-600 rotate-45 shadow-[0_0_18px_#ff0000,0_0_35px_rgba(239,68,68,0.5)] animate-beam-pulse" />
-                <div className="absolute top-[4px] right-[-55px] w-[200px] h-[5px] bg-red-400 rotate-45 opacity-60 shadow-[0_0_10px_#ff0000] animate-beam-pulse" style={{ animationDelay: "-0.5s" }} />
-              </div>
-            </div>
-
-            {/* ── MAIN CONTENT ── */}
-            <div className="relative z-10 px-5 pt-10 pb-8 sm:px-10 sm:pt-12 sm:pb-10 text-center">
-
-              {/* Red accent line above headline */}
-              <div className="flex items-center justify-center gap-3 mb-5">
-                <div className="h-[1.5px] bg-gradient-to-r from-transparent to-red-500/80 w-10 sm:w-16" />
-                <div className="w-1.5 h-1.5 bg-red-500 rounded-full shadow-[0_0_6px_rgba(239,68,68,0.9)] animate-pulse" />
-                <div className="h-[1.5px] bg-gradient-to-l from-transparent to-red-500/80 w-10 sm:w-16" />
-              </div>
-
-              {/* ── HEADLINE: STAY STRONG. STAY FOCUSED. STAY YOU. ── */}
-              <h4 className="font-display font-black uppercase select-none leading-[0.88] tracking-tight" style={{ fontSize: "clamp(2rem, 9vw, 3.8rem)" }}>
-                {/* Line 1: STAY STRONG. */}
-                <span className="block">
-                  <span
-                    className="text-white"
-                    style={{
-                      textShadow: "0 0 30px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.6)",
-                      WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
-                    }}
-                  >
-                    STAY{" "}
-                  </span>
-                  <span
-                    className="text-red-500 animate-text-glow-pulse"
-                    style={{
-                      textShadow: "0 0 20px rgba(239,68,68,0.9), 0 0 40px rgba(239,68,68,0.5), 0 0 70px rgba(239,68,68,0.25)",
-                    }}
-                  >
-                    STRONG.
-                  </span>
-                </span>
-                {/* Line 2: STAY FOCUSED. */}
-                <span
-                  className="block text-white mt-1"
-                  style={{
-                    textShadow: "0 0 30px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.6)",
-                    WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
-                  }}
-                >
-                  STAY FOCUSED.
-                </span>
-                {/* Line 3: STAY YOU. */}
-                <span className="block mt-1">
-                  <span
-                    className="text-white"
-                    style={{
-                      textShadow: "0 0 30px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.6)",
-                      WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
-                    }}
-                  >
-                    STAY{" "}
-                  </span>
-                  <span
-                    className="text-red-500 animate-text-glow-pulse"
-                    style={{
-                      textShadow: "0 0 20px rgba(239,68,68,0.9), 0 0 40px rgba(239,68,68,0.5), 0 0 70px rgba(239,68,68,0.25)",
-                      animationDelay: "-1.25s",
-                    }}
-                  >
-                    YOU.
-                  </span>
-                </span>
-              </h4>
-
-              {/* ── SUBHEADLINE ── */}
-              <p className="mt-5 font-display font-bold uppercase tracking-widest text-sm sm:text-base select-none" style={{ fontSize: "clamp(0.7rem, 3.5vw, 1rem)" }}>
-                <span className="text-stone-300">LET'S BUILD A BETTER, STRONGER YOU{" "}</span>
-                <span
-                  className="text-red-500"
-                  style={{ textShadow: "0 0 12px rgba(239,68,68,0.7)" }}
-                >
-                  TOGETHER!
-                </span>
-              </p>
-
-              {/* Red divider */}
-              <div className="flex items-center justify-center gap-3 mt-6 mb-8">
-                <div className="h-[1px] bg-gradient-to-r from-transparent to-red-500/60 w-16 sm:w-28" />
-                <div className="text-red-500 animate-pulse">
-                  <svg viewBox="0 0 24 24" width="20" height="20" className="fill-current drop-shadow-[0_0_6px_rgba(239,68,68,0.8)]">
-                    <rect x="2" y="10.5" width="20" height="3" rx="1" />
-                    <rect x="6" y="5" width="2.5" height="14" rx="1" />
-                    <rect x="3.5" y="7.5" width="2" height="9" rx="0.8" />
-                    <rect x="15.5" y="5" width="2.5" height="14" rx="1" />
-                    <rect x="18.5" y="7.5" width="2" height="9" rx="0.8" />
-                  </svg>
-                </div>
-                <div className="h-[1px] bg-gradient-to-l from-transparent to-red-500/60 w-16 sm:w-28" />
-              </div>
-
-              {/* ── BOTTOM SILHOUETTE CARDS ── */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-5">
-
-                {/* LEFT CARD — Bodybuilder Double Bicep */}
-                <div className="relative rounded-xl border border-red-500/30 bg-[#0d0d10] overflow-hidden shadow-[0_0_20px_rgba(239,68,68,0.12)] hover:shadow-[0_0_30px_rgba(239,68,68,0.25)] transition-shadow duration-300 flex flex-col items-center py-5 px-3 sm:py-7 sm:px-4 group">
-                  {/* Card ambient glow */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-red-950/20 to-transparent pointer-events-none" />
-                  {/* Silhouette SVG — Professional double bicep bodybuilder */}
-                  <svg
-                    viewBox="0 0 120 160"
-                    className="relative z-10 drop-shadow-[0_0_14px_rgba(239,68,68,0.7)] group-hover:drop-shadow-[0_0_22px_rgba(239,68,68,0.9)] transition-all duration-300"
-                    style={{ width: "clamp(60px, 18vw, 90px)", height: "auto" }}
-                    fill="none"
-                  >
-                    {/* Head */}
-                    <ellipse cx="60" cy="14" rx="10" ry="12" fill="#dc2626" />
-                    {/* Neck */}
-                    <rect x="55" y="24" width="10" height="10" rx="3" fill="#dc2626" />
-                    {/* Massive Traps / Shoulders */}
-                    <path d="M25 38 Q18 34 15 44 Q12 54 20 58 Q28 60 34 52" fill="#dc2626" />
-                    <path d="M95 38 Q102 34 105 44 Q108 54 100 58 Q92 60 86 52" fill="#dc2626" />
-                    {/* Chest (massive pecs) */}
-                    <path d="M34 36 Q40 28 60 30 Q80 28 86 36 Q88 50 80 58 Q70 64 60 62 Q50 64 40 58 Q32 50 34 36Z" fill="#dc2626" />
-                    {/* Left Upper Arm (flexed) */}
-                    <path d="M20 44 Q10 46 8 60 Q8 70 16 72 Q24 73 28 64 Q32 55 26 46Z" fill="#dc2626" />
-                    {/* Left Forearm */}
-                    <path d="M16 72 Q10 80 14 90 Q18 96 24 93 Q30 90 28 80 Q26 73 16 72Z" fill="#b91c1c" />
-                    {/* Left Fist */}
-                    <ellipse cx="19" cy="94" rx="7" ry="6" fill="#991b1b" />
-                    {/* Right Upper Arm (flexed mirror) */}
-                    <path d="M100 44 Q110 46 112 60 Q112 70 104 72 Q96 73 92 64 Q88 55 94 46Z" fill="#dc2626" />
-                    {/* Right Forearm */}
-                    <path d="M104 72 Q110 80 106 90 Q102 96 96 93 Q90 90 92 80 Q94 73 104 72Z" fill="#b91c1c" />
-                    {/* Right Fist */}
-                    <ellipse cx="101" cy="94" rx="7" ry="6" fill="#991b1b" />
-                    {/* Abs / Core (V-taper) */}
-                    <path d="M44 60 Q52 62 60 60 Q68 62 76 60 Q80 72 76 86 Q70 96 60 98 Q50 96 44 86 Q40 72 44 60Z" fill="#b91c1c" />
-                    {/* Quad left */}
-                    <path d="M44 96 Q36 100 34 116 Q32 130 40 138 Q48 144 54 136 Q58 126 56 110 Q54 98 44 96Z" fill="#dc2626" />
-                    {/* Quad right */}
-                    <path d="M76 96 Q84 100 86 116 Q88 130 80 138 Q72 144 66 136 Q62 126 64 110 Q66 98 76 96Z" fill="#dc2626" />
-                    {/* Calves left */}
-                    <path d="M38 138 Q34 146 36 156 Q40 162 46 160 Q52 158 52 148 Q52 140 44 138 Q42 138 38 138Z" fill="#b91c1c" />
-                    {/* Calves right */}
-                    <path d="M82 138 Q86 146 84 156 Q80 162 74 160 Q68 158 68 148 Q68 140 76 138 Q78 138 82 138Z" fill="#b91c1c" />
-                    {/* Red glow ring around body */}
-                    <ellipse cx="60" cy="80" rx="55" ry="70" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
-                  </svg>
-                  {/* Card label */}
-                  <div className="relative z-10 mt-3 text-center">
-                    <p className="font-display font-black text-red-500 uppercase tracking-wider text-[10px] sm:text-xs drop-shadow-[0_0_6px_rgba(239,68,68,0.7)]">STRENGTH</p>
-                    <p className="text-stone-400 text-[8px] sm:text-[9px] font-bold uppercase tracking-widest mt-0.5">BUILD MUSCLE</p>
-                  </div>
-                </div>
-
-                {/* RIGHT CARD — Barbell Overhead Lifter */}
-                <div className="relative rounded-xl border border-red-500/30 bg-[#0d0d10] overflow-hidden shadow-[0_0_20px_rgba(239,68,68,0.12)] hover:shadow-[0_0_30px_rgba(239,68,68,0.25)] transition-shadow duration-300 flex flex-col items-center py-5 px-3 sm:py-7 sm:px-4 group">
-                  {/* Card ambient glow */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-red-950/20 to-transparent pointer-events-none" />
-                  {/* Silhouette SVG — Overhead barbell press / squat lifter */}
-                  <svg
-                    viewBox="0 0 120 160"
-                    className="relative z-10 drop-shadow-[0_0_14px_rgba(239,68,68,0.7)] group-hover:drop-shadow-[0_0_22px_rgba(239,68,68,0.9)] transition-all duration-300"
-                    style={{ width: "clamp(60px, 18vw, 90px)", height: "auto" }}
-                    fill="none"
-                  >
-                    {/* Head */}
-                    <ellipse cx="60" cy="26" rx="9" ry="10" fill="#dc2626" />
-                    {/* Neck */}
-                    <rect x="56" y="34" width="8" height="8" rx="2" fill="#dc2626" />
-                    {/* Torso */}
-                    <path d="M38 42 Q60 38 82 42 L84 90 Q70 96 60 94 Q50 96 36 90Z" fill="#dc2626" />
-                    {/* Left arm raised up holding bar */}
-                    <path d="M38 44 Q26 42 20 36 Q15 30 18 22 Q22 16 28 20 Q34 24 36 34 Q38 40 38 44Z" fill="#dc2626" />
-                    {/* Left forearm raised */}
-                    <path d="M18 22 Q14 14 16 6 Q20 0 26 4 Q30 8 28 16 Q26 20 22 22Z" fill="#b91c1c" />
-                    {/* Right arm raised */}
-                    <path d="M82 44 Q94 42 100 36 Q105 30 102 22 Q98 16 92 20 Q86 24 84 34 Q82 40 82 44Z" fill="#dc2626" />
-                    {/* Right forearm raised */}
-                    <path d="M102 22 Q106 14 104 6 Q100 0 94 4 Q90 8 92 16 Q94 20 98 22Z" fill="#b91c1c" />
-                    {/* Barbell bar across top */}
-                    <rect x="8" y="2" width="104" height="6" rx="3" fill="#7f1d1d" />
-                    {/* Left weight plate */}
-                    <rect x="2" y="-2" width="10" height="14" rx="2" fill="#991b1b" />
-                    {/* Right weight plate */}
-                    <rect x="108" y="-2" width="10" height="14" rx="2" fill="#991b1b" />
-                    {/* Left thigh */}
-                    <path d="M40 90 Q34 100 32 116 Q30 128 38 134 Q46 138 50 128 Q54 118 52 104 Q50 94 40 90Z" fill="#dc2626" />
-                    {/* Right thigh */}
-                    <path d="M80 90 Q86 100 88 116 Q90 128 82 134 Q74 138 70 128 Q66 118 68 104 Q70 94 80 90Z" fill="#dc2626" />
-                    {/* Left shin */}
-                    <path d="M34 134 Q30 144 32 154 Q36 160 42 158 Q48 155 48 144 Q48 135 40 134Z" fill="#b91c1c" />
-                    {/* Right shin */}
-                    <path d="M86 134 Q90 144 88 154 Q84 160 78 158 Q72 155 72 144 Q72 135 80 134Z" fill="#b91c1c" />
-                    {/* Energy ring */}
-                    <ellipse cx="60" cy="80" rx="55" ry="70" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
-                  </svg>
-                  {/* Card label */}
-                  <div className="relative z-10 mt-3 text-center">
-                    <p className="font-display font-black text-red-500 uppercase tracking-wider text-[10px] sm:text-xs drop-shadow-[0_0_6px_rgba(239,68,68,0.7)]">CARDIO</p>
-                    <p className="text-stone-400 text-[8px] sm:text-[9px] font-bold uppercase tracking-widest mt-0.5">STAY FIT</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+          {/* TOP-RIGHT neon diagonal corner beam (positioned relative to screen boundaries) */}
+          <div className="absolute top-0 right-0 w-40 h-40 overflow-hidden pointer-events-none z-30">
+            <div className="absolute top-[-20px] right-[-60px] w-[200px] h-[20px] bg-red-600 rotate-45 shadow-[0_0_18px_#ff0000,0_0_35px_rgba(239,68,68,0.5)] animate-beam-pulse" />
+            <div className="absolute top-[4px] right-[-55px] w-[200px] h-[5px] bg-red-400 rotate-45 opacity-60 shadow-[0_0_10px_#ff0000] animate-beam-pulse" style={{ animationDelay: "-0.5s" }} />
           </div>
         </div>
 
+        {/* ── MAIN CONTENT ── */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+
+          {/* Red accent line above headline */}
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="h-[1.5px] bg-gradient-to-r from-transparent to-red-500/80 w-10 sm:w-16" />
+            <div className="w-1.5 h-1.5 bg-red-500 rounded-full shadow-[0_0_6px_rgba(239,68,68,0.9)] animate-pulse" />
+            <div className="h-[1.5px] bg-gradient-to-l from-transparent to-red-500/80 w-10 sm:w-16" />
+          </div>
+
+          {/* ── HEADLINE ── */}
+          <h4 className="font-display font-black uppercase select-none leading-[0.88] tracking-tight" style={{ fontSize: "clamp(2.2rem, 9vw, 3.8rem)" }}>
+            <span className="block">
+              <span
+                className="text-white"
+                style={{
+                  textShadow: "0 0 30px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.6)",
+                  WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
+                }}
+              >
+                STAY{" "}
+              </span>
+              <span
+                className="text-red-500 animate-text-glow-pulse"
+                style={{
+                  textShadow: "0 0 20px rgba(239,68,68,0.9), 0 0 40px rgba(239,68,68,0.5), 0 0 70px rgba(239,68,68,0.25)",
+                }}
+              >
+                STRONG.
+              </span>
+            </span>
+            <span
+              className="block text-white mt-1.5"
+              style={{
+                textShadow: "0 0 30px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.6)",
+                WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
+              }}
+            >
+              STAY FOCUSED.
+            </span>
+            <span className="block mt-1.5">
+              <span
+                className="text-white"
+                style={{
+                  textShadow: "0 0 30px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.6)",
+                  WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
+                }}
+              >
+                STAY{" "}
+              </span>
+              <span
+                className="text-red-500 animate-text-glow-pulse"
+                style={{
+                  textShadow: "0 0 20px rgba(239,68,68,0.9), 0 0 40px rgba(239,68,68,0.5), 0 0 70px rgba(239,68,68,0.25)",
+                  animationDelay: "-1.25s",
+                }}
+              >
+                YOU.
+              </span>
+            </span>
+          </h4>
+
+          {/* ── SUBHEADLINE ── */}
+          <p className="mt-6 font-display font-bold uppercase tracking-widest text-sm sm:text-base select-none" style={{ fontSize: "clamp(0.75rem, 3.5vw, 1.05rem)" }}>
+            <span className="text-stone-300">LET'S BUILD A BETTER, STRONGER YOU{" "}</span>
+            <span
+              className="text-red-500"
+              style={{ textShadow: "0 0 12px rgba(239,68,68,0.7)" }}
+            >
+              TOGETHER!
+            </span>
+          </p>
+
+          {/* ── BOTTOM SILHOUETTE FLOATING ITEMS ── */}
+          <div className="grid grid-cols-2 gap-8 sm:gap-24 max-w-xl mx-auto justify-items-center mt-14 sm:mt-18">
+
+            {/* LEFT ITEM — Muscular Bodybuilder Silhouette Flexing Double Biceps */}
+            <div className="flex flex-col items-center group relative pointer-events-auto">
+              {/* Glowing red neon circle container */}
+              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full border border-red-500/30 bg-transparent flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.25),inset_0_0_12px_rgba(239,68,68,0.15)] group-hover:scale-105 group-hover:border-red-500/80 group-hover:shadow-[0_0_30px_rgba(239,68,68,0.7),inset_0_0_18px_rgba(239,68,68,0.3)] transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-b from-red-950/20 to-transparent rounded-full pointer-events-none" />
+                
+                {/* High-detail Bodybuilder double bicep SVG silhouette */}
+                <svg
+                  viewBox="0 0 100 100"
+                  className="relative z-10 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)] group-hover:drop-shadow-[0_0_14px_rgba(239,68,68,0.8)] transition-all duration-300"
+                  style={{ width: "80%", height: "80%" }}
+                >
+                  <defs>
+                    <linearGradient id="body-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#ff4d4d" />
+                      <stop offset="60%" stopColor="#cc0000" />
+                      <stop offset="100%" stopColor="#660000" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Bodybuilder Silhouette Path */}
+                  <path
+                    d="M 50,15 
+                       C 53,15 54,12 54,10 
+                       C 54,8 52.5,7.5 50,7.5 
+                       C 47.5,7.5 46,8 46,10 
+                       C 46,12 47,15 50,15 Z 
+                       M 50,15 
+                       C 48,16.5 45,18 43,20 
+                       C 38,18 33,18.5 28.5,21.5 
+                       C 24,18 19,17.5 15,21.5 
+                       C 12,24.5 10.5,28 13.5,30 
+                       C 16.5,32 19.5,29.5 22.5,26.5 
+                       C 24,29 23,32.5 20.5,36 
+                       C 18,39.5 14,41.5 12,46.5 
+                       C 10,51.5 11,54 13.5,53.5 
+                       C 16,53 19,49.5 21.5,45 
+                       C 23,49 22.5,53.5 19.5,57.5 
+                       C 16.5,61.5 12.5,63.5 10.5,68.5 
+                       C 8.5,73.5 10.5,76 13,75.5 
+                       C 15.5,75 18,71.5 20.5,66 
+                       C 22.5,69 24.5,71.5 27,73.5 
+                       C 29.5,75.5 32,77 34.5,77.5 
+                       C 37.5,78 40.5,75.5 42,72.5 
+                       C 43.5,69.5 44.5,66 44.5,61 
+                       C 44.5,54.5 46.5,51.5 50,51.5 
+                       C 53.5,51.5 55.5,54.5 55.5,61 
+                       C 55.5,66 56.5,69.5 58,72.5 
+                       C 59.5,75.5 62.5,78 65.5,77.5 
+                       C 68,77 70.5,75.5 73,73.5 
+                       C 75.5,71.5 77.5,69 79.5,66 
+                       C 82,71.5 84.5,75 87,75.5 
+                       C 89.5,76 91.5,73.5 89.5,68.5 
+                       C 87.5,63.5 83.5,61.5 80.5,57.5 
+                       C 77.5,53.5 77,49 78.5,45 
+                       C 81,49.5 84,53 86.5,53.5 
+                       C 89,54 90,51.5 88,46.5 
+                       C 86,41.5 82,39.5 79.5,36 
+                       C 77,32.5 76,29 77.5,26.5 
+                       C 80.5,29.5 83.5,32 86.5,30 
+                       C 89.5,28 88,24.5 85,21.5 
+                       C 80.5,18.5 75.5,18 71,20 
+                       C 69,18 66,16.5 64,15 
+                       C 62,13.5 53.5,13.5 50,15 Z"
+                    fill="url(#body-grad)"
+                  />
+
+                  {/* Muscle Definition Lines */}
+                  {/* Chest Separation */}
+                  <path d="M 50,22 L 50,30 M 43,26 C 46,28 50,29 50,30 C 50,30 54,28 57,26" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.65" fill="none" />
+                  
+                  {/* Collarbones */}
+                  <path d="M 42,21 C 45,21 48,22 50,23.5 C 52,22 55,21 58,21" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.55" fill="none" />
+
+                  {/* Abs */}
+                  <path d="M 50,34 L 50,49" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.6" fill="none" />
+                  <path d="M 45,37 H 55 M 44,41 H 56 M 45,45 H 55" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.5" fill="none" />
+
+                  {/* Left Bicep peak */}
+                  <path d="M 28,21 C 29,23 28.5,26 27,27.5" stroke="#ffffff" strokeWidth="0.5" strokeLinecap="round" opacity="0.4" fill="none" />
+                  {/* Right Bicep peak */}
+                  <path d="M 72,21 C 71,23 71.5,26 73,27.5" stroke="#ffffff" strokeWidth="0.5" strokeLinecap="round" opacity="0.4" fill="none" />
+
+                  {/* Lats */}
+                  <path d="M 40,32 C 37,36 34,42 34,48" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.4" fill="none" />
+                  <path d="M 60,32 C 63,36 66,42 66,48" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.4" fill="none" />
+
+                  {/* Quads */}
+                  <path d="M 32,59 C 30,64 28,70 30,75 M 36,60 L 33,73" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.5" fill="none" />
+                  <path d="M 68,59 C 70,64 72,70 70,75 M 64,60 L 67,73" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.5" fill="none" />
+                </svg>
+              </div>
+              {/* Floating label */}
+              <div className="mt-4 text-center select-none">
+                <h5 className="font-display font-black text-red-500 uppercase tracking-wider text-[11px] sm:text-sm drop-shadow-[0_0_6px_rgba(239,68,68,0.7)]">STRENGTH</h5>
+                <p className="text-stone-400 text-[8px] sm:text-[10px] font-bold uppercase tracking-widest mt-0.5">BUILD MUSCLE</p>
+              </div>
+            </div>
+
+            {/* RIGHT ITEM — Professional Athlete Performing Heavy Barbell Squat */}
+            <div className="flex flex-col items-center group relative pointer-events-auto">
+              {/* Glowing red neon circle container */}
+              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full border border-red-500/30 bg-transparent flex items-center justify-center shadow-[0_0_20px_rgba(239,68,68,0.25),inset_0_0_12px_rgba(239,68,68,0.15)] group-hover:scale-105 group-hover:border-red-500/80 group-hover:shadow-[0_0_30px_rgba(239,68,68,0.7),inset_0_0_18px_rgba(239,68,68,0.3)] transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-b from-red-950/20 to-transparent rounded-full pointer-events-none" />
+                
+                {/* High-detail Athlete squat SVG silhouette */}
+                <svg
+                  viewBox="0 0 100 100"
+                  className="relative z-10 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)] group-hover:drop-shadow-[0_0_14px_rgba(239,68,68,0.8)] transition-all duration-300"
+                  style={{ width: "80%", height: "80%" }}
+                >
+                  <defs>
+                    <linearGradient id="squat-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#ff4d4d" />
+                      <stop offset="60%" stopColor="#cc0000" />
+                      <stop offset="100%" stopColor="#660000" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Barbell weights and collar clips (high detail plates) */}
+                  <g fill="#990000">
+                    <rect x="2" y="32" width="3.5" height="20" rx="0.75" />
+                    <rect x="6.5" y="30" width="3.5" height="24" rx="0.75" />
+                    <rect x="11" y="30" width="3.5" height="24" rx="0.75" fill="#cc0000" />
+                    <rect x="15.5" y="38" width="1.5" height="8" rx="0.25" fill="#ff4d4d" />
+                    
+                    <rect x="94.5" y="32" width="3.5" height="20" rx="0.75" />
+                    <rect x="90" y="30" width="3.5" height="24" rx="0.75" />
+                    <rect x="85.5" y="30" width="3.5" height="24" rx="0.75" fill="#cc0000" />
+                    <rect x="83" y="38" width="1.5" height="8" rx="0.25" fill="#ff4d4d" />
+
+                    <rect x="17" y="40" width="66" height="3" rx="0.5" fill="#e60000" />
+                  </g>
+
+                  {/* Squatting Athlete Path */}
+                  <path
+                    d="M 50,30 
+                       C 52.5,30 53.5,27.5 53.5,25.5 
+                       C 53.5,23.5 52,22.5 50,22.5 
+                       C 48,22.5 46.5,23.5 46.5,25.5 
+                       C 46.5,27.5 47.5,30 50,30 Z 
+                       M 50,30 
+                       C 46,31 43,32.5 41,35 
+                       C 39,33.5 36.5,33.5 35,35 
+                       C 33.5,36.5 33,39 34.5,41 
+                       C 36,43 38,42.5 39.5,41.5 
+                       C 41.5,43 41,45.5 39,47.5 
+                       C 36,50.5 32,53 28,54.5 
+                       C 25.5,55.5 24,58 25,60 
+                       C 26,62 28.5,61.5 31.5,59.5 
+                       C 35.5,57 39.5,53.5 42,49 
+                       C 43,53.5 42,58.5 39,63.5 
+                       C 35.5,68.5 30.5,71.5 25.5,73 
+                       C 23,73.5 21.5,76 22,78 
+                       C 22.5,80 25,80.5 28.5,79 
+                       C 33.5,77 38.5,73 42.5,67 
+                       C 44.5,71 46,75.5 47,80.5 
+                       C 48,85.5 48.5,90.5 48,93 
+                       C 47.5,95.5 49.5,96 51,95 
+                       C 52.5,94 53,91 52.5,86 
+                       C 52,81.5 50.5,76.5 48.5,72 
+                       C 49.5,72.5 50.5,72.5 51.5,72 
+                       C 49.5,76.5 48,81.5 47.5,86 
+                       C 47,91 47.5,94 49,95 
+                       C 50.5,96 52.5,95.5 52,93 
+                       C 51.5,90.5 52,85.5 53,80.5 
+                       C 54,75.5 55.5,71 57.5,67 
+                       C 61.5,73 66.5,77 71.5,79 
+                       C 75,80.5 77.5,80 78,78 
+                       C 78.5,76 77,73.5 74.5,73 
+                       C 69.5,71.5 64.5,68.5 61,63.5 
+                       C 58,58.5 57,53.5 58,49 
+                       C 60.5,53.5 64.5,57 68.5,59.5 
+                       C 71.5,61.5 74,62 75,60 
+                       C 76,58 74.5,55.5 72,54.5 
+                       C 68,53 64,50.5 61,47.5 
+                       C 59,45.5 58.5,43 60.5,41.5 
+                       C 62,42.5 64,43 65.5,41 
+                       C 67,39 66.5,36.5 65,35 
+                       C 63.5,33.5 61,33.5 59,35 
+                       C 57,32.5 54,31 50,30 Z"
+                    fill="url(#squat-grad)"
+                  />
+
+                  {/* Spine / Back Highlight */}
+                  <path d="M 50,33 L 50,56" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.6" fill="none" />
+                  
+                  {/* Glute / Leg Cuts */}
+                  <path d="M 38,64 C 36,68 33,70 30,72 M 39,69 C 37,73 34,75 32,77" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.5" fill="none" />
+                  <path d="M 62,64 C 63,68 66,70 69,72 M 61,69 C 63,73 66,75 68,77" stroke="#ff8080" strokeWidth="0.75" strokeLinecap="round" opacity="0.5" fill="none" />
+
+                  {/* Traps weight pressure highlight */}
+                  <path d="M 44,34 C 47,35 50,35.5 53,35.5 C 56,35.5 59,35 62,34" stroke="#ffffff" strokeWidth="0.5" strokeLinecap="round" opacity="0.4" fill="none" />
+                </svg>
+              </div>
+              {/* Floating label */}
+              <div className="mt-4 text-center select-none">
+                <h5 className="font-display font-black text-red-500 uppercase tracking-wider text-[11px] sm:text-sm drop-shadow-[0_0_6px_rgba(239,68,68,0.7)]">POWER</h5>
+                <p className="text-stone-400 text-[8px] sm:text-[10px] font-bold uppercase tracking-widest mt-0.5">HEAVY SQUAT</p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* ── BOTTOM DIVIDER AND NEON LINES ── */}
+          <div className="relative w-full flex items-center justify-center mt-20 sm:mt-28">
+            {/* Left Thin Neon Line */}
+            <div className="absolute left-0 w-[calc(50%-50px)] h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-red-500 shadow-[0_0_6px_#ff0000]" />
+            
+            {/* Glowing Red Dumbbell Separator */}
+            <div className="relative z-10 mx-auto text-red-500 animate-pulse filter drop-shadow-[0_0_10px_rgba(239,68,68,0.9)]">
+              <svg viewBox="0 0 24 24" width="36" height="36" className="fill-current">
+                <rect x="2" y="10.5" width="20" height="3" rx="1" />
+                <rect x="6" y="5" width="2.5" height="14" rx="1" />
+                <rect x="3.5" y="7.5" width="2" height="9" rx="0.8" />
+                <rect x="15.5" y="5" width="2.5" height="14" rx="1" />
+                <rect x="18.5" y="7.5" width="2" height="9" rx="0.8" />
+              </svg>
+            </div>
+            
+            {/* Right Thin Neon Line */}
+            <div className="absolute right-0 w-[calc(50%-50px)] h-[1px] bg-gradient-to-l from-transparent via-red-500/40 to-red-500 shadow-[0_0_6px_#ff0000]" />
+          </div>
+
+          {/* Subtle red smoke and particles at bottom */}
+          <div className="absolute bottom-0 inset-x-0 h-16 pointer-events-none overflow-hidden z-0">
+            <div className="absolute left-[20%] w-[1.5px] h-[1.5px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-1" />
+            <div className="absolute left-[50%] w-[2px] h-[2px] bg-red-650 rounded-full blur-[0.5px] animate-spark-float-2" style={{ animationDelay: "-3s" }} />
+            <div className="absolute left-[80%] w-[1px] h-[1px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-3" style={{ animationDelay: "-6s" }} />
+          </div>
+        </div>
       </div>
     </section>
   );
