@@ -240,16 +240,16 @@ export default function Membership() {
         {/* Poster Corner Accents */}
         <DiagonalStripesLeft />
         <DiagonalStripesRight />
-        <div className="absolute top-0 left-0 w-64 h-[620px] md:h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
+        <div className="absolute top-0 left-0 w-64 h-[470px] md:h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
           <DiagonalStripesBottomLeft />
         </div>
-        <div className="absolute top-0 right-0 w-64 h-[620px] md:h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
+        <div className="absolute top-0 right-0 w-64 h-[470px] md:h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
           <DiagonalStripesBottomRight />
         </div>
 
         {/* Top-Left Muscular Bodybuilder Photo Background */}
-        <div className="absolute top-0 left-0 w-[45%] h-[620px] md:w-[50%] md:h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
-          <div className="w-full h-full relative scale-[1.30] translate-y-[-100px] origin-top-left md:scale-[1.20] md:translate-y-0 md:origin-left">
+        <div className="absolute top-0 left-0 w-[50%] h-[470px] md:h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
+          <div className="w-full h-full relative scale-[1.25] translate-y-[-20px] origin-top-left md:scale-[1.20] md:translate-y-0 md:origin-left">
             <img 
               src="/membership-left-clean.jpg?v=5" 
               alt="Bodybuilder decoration"
@@ -265,16 +265,16 @@ export default function Membership() {
         </div>
 
         {/* Top-Right Gym Equipment Poster Texture */}
-        <div className="absolute top-0 right-0 w-[45%] h-[620px] md:w-[50%] md:h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-0 w-[50%] h-[470px] md:h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
           <img 
             src="/membership-right-clean.jpg?v=5" 
             alt="Gym background"
-            className="w-full h-full object-cover object-right filter contrast-125 brightness-[2.10] saturate-110 md:brightness-[1.15]"
+            className="w-full h-full object-cover object-right filter contrast-125 brightness-[1.70] saturate-110 md:brightness-[1.15]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-45% to-[#09090b] md:via-35%" />
-          <div className="absolute top-[10%] right-[10%] w-[180px] h-[180px] bg-red-650/25 rounded-full blur-[50px] md:hidden pointer-events-none" />
-          <div className="absolute top-1/2 right-[5%] w-[240px] h-[240px] bg-red-500/35 rounded-full blur-[70px] md:hidden pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-35% to-[#09090b] md:via-35%" />
+          <div className="absolute top-[10%] right-[10%] w-[180px] h-[180px] bg-red-650/20 rounded-full blur-[40px] md:hidden pointer-events-none" />
+          <div className="absolute top-1/2 right-[5%] w-[200px] h-[200px] bg-red-500/30 rounded-full blur-[60px] md:hidden pointer-events-none" />
         </div>
       </div>
 
@@ -286,7 +286,7 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-4 relative z-10 max-w-[245px] sm:max-w-none mx-auto translate-y-[40px] translate-x-10 md:translate-y-0 md:translate-x-12 lg:translate-x-16 xl:translate-x-20"
+          className="text-center mb-4 relative z-10 max-w-[280px] sm:max-w-none mx-auto translate-y-[25px] translate-x-0 md:translate-y-0 md:translate-x-12 lg:translate-x-16 xl:translate-x-20"
         >
           <div className="flex justify-center mb-3 text-red-500 animate-pulse">
             <DumbbellIcon />
@@ -304,7 +304,7 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          className="flex items-center justify-center gap-2.5 w-full max-w-[280px] sm:max-w-none mx-auto mb-12 relative z-10 translate-y-[60px] md:translate-y-0"
+          className="flex items-center justify-center gap-2.5 w-full max-w-[280px] sm:max-w-none mx-auto mb-12 relative z-10 translate-y-[35px] md:translate-y-0"
         >
           <div className="h-[1.5px] bg-red-500 w-6 shrink-0 sm:hidden" />
           <p className="text-white font-sans text-[10px] sm:text-sm text-center uppercase tracking-widest italic font-bold max-w-[170px] sm:max-w-none">
@@ -319,7 +319,7 @@ export default function Membership() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col gap-10 sm:gap-12 max-w-4xl mx-auto relative z-10 mt-[220px] md:mt-0"
+          className="flex flex-col gap-10 sm:gap-12 max-w-4xl mx-auto relative z-10 mt-[45px] md:mt-0"
         >
           
           {/* 1. MEMBERSHIP TABLE CARD (Full width layout) */}
