@@ -29,6 +29,15 @@ const DiagonalStripesBottomRight = () => (
   </div>
 );
 
+const DiagonalStripesBottomLeft = () => (
+  <div className="absolute bottom-0 left-0 w-64 h-64 overflow-hidden pointer-events-none select-none z-20">
+    {/* Thick Stripe with red glow and border */}
+    <div className="absolute bottom-[-30px] left-[-90px] w-[280px] h-[26px] bg-red-650 rotate-45 shadow-[0_0_20px_#ff0000] border-t border-red-400" />
+    {/* Thin Stripe */}
+    <div className="absolute bottom-[3px] left-[-80px] w-[280px] h-[6px] bg-red-500 rotate-45 shadow-[0_0_12px_#ff0000]" />
+  </div>
+);
+
 
 const DumbbellIcon = () => (
   <svg viewBox="0 0 24 24" width="40" height="40" className="text-red-500 fill-current shrink-0">
@@ -230,6 +239,9 @@ export default function Membership() {
         {/* Poster Corner Accents */}
         <DiagonalStripesLeft />
         <DiagonalStripesRight />
+        <div className="absolute top-0 left-0 w-64 h-[380px] lg:h-[480px] overflow-hidden pointer-events-none select-none z-20">
+          <DiagonalStripesBottomLeft />
+        </div>
         <div className="absolute top-0 right-0 w-64 h-[380px] lg:h-[480px] overflow-hidden pointer-events-none select-none z-20">
           <DiagonalStripesBottomRight />
         </div>
@@ -242,6 +254,7 @@ export default function Membership() {
             className="w-full h-full object-cover object-left filter contrast-110 brightness-[0.8] animate-bodybuilder-breathe"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-50% to-[#09090b]" />
         </div>
 
         {/* Top-Right Gym Equipment Poster Texture */}
@@ -252,6 +265,7 @@ export default function Membership() {
             className="w-full h-full object-cover object-right filter contrast-110 brightness-[0.8]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-50% to-[#09090b]" />
         </div>
       </div>
 
@@ -263,16 +277,16 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-12 relative z-10"
+          className="text-center mb-12 relative z-10 max-w-[290px] sm:max-w-none mx-auto"
         >
           <div className="flex justify-center mb-3 text-red-500 animate-pulse">
             <DumbbellIcon />
           </div>
-          <h2 className="font-display font-black text-4xl sm:text-6xl text-center uppercase tracking-tight italic select-none">
+          <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-center uppercase tracking-tight italic select-none">
             <span className="text-white block">GYM MEMBERSHIP</span>
             <span className="text-red-500 block -mt-1 sm:-mt-2">DETAILS</span>
           </h2>
-          <p className="text-stone-400 font-sans text-[11px] sm:text-sm text-center uppercase tracking-widest italic mt-3.5 font-bold">
+          <p className="text-white font-sans text-[11px] sm:text-sm text-center uppercase tracking-widest italic mt-3.5 font-bold">
             CHOOSE THE PERFECT PLAN FOR YOUR FITNESS JOURNEY
           </p>
         </motion.div>
