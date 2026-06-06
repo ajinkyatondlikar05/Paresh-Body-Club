@@ -251,7 +251,7 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-12 relative z-10 max-w-2xl mx-auto px-6 py-6 sm:py-8 rounded-3xl bg-[#09090b]/85 backdrop-blur-md border border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+          className="text-center mb-12 relative z-10"
         >
           <div className="flex justify-center mb-3 text-red-500 animate-pulse">
             <DumbbellIcon />
