@@ -237,7 +237,7 @@ export default function Membership() {
         {/* Top-Left Muscular Bodybuilder Photo Background */}
         <div className="absolute top-0 left-0 w-[50%] h-[380px] lg:h-[480px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none">
           <img 
-            src="/membership-left-clean.jpg?v=3" 
+            src="/membership-left-clean.jpg?v=5" 
             alt="Bodybuilder decoration"
             className="w-full h-full object-cover object-left filter contrast-110 brightness-[0.8] animate-bodybuilder-breathe"
           />
@@ -247,7 +247,7 @@ export default function Membership() {
         {/* Top-Right Gym Equipment Poster Texture */}
         <div className="absolute top-0 right-0 w-[50%] h-[380px] lg:h-[480px] opacity-[0.85] lg:opacity-[0.95] z-0 pointer-events-none">
           <img 
-            src="/membership-right-clean.jpg?v=3" 
+            src="/membership-right-clean.jpg?v=5" 
             alt="Gym background"
             className="w-full h-full object-cover object-right filter contrast-110 brightness-[0.8]"
           />
