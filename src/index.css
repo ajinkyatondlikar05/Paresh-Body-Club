@@ -913,3 +913,17 @@ body {
     opacity: 0.65 !important;
   }
 }
+
+/* Achievements section layout optimization (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .achievements-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+
+  .instagram-card {
+    grid-column: 1 / -1 !important;
+  }
+}
+

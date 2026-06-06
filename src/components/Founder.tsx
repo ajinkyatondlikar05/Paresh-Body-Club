@@ -668,7 +668,7 @@ export default function Founder() {
             </div>
 
             {/* Achievement cards — single column, ordered sequential reveal */}
-            <div className="grid grid-cols-1 gap-3.5">
+            <div className="grid grid-cols-1 gap-3.5 achievements-grid">
 
               {achievements.map((ach, index) => {
                 const IconComp = ach.icon;
@@ -836,7 +836,7 @@ export default function Founder() {
                   ease: [0.25, 1, 0.5, 1],
                   delay: isMobile ? achCardDelay(achievements.length) : 0,
                 }}
-                className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] ${
+                className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] instagram-card ${
                   isMobile ? "ach-pulse-pink" : ""
                 }`}
               >
