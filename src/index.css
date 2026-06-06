@@ -914,7 +914,7 @@ body {
   }
 }
 
-/* Achievements section layout optimization (min-width: 1024px) */
+/* Achievements section layout optimization & typography enhancements (min-width: 1024px) */
 @media (min-width: 1024px) {
   .achievements-grid {
     display: grid !important;
@@ -924,6 +924,38 @@ body {
 
   .instagram-card {
     grid-column: 1 / -1 !important;
+  }
+
+  /* Typography Enhancements */
+  .achievement-number {
+    font-size: 34px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+  }
+
+  .achievement-title {
+    font-size: 14.5px !important;
+    font-weight: 900 !important;
+  }
+
+  .achievement-label {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+
+  .instagram-subtitle {
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+  }
+
+  .instagram-handle {
+    font-size: 27px !important;
+    font-weight: 900 !important;
+  }
+
+  .instagram-button {
+    font-size: 14.4px !important;
+    font-weight: 900 !important;
   }
 }
 

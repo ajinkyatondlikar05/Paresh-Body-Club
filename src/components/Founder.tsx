@@ -736,7 +736,7 @@ export default function Founder() {
                               startDelay={cntDelay}
                             />
                           ) : (
-                            <span className="font-display font-black text-xl sm:text-2xl text-white block">
+                            <span className="font-display font-black text-xl sm:text-2xl text-white block achievement-number">
                               {ach.number}
                             </span>
                           )}
@@ -767,11 +767,11 @@ export default function Founder() {
                               startDelay={cntDelay}
                             />
                           ) : (
-                            <span className={`${ach.numColor} block`}>{ach.number}</span>
+                            <span className={`${ach.numColor} block achievement-number`}>{ach.number}</span>
                           )}
                           {/* Suffix fades in after number */}
                           <motion.span
-                            className="text-[#9ca3af] text-xs font-black tracking-wider ml-1 block"
+                            className="text-[#9ca3af] text-xs font-black tracking-wider ml-1 block achievement-title"
                             initial={isMobile ? { opacity: 0 } : false}
                             animate={
                               isMobile
@@ -813,7 +813,7 @@ export default function Founder() {
                         </div>
                       )}
 
-                      <span className="text-[#9ca3af] font-sans text-[11px] font-semibold uppercase tracking-widest block mt-1.5 leading-tight">
+                      <span className="text-[#9ca3af] font-sans text-[11px] font-semibold uppercase tracking-widest block mt-1.5 leading-tight achievement-label">
                         {ach.label}
                       </span>
                     </div>
@@ -864,14 +864,14 @@ export default function Founder() {
 
                 {/* Content */}
                 <div className="z-10 flex-grow flex flex-col items-start text-left">
-                  <span className="text-[9px] text-[#9ca3af] uppercase font-bold tracking-widest">
+                  <span className="text-[9px] text-[#9ca3af] uppercase font-bold tracking-widest instagram-subtitle">
                     FOLLOW PARESH ON INSTAGRAM
                   </span>
                   <a
                     href="https://instagram.com/pareshhindurao"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-white hover:text-pink-500 text-lg sm:text-xl font-display font-black uppercase tracking-wider block mt-0.5 transition-colors duration-300"
+                    className="text-white hover:text-pink-500 text-lg sm:text-xl font-display font-black uppercase tracking-wider block mt-0.5 transition-colors duration-300 instagram-handle"
                   >
                     @pareshhindurao
                   </a>
@@ -881,7 +881,7 @@ export default function Founder() {
                     href="https://instagram.com/pareshhindurao"
                     target="_blank"
                     rel="noreferrer"
-                    className={`mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit ${
+                    className={`mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit instagram-button ${
                       isMobile ? "btn-shine-animation" : ""
                     }`}
                     whileHover={isMobile ? { scale: 1.03 } : {}}
