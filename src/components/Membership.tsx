@@ -316,29 +316,54 @@ export default function Membership() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ── SLANTED BOLD HEADER ── */}
-        <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-4 relative z-10 max-w-[280px] sm:max-w-none mx-auto translate-y-[25px] translate-x-0 md:translate-y-0 md:translate-x-12 lg:translate-x-16 xl:translate-x-20"
-        >
-          <div className="flex justify-center mb-3 text-red-500 animate-pulse">
+        <div className="text-center mb-4 relative z-10 max-w-[280px] sm:max-w-none mx-auto translate-y-[25px] translate-x-0 md:translate-y-0 md:translate-x-12 lg:translate-x-16 xl:translate-x-20">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ type: "spring", stiffness: 150, damping: 15 }}
+            className="flex justify-center mb-3 text-red-500 animate-pulse"
+          >
             <DumbbellIcon />
-          </div>
+          </motion.div>
           <h2 className="font-display font-black text-center uppercase tracking-tight italic select-none flex flex-col gap-0 leading-[0.85] sm:block sm:text-5xl md:text-6xl">
-            <span className="text-white text-6xl tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal sm:mr-3">GYM</span>
-            <span className="text-white text-[42px] tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal sm:mr-3 -mt-1 sm:mt-0">MEMBERSHIP</span>
-            <span className="text-red-500 text-6xl tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal drop-shadow-[0_0_15px_rgba(239,68,68,0.65)] -mt-1 sm:mt-0">DETAILS</span>
+            <motion.span 
+              initial={{ opacity: 0, y: -25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="text-white text-6xl tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal sm:mr-3"
+            >
+              GYM
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: -25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="text-white text-[42px] tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal sm:mr-3 -mt-1 sm:mt-0"
+            >
+              MEMBERSHIP
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: -25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              animate={{ textShadow: ["0 0 10px rgba(239,68,68,0.25)", "0 0 22px rgba(239,68,68,0.7)", "0 0 10px rgba(239,68,68,0.25)"] }}
+              className="text-red-500 text-6xl tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal drop-shadow-[0_0_15px_rgba(239,68,68,0.65)] -mt-1 sm:mt-0"
+            >
+              DETAILS
+            </motion.span>
           </h2>
-        </motion.div>
+        </div>
 
         {/* ── SUBTITLE ── */}
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.45 }}
           className="flex items-center justify-center gap-2.5 w-full max-w-[280px] sm:max-w-none mx-auto mb-12 relative z-10 translate-y-[35px] md:translate-y-0"
         >
           <div className="h-[1.5px] bg-red-500 w-6 shrink-0 sm:hidden" />
@@ -359,7 +384,10 @@ export default function Membership() {
           
           {/* 1. MEMBERSHIP TABLE CARD (Full width layout) */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, scale: 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="bg-[#09090b]/90 backdrop-blur-md border border-red-500/50 rounded-2xl sm:rounded-3xl p-3.5 sm:p-8 flex flex-col justify-between animate-border-pulse shadow-[0_0_30px_rgba(239,68,68,0.22)]"
           >
             <div>
@@ -367,7 +395,13 @@ export default function Membership() {
               <div className="overflow-x-auto rounded-xl border border-white/10 scrollbar-none">
                 <table className="w-full border-collapse">
                   <thead>
-                    <tr className="bg-gradient-to-r from-red-800 to-red-650 text-white font-display text-[11px] sm:text-sm tracking-wider uppercase border-b border-white/10 italic">
+                    <motion.tr 
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className="bg-gradient-to-r from-red-800 to-red-650 text-white font-display text-[11px] sm:text-sm tracking-wider uppercase border-b border-white/10 italic"
+                    >
                       <th className="py-4 px-2 text-center font-black border-r border-white/10 w-16 sm:w-20">
                         <ShieldStarIcon />
                         <span className="block mt-1">NO.</span>
@@ -384,12 +418,30 @@ export default function Membership() {
                         <HeartPulseIcon />
                         <span>GYM + CARDIO</span>
                       </th>
-                    </tr>
+                    </motion.tr>
                   </thead>
-                  <tbody className="divide-y divide-white/10 font-sans text-xs sm:text-[15px] text-stone-200">
+                  <motion.tbody 
+                    variants={{
+                      hidden: {},
+                      visible: {
+                        transition: {
+                          staggerChildren: 0.12,
+                          delayChildren: 0.25
+                        }
+                      }
+                    }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="divide-y divide-white/10 font-sans text-xs sm:text-[15px] text-stone-200"
+                  >
                     {MEMBERSHIP_ROWS.map((row) => (
-                      <tr 
+                      <motion.tr 
                         key={row.no} 
+                        variants={{
+                          hidden: { opacity: 0, y: 15 },
+                          visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } }
+                        }}
                         className="hover:bg-white/5 transition-colors duration-150 border-b border-white/10 last:border-b-0"
                       >
                         <td className="py-4 px-2 text-center border-r border-white/10">
@@ -397,80 +449,139 @@ export default function Membership() {
                         </td>
                         <td className="py-4 px-2 text-center font-extrabold border-r border-white/10 text-stone-100">{row.months}</td>
                         {/* GYM price — clickable WhatsApp enquiry */}
-                        <td
+                        <motion.td
                           className="py-4 px-2 text-center font-extrabold border-r border-white/10 text-stone-100 cursor-pointer select-none transition-all duration-200 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.7)] active:scale-95"
                           onClick={() => openWhatsApp(row.gymMsg)}
                           title={`Enquire about ${row.months} Gym plan`}
+                          whileHover={{ scale: 1.05, textShadow: "0 0 12px rgba(34,197,94,0.8)" }}
+                          whileTap={{ scale: 0.98 }}
                         >
                           {row.gym}
                           <span className="block text-[9px] sm:text-[10px] text-green-500/70 font-bold tracking-wider mt-0.5 leading-none">TAP TO ENQUIRE</span>
-                        </td>
+                        </motion.td>
                         {/* GYM + CARDIO price — clickable WhatsApp enquiry */}
-                        <td
+                        <motion.td
                           className="py-4 px-2 text-center font-extrabold text-stone-100 cursor-pointer select-none transition-all duration-200 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.7)] active:scale-95"
                           onClick={() => openWhatsApp(row.gymCardioMsg)}
                           title={`Enquire about ${row.months} Gym + Cardio plan`}
+                          whileHover={{ scale: 1.05, textShadow: "0 0 12px rgba(34,197,94,0.8)" }}
+                          whileTap={{ scale: 0.98 }}
                         >
                           {row.gymCardio}
                           <span className="block text-[9px] sm:text-[10px] text-green-500/70 font-bold tracking-wider mt-0.5 leading-none">TAP TO ENQUIRE</span>
-                        </td>
-                      </tr>
+                        </motion.td>
+                      </motion.tr>
                     ))}
-                  </tbody>
+                  </motion.tbody>
                 </table>
               </div>
             </div>
 
             {/* Note banner at bottom */}
-            <div className="flex items-center justify-center mt-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex items-center justify-center mt-6"
+            >
               <div className="flex items-center gap-2.5 px-4 py-2.5 bg-black/60 border border-white/10 rounded-full text-stone-300 text-[10px] sm:text-xs max-w-lg shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)]">
                 <RedShieldCheck />
                 <span className="font-semibold text-left leading-tight">All plans include access to world-class equipment and expert guidance.</span>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* 2. RULES & REGULATIONS CARD (Full width layout) */}
           <motion.div
-            variants={itemVariants}
+            initial={{ opacity: 0, scale: 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="bg-[#09090b]/90 backdrop-blur-md border border-red-500/50 rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex flex-col justify-between animate-border-pulse shadow-[0_0_30px_rgba(239,68,68,0.22)]"
           >
             <div>
               {/* Header */}
               <div className="flex flex-col items-center sm:items-start gap-1 w-full mb-8">
                 <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
-                  <OctagonClipboardIcon />
-                  <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight italic text-center sm:text-left mt-2 sm:mt-0">
+                  <motion.div
+                    initial={{ scale: 0, rotate: -45 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  >
+                    <OctagonClipboardIcon />
+                  </motion.div>
+                  <motion.h3 
+                    initial={{ opacity: 0, x: -25 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                    className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight italic text-center sm:text-left mt-2 sm:mt-0"
+                  >
                     RULES <span className="text-red-500">& REGULATIONS</span>
-                  </h3>
+                  </motion.h3>
                 </div>
                 {/* Red divider line with stars */}
-                <div className="flex items-center gap-3 w-full max-w-[280px] mt-3 mx-auto sm:mx-0">
+                <motion.div 
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  whileInView={{ opacity: 1, scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="flex items-center gap-3 w-full max-w-[280px] mt-3 mx-auto sm:mx-0"
+                >
                   <div className="h-[1.5px] bg-gradient-to-r from-transparent to-red-500/80 flex-grow" />
                   <span className="text-red-500 text-[9px] tracking-widest animate-pulse">★ ★ ★</span>
                   <div className="h-[1.5px] bg-gradient-to-l from-transparent to-red-500/80 flex-grow" />
-                </div>
+                </motion.div>
               </div>
 
               {/* Rules List */}
-              <div className="flex flex-col">
+              <motion.div 
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.15
+                    }
+                  }
+                }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                className="flex flex-col"
+              >
                 {RULES.map((rule, index) => (
-                  <div 
+                  <motion.div 
                     key={index} 
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                    }}
                     className="relative py-4 sm:py-5 flex items-center gap-3.5 sm:gap-5 group"
                   >
                     {/* Rounded Square Badge */}
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded bg-red-600 flex items-center justify-center shrink-0 font-display font-extrabold text-white text-sm sm:text-base shadow-[0_0_10px_rgba(239,68,68,0.45)]">
+                    <motion.div 
+                      animate={{ boxShadow: ["0 0 10px rgba(239,68,68,0.45)", "0 0 20px rgba(239,68,68,0.75)", "0 0 10px rgba(239,68,68,0.45)"] }}
+                      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                      className="w-7 h-7 sm:w-8 sm:h-8 rounded bg-red-600 flex items-center justify-center shrink-0 font-display font-extrabold text-white text-sm sm:text-base"
+                    >
                       {index + 1}
-                    </div>
+                    </motion.div>
                     {/* Rule Text */}
                     <p className="text-stone-300 text-xs sm:text-[15px] leading-relaxed text-left flex-grow font-bold">
                       {rule.text}
                     </p>
                     {/* Circle Icon Badge */}
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-red-500/35 flex items-center justify-center shrink-0 bg-red-950/10 shadow-[0_0_10px_rgba(239,68,68,0.15)] group-hover:border-red-500/60 transition-colors duration-200">
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-red-500/35 flex items-center justify-center shrink-0 bg-red-950/10 shadow-[0_0_10px_rgba(239,68,68,0.15)] group-hover:border-red-500/60 transition-colors duration-200"
+                    >
                       {getRuleIcon(rule.icon)}
-                    </div>
+                    </motion.div>
 
                     {/* Divider line with center dot */}
                     {index < RULES.length - 1 && (
@@ -479,9 +590,9 @@ export default function Membership() {
                         <div className="absolute w-1.5 h-1.5 rounded-full bg-white/30 border border-white/20" />
                       </div>
                     )}
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -503,36 +614,79 @@ export default function Membership() {
 
           {/* ── HEADLINE ── */}
           <h4 className="font-display font-black italic uppercase tracking-tighter leading-[0.88] select-none text-white" style={{ fontSize: "clamp(2.5rem, 10vw, 4.8rem)" }}>
-            <span className="block">
+            <motion.span 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              className="block"
+            >
               STAY{" "}
-              <span
-                className="text-red-500 animate-text-glow-pulse"
-                style={{
-                  textShadow: "0 0 15px rgba(239,68,68,0.3)",
+              <motion.span
+                className="text-red-500 inline-block"
+                animate={{
+                  textShadow: [
+                    "0 0 10px rgba(239,68,68,0.25)",
+                    "0 0 22px rgba(239,68,68,0.65)",
+                    "0 0 10px rgba(239,68,68,0.25)"
+                  ]
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2.5,
+                  ease: "easeInOut"
                 }}
               >
                 STRONG.
-              </span>
-            </span>
-            <span className="block mt-2">
+              </motion.span>
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.35 }}
+              className="block mt-2"
+            >
               STAY FOCUSED.
-            </span>
-            <span className="block mt-2">
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+              className="block mt-2"
+            >
               STAY{" "}
-              <span
-                className="text-red-500 animate-text-glow-pulse"
-                style={{
-                  textShadow: "0 0 15px rgba(239,68,68,0.3)",
-                  animationDelay: "-1.25s",
+              <motion.span
+                className="text-red-500 inline-block"
+                animate={{
+                  textShadow: [
+                    "0 0 10px rgba(239,68,68,0.25)",
+                    "0 0 22px rgba(239,68,68,0.65)",
+                    "0 0 10px rgba(239,68,68,0.25)"
+                  ]
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2.5,
+                  ease: "easeInOut",
+                  delay: 1.25
                 }}
               >
                 YOU.
-              </span>
-            </span>
+              </motion.span>
+            </motion.span>
           </h4>
 
           {/* ── SUBTEXT ── */}
-          <div className="mt-10 font-sans font-bold uppercase tracking-widest text-stone-400 select-none flex flex-col items-center leading-relaxed" style={{ fontSize: "clamp(0.8rem, 3.5vw, 1.15rem)" }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.95 }}
+            className="mt-10 font-sans font-bold uppercase tracking-widest text-stone-400 select-none flex flex-col items-center leading-relaxed" 
+            style={{ fontSize: "clamp(0.8rem, 3.5vw, 1.15rem)" }}
+          >
             <span>LET'S BUILD A BETTER,</span>
             <span>STRONGER YOU</span>
             <span
@@ -541,15 +695,28 @@ export default function Membership() {
             >
               TOGETHER!
             </span>
-          </div>
+          </motion.div>
 
           {/* ── BOTTOM DIVIDER ── */}
           <div className="relative w-full max-w-lg flex items-center justify-center mt-12">
             {/* Left Thin Line */}
-            <div className="absolute left-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30" />
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 1.55 }}
+              style={{ transformOrigin: "right" }}
+              className="absolute left-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30" 
+            />
             
             {/* Dumbbell Icon */}
-            <div className="relative z-10 text-red-500 filter drop-shadow-[0_0_4px_rgba(239,68,68,0.5)]">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 120, damping: 12, delay: 1.25 }}
+              className="relative z-10 text-red-500 filter drop-shadow-[0_0_4px_rgba(239,68,68,0.5)]"
+            >
               <svg viewBox="0 0 24 24" width="20" height="20" className="fill-current">
                 <rect x="2" y="10.5" width="20" height="3" rx="1" />
                 <rect x="6" y="5" width="2.5" height="14" rx="1" />
@@ -557,10 +724,17 @@ export default function Membership() {
                 <rect x="15.5" y="5" width="2.5" height="14" rx="1" />
                 <rect x="18.5" y="7.5" width="2" height="9" rx="0.8" />
               </svg>
-            </div>
+            </motion.div>
             
             {/* Right Thin Line */}
-            <div className="absolute right-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30" />
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 1.55 }}
+              style={{ transformOrigin: "left" }}
+              className="absolute right-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30" 
+            />
           </div>
         </div>
       </div>
