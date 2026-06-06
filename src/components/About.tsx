@@ -299,7 +299,7 @@ export default function About() {
       >
         {/* Ken Burns Background — very slow scale zoom */}
         <motion.div
-          className="absolute inset-0 z-0 pointer-events-none"
+          className="absolute inset-0 z-0 pointer-events-none about-bg-image"
           style={{
             backgroundImage: "url('/about-bg.png')",
             backgroundSize: "cover",
@@ -313,16 +313,19 @@ export default function About() {
           transition={{ duration: 18, ease: "linear" }}
         />
 
+        {/* Soft rim light overlay around the head area */}
+        <div className="absolute inset-0 pointer-events-none z-0 about-rim-light" />
+
         {/* Subtle black overlay */}
-        <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none about-overlay-main" />
 
         {/* Left-side dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-0 pointer-events-none about-overlay-left" />
 
         {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#0a0a0c] to-transparent z-0 pointer-events-none" />
         {/* Top fade */}
-        <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/60 to-transparent z-0 pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/60 to-transparent z-0 pointer-events-none about-overlay-top" />
         {/* Red left edge accent */}
         <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-red-500/70 to-transparent z-10 pointer-events-none" />
 

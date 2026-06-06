@@ -831,3 +831,29 @@ body {
     display: none !important;
   }
 }
+
+/* About section desktop improvements (min-width: 1024px) */
+@media (min-width: 1024px) {
+  /* Increase brightness and contrast on desktop */
+  .about-bg-image {
+    filter: brightness(0.90) contrast(1.08) !important;
+  }
+  
+  /* Reduce overlay opacities */
+  .about-overlay-main {
+    background-color: rgba(0, 0, 0, 0.20) !important;
+  }
+  
+  .about-overlay-left {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 0%, transparent 100%) !important;
+  }
+  
+  .about-overlay-top {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.30) 0%, transparent 100%) !important;
+  }
+  
+  /* Soft warm halo/rim light positioned over head and hair area */
+  .about-rim-light {
+    background: radial-gradient(circle at 50% 32%, rgba(255, 180, 150, 0.12) 0%, rgba(239, 68, 68, 0.06) 25%, transparent 55%) !important;
+  }
+}
