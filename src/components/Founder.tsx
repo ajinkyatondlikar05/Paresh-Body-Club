@@ -699,7 +699,7 @@ export default function Founder() {
                       ease: [0.25, 1, 0.5, 1],
                       delay: isMobile ? delay : 0,
                     }}
-                    className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 ${ach.glowColor} ${pulseClass}`}
+                    className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 achievement-card ${ach.glowColor} ${pulseClass}`}
                   >
                     {/* Desktop-only watermark */}
                     {!isMobile && (() => {
@@ -707,7 +707,7 @@ export default function Founder() {
                       return (
                         <WM
                           size={140}
-                          className={`absolute -right-4 -bottom-6 ${ach.watermarkColor} pointer-events-none select-none z-0 hidden lg:block`}
+                          className={`absolute -right-4 -bottom-6 ${ach.watermarkColor} pointer-events-none select-none z-0 hidden lg:block watermark-icon`}
                         />);
                     })()}
 
@@ -844,7 +844,7 @@ export default function Founder() {
                 {!isMobile && (
                   <Instagram
                     size={140}
-                    className="absolute -right-4 -bottom-6 text-pink-500/5 pointer-events-none select-none z-0 hidden lg:block"
+                    className="absolute -right-4 -bottom-6 text-pink-500/5 pointer-events-none select-none z-0 hidden lg:block watermark-icon"
                   />
                 )}
 
