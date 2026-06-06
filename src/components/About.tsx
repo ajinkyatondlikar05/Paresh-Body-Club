@@ -366,7 +366,7 @@ export default function About() {
 
                 {/* Paragraph — stagger 0.15s */}
                 <motion.p
-                  className="text-stone-200 font-sans text-sm leading-relaxed mb-5 font-light max-w-xl"
+                  className="text-stone-200 font-sans text-sm leading-relaxed mb-5 font-light max-w-xl about-desktop-text"
                   variants={fadeUp}
                   custom={0.35}
                 >
@@ -377,7 +377,7 @@ export default function About() {
 
                 {/* Quote block — fade up, slight upward movement */}
                 <motion.div
-                  className="border-l-2 border-red-500 pl-4 max-w-xl"
+                  className="border-l-2 border-red-500 pl-4 max-w-xl about-desktop-text"
                   variants={fadeUp}
                   custom={0.5}
                 >

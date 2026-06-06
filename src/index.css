@@ -873,4 +873,10 @@ body {
     position: relative;
     z-index: 10;
   }
+  
+  /* Reduce width and slightly shift left the paragraph content to avoid overlapping the face */
+  .about-desktop-text {
+    max-width: 430px !important;
+    margin-left: -15px !important;
+  }
 }
