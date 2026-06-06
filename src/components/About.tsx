@@ -442,7 +442,7 @@ export default function About() {
           </div>
 
           {/* ── Stats Cards ── */}
-          <div ref={statsRef} className="relative z-10 w-full mt-10 about-stats">
+          <div ref={statsRef} className="relative z-10 w-full mt-10 about-stats stats-cards-container">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full about-stats-grid">
               {STATS.map((stat, i) => {
                 const IconComp = stat.icon;

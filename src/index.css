@@ -866,4 +866,11 @@ body {
     pointer-events: none;
     z-index: 1;
   }
+  
+  /* Push stats cards down on desktop to reveal jawline/chin */
+  .stats-cards-container {
+    margin-top: 90px !important;
+    position: relative;
+    z-index: 10;
+  }
 }
