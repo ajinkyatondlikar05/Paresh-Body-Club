@@ -226,6 +226,10 @@ export default function Founder() {
         <div className="absolute left-0 inset-y-0 w-[22%] bg-gradient-to-r from-black via-black/55 to-transparent z-20" />
         {/* Very thin top fade — just for section edge blend, not hiding hair */}
         <div className="absolute top-0 inset-x-0 h-[40px] bg-gradient-to-b from-black to-transparent z-20" />
+        {/* Solid black patch — covers the BS photographer watermark baked into
+            the top-right corner of founder-leaning.png. The photo background
+            is pure black there so this overlay is completely invisible. */}
+        <div className="absolute top-0 right-0 w-[140px] h-[100px] bg-black z-30" />
       </div>
 
 
