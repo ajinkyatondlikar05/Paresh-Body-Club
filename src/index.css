@@ -732,6 +732,95 @@ body {
   animation: borderNeonPulse 4.5s infinite ease-in-out;
 }
 
+/* ── Cinematic STAY STRONG section animations ── */
 
+/* Floating red sparks — three variants with different timing & paths */
+@keyframes sparkFloat1 {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.6);
+    opacity: 0;
+  }
+  15% { opacity: 0.9; }
+  50% {
+    transform: translateY(-60px) translateX(8px) scale(1.1);
+    opacity: 0.7;
+  }
+  85% { opacity: 0.5; }
+  100% {
+    transform: translateY(-110px) translateX(-4px) scale(0.4);
+    opacity: 0;
+  }
+}
+.animate-spark-float-1 {
+  animation: sparkFloat1 6s infinite linear;
+}
 
+@keyframes sparkFloat2 {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.5);
+    opacity: 0;
+  }
+  20% { opacity: 0.85; }
+  55% {
+    transform: translateY(-45px) translateX(-10px) scale(1.0);
+    opacity: 0.6;
+  }
+  80% { opacity: 0.4; }
+  100% {
+    transform: translateY(-90px) translateX(6px) scale(0.3);
+    opacity: 0;
+  }
+}
+.animate-spark-float-2 {
+  animation: sparkFloat2 8s infinite linear 2s;
+}
 
+@keyframes sparkFloat3 {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.7);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  45% {
+    transform: translateY(-55px) translateX(12px) scale(1.2);
+    opacity: 0.8;
+  }
+  90% { opacity: 0.3; }
+  100% {
+    transform: translateY(-100px) translateX(-8px) scale(0.5);
+    opacity: 0;
+  }
+}
+.animate-spark-float-3 {
+  animation: sparkFloat3 10s infinite linear 5s;
+}
+
+/* Red lens flare pulse — glows behind headline */
+@keyframes lensFlare {
+  0%, 100% {
+    opacity: 0.18;
+    transform: translateX(-50%) scaleX(1) scaleY(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: translateX(-50%) scaleX(1.12) scaleY(1.08);
+  }
+}
+.animate-lens-flare-pulse {
+  animation: lensFlare 4s infinite ease-in-out;
+}
+
+/* Neon corner beam pulse */
+@keyframes beamPulse {
+  0%, 100% {
+    opacity: 0.75;
+    box-shadow: 0 0 18px #ff0000, 0 0 35px rgba(239,68,68,0.5);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 28px #ff0000, 0 0 55px rgba(239,68,68,0.75), 0 0 80px rgba(239,68,68,0.3);
+  }
+}
+.animate-beam-pulse {
+  animation: beamPulse 2.5s infinite ease-in-out;
+}

@@ -487,52 +487,250 @@ export default function Membership() {
 
         </motion.div>
 
-        {/* ── STAY STRONG. STAY FOCUSED. STAY YOU. SLOGAN ── */}
-        <div className="mt-16 text-center relative z-10 max-w-4xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 mb-6">
-            
-            {/* Left Muscle Flex Silhouette */}
-            <div className="hidden md:block">
-              <BodybuilderFlexSilhouette />
+        {/* ── STAY STRONG. STAY FOCUSED. STAY YOU. — PREMIUM CINEMATIC SECTION ── */}
+        <div className="mt-20 relative z-10 max-w-4xl mx-auto">
+
+          {/* Outer cinematic frame */}
+          <div className="relative rounded-2xl overflow-hidden border border-red-500/25 shadow-[0_0_60px_rgba(239,68,68,0.18)] bg-[#070709]">
+
+            {/* ── BACKGROUND LAYERS ── */}
+            <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+
+              {/* Deep ambient glows */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[260px] bg-red-700/12 rounded-full blur-[100px]" />
+              <div className="absolute top-0 left-1/4 w-[300px] h-[200px] bg-red-600/10 rounded-full blur-[80px] animate-glow-pulse" />
+              <div className="absolute bottom-0 right-1/4 w-[280px] h-[180px] bg-red-800/12 rounded-full blur-[70px] animate-glow-pulse" style={{ animationDelay: "-3s" }} />
+
+              {/* Red lens flare glow centered behind headline */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[280px] h-[140px] bg-red-500/20 rounded-full blur-[50px] animate-lens-flare-pulse" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[80px] bg-red-400/30 rounded-full blur-[28px] animate-lens-flare-pulse" style={{ animationDelay: "-1.5s" }} />
+
+              {/* Cinematic smoke */}
+              <div className="absolute top-10 -left-10 w-72 h-72 bg-zinc-900/30 blur-[60px] rounded-full animate-smoke-cinematic" />
+              <div className="absolute bottom-0 -right-10 w-72 h-72 bg-zinc-900/30 blur-[60px] rounded-full animate-smoke-cinematic" style={{ animationDelay: "-8s" }} />
+
+              {/* Floating red sparks */}
+              <div className="absolute bottom-12 left-[10%] w-[2px] h-[2px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-1" />
+              <div className="absolute bottom-8 left-[28%] w-[1.5px] h-[1.5px] bg-red-400 rounded-full blur-[0.5px] animate-spark-float-2" />
+              <div className="absolute bottom-16 left-[55%] w-[2px] h-[2px] bg-red-600 rounded-full blur-[0.5px] animate-spark-float-3" />
+              <div className="absolute bottom-6 left-[72%] w-[1px] h-[1px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-1" style={{ animationDelay: "-6s" }} />
+              <div className="absolute bottom-20 left-[85%] w-[2px] h-[2px] bg-red-400 rounded-full blur-[0.5px] animate-spark-float-2" style={{ animationDelay: "-3s" }} />
+              <div className="absolute bottom-10 left-[42%] w-[1.5px] h-[1.5px] bg-red-500 rounded-full blur-[0.5px] animate-spark-float-3" style={{ animationDelay: "-9s" }} />
+
+              {/* Red energy light streaks */}
+              <div className="absolute top-[30%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-500/15 to-transparent animate-sweep-left" />
+              <div className="absolute top-[60%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-600/10 to-transparent animate-sweep-right" style={{ animationDelay: "-2s" }} />
+
+              {/* TOP-LEFT neon diagonal corner beam */}
+              <div className="absolute top-0 left-0 w-40 h-40 overflow-hidden pointer-events-none z-30">
+                <div className="absolute top-[-20px] left-[-60px] w-[200px] h-[20px] bg-red-600 -rotate-45 shadow-[0_0_18px_#ff0000,0_0_35px_rgba(239,68,68,0.5)] animate-beam-pulse" />
+                <div className="absolute top-[4px] left-[-55px] w-[200px] h-[5px] bg-red-400 -rotate-45 opacity-60 shadow-[0_0_10px_#ff0000] animate-beam-pulse" style={{ animationDelay: "-0.5s" }} />
+              </div>
+
+              {/* TOP-RIGHT neon diagonal corner beam */}
+              <div className="absolute top-0 right-0 w-40 h-40 overflow-hidden pointer-events-none z-30">
+                <div className="absolute top-[-20px] right-[-60px] w-[200px] h-[20px] bg-red-600 rotate-45 shadow-[0_0_18px_#ff0000,0_0_35px_rgba(239,68,68,0.5)] animate-beam-pulse" />
+                <div className="absolute top-[4px] right-[-55px] w-[200px] h-[5px] bg-red-400 rotate-45 opacity-60 shadow-[0_0_10px_#ff0000] animate-beam-pulse" style={{ animationDelay: "-0.5s" }} />
+              </div>
             </div>
-            
-            {/* Main Slogan Typography */}
-            <div className="text-center flex-grow">
-              <h4 className="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight italic select-none">
-                <span className="text-white">STAY </span>
-                <span className="text-red-500 animate-text-glow-pulse">STRONG. </span>
-                <span className="text-white">STAY FOCUSED. STAY YOU.</span>
+
+            {/* ── MAIN CONTENT ── */}
+            <div className="relative z-10 px-5 pt-10 pb-8 sm:px-10 sm:pt-12 sm:pb-10 text-center">
+
+              {/* Red accent line above headline */}
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <div className="h-[1.5px] bg-gradient-to-r from-transparent to-red-500/80 w-10 sm:w-16" />
+                <div className="w-1.5 h-1.5 bg-red-500 rounded-full shadow-[0_0_6px_rgba(239,68,68,0.9)] animate-pulse" />
+                <div className="h-[1.5px] bg-gradient-to-l from-transparent to-red-500/80 w-10 sm:w-16" />
+              </div>
+
+              {/* ── HEADLINE: STAY STRONG. STAY FOCUSED. STAY YOU. ── */}
+              <h4 className="font-display font-black uppercase select-none leading-[0.88] tracking-tight" style={{ fontSize: "clamp(2rem, 9vw, 3.8rem)" }}>
+                {/* Line 1: STAY STRONG. */}
+                <span className="block">
+                  <span
+                    className="text-white"
+                    style={{
+                      textShadow: "0 0 30px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.6)",
+                      WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
+                    }}
+                  >
+                    STAY{" "}
+                  </span>
+                  <span
+                    className="text-red-500 animate-text-glow-pulse"
+                    style={{
+                      textShadow: "0 0 20px rgba(239,68,68,0.9), 0 0 40px rgba(239,68,68,0.5), 0 0 70px rgba(239,68,68,0.25)",
+                    }}
+                  >
+                    STRONG.
+                  </span>
+                </span>
+                {/* Line 2: STAY FOCUSED. */}
+                <span
+                  className="block text-white mt-1"
+                  style={{
+                    textShadow: "0 0 30px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.6)",
+                    WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
+                  }}
+                >
+                  STAY FOCUSED.
+                </span>
+                {/* Line 3: STAY YOU. */}
+                <span className="block mt-1">
+                  <span
+                    className="text-white"
+                    style={{
+                      textShadow: "0 0 30px rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.6)",
+                      WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
+                    }}
+                  >
+                    STAY{" "}
+                  </span>
+                  <span
+                    className="text-red-500 animate-text-glow-pulse"
+                    style={{
+                      textShadow: "0 0 20px rgba(239,68,68,0.9), 0 0 40px rgba(239,68,68,0.5), 0 0 70px rgba(239,68,68,0.25)",
+                      animationDelay: "-1.25s",
+                    }}
+                  >
+                    YOU.
+                  </span>
+                </span>
               </h4>
-              <p className="text-stone-400 text-xs sm:text-sm font-bold uppercase tracking-widest mt-3">
-                Let’s build a better, stronger you together!
+
+              {/* ── SUBHEADLINE ── */}
+              <p className="mt-5 font-display font-bold uppercase tracking-widest text-sm sm:text-base select-none" style={{ fontSize: "clamp(0.7rem, 3.5vw, 1rem)" }}>
+                <span className="text-stone-300">LET'S BUILD A BETTER, STRONGER YOU{" "}</span>
+                <span
+                  className="text-red-500"
+                  style={{ textShadow: "0 0 12px rgba(239,68,68,0.7)" }}
+                >
+                  TOGETHER!
+                </span>
               </p>
-            </div>
 
-            {/* Right Barbells Lifter Silhouette */}
-            <div className="hidden md:block">
-              <LifterSilhouette />
-            </div>
-          </div>
+              {/* Red divider */}
+              <div className="flex items-center justify-center gap-3 mt-6 mb-8">
+                <div className="h-[1px] bg-gradient-to-r from-transparent to-red-500/60 w-16 sm:w-28" />
+                <div className="text-red-500 animate-pulse">
+                  <svg viewBox="0 0 24 24" width="20" height="20" className="fill-current drop-shadow-[0_0_6px_rgba(239,68,68,0.8)]">
+                    <rect x="2" y="10.5" width="20" height="3" rx="1" />
+                    <rect x="6" y="5" width="2.5" height="14" rx="1" />
+                    <rect x="3.5" y="7.5" width="2" height="9" rx="0.8" />
+                    <rect x="15.5" y="5" width="2.5" height="14" rx="1" />
+                    <rect x="18.5" y="7.5" width="2" height="9" rx="0.8" />
+                  </svg>
+                </div>
+                <div className="h-[1px] bg-gradient-to-l from-transparent to-red-500/60 w-16 sm:w-28" />
+              </div>
 
-          {/* Mobile silhouettes layout */}
-          <div className="flex md:hidden items-center justify-center gap-8 mb-6">
-            <BodybuilderFlexSilhouette />
-            <LifterSilhouette />
-          </div>
+              {/* ── BOTTOM SILHOUETTE CARDS ── */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-5">
 
-          {/* Center dumbbell logo with line accents */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <div className="h-[2px] bg-gradient-to-r from-transparent to-red-500/80 w-16 sm:w-24" />
-            <div className="text-red-500 animate-pulse">
-              <svg viewBox="0 0 24 24" width="24" height="24" className="fill-current">
-                <rect x="2" y="10.5" width="20" height="3" rx="1" />
-                <rect x="6" y="5" width="2.5" height="14" rx="1" />
-                <rect x="3.5" y="7.5" width="2" height="9" rx="0.8" />
-                <rect x="15.5" y="5" width="2.5" height="14" rx="1" />
-                <rect x="18.5" y="7.5" width="2" height="9" rx="0.8" />
-              </svg>
+                {/* LEFT CARD — Bodybuilder Double Bicep */}
+                <div className="relative rounded-xl border border-red-500/30 bg-[#0d0d10] overflow-hidden shadow-[0_0_20px_rgba(239,68,68,0.12)] hover:shadow-[0_0_30px_rgba(239,68,68,0.25)] transition-shadow duration-300 flex flex-col items-center py-5 px-3 sm:py-7 sm:px-4 group">
+                  {/* Card ambient glow */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-red-950/20 to-transparent pointer-events-none" />
+                  {/* Silhouette SVG — Professional double bicep bodybuilder */}
+                  <svg
+                    viewBox="0 0 120 160"
+                    className="relative z-10 drop-shadow-[0_0_14px_rgba(239,68,68,0.7)] group-hover:drop-shadow-[0_0_22px_rgba(239,68,68,0.9)] transition-all duration-300"
+                    style={{ width: "clamp(60px, 18vw, 90px)", height: "auto" }}
+                    fill="none"
+                  >
+                    {/* Head */}
+                    <ellipse cx="60" cy="14" rx="10" ry="12" fill="#dc2626" />
+                    {/* Neck */}
+                    <rect x="55" y="24" width="10" height="10" rx="3" fill="#dc2626" />
+                    {/* Massive Traps / Shoulders */}
+                    <path d="M25 38 Q18 34 15 44 Q12 54 20 58 Q28 60 34 52" fill="#dc2626" />
+                    <path d="M95 38 Q102 34 105 44 Q108 54 100 58 Q92 60 86 52" fill="#dc2626" />
+                    {/* Chest (massive pecs) */}
+                    <path d="M34 36 Q40 28 60 30 Q80 28 86 36 Q88 50 80 58 Q70 64 60 62 Q50 64 40 58 Q32 50 34 36Z" fill="#dc2626" />
+                    {/* Left Upper Arm (flexed) */}
+                    <path d="M20 44 Q10 46 8 60 Q8 70 16 72 Q24 73 28 64 Q32 55 26 46Z" fill="#dc2626" />
+                    {/* Left Forearm */}
+                    <path d="M16 72 Q10 80 14 90 Q18 96 24 93 Q30 90 28 80 Q26 73 16 72Z" fill="#b91c1c" />
+                    {/* Left Fist */}
+                    <ellipse cx="19" cy="94" rx="7" ry="6" fill="#991b1b" />
+                    {/* Right Upper Arm (flexed mirror) */}
+                    <path d="M100 44 Q110 46 112 60 Q112 70 104 72 Q96 73 92 64 Q88 55 94 46Z" fill="#dc2626" />
+                    {/* Right Forearm */}
+                    <path d="M104 72 Q110 80 106 90 Q102 96 96 93 Q90 90 92 80 Q94 73 104 72Z" fill="#b91c1c" />
+                    {/* Right Fist */}
+                    <ellipse cx="101" cy="94" rx="7" ry="6" fill="#991b1b" />
+                    {/* Abs / Core (V-taper) */}
+                    <path d="M44 60 Q52 62 60 60 Q68 62 76 60 Q80 72 76 86 Q70 96 60 98 Q50 96 44 86 Q40 72 44 60Z" fill="#b91c1c" />
+                    {/* Quad left */}
+                    <path d="M44 96 Q36 100 34 116 Q32 130 40 138 Q48 144 54 136 Q58 126 56 110 Q54 98 44 96Z" fill="#dc2626" />
+                    {/* Quad right */}
+                    <path d="M76 96 Q84 100 86 116 Q88 130 80 138 Q72 144 66 136 Q62 126 64 110 Q66 98 76 96Z" fill="#dc2626" />
+                    {/* Calves left */}
+                    <path d="M38 138 Q34 146 36 156 Q40 162 46 160 Q52 158 52 148 Q52 140 44 138 Q42 138 38 138Z" fill="#b91c1c" />
+                    {/* Calves right */}
+                    <path d="M82 138 Q86 146 84 156 Q80 162 74 160 Q68 158 68 148 Q68 140 76 138 Q78 138 82 138Z" fill="#b91c1c" />
+                    {/* Red glow ring around body */}
+                    <ellipse cx="60" cy="80" rx="55" ry="70" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
+                  </svg>
+                  {/* Card label */}
+                  <div className="relative z-10 mt-3 text-center">
+                    <p className="font-display font-black text-red-500 uppercase tracking-wider text-[10px] sm:text-xs drop-shadow-[0_0_6px_rgba(239,68,68,0.7)]">STRENGTH</p>
+                    <p className="text-stone-400 text-[8px] sm:text-[9px] font-bold uppercase tracking-widest mt-0.5">BUILD MUSCLE</p>
+                  </div>
+                </div>
+
+                {/* RIGHT CARD — Barbell Overhead Lifter */}
+                <div className="relative rounded-xl border border-red-500/30 bg-[#0d0d10] overflow-hidden shadow-[0_0_20px_rgba(239,68,68,0.12)] hover:shadow-[0_0_30px_rgba(239,68,68,0.25)] transition-shadow duration-300 flex flex-col items-center py-5 px-3 sm:py-7 sm:px-4 group">
+                  {/* Card ambient glow */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-red-950/20 to-transparent pointer-events-none" />
+                  {/* Silhouette SVG — Overhead barbell press / squat lifter */}
+                  <svg
+                    viewBox="0 0 120 160"
+                    className="relative z-10 drop-shadow-[0_0_14px_rgba(239,68,68,0.7)] group-hover:drop-shadow-[0_0_22px_rgba(239,68,68,0.9)] transition-all duration-300"
+                    style={{ width: "clamp(60px, 18vw, 90px)", height: "auto" }}
+                    fill="none"
+                  >
+                    {/* Head */}
+                    <ellipse cx="60" cy="26" rx="9" ry="10" fill="#dc2626" />
+                    {/* Neck */}
+                    <rect x="56" y="34" width="8" height="8" rx="2" fill="#dc2626" />
+                    {/* Torso */}
+                    <path d="M38 42 Q60 38 82 42 L84 90 Q70 96 60 94 Q50 96 36 90Z" fill="#dc2626" />
+                    {/* Left arm raised up holding bar */}
+                    <path d="M38 44 Q26 42 20 36 Q15 30 18 22 Q22 16 28 20 Q34 24 36 34 Q38 40 38 44Z" fill="#dc2626" />
+                    {/* Left forearm raised */}
+                    <path d="M18 22 Q14 14 16 6 Q20 0 26 4 Q30 8 28 16 Q26 20 22 22Z" fill="#b91c1c" />
+                    {/* Right arm raised */}
+                    <path d="M82 44 Q94 42 100 36 Q105 30 102 22 Q98 16 92 20 Q86 24 84 34 Q82 40 82 44Z" fill="#dc2626" />
+                    {/* Right forearm raised */}
+                    <path d="M102 22 Q106 14 104 6 Q100 0 94 4 Q90 8 92 16 Q94 20 98 22Z" fill="#b91c1c" />
+                    {/* Barbell bar across top */}
+                    <rect x="8" y="2" width="104" height="6" rx="3" fill="#7f1d1d" />
+                    {/* Left weight plate */}
+                    <rect x="2" y="-2" width="10" height="14" rx="2" fill="#991b1b" />
+                    {/* Right weight plate */}
+                    <rect x="108" y="-2" width="10" height="14" rx="2" fill="#991b1b" />
+                    {/* Left thigh */}
+                    <path d="M40 90 Q34 100 32 116 Q30 128 38 134 Q46 138 50 128 Q54 118 52 104 Q50 94 40 90Z" fill="#dc2626" />
+                    {/* Right thigh */}
+                    <path d="M80 90 Q86 100 88 116 Q90 128 82 134 Q74 138 70 128 Q66 118 68 104 Q70 94 80 90Z" fill="#dc2626" />
+                    {/* Left shin */}
+                    <path d="M34 134 Q30 144 32 154 Q36 160 42 158 Q48 155 48 144 Q48 135 40 134Z" fill="#b91c1c" />
+                    {/* Right shin */}
+                    <path d="M86 134 Q90 144 88 154 Q84 160 78 158 Q72 155 72 144 Q72 135 80 134Z" fill="#b91c1c" />
+                    {/* Energy ring */}
+                    <ellipse cx="60" cy="80" rx="55" ry="70" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 6" opacity="0.25" />
+                  </svg>
+                  {/* Card label */}
+                  <div className="relative z-10 mt-3 text-center">
+                    <p className="font-display font-black text-red-500 uppercase tracking-wider text-[10px] sm:text-xs drop-shadow-[0_0_6px_rgba(239,68,68,0.7)]">CARDIO</p>
+                    <p className="text-stone-400 text-[8px] sm:text-[9px] font-bold uppercase tracking-widest mt-0.5">STAY FIT</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <div className="h-[2px] bg-gradient-to-l from-transparent to-red-500/80 w-16 sm:w-24" />
           </div>
         </div>
 
