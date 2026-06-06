@@ -20,6 +20,15 @@ const DiagonalStripesRight = () => (
   </div>
 );
 
+const DiagonalStripesBottomRight = () => (
+  <div className="absolute bottom-0 right-0 w-64 h-64 overflow-hidden pointer-events-none select-none z-20">
+    {/* Thick Stripe with red glow and border */}
+    <div className="absolute bottom-[-30px] right-[-90px] w-[280px] h-[26px] bg-red-650 -rotate-45 shadow-[0_0_20px_#ff0000] border-t border-red-400" />
+    {/* Thin Stripe */}
+    <div className="absolute bottom-[3px] right-[-80px] w-[280px] h-[6px] bg-red-500 -rotate-45 shadow-[0_0_12px_#ff0000]" />
+  </div>
+);
+
 
 const DumbbellIcon = () => (
   <svg viewBox="0 0 24 24" width="40" height="40" className="text-red-500 fill-current shrink-0">
@@ -221,27 +230,30 @@ export default function Membership() {
         {/* Poster Corner Accents */}
         <DiagonalStripesLeft />
         <DiagonalStripesRight />
+        <div className="absolute top-0 right-0 w-64 h-[380px] lg:h-[480px] overflow-hidden pointer-events-none select-none z-20">
+          <DiagonalStripesBottomRight />
+        </div>
 
         {/* Top-Left Muscular Bodybuilder Photo Background */}
-        <div className="absolute top-0 left-0 w-[48%] lg:w-[45%] h-[380px] lg:h-[480px] opacity-[0.75] lg:opacity-[0.9] z-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-[50%] h-[380px] lg:h-[480px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none">
           <img 
-            src="/founder-flex.png" 
+            src="/membership-left-clean.jpg?v=2" 
             alt="Bodybuilder decoration"
-            className="w-full h-full object-cover object-left-top filter contrast-125 brightness-[0.75] animate-bodybuilder-breathe"
+            className="w-full h-full object-cover object-left filter contrast-110 brightness-[0.8] animate-bodybuilder-breathe"
           />
-          {/* Blend gradient that fades out to black towards the center to hide watermark and blend into heading */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#09090b] to-[#09090b] via-[55%] lg:via-[45%]" />
+          {/* Blend gradient that fades out to black towards the center */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#09090b]/20 to-[#09090b] via-[75%] lg:via-[60%]" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
         </div>
 
         {/* Top-Right Gym Equipment Poster Texture */}
-        <div className="absolute top-0 right-0 w-[50%] lg:w-[45%] h-[380px] lg:h-[480px] opacity-[0.4] lg:opacity-[0.55] z-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[50%] h-[380px] lg:h-[480px] opacity-[0.85] lg:opacity-[0.95] z-0 pointer-events-none">
           <img 
-            src="/about-bg.png" 
+            src="/membership-right-clean.jpg?v=2" 
             alt="Gym background"
-            className="w-full h-full object-cover object-right-center filter contrast-125 brightness-[0.75]"
+            className="w-full h-full object-cover object-right filter contrast-110 brightness-[0.8]"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#09090b] to-[#09090b] via-[55%] lg:via-[45%]" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#09090b]/20 to-[#09090b] via-[75%] lg:via-[60%]" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
         </div>
       </div>
