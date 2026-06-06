@@ -226,8 +226,8 @@ export default function Membership() {
             alt="Bodybuilder decoration"
             className="w-full h-full object-cover object-left-top filter grayscale contrast-125 brightness-[0.75] animate-bodybuilder-breathe"
           />
-          {/* Subtle gradient to blend image into the page */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#09090b]/80 to-[#09090b]" />
+          {/* Blend gradient that fades out very quickly (before 30%) to completely hide any watermark text next to the bodybuilder */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#09090b] to-[#09090b] via-[32%] lg:via-[26%]" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
         </div>
 
@@ -251,7 +251,7 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-12 relative z-10"
+          className="text-center mb-12 relative z-10 max-w-2xl mx-auto px-6 py-6 sm:py-8 rounded-3xl bg-[#09090b]/85 backdrop-blur-md border border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
         >
           <div className="flex justify-center mb-3 text-red-500 animate-pulse">
             <DumbbellIcon />
