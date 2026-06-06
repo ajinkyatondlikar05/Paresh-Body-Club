@@ -399,7 +399,7 @@ export default function About() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-red-600/5 blur-[100px] pointer-events-none z-0" />
 
               <div
-                className="font-display font-black uppercase leading-[1.05] tracking-tight relative z-10 text-center lg:text-right"
+                className="font-display font-black uppercase leading-[1.05] tracking-tight relative z-10 text-center lg:text-right motivation-text"
                 style={{ fontSize: "clamp(1.2rem, 5vw, 4.2rem)", opacity: 0.95 }}
               >
                 {/* Text reveal — words slide in sequentially */}

@@ -879,4 +879,10 @@ body {
     max-width: 430px !important;
     margin-left: -15px !important;
   }
+  
+  /* Position motivational text further right to clear his eye/face outline */
+  .about-section .motivation-text {
+    transform: translateX(100px) !important;
+    max-width: 650px !important;
+  }
 }
