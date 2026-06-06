@@ -278,7 +278,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.52 }}
-            className="grid grid-cols-4 gap-0 bg-[#0c0c0e]/70 border border-white/10 hover:border-red-500/20 backdrop-blur-md rounded-xl overflow-hidden p-1.5 max-w-[550px] shadow-[0_0_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.1)] transition-all duration-300"
+            className="grid grid-cols-4 gap-0 bg-[#0c0c0e]/70 border border-white/10 hover:border-red-500/20 backdrop-blur-md rounded-xl overflow-hidden p-1.5 max-w-[550px] shadow-[0_0_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.1)] transition-all duration-300 home-stats-container"
           >
             {stats.map((stat, i) => (
               <div
@@ -702,7 +702,7 @@ export default function Hero() {
         </div>
 
         {/* ── STATS — solid bg, z-index above hero so athlete never bleeds through ── */}
-        <div ref={statsRef} className="px-4 pb-6" style={{ position: "relative", zIndex: 10, background: "#050505", marginTop: "0px", paddingTop: "0px" }}>
+        <div ref={statsRef} className="px-4 pb-6 home-stats-container" style={{ position: "relative", zIndex: 10, background: "#050505", marginTop: "0px", paddingTop: "0px" }}>
           <div className="grid grid-cols-2" style={{ gap: "24px" }}>
             {stats.map((stat, i) => (
               <motion.div

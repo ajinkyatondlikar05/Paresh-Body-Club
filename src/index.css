@@ -824,3 +824,10 @@ body {
 .animate-beam-pulse {
   animation: beamPulse 2.5s infinite ease-in-out;
 }
+
+/* Hide home stats/cards container on desktop screens (min-width: 769px) */
+@media (min-width: 769px) {
+  .home-stats-container {
+    display: none !important;
+  }
+}
