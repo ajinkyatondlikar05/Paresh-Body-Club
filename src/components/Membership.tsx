@@ -157,11 +157,46 @@ const LifterSilhouette = () => (
   </svg>
 );
 
+const WHATSAPP_PHONE = "919021468123";
+
+const openWhatsApp = (message: string) => {
+  const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
 const MEMBERSHIP_ROWS = [
-  { no: 1, months: "1 MONTH", gym: "₹ 700", gymCardio: "₹ 900" },
-  { no: 2, months: "3 MONTHS", gym: "₹ 1800", gymCardio: "₹ 2400" },
-  { no: 3, months: "6 MONTHS", gym: "₹ 3000", gymCardio: "₹ 4200" },
-  { no: 4, months: "1 YEAR", gym: "₹ 5400", gymCardio: "₹ 7200" }
+  {
+    no: 1,
+    months: "1 MONTH",
+    gym: "₹ 700",
+    gymCardio: "₹ 900",
+    gymMsg: "Hi Sir, I want more details about the 1 Month Gym membership plan ₹700.",
+    gymCardioMsg: "Hi Sir, I want more details about the 1 Month Gym + Cardio membership plan ₹900.",
+  },
+  {
+    no: 2,
+    months: "3 MONTHS",
+    gym: "₹ 1800",
+    gymCardio: "₹ 2400",
+    gymMsg: "Hi Sir, I want more details about the 3 Months Gym membership plan ₹1800.",
+    gymCardioMsg: "Hi Sir, I want more details about the 3 Months Gym + Cardio membership plan ₹2400.",
+  },
+  {
+    no: 3,
+    months: "6 MONTHS",
+    gym: "₹ 3000",
+    gymCardio: "₹ 4200",
+    gymMsg: "Hi Sir, I want more details about the 6 Months Gym membership plan ₹3000.",
+    gymCardioMsg: "Hi Sir, I want more details about the 6 Months Gym + Cardio membership plan ₹4200.",
+  },
+  {
+    no: 4,
+    months: "1 YEAR",
+    gym: "₹ 5400",
+    gymCardio: "₹ 7200",
+    gymMsg: "Hi Sir, I want more details about the 1 Year Gym membership plan ₹5400.",
+    gymCardioMsg: "Hi Sir, I want more details about the 1 Year Gym + Cardio membership plan ₹7200.",
+  },
 ];
 
 const RULES = [
@@ -361,8 +396,24 @@ export default function Membership() {
                           <HexagonNumber num={row.no} />
                         </td>
                         <td className="py-4 px-2 text-center font-extrabold border-r border-white/10 text-stone-100">{row.months}</td>
-                        <td className="py-4 px-2 text-center font-extrabold border-r border-white/10 text-stone-100">{row.gym}</td>
-                        <td className="py-4 px-2 text-center font-extrabold text-stone-100">{row.gymCardio}</td>
+                        {/* GYM price — clickable WhatsApp enquiry */}
+                        <td
+                          className="py-4 px-2 text-center font-extrabold border-r border-white/10 text-stone-100 cursor-pointer select-none transition-all duration-200 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.7)] active:scale-95"
+                          onClick={() => openWhatsApp(row.gymMsg)}
+                          title={`Enquire about ${row.months} Gym plan`}
+                        >
+                          {row.gym}
+                          <span className="block text-[9px] sm:text-[10px] text-green-500/70 font-bold tracking-wider mt-0.5 leading-none">TAP TO ENQUIRE</span>
+                        </td>
+                        {/* GYM + CARDIO price — clickable WhatsApp enquiry */}
+                        <td
+                          className="py-4 px-2 text-center font-extrabold text-stone-100 cursor-pointer select-none transition-all duration-200 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.7)] active:scale-95"
+                          onClick={() => openWhatsApp(row.gymCardioMsg)}
+                          title={`Enquire about ${row.months} Gym + Cardio plan`}
+                        >
+                          {row.gymCardio}
+                          <span className="block text-[9px] sm:text-[10px] text-green-500/70 font-bold tracking-wider mt-0.5 leading-none">TAP TO ENQUIRE</span>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
