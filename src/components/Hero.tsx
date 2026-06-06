@@ -375,116 +375,209 @@ export default function Hero() {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
 
+        {/* ── FLOATING RED PARTICLES (5) ── */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+          <Particle x="8%"  y="25%" size={3}   delay={0}   duration={5.5} />
+          <Particle x="72%" y="18%" size={2}   delay={1.2} duration={7}   />
+          <Particle x="55%" y="55%" size={2.5} delay={2.4} duration={6}   />
+          <Particle x="20%" y="65%" size={2}   delay={0.8} duration={8}   />
+          <Particle x="85%" y="42%" size={3}   delay={3}   duration={5}   />
+        </div>
+
+        {/* ═══════════════════════════════════════════════════════════════
+            HERO COMPOSITION — fixed height 520px, overflow hidden
+            Athlete is absolutely positioned inside and cannot bleed
+            into the stats section below.
+        ═══════════════════════════════════════════════════════════════ */}
         <div className="relative" style={{ position: "relative", paddingBottom: "45px", overflow: "visible", zIndex: 5 }}>
 
-          {/* Background Graphics Layer */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
-            {/* Top-Left Muscular Bodybuilder Photo Background */}
-            <div className="absolute top-0 left-0 w-[50%] h-[480px] opacity-[0.95] z-0 pointer-events-none overflow-hidden">
-              <div className="w-full h-full relative scale-[1.35] translate-y-[-25px] origin-top-left">
-                {/* ── DEEP RED HALO — behind head, shoulders, and upper torso ── */}
-                <div className="absolute pointer-events-none" style={{
-                  inset: 0, zIndex: 0,
-                  background: [
-                    "radial-gradient(ellipse 45% 35% at 50% 18%, rgba(220,38,38,0.35) 0%, transparent 70%)",
-                    "radial-gradient(ellipse 55% 35% at 40% 38%, rgba(220,38,38,0.32) 0%, transparent 70%)",
-                    "radial-gradient(ellipse 50% 40% at 45% 48%, rgba(185,28,28,0.2) 0%, transparent 70%)",
-                  ].join(", "),
-                }} />
+          {/* Red glow top-left ambient */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: "34px", left: "-20px",
+              width: "200px", height: "200px",
+              borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(220,38,38,0.13) 0%, transparent 70%)",
+              filter: "blur(40px)",
+              zIndex: 0,
+            }}
+          />
 
-                {/* ── BACKGROUND SMOKE — behind shoulders/upper back/arms/torso ── */}
-                {/* Smoke 1 — Behind upper back/shoulders */}
-                <motion.div className="absolute pointer-events-none" style={{
-                  top: "10%", left: "10%", width: "80%", height: "45%", zIndex: 0,
-                  background: "radial-gradient(ellipse 60% 40% at 50% 30%, rgba(130, 130, 135, 0.35) 0%, transparent 80%)",
-                  filter: "blur(24px)",
-                  willChange: "transform, opacity",
-                }}
-                  animate={{ x: [-8, 8, -8], y: [-3, 3, -3], opacity: [0.3, 0.5, 0.3] }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                />
-                {/* Smoke 2 — Behind left arm / outer silhouette */}
-                <motion.div className="absolute pointer-events-none" style={{
-                  top: "20%", left: "20%", width: "65%", height: "50%", zIndex: 0,
-                  background: "radial-gradient(ellipse 50% 40% at 55% 45%, rgba(120, 120, 125, 0.32) 0%, transparent 80%)",
-                  filter: "blur(26px)",
-                  willChange: "transform, opacity",
-                }}
-                  animate={{ x: [-5, 5, -5], y: [-5, 5, -5], opacity: [0.3, 0.5, 0.3] }}
-                  transition={{ duration: 13, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-                />
+          {/* ── ATHLETE — absolute inside 520px hero, right side ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.0, ease: "easeOut", delay: 0.05 }}
+            className="absolute right-0 pointer-events-none"
+            style={{
+              top: "42px",
+              width: "58%",
+              height: "452px",
+              zIndex: 1,
+              overflow: "hidden",
+            }}
+          >
+            {/* ── DEEP RED HALO — behind head, shoulders, and upper torso, zIndex: 0 ── */}
+            <div className="absolute pointer-events-none" style={{
+              inset: 0, zIndex: 0,
+              background: [
+                "radial-gradient(ellipse 45% 35% at 70% 18%, rgba(220,38,38,0.3) 0%, transparent 70%)",
+                "radial-gradient(ellipse 55% 35% at 55% 38%, rgba(220,38,38,0.32) 0%, transparent 70%)",
+                "radial-gradient(ellipse 50% 40% at 65% 48%, rgba(185,28,28,0.2) 0%, transparent 70%)",
+              ].join(", "),
+            }} />
 
-                {/* ── PREMIUM CINEMATIC EMBER PARTICLES — behind athlete ── */}
-                {/* Ember 1 — Behind right shoulder/arm silhouette */}
-                <motion.div className="absolute rounded-full pointer-events-none" style={{
-                  width: 2.5, height: 2.5, left: "25%", top: "45%", zIndex: 0,
-                  background: "#ef4444", boxShadow: "0 0 8px 2.5px rgba(239,68,68,0.8)",
-                  willChange: "transform, opacity",
-                }}
-                  animate={{ y: [0, -35, 5, -20, 0], x: [0, -6, 3, -3, 0], opacity: [0.7, 1, 0.4, 0.9, 0.7] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                />
-                {/* Ember 2 — Behind left shoulder/arm silhouette */}
-                <motion.div className="absolute rounded-full pointer-events-none" style={{
-                  width: 3, height: 3, left: "72%", top: "42%", zIndex: 0,
-                  background: "#ef4444", boxShadow: "0 0 9px 3px rgba(239,68,68,0.75)",
-                  willChange: "transform, opacity",
-                }}
-                  animate={{ y: [0, -30, 8, -15, 0], x: [0, 5, -4, 2, 0], opacity: [0.6, 0.9, 0.3, 0.8, 0.6] }}
-                  transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                />
-                {/* Ember 3 — Behind upper back */}
-                <motion.div className="absolute rounded-full pointer-events-none" style={{
-                  width: 2, height: 2, left: "48%", top: "35%", zIndex: 0,
-                  background: "#f87171", boxShadow: "0 0 6px 2px rgba(248,113,113,0.7)",
-                  willChange: "transform, opacity",
-                }}
-                  animate={{ y: [0, -28, 4, -12, 0], x: [0, -3, 3, -1, 0], opacity: [0.8, 0.4, 0.9, 0.5, 0.8] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
-                />
+            {/* ── BACKGROUND SMOKE — behind shoulders/upper back/arms/torso, zIndex: 0 ── */}
+            {/* Smoke 1 — Behind upper back/shoulders */}
+            <motion.div className="absolute pointer-events-none" style={{
+              top: "10%", left: "10%", width: "80%", height: "45%", zIndex: 0,
+              background: "radial-gradient(ellipse 60% 40% at 50% 30%, rgba(130, 130, 135, 0.35) 0%, transparent 80%)",
+              filter: "blur(24px)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ x: [-8, 8, -8], y: [-3, 3, -3], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Smoke 2 — Behind torso/silhouette edges */}
+            <motion.div className="absolute pointer-events-none" style={{
+              top: "30%", left: "5%", width: "90%", height: "45%", zIndex: 0,
+              background: "radial-gradient(ellipse 65% 35% at 40% 50%, rgba(110, 110, 115, 0.3) 0%, transparent 80%)",
+              filter: "blur(28px)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ x: [6, -6, 6], y: [4, -4, 4], opacity: [0.25, 0.45, 0.25] }}
+              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            />
+            {/* Smoke 3 — Behind left arm / outer silhouette */}
+            <motion.div className="absolute pointer-events-none" style={{
+              top: "20%", left: "30%", width: "65%", height: "50%", zIndex: 0,
+              background: "radial-gradient(ellipse 50% 40% at 65% 45%, rgba(120, 120, 125, 0.32) 0%, transparent 80%)",
+              filter: "blur(26px)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ x: [-5, 5, -5], y: [-5, 5, -5], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 13, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+            />
 
-                <img 
-                  src={imgSrc} 
-                  onError={handleImageError}
-                  alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
-                  className="w-full h-full object-cover filter contrast-125 brightness-[1.05] saturate-110"
-                  style={{ objectPosition: "62% 10%" }}
-                  referrerPolicy="no-referrer"
-                />
-                {/* Subtle Rim Lighting Highlight */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(239,68,68,0.45),transparent_50%)] mix-blend-screen pointer-events-none" />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-50% to-[#0a0a0a]" />
-              <div className="absolute top-[20%] left-[-10%] w-[250px] h-[250px] bg-red-650/30 rounded-full blur-[80px] pointer-events-none" />
-            </div>
+            {/* ── PREMIUM CINEMATIC EMBER PARTICLES — behind athlete, zIndex: 0 ── */}
+            {/* Ember 1 — Behind right shoulder/arm silhouette */}
+            <motion.div className="absolute rounded-full pointer-events-none" style={{
+              width: 2.5, height: 2.5, left: "35%", top: "45%", zIndex: 0,
+              background: "#ef4444", boxShadow: "0 0 8px 2.5px rgba(239,68,68,0.8)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ y: [0, -35, 5, -20, 0], x: [0, -6, 3, -3, 0], opacity: [0.7, 1, 0.4, 0.9, 0.7] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Ember 2 — Behind left shoulder/arm silhouette */}
+            <motion.div className="absolute rounded-full pointer-events-none" style={{
+              width: 3, height: 3, left: "82%", top: "42%", zIndex: 0,
+              background: "#ef4444", boxShadow: "0 0 9px 3px rgba(239,68,68,0.75)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ y: [0, -30, 8, -15, 0], x: [0, 5, -4, 2, 0], opacity: [0.6, 0.9, 0.3, 0.8, 0.6] }}
+              transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
+            {/* Ember 3 — Behind upper back */}
+            <motion.div className="absolute rounded-full pointer-events-none" style={{
+              width: 2, height: 2, left: "58%", top: "35%", zIndex: 0,
+              background: "#f87171", boxShadow: "0 0 6px 2px rgba(248,113,113,0.7)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ y: [0, -28, 4, -12, 0], x: [0, -3, 3, -1, 0], opacity: [0.8, 0.4, 0.9, 0.5, 0.8] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+            />
+            {/* Ember 4 — Behind right waist/silhouette */}
+            <motion.div className="absolute rounded-full pointer-events-none" style={{
+              width: 3.5, height: 3.5, left: "48%", top: "65%", zIndex: 0,
+              background: "#dc2626", boxShadow: "0 0 10px 3px rgba(220,38,38,0.65)",
+              filter: "blur(0.5px)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ y: [0, -40, 10, -25, 0], x: [0, -5, 4, -2, 0], opacity: [0.55, 0.85, 0.35, 0.75, 0.55] }}
+              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+            />
+            {/* Ember 5 — Behind left waist/torso */}
+            <motion.div className="absolute rounded-full pointer-events-none" style={{
+              width: 2, height: 2, left: "78%", top: "68%", zIndex: 0,
+              background: "#fca5a5", boxShadow: "0 0 5px 2px rgba(252,165,165,0.75)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ y: [0, -22, 5, -11, 0], x: [0, 3, -2, 1, 0], opacity: [0.7, 1, 0.4, 0.8, 0.7] }}
+              transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 3.2 }}
+            />
+            {/* Ember 6 — Background outer left */}
+            <motion.div className="absolute rounded-full pointer-events-none" style={{
+              width: 2.5, height: 2.5, left: "22%", top: "58%", zIndex: 0,
+              background: "#ef4444", boxShadow: "0 0 8px 2.5px rgba(239,68,68,0.8)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ y: [0, -32, 6, -18, 0], x: [0, -4, 2, -2, 0], opacity: [0.65, 0.9, 0.3, 0.8, 0.65] }}
+              transition={{ duration: 7.8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            />
+            {/* Ember 7 — Background lower center */}
+            <motion.div className="absolute rounded-full pointer-events-none" style={{
+              width: 4, height: 4, left: "52%", top: "80%", zIndex: 0,
+              background: "rgba(239,68,68,0.5)", boxShadow: "0 0 12px 4px rgba(239,68,68,0.4)",
+              filter: "blur(1px)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ y: [0, -36, 12, -22, 0], x: [0, 4, -4, 2, 0], opacity: [0.4, 0.7, 0.2, 0.55, 0.4] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 4.1 }}
+            />
+            {/* Ember 8 — Background deep depth right */}
+            <motion.div className="absolute rounded-full pointer-events-none" style={{
+              width: 2.5, height: 2.5, left: "72%", top: "78%", zIndex: 0,
+              background: "#ef4444", boxShadow: "0 0 8px 2.5px rgba(239,68,68,0.7)",
+              willChange: "transform, opacity",
+            }}
+              animate={{ y: [0, -25, 7, -14, 0], x: [0, -3, 3, -1, 0], opacity: [0.75, 0.4, 0.85, 0.5, 0.75] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+            />
 
-            {/* Top-Right Gym Equipment Poster Texture */}
-            <div className="absolute top-0 right-0 w-[50%] h-[480px] opacity-[0.95] z-0 pointer-events-none overflow-hidden">
-              <img 
-                src="/membership-right-clean.jpg?v=5" 
-                alt="Gym background"
-                className="w-full h-full object-cover object-right filter contrast-125 brightness-[1.60] saturate-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-35% to-[#0a0a0a]" />
-              <div className="absolute top-[10%] right-[10%] w-[180px] h-[180px] bg-red-650/20 rounded-full blur-[40px] pointer-events-none" />
-              <div className="absolute top-1/2 right-[5%] w-[200px] h-[200px] bg-red-500/30 rounded-full blur-[60px] pointer-events-none" />
-            </div>
-          </div>
+            {/* ── ATHLETE IMAGE — cinematic filter boost, zIndex: 1 ── */}
+            <img
+              src={imgSrc}
+              onError={handleImageError}
+              alt="Coach Paresh Hindurao - IFSA Certified Bodybuilder"
+              className="w-full h-full"
+              style={{
+                position: "relative",
+                zIndex: 1,
+                objectFit: "cover",
+                objectPosition: "center top",
+                transform: "scale(1)",
+                transformOrigin: "top center",
+                filter: "brightness(0.92) saturate(1.3) contrast(1.18)",
+                maskImage: [
+                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
+                  "linear-gradient(to bottom, black 0%, black 85%, transparent 100%)",
+                ].join(", "),
+                WebkitMaskImage: [
+                  "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.65) 20%, black 40%)",
+                  "linear-gradient(to bottom, black 0%, black 85%, transparent 100%)",
+                ].join(", "),
+                WebkitMaskComposite: "source-in",
+                maskComposite: "intersect",
+                willChange: "transform, opacity",
+              }}
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
 
-          {/* ── CENTER TEXT COLUMN ── */}
-          <div className="relative px-4 mx-auto text-center flex flex-col items-center" style={{ top: "35px", marginTop: "45px", width: "100%", maxWidth: "280px", zIndex: 10 }}>
+          {/* ── LEFT TEXT COLUMN — relative, top 42px, left 0 ── */}
+          <div className="relative px-4" style={{ top: "42px", marginTop: "50px", left: 0, width: "53%", zIndex: 10 }}>
 
             {/* ── HEADING ── */}
             <h1
-              className="font-display font-black uppercase text-white select-none translate-x-[12px]"
+              className="font-display font-black uppercase text-white select-none"
               style={{ fontSize: "clamp(1.76rem, 9.3vw, 2.76rem)", lineHeight: 0.92, letterSpacing: "-0.03em", paddingTop: "2px" }}
             >
               {/* Line 1: TRANSFORM */}
-              <span className="block text-center" style={{ overflow: "visible", paddingTop: "3px" }}>
+              <span className="block" style={{ overflow: "visible", paddingTop: "3px" }}>
                 <motion.span
-                  className="inline-block"
+                  className="block"
                   variants={lineReveal}
                   initial="hidden"
                   animate="visible"
@@ -495,9 +588,9 @@ export default function Hero() {
               </span>
 
               {/* Line 2: YOUR BODY. */}
-              <span className="block text-center" style={{ overflow: "visible" }}>
+              <span className="block" style={{ overflow: "visible" }}>
                 <motion.span
-                  className="inline-block"
+                  className="block"
                   variants={lineReveal}
                   initial="hidden"
                   animate="visible"
@@ -509,7 +602,7 @@ export default function Hero() {
                     variants={redGlowPulse}
                     initial="hidden"
                     animate="visible"
-                    style={{ display: "inline-block", willChange: "text-shadow" }}
+                    style={{ display: "inline", willChange: "text-shadow" }}
                   >
                     BODY.
                   </motion.span>
@@ -517,9 +610,9 @@ export default function Hero() {
               </span>
 
               {/* Line 3: TRANSFORM */}
-              <span className="block text-center" style={{ overflow: "visible" }}>
+              <span className="block" style={{ overflow: "visible" }}>
                 <motion.span
-                  className="inline-block"
+                  className="block"
                   variants={lineReveal}
                   initial="hidden"
                   animate="visible"
@@ -530,16 +623,16 @@ export default function Hero() {
               </span>
 
               {/* Line 4: YOUR LIFE */}
-              <span className="block text-center" style={{ overflow: "visible" }}>
+              <span className="block" style={{ overflow: "visible" }}>
                 <motion.span
-                  className="inline-block"
+                  className="block"
                   variants={lineReveal}
                   initial="hidden"
                   animate="visible"
                   custom={0.54}
                 >
                   <motion.span
-                    className="inline-block text-red-500"
+                    className="block text-red-500"
                     variants={redGlowPulse}
                     initial="hidden"
                     animate="visible"
@@ -557,8 +650,8 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               custom={0.72}
-              className="font-light leading-relaxed mt-6 text-center mx-auto max-w-[210px] translate-y-[10px]"
-              style={{ fontSize: "clamp(9px, 2.5vw, 10.5px)", color: "#B3B3B3" }}
+              className="font-light leading-relaxed mt-3"
+              style={{ fontSize: "clamp(9.5px, 2.55vw, 11.5px)", color: "#B3B3B3" }}
             >
               Best Gym in Murbad with Professional Equipment &amp; Motivating Environment.
               Unleash peak conditioning with premium gears, cardio chambers, and expert guidance.
@@ -570,13 +663,13 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               custom={0.88}
-              className="flex flex-col mt-[28px] w-full max-w-[240px] mx-auto"
-              style={{ display: "flex", flexDirection: "column", gap: "14px", marginBottom: "35px", position: "relative", zIndex: 20 }}
+              className="flex flex-col mt-[32px]"
+              style={{ display: "flex", flexDirection: "column", gap: "18px", marginBottom: "45px", position: "relative", zIndex: 20 }}
             >
               {/* JOIN NOW — red pill */}
               <motion.button
                 onClick={() => handleScrollTo("membership")}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 bg-red-650 hover:bg-red-500 text-white font-black text-[11px] uppercase tracking-widest rounded-full cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 bg-red-600 text-white font-black text-[11px] uppercase tracking-widest rounded-full cursor-pointer"
                 style={{ willChange: "transform, box-shadow", boxShadow: "0 0 18px rgba(220,38,38,0.45)" }}
                 whileHover={{
                   backgroundColor: "#ef4444",
