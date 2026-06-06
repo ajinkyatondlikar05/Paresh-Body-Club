@@ -314,7 +314,7 @@ export default function About() {
         />
 
         {/* Soft rim light overlay around the head area */}
-        <div className="absolute inset-0 pointer-events-none z-0 about-rim-light" />
+        <div className="absolute pointer-events-none z-0 hair-rim-light" />
 
         {/* Subtle black overlay */}
         <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none about-overlay-main" />
