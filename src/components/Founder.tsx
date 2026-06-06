@@ -185,7 +185,7 @@ export default function Founder() {
   return (
     <section
       id="founder"
-      className="bg-black relative overflow-hidden"
+      className="bg-black relative overflow-hidden founder-section"
     >
 
       {/* ══ Shared background decorations (all screen sizes) ═══════════════ */}
@@ -196,7 +196,7 @@ export default function Founder() {
       </div>
 
       {/* Smooth Dark Vignette */}
-      <div className="hidden lg:block absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.85)_95%)] z-[2] pointer-events-none" />
+      <div className="hidden lg:block absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.85)_95%)] z-[2] pointer-events-none founder-vignette" />
 
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.05] z-0 pointer-events-none" />
@@ -218,7 +218,7 @@ export default function Founder() {
         <img
           src="/founder-leaning.png"
           alt="Founder Paresh Hindurao - Bodybuilding Champion"
-          className="w-full h-full object-cover object-[65%_center] filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] drop-shadow-[0_0_35px_rgba(239,68,68,0.12)] relative z-10"
+          className="w-full h-full object-cover object-[65%_center] filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] drop-shadow-[0_0_35px_rgba(239,68,68,0.12)] relative z-10 bodybuilder-image"
         />
 
         {/* Volumetric Warm Spotlight & Rim Lighting */}
@@ -226,11 +226,11 @@ export default function Founder() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_45%,rgba(254,215,170,0.08)_0%,rgba(239,68,68,0.04)_35%,transparent_70%)] z-[15] pointer-events-none mix-blend-screen" />
 
         {/* Edge gradient masks */}
-        <div className="absolute left-0 inset-y-0 w-[28%] bg-gradient-to-r from-black via-black/50 to-transparent z-20" />
+        <div className="absolute left-0 inset-y-0 w-[28%] bg-gradient-to-r from-black via-black/50 to-transparent z-20 founder-mask-left" />
         <div className="absolute bottom-0 inset-x-0 h-[140px] bg-black z-20" />
-        <div className="absolute bottom-[140px] inset-x-0 h-[140px] bg-gradient-to-t from-black to-transparent z-20" />
+        <div className="absolute bottom-[140px] inset-x-0 h-[140px] bg-gradient-to-t from-black to-transparent z-20 founder-mask-bottom" />
         <div className="absolute top-0 inset-x-0 h-[70px] bg-gradient-to-b from-black to-transparent z-20" />
-        <div className="absolute right-0 inset-y-0 w-[15%] bg-gradient-to-l from-black to-transparent z-20" />
+        <div className="absolute right-0 inset-y-0 w-[15%] bg-gradient-to-l from-black to-transparent z-20 founder-mask-right" />
       </div>
 
 

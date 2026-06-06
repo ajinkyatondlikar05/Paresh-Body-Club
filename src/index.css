@@ -886,3 +886,30 @@ body {
     max-width: 650px !important;
   }
 }
+
+/* Founder section desktop improvements (min-width: 1024px) */
+@media (min-width: 1024px) {
+  /* Position background slightly down and right, scale down slightly to show more body */
+  .founder-section .bodybuilder-image {
+    object-position: 58% center !important;
+    transform: scale(0.92) translate(15px, 20px) !important;
+    filter: brightness(1.22) contrast(1.10) saturate(1.12) !important;
+  }
+
+  /* Reduce overlay opacities to reveal face, shoulders, chest, and arm details */
+  .founder-vignette {
+    opacity: 0.65 !important;
+  }
+  
+  .founder-mask-left {
+    opacity: 0.80 !important;
+  }
+  
+  .founder-mask-right {
+    opacity: 0.65 !important;
+  }
+  
+  .founder-mask-bottom {
+    opacity: 0.65 !important;
+  }
+}
