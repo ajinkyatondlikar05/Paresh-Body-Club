@@ -237,23 +237,20 @@ export default function Membership() {
         {/* Top-Left Muscular Bodybuilder Photo Background */}
         <div className="absolute top-0 left-0 w-[50%] h-[380px] lg:h-[480px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none">
           <img 
-            src="/membership-left-clean.jpg?v=2" 
+            src="/membership-left-clean.jpg?v=3" 
             alt="Bodybuilder decoration"
             className="w-full h-full object-cover object-left filter contrast-110 brightness-[0.8] animate-bodybuilder-breathe"
           />
-          {/* Blend gradient that fades out to black towards the center */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#09090b]/20 to-[#09090b] via-[75%] lg:via-[60%]" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
         </div>
 
         {/* Top-Right Gym Equipment Poster Texture */}
         <div className="absolute top-0 right-0 w-[50%] h-[380px] lg:h-[480px] opacity-[0.85] lg:opacity-[0.95] z-0 pointer-events-none">
           <img 
-            src="/membership-right-clean.jpg?v=2" 
+            src="/membership-right-clean.jpg?v=3" 
             alt="Gym background"
             className="w-full h-full object-cover object-right filter contrast-110 brightness-[0.8]"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#09090b]/20 to-[#09090b] via-[75%] lg:via-[60%]" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
         </div>
       </div>
