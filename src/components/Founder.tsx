@@ -206,31 +206,26 @@ export default function Founder() {
 
 
       {/* ══════════════════════════════════════════════════════════════════════
-          DESKTOP ONLY — Cinematic full-height absolute image
-          Completely removed from mobile with hidden lg:block
-          Desktop layout is 100% identical to original implementation
+          DESKTOP ONLY — Clean full-body image on right side
+          Uses object-contain so full upper body (face → forearms) is visible.
+          Photo already has natural black bg — no extra black bars needed.
+          Mobile untouched — hidden lg:block.
       ══════════════════════════════════════════════════════════════════════ */}
-      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[50vw] xl:w-[46vw] z-10 pointer-events-none select-none overflow-hidden">
-        {/* Red ambient glows */}
-        <div className="absolute -right-12 bottom-12 w-[350px] h-[350px] bg-gradient-to-tr from-red-600/15 to-transparent blur-[100px] rounded-full pointer-events-none z-0" />
-        <div className="absolute right-24 top-24 w-[250px] h-[250px] bg-gradient-to-bl from-red-600/10 to-transparent blur-[80px] rounded-full pointer-events-none z-0" />
-
+      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[54vw] xl:w-[50vw] z-10 pointer-events-none select-none overflow-hidden">
         <img
           src="/founder-leaning.png"
           alt="Founder Paresh Hindurao - Bodybuilding Champion"
-          className="w-full h-full object-cover object-[65%_center] filter brightness-[1.16] contrast-[1.18] saturate-[1.12] hue-rotate-[2deg] drop-shadow-[0_0_35px_rgba(239,68,68,0.12)] relative z-10 bodybuilder-image"
+          className="w-full h-full object-contain relative z-10"
+          style={{
+            objectPosition: "80% top",
+            filter: "brightness(1.06) contrast(1.12) saturate(1.08)",
+          }}
         />
 
-        {/* Volumetric Warm Spotlight & Rim Lighting */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_32%,rgba(254,215,170,0.12)_0%,rgba(239,68,68,0.06)_30%,transparent_60%)] z-[15] pointer-events-none mix-blend-screen" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_45%,rgba(254,215,170,0.08)_0%,rgba(239,68,68,0.04)_35%,transparent_70%)] z-[15] pointer-events-none mix-blend-screen" />
-
-        {/* Edge gradient masks */}
-        <div className="absolute left-0 inset-y-0 w-[28%] bg-gradient-to-r from-black via-black/50 to-transparent z-20 founder-mask-left" />
-        <div className="absolute bottom-0 inset-x-0 h-[140px] bg-black z-20" />
-        <div className="absolute bottom-[140px] inset-x-0 h-[140px] bg-gradient-to-t from-black to-transparent z-20 founder-mask-bottom" />
-        <div className="absolute top-0 inset-x-0 h-[70px] bg-gradient-to-b from-black to-transparent z-20" />
-        <div className="absolute right-0 inset-y-0 w-[15%] bg-gradient-to-l from-black to-transparent z-20 founder-mask-right" />
+        {/* Subtle left-edge fade — blends image into text section naturally */}
+        <div className="absolute left-0 inset-y-0 w-[22%] bg-gradient-to-r from-black via-black/55 to-transparent z-20" />
+        {/* Very thin top fade — just for section edge blend, not hiding hair */}
+        <div className="absolute top-0 inset-x-0 h-[40px] bg-gradient-to-b from-black to-transparent z-20" />
       </div>
 
 
@@ -240,8 +235,8 @@ export default function Founder() {
           Uses original grid-cols-12 with py-28 section padding
       ══════════════════════════════════════════════════════════════════════ */}
       <div className="hidden lg:block">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full py-20" style={{ minHeight: "580px" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
 
             {/* Desktop: Left text column */}
             <div className="lg:col-span-8 space-y-6 text-left relative z-20">
