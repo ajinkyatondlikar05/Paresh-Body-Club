@@ -3,20 +3,23 @@ import { motion } from "motion/react";
 
 // Accent Components
 const DiagonalStripesLeft = () => (
-  <div className="absolute top-0 left-0 w-48 h-48 overflow-hidden pointer-events-none select-none z-10">
-    <div className="absolute top-[-50px] left-[-50px] w-[220px] h-[40px] bg-red-600/80 -rotate-45 shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
-    <div className="absolute top-[-30px] left-[-30px] w-[220px] h-[15px] bg-red-600/80 -rotate-45 shadow-[0_0_10px_rgba(220,38,38,0.4)]" />
-    <div className="absolute top-[-10px] left-[-10px] w-[220px] h-[8px] bg-red-600/80 -rotate-45" />
+  <div className="absolute top-0 left-0 w-64 h-64 overflow-hidden pointer-events-none select-none z-20">
+    {/* Thick Stripe with red glow and border */}
+    <div className="absolute top-[-30px] left-[-90px] w-[280px] h-[26px] bg-red-650 -rotate-45 shadow-[0_0_20px_#ff0000] border-b border-red-400" />
+    {/* Thin Stripe */}
+    <div className="absolute top-[3px] left-[-80px] w-[280px] h-[6px] bg-red-500 -rotate-45 shadow-[0_0_12px_#ff0000]" />
   </div>
 );
 
 const DiagonalStripesRight = () => (
-  <div className="absolute top-0 right-0 w-48 h-48 overflow-hidden pointer-events-none select-none z-10">
-    <div className="absolute top-[-50px] right-[-50px] w-[220px] h-[40px] bg-red-600/80 rotate-45 shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
-    <div className="absolute top-[-30px] right-[-30px] w-[220px] h-[15px] bg-red-600/80 rotate-45 shadow-[0_0_10px_rgba(220,38,38,0.4)]" />
-    <div className="absolute top-[-10px] right-[-10px] w-[220px] h-[8px] bg-red-600/80 rotate-45" />
+  <div className="absolute top-0 right-0 w-64 h-64 overflow-hidden pointer-events-none select-none z-20">
+    {/* Thick Stripe with red glow and border */}
+    <div className="absolute top-[-30px] right-[-90px] w-[280px] h-[26px] bg-red-650 rotate-45 shadow-[0_0_20px_#ff0000] border-b border-red-400" />
+    {/* Thin Stripe */}
+    <div className="absolute top-[3px] right-[-80px] w-[280px] h-[6px] bg-red-500 rotate-45 shadow-[0_0_12px_#ff0000]" />
   </div>
 );
+
 
 const DumbbellIcon = () => (
   <svg viewBox="0 0 24 24" width="40" height="40" className="text-red-500 fill-current shrink-0">
@@ -219,26 +222,26 @@ export default function Membership() {
         <DiagonalStripesLeft />
         <DiagonalStripesRight />
 
-        {/* Top-Left Muscular Bodybuilder Silhouette/Photo Background */}
-        <div className="absolute top-0 left-0 w-full lg:w-[48%] h-[380px] lg:h-[480px] opacity-[0.35] lg:opacity-[0.85] z-0 pointer-events-none">
+        {/* Top-Left Muscular Bodybuilder Photo Background */}
+        <div className="absolute top-0 left-0 w-[48%] lg:w-[45%] h-[380px] lg:h-[480px] opacity-[0.75] lg:opacity-[0.9] z-0 pointer-events-none">
           <img 
             src="/founder-flex.png" 
             alt="Bodybuilder decoration"
-            className="w-full h-full object-cover object-left-top filter grayscale contrast-125 brightness-[0.75] animate-bodybuilder-breathe"
+            className="w-full h-full object-cover object-left-top filter contrast-125 brightness-[0.75] animate-bodybuilder-breathe"
           />
-          {/* Blend gradient that fades out very quickly (before 30%) to completely hide any watermark text next to the bodybuilder */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#09090b] to-[#09090b] via-[32%] lg:via-[26%]" />
+          {/* Blend gradient that fades out to black towards the center to hide watermark and blend into heading */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#09090b] to-[#09090b] via-[55%] lg:via-[45%]" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
         </div>
 
         {/* Top-Right Gym Equipment Poster Texture */}
-        <div className="absolute top-0 right-0 w-[52%] h-[480px] hidden lg:block opacity-[0.22] pointer-events-none">
+        <div className="absolute top-0 right-0 w-[50%] lg:w-[45%] h-[380px] lg:h-[480px] opacity-[0.4] lg:opacity-[0.55] z-0 pointer-events-none">
           <img 
             src="/about-bg.png" 
             alt="Gym background"
-            className="w-full h-full object-cover object-right-center filter grayscale contrast-110"
+            className="w-full h-full object-cover object-right-center filter contrast-125 brightness-[0.75]"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#09090b]/75 to-[#09090b]" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#09090b] to-[#09090b] via-[55%] lg:via-[45%]" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
         </div>
       </div>
