@@ -222,6 +222,7 @@ export default function Membership() {
         {/* Red ambient background glows */}
         <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-red-650/10 rounded-full blur-[140px] animate-glow-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-red-600/10 rounded-full blur-[140px] animate-glow-pulse" />
+        <div className="absolute top-1/3 right-[10%] w-[350px] h-[350px] bg-red-550/15 rounded-full blur-[120px] animate-glow-pulse" />
         
         {/* Drifting smoke effect */}
         <div className="absolute inset-0 opacity-25">
@@ -239,33 +240,33 @@ export default function Membership() {
         {/* Poster Corner Accents */}
         <DiagonalStripesLeft />
         <DiagonalStripesRight />
-        <div className="absolute top-0 left-0 w-64 h-[380px] lg:h-[480px] overflow-hidden pointer-events-none select-none z-20">
+        <div className="absolute top-0 left-0 w-64 h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
           <DiagonalStripesBottomLeft />
         </div>
-        <div className="absolute top-0 right-0 w-64 h-[380px] lg:h-[480px] overflow-hidden pointer-events-none select-none z-20">
+        <div className="absolute top-0 right-0 w-64 h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
           <DiagonalStripesBottomRight />
         </div>
 
         {/* Top-Left Muscular Bodybuilder Photo Background */}
-        <div className="absolute top-0 left-0 w-[50%] h-[380px] lg:h-[480px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-[50%] h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
           <img 
             src="/membership-left-clean.jpg?v=5" 
             alt="Bodybuilder decoration"
-            className="w-full h-full object-cover object-left filter contrast-110 brightness-[0.8] animate-bodybuilder-breathe"
+            className="w-full h-full object-cover object-left scale-[1.20] origin-left filter contrast-110 brightness-[0.8] animate-bodybuilder-breathe"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-50% to-[#09090b]" />
         </div>
 
         {/* Top-Right Gym Equipment Poster Texture */}
-        <div className="absolute top-0 right-0 w-[50%] h-[380px] lg:h-[480px] opacity-[0.85] lg:opacity-[0.95] z-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[50%] h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
           <img 
             src="/membership-right-clean.jpg?v=5" 
             alt="Gym background"
-            className="w-full h-full object-cover object-right filter contrast-110 brightness-[0.8]"
+            className="w-full h-full object-cover object-right filter contrast-110 brightness-[1.15]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-50% to-[#09090b]" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-35% to-[#09090b]" />
         </div>
       </div>
 
@@ -277,7 +278,7 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-12 relative z-10 max-w-[290px] sm:max-w-none mx-auto"
+          className="text-center mb-12 relative z-10 max-w-[290px] sm:max-w-none mx-auto md:translate-x-12 lg:translate-x-16 xl:translate-x-20"
         >
           <div className="flex justify-center mb-3 text-red-500 animate-pulse">
             <DumbbellIcon />
