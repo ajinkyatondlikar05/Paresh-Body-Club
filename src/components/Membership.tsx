@@ -240,23 +240,24 @@ export default function Membership() {
         {/* Poster Corner Accents */}
         <DiagonalStripesLeft />
         <DiagonalStripesRight />
-        <div className="absolute top-0 left-0 w-64 h-[575px] md:h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
+        <div className="absolute top-0 left-0 w-64 h-[620px] md:h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
           <DiagonalStripesBottomLeft />
         </div>
-        <div className="absolute top-0 right-0 w-64 h-[575px] md:h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
+        <div className="absolute top-0 right-0 w-64 h-[620px] md:h-[430px] lg:h-[540px] overflow-hidden pointer-events-none select-none z-20">
           <DiagonalStripesBottomRight />
         </div>
 
         {/* Top-Left Muscular Bodybuilder Photo Background */}
-        <div className="absolute top-0 left-0 w-[45%] h-[575px] md:w-[50%] md:h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
-          <div className="w-full h-full relative scale-[1.56] translate-y-[-42px] origin-top-left md:scale-[1.20] md:translate-y-0 md:origin-left">
+        <div className="absolute top-0 left-0 w-[45%] h-[620px] md:w-[50%] md:h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
+          <div className="w-full h-full relative scale-[1.30] translate-y-[-100px] origin-top-left md:scale-[1.20] md:translate-y-0 md:origin-left">
             <img 
               src="/membership-left-clean.jpg?v=5" 
               alt="Bodybuilder decoration"
-              className="w-full h-full object-cover object-left filter contrast-130 brightness-[1.05] saturate-110 md:contrast-110 md:brightness-[0.8] animate-bodybuilder-breathe"
+              className="w-full h-full object-cover filter contrast-130 brightness-[1.05] saturate-110 md:contrast-110 md:brightness-[0.8] animate-bodybuilder-breathe"
+              style={{ objectPosition: "left 20%" }}
             />
             {/* Subtle Rim Lighting Highlight */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_35%,rgba(239,68,68,0.35),transparent_55%)] mix-blend-screen pointer-events-none md:hidden" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(239,68,68,0.4),transparent_50%)] mix-blend-screen pointer-events-none md:hidden" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-50% to-[#09090b]" />
@@ -264,7 +265,7 @@ export default function Membership() {
         </div>
 
         {/* Top-Right Gym Equipment Poster Texture */}
-        <div className="absolute top-0 right-0 w-[45%] h-[575px] md:w-[50%] md:h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-0 w-[45%] h-[620px] md:w-[50%] md:h-[430px] lg:h-[540px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
           <img 
             src="/membership-right-clean.jpg?v=5" 
             alt="Gym background"
@@ -285,27 +286,32 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-4 relative z-10 max-w-[245px] sm:max-w-none mx-auto -translate-y-12 translate-x-10 md:translate-y-0 md:translate-x-12 lg:translate-x-16 xl:translate-x-20"
+          className="text-center mb-4 relative z-10 max-w-[245px] sm:max-w-none mx-auto translate-y-[40px] translate-x-10 md:translate-y-0 md:translate-x-12 lg:translate-x-16 xl:translate-x-20"
         >
           <div className="flex justify-center mb-3 text-red-500 animate-pulse">
             <DumbbellIcon />
           </div>
-          <h2 className="font-display font-black text-[22px] sm:text-5xl md:text-6xl text-center uppercase tracking-tight italic select-none">
-            <span className="text-white block">GYM MEMBERSHIP</span>
-            <span className="text-red-500 block -mt-1 sm:-mt-2">DETAILS</span>
+          <h2 className="font-display font-black text-center uppercase tracking-tight italic select-none flex flex-col gap-0 leading-[0.85] sm:block sm:text-5xl md:text-6xl">
+            <span className="text-white text-6xl tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal sm:mr-3">GYM</span>
+            <span className="text-white text-[42px] tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal sm:mr-3 -mt-1 sm:mt-0">MEMBERSHIP</span>
+            <span className="text-red-500 text-6xl tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal drop-shadow-[0_0_15px_rgba(239,68,68,0.65)] -mt-1 sm:mt-0">DETAILS</span>
           </h2>
         </motion.div>
 
         {/* ── SUBTITLE ── */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          className="text-white font-sans text-[11px] sm:text-sm text-center uppercase tracking-widest italic mb-12 font-bold max-w-[140px] sm:max-w-none mx-auto relative z-10 translate-y-[10px] md:translate-y-0"
+          className="flex items-center justify-center gap-2.5 w-full max-w-[280px] sm:max-w-none mx-auto mb-12 relative z-10 translate-y-[60px] md:translate-y-0"
         >
-          CHOOSE THE PERFECT PLAN FOR YOUR FITNESS JOURNEY
-        </motion.p>
+          <div className="h-[1.5px] bg-red-500 w-6 shrink-0 sm:hidden" />
+          <p className="text-white font-sans text-[10px] sm:text-sm text-center uppercase tracking-widest italic font-bold max-w-[170px] sm:max-w-none">
+            CHOOSE THE PERFECT PLAN FOR YOUR FITNESS JOURNEY
+          </p>
+          <div className="h-[1.5px] bg-red-500 w-6 shrink-0 sm:hidden" />
+        </motion.div>
         
         {/* ── MAIN VERTICAL STACKED LAYOUT ── */}
         <motion.div
@@ -313,7 +319,7 @@ export default function Membership() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col gap-10 sm:gap-12 max-w-4xl mx-auto relative z-10"
+          className="flex flex-col gap-10 sm:gap-12 max-w-4xl mx-auto relative z-10 mt-[220px] md:mt-0"
         >
           
           {/* 1. MEMBERSHIP TABLE CARD (Full width layout) */}
