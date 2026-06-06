@@ -834,9 +834,10 @@ body {
 
 /* About section desktop improvements (min-width: 1024px) */
 @media (min-width: 1024px) {
-  /* Position background slightly down, boost brightness & contrast */
+  /* Position background slightly up & zoom, boost brightness & contrast */
   .about-bg-image {
-    background-position: center 20% !important;
+    background-size: 112% !important;
+    background-position: center 42% !important;
     filter: brightness(1.18) contrast(1.08) !important;
   }
   
