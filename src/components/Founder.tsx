@@ -278,7 +278,7 @@ export default function Founder() {
                 >
                   PARESH HINDURAO
                 </h2>
-                <div className="text-stone-400 font-sans text-[11px] sm:text-xs font-bold mt-2.5 uppercase tracking-wider flex flex-col gap-y-2">
+                <div className="text-stone-400 font-sans text-[16px] font-extrabold mt-3 uppercase tracking-wider flex flex-col gap-y-1">
                   <span>PROFESSIONAL BODYBUILDER</span>
                   <span>IFSA CERTIFIED TRAINER</span>
                 </div>
