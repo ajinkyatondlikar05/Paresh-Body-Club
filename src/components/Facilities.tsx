@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { 
-  Flame, 
-  Dumbbell, 
-  Zap, 
-  Heart, 
-  Shield, 
-  Users, 
-  Droplets, 
-  Music, 
-  ChevronRight 
+import {
+  Flame,
+  Dumbbell,
+  Zap,
+  Heart,
+  Shield,
+  Users,
+  Droplets,
+  Music,
+  ChevronRight
 } from "lucide-react";
 import { FACILITIES } from "../data";
 
@@ -90,8 +90,8 @@ export default function Facilities() {
   } : {};
 
   return (
-    <section 
-      id="facilities" 
+    <section
+      id="facilities"
       className="py-24 lg:pt-14 bg-[#0c0c0e] lg:bg-black relative overflow-hidden"
     >
       {/* Visual lighting background panels */}
@@ -109,22 +109,22 @@ export default function Facilities() {
       )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Header Block */}
         <div className="text-center mb-16">
-          <motion.span 
+          <motion.span
             {...headingSpanProps}
             className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2"
           >
             World-Class Infrastructure
           </motion.span>
-          <motion.h2 
+          <motion.h2
             {...headingTitleProps}
             className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight"
           >
             Premium Gym <span className="text-red-500">Facilities</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             {...headingSubtitleProps}
             className="text-stone-400 font-sans text-xs sm:text-sm max-w-xl mx-auto mt-3 leading-relaxed"
           >
@@ -162,7 +162,7 @@ export default function Facilities() {
                 <div className="relative z-10">
                   {/* Icon Block with Ring Flare */}
                   <div className="relative mb-6 inline-block">
-                    <motion.div 
+                    <motion.div
                       {...iconWrapperProps(idx)}
                       className="p-4 bg-stone-900 border border-white/5 rounded-xl text-red-500 group-hover:text-white group-hover:bg-red-600 transition-all duration-300 relative z-10"
                     >
@@ -178,11 +178,6 @@ export default function Facilities() {
                   <p className="text-stone-400 font-sans text-xs sm:text-sm leading-relaxed font-light">
                     {fac.description}
                   </p>
-                </div>
-
-                {/* Micro Action Button */}
-                <div className="mt-6 flex items-center text-red-500 font-display font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 z-10">
-                  Secure access <ChevronRight size={14} className="ml-1" />
                 </div>
               </motion.div>
             );
@@ -200,7 +195,7 @@ export default function Facilities() {
               <p className="text-xs text-stone-400 mt-1">Our steel dumbbells go up to advanced heavy limits for extreme bodybuilders.</p>
             </div>
           </div>
-          <button 
+          <button
             onClick={() => {
               let targetId = "contact";
               const isDesktop = window.innerWidth >= 1024;
