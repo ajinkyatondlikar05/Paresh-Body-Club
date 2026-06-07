@@ -247,14 +247,14 @@ export default function Headquarters() {
           {/* Left Column: Header & Cards (col-span-5) */}
           <div className="col-span-5 space-y-8 text-left">
             {/* Section Header */}
-            <div>
-              <span className="text-red-500 font-display font-black uppercase text-xs tracking-widest block mb-1">
+            <div className="mb-6">
+              <span className="text-red-500 font-display font-black uppercase text-sm tracking-[0.25em] block mb-3">
                 FIND US
               </span>
-              <h2 className="font-display font-black text-4xl text-white uppercase tracking-tight">
-                OUR <span className="text-red-500">HEADQUARTERS</span>
+              <h2 className="font-display font-black text-5xl text-white uppercase tracking-tight">
+                OUR <span className="text-red-500" style={{ textShadow: "0 0 12px rgba(239,68,68,0.45), 0 0 24px rgba(239,68,68,0.2)" }}>HEADQUARTERS</span>
               </h2>
-              <div className="w-12 h-[2px] bg-red-500 mt-3 shadow-[0_0_6px_rgba(239,68,68,0.6)]" />
+              <div className="w-20 h-[2px] bg-red-500 mt-4 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
             </div>
 
             {/* Info Cards Stack */}
