@@ -89,6 +89,12 @@ export const FACILITIES: FacilityItem[] = [
     title: "Music System",
     description: "Energetic multi-channel surround sound system pumping motivating beats.",
     iconName: "Music"
+  },
+  {
+    id: "fac-9",
+    title: "AC SURVEILLANCE",
+    description: "Air-conditioned environment with CCTV surveillance for a safe, comfortable, and secure workout experience.",
+    iconName: "Cctv"
   }
 ];
 
