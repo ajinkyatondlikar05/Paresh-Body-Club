@@ -255,9 +255,9 @@ export default function Membership() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 select-none">
 
         {/* Red ambient background glows */}
-        <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-red-650/10 rounded-full blur-[140px] animate-glow-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-red-600/10 rounded-full blur-[140px] animate-glow-pulse" />
-        <div className="absolute top-1/3 right-[10%] w-[350px] h-[350px] bg-red-550/15 rounded-full blur-[120px] animate-glow-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-red-650/10 rounded-full blur-[140px] animate-glow-pulse hidden md:block" />
+        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-red-600/10 rounded-full blur-[140px] animate-glow-pulse hidden md:block" />
+        <div className="absolute top-1/3 right-[10%] w-[350px] h-[350px] bg-red-550/15 rounded-full blur-[120px] animate-glow-pulse hidden md:block" />
 
         {/* Drifting smoke effect */}
         <div className="absolute inset-0 opacity-25">
