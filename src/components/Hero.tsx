@@ -187,6 +187,23 @@ export default function Hero() {
     { icon: <Trophy size={20} strokeWidth={1.8} />,   value: "100%", target: 100, suffix: "%", label: "DEDICATION" },
   ];
 
+  // Mobile-only stats: updated values, desktop stats above are unchanged
+  const mobileStats = [
+    {
+      icon: (
+        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12.5 3a5.5 5.5 0 0 0-5.5 5.5c0 1.2.4 2.3 1.1 3.2L6 14.8c-.8.8-1.3 1.8-1.5 2.9l-.4 2.3c-.1.6.4 1.1 1 1h2.3c1.1-.2 2.1-.7 2.9-1.5l3.1-3.1c.9.7 2 1.1 3.2 1.1a5.5 5.5 0 0 0 5.5-5.5c0-1.8-1-3.4-2.5-4.3V3h-5.1z" />
+          <path d="M14.5 8.5h.1" />
+        </svg>
+      ),
+      value: "15+", target: 15, suffix: "+",
+      label: "YEARS EXPERIENCE",
+    },
+    { icon: <Users size={20} strokeWidth={1.8} />,   value: "10K",  target: 10000, suffix: "", label: "HAPPY MEMBERS" },
+    { icon: <Dumbbell size={20} strokeWidth={1.8} />, value: "25+",  target: 25,  suffix: "+", label: "EQUIPMENTS" },
+    { icon: <Trophy size={20} strokeWidth={1.8} />,   value: "100%", target: 100, suffix: "%", label: "DEDICATION" },
+  ];
+
   /* Stats viewport detection — animate in when scrolled into view */
   const statsRef = useRef<HTMLDivElement>(null);
   const statsInView = useInView(statsRef, { once: true, margin: "-60px" });
@@ -690,32 +707,36 @@ export default function Hero() {
         {/* ── STATS — solid bg, z-index above hero so athlete never bleeds through ── */}
         <div ref={statsRef} className="px-4 pb-6 home-stats-container" style={{ position: "relative", zIndex: 10, background: "#050505", marginTop: "0px", paddingTop: "0px" }}>
           <div className="grid grid-cols-2" style={{ gap: "24px" }}>
-            {stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 22 }}
-                animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
-                className="stat-card-glow flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl bg-[#111111] text-center"
-                style={{ willChange: "transform, opacity" }}
-              >
-                <div className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.65)]">
-                  {stat.icon}
-                </div>
-                {/* Counter: animates 0 → target once counterStarted fires */}
-                <div className="font-display font-black text-white leading-none tracking-tight" style={{ fontSize: "clamp(1.7rem, 8.5vw, 2.2rem)" }}>
+          {mobileStats.map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 22 }}
+              animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+              className="stat-card-glow flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl bg-[#111111] text-center"
+              style={{ willChange: "transform, opacity" }}
+            >
+              <div className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.65)]">
+                {stat.icon}
+              </div>
+              {/* Counter: animates 0 → target once counterStarted fires */}
+              <div className="font-display font-black text-white leading-none tracking-tight" style={{ fontSize: "clamp(1.7rem, 8.5vw, 2.2rem)" }}>
+                {stat.label === "HAPPY MEMBERS" ? (
+                  <span>10K</span>
+                ) : (
                   <AnimatedCounter
                     target={stat.target}
                     suffix={stat.suffix}
                     started={statsInView}
                     delayMs={500 + (i * 100)}
                   />
-                </div>
-                <div className="text-[9px] font-bold tracking-widest text-stone-500 uppercase leading-tight">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
+                )}
+              </div>
+              <div className="text-[9px] font-bold tracking-widest text-stone-500 uppercase leading-tight">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
           </div>
         </div>
 
