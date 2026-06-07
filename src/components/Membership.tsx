@@ -311,12 +311,14 @@ export default function Membership() {
           <div className="absolute top-[10%] right-[10%] w-[180px] h-[180px] bg-red-650/20 rounded-full blur-[40px] md:hidden pointer-events-none" />
           <div className="absolute top-1/2 right-[5%] w-[200px] h-[200px] bg-red-500/30 rounded-full blur-[60px] md:hidden pointer-events-none" />
         </div>
+        {/* Bottom Red Glow Gradient — Desktop Only */}
+        <div className="absolute top-[440px] left-0 right-0 h-[100px] bg-gradient-to-t from-red-650/25 via-red-900/5 to-transparent z-10 pointer-events-none hidden lg:block" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ── SLANTED BOLD HEADER ── */}
-        <div className="text-center mb-4 relative z-10 max-w-[280px] sm:max-w-none mx-auto translate-y-[25px] translate-x-0 md:translate-y-0 md:translate-x-12 lg:translate-x-16 xl:translate-x-20">
+        <div className="text-center mb-4 relative z-10 max-w-[280px] sm:max-w-none mx-auto translate-y-[25px] translate-x-0 md:translate-y-0 md:translate-x-12 lg:translate-x-0 xl:translate-x-0">
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -326,7 +328,9 @@ export default function Membership() {
           >
             <DumbbellIcon />
           </motion.div>
-          <h2 className="font-display font-black text-center uppercase tracking-tight italic select-none flex flex-col gap-0 leading-[0.85] sm:block sm:text-5xl md:text-6xl">
+          
+          {/* Mobile/Tablet Heading (visible on screens < lg) */}
+          <h2 className="lg:hidden font-display font-black text-center uppercase tracking-tight italic select-none flex flex-col gap-0 leading-[0.85] sm:block sm:text-5xl md:text-6xl">
             <motion.span 
               initial={{ opacity: 0, y: -25 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -356,6 +360,38 @@ export default function Membership() {
               DETAILS
             </motion.span>
           </h2>
+
+          {/* Desktop Heading (visible only on lg/xl/2xl) */}
+          <h2 className="hidden lg:flex flex-col gap-0 leading-[0.82] text-center uppercase tracking-tighter italic select-none font-display font-black text-[95px] xl:text-[110px] w-full items-center justify-center">
+            <motion.span 
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="text-white block"
+            >
+              GYM
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="text-white block mt-1"
+            >
+              MEMBERSHIP
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              animate={{ textShadow: ["0 0 15px rgba(239,68,68,0.25)", "0 0 32px rgba(239,68,68,0.75)", "0 0 15px rgba(239,68,68,0.25)"] }}
+              className="text-red-500 block mt-1 drop-shadow-[0_0_25px_rgba(239,68,68,0.7)]"
+            >
+              DETAILS
+            </motion.span>
+          </h2>
         </div>
 
         {/* ── SUBTITLE ── */}
@@ -364,13 +400,34 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.45 }}
-          className="flex items-center justify-center gap-2.5 w-full max-w-[280px] sm:max-w-none mx-auto mb-12 relative z-10 translate-y-[35px] md:translate-y-0"
+          className="flex items-center justify-center gap-4 lg:gap-8 w-full max-w-[280px] sm:max-w-none mx-auto mb-12 relative z-10 translate-y-[35px] md:translate-y-0"
         >
+          {/* Mobile left line */}
           <div className="h-[1.5px] bg-red-500 w-6 shrink-0 sm:hidden" />
-          <p className="text-white font-sans text-[10px] sm:text-sm text-center uppercase tracking-widest italic font-bold max-w-[170px] sm:max-w-none">
+          
+          {/* Desktop left line */}
+          <div className="h-[2px] bg-red-500 w-16 xl:w-20 shrink-0 hidden lg:block" />
+
+          {/* Mobile/Tablet text */}
+          <p className="lg:hidden text-white font-sans text-[10px] sm:text-sm text-center uppercase tracking-widest italic font-bold max-w-[170px] sm:max-w-none">
             CHOOSE THE PERFECT PLAN FOR YOUR FITNESS JOURNEY
           </p>
+
+          {/* Desktop text */}
+          <p 
+            className="hidden lg:block text-white font-sans text-lg xl:text-xl text-center uppercase tracking-[0.25em] italic font-black leading-[1.35] select-none"
+            style={{ textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}
+          >
+            CHOOSE THE PERFECT PLAN<br />
+            FOR YOUR FITNESS<br />
+            JOURNEY
+          </p>
+
+          {/* Mobile right line */}
           <div className="h-[1.5px] bg-red-500 w-6 shrink-0 sm:hidden" />
+
+          {/* Desktop right line */}
+          <div className="h-[2px] bg-red-500 w-16 xl:w-20 shrink-0 hidden lg:block" />
         </motion.div>
         
         {/* ── MAIN VERTICAL STACKED LAYOUT ── */}
