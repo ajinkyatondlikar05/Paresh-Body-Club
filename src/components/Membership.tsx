@@ -249,7 +249,7 @@ export default function Membership() {
   return (
     <section 
       id="membership" 
-      className="py-20 sm:py-28 bg-[#09090b] relative overflow-hidden"
+      className="py-20 sm:py-28 lg:pb-0 bg-[#09090b] relative overflow-hidden"
     >
       {/* ── BACKGROUND POSTER LAYER ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 select-none">
