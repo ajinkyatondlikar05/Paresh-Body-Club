@@ -246,20 +246,19 @@ export default function Founder() {
             <div className="lg:col-span-6 space-y-6 text-left relative z-20 pr-4">
               <div>
                 <span
-                  className="text-red-500 font-display font-black uppercase block mb-2"
+                  className="text-red-500 font-display font-black uppercase block mb-1"
                   style={{
-                    fontSize: "38px",
-                    letterSpacing: "0.08em",
-                    textShadow: "0 0 18px rgba(239,68,68,0.55)",
+                    fontSize: "46px",
+                    letterSpacing: "10px",
+                    textShadow: "0 0 20px rgba(239,68,68,0.6)",
                     lineHeight: 1,
-                    marginLeft: "-1px",
                   }}
                 >
                   FOUNDER
                 </span>
                 <h2
                   className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
-                  style={{ fontSize: "clamp(2.2rem, 9vw, 6rem)" }}
+                  style={{ fontSize: "clamp(5rem, 13vw, 9rem)" }}
                 >
                   PARESH HINDURAO
                 </h2>
