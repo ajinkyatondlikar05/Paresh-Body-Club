@@ -969,13 +969,13 @@ body {
 
 @keyframes founderLineSweep {
   0% {
-    transform: translateX(-120%);
+    transform: translateX(-100%);
   }
-  40% {
-    transform: translateX(220%);
+  60% {
+    transform: translateX(350%);
   }
   100% {
-    transform: translateX(220%);
+    transform: translateX(350%);
   }
 }
 
