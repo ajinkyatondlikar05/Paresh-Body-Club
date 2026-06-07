@@ -600,7 +600,7 @@ export default function Membership() {
       </div> {/* Close max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 */}
 
       {/* ── STAY STRONG. STAY FOCUSED. STAY YOU. — PREMIUM CINEMATIC SECTION ── */}
-      <div className="w-full relative z-10 py-24 sm:py-32 bg-black overflow-hidden">
+      <div className="w-full relative z-10 py-24 sm:py-32 lg:pb-14 bg-black overflow-hidden">
         {/* Subtle dark texture/grid overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:30px_30px] opacity-40 pointer-events-none" />
 

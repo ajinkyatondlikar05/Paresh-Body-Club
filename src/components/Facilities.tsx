@@ -92,7 +92,7 @@ export default function Facilities() {
   return (
     <section 
       id="facilities" 
-      className="py-24 bg-[#0c0c0e] relative overflow-hidden"
+      className="py-24 lg:pt-14 bg-[#0c0c0e] relative overflow-hidden"
     >
       {/* Visual lighting background panels */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-red-500/20 to-transparent"></div>
