@@ -246,12 +246,14 @@ export default function Founder() {
             <div className="lg:col-span-6 space-y-6 text-left relative z-20 pr-4">
               <div>
                 <span
-                  className="text-red-500 font-display font-black uppercase block mb-1"
+                  className="text-red-500 font-display font-black uppercase block"
                   style={{
-                    fontSize: "46px",
-                    letterSpacing: "10px",
+                    fontSize: "58px",
+                    letterSpacing: "12px",
                     textShadow: "0 0 20px rgba(239,68,68,0.6)",
                     lineHeight: 1,
+                    marginLeft: "6px",
+                    marginBottom: "22px",
                   }}
                 >
                   FOUNDER
