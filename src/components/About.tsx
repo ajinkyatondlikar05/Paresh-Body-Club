@@ -528,7 +528,7 @@ export default function About() {
           </div>
 
           {/* Why Choose Us */}
-          <div className="mt-24 pt-16 border-t border-white/5">
+          <div className="mt-24 lg:mt-10 pt-16 lg:pt-8 border-t border-white/5">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
               {whyChooseUs.map((wcu, k) => {
                 const IconComp = wcu.icon;
