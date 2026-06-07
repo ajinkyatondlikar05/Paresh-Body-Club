@@ -245,19 +245,45 @@ export default function Founder() {
             {/* Desktop: Left text column — capped at col-span-6 so content stays left of bodybuilder */}
             <div className="lg:col-span-6 space-y-6 text-left relative z-20 pr-4">
               <div>
-                <span
-                  className="text-red-500 font-display font-black uppercase block"
-                  style={{
-                    fontSize: "58px",
-                    letterSpacing: "12px",
-                    textShadow: "0 0 20px rgba(239,68,68,0.6)",
-                    lineHeight: 1,
-                    marginLeft: "6px",
-                    marginBottom: "22px",
-                  }}
-                >
-                  FOUNDER
-                </span>
+                <div className="relative inline-block" style={{ marginLeft: "6px", marginBottom: "22px" }}>
+                  {/* Faint red blur behind FOUNDER for cinematic depth */}
+                  <div
+                    className="absolute inset-0 -m-8 bg-red-600/[0.08] blur-2xl rounded-full pointer-events-none z-0"
+                    style={{ mixBlendMode: "screen" }}
+                  />
+
+                  {/* FOUNDER text */}
+                  <span
+                    className="text-red-500 font-display font-black uppercase block relative z-10"
+                    style={{
+                      fontSize: "58px",
+                      letterSpacing: "12px",
+                      textShadow: "0 0 20px rgba(239,68,68,0.65)",
+                      lineHeight: 1,
+                    }}
+                  >
+                    FOUNDER
+                  </span>
+
+                  {/* Thin horizontal glowing red accent line */}
+                  <div
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] pointer-events-none overflow-hidden z-20"
+                    style={{
+                      marginRight: "10px", // aligned precisely under the letters
+                      background: "linear-gradient(90deg, #ff1a1a 0%, #ff4040 50%, #ff1a1a 100%)",
+                      boxShadow: "0 0 10px rgba(255,0,0,0.7), 0 0 20px rgba(255,0,0,0.5), 0 0 35px rgba(255,0,0,0.3)",
+                    }}
+                  >
+                    {/* Animated light sweep */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent"
+                      style={{
+                        animation: "founderLineSweep 3.5s infinite ease-in-out",
+                        width: "100px",
+                      }}
+                    />
+                  </div>
+                </div>
                 <h2
                   className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
                   style={{ fontSize: "clamp(5rem, 13vw, 9rem)" }}

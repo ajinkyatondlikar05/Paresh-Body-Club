@@ -967,3 +967,16 @@ body {
   }
 }
 
+@keyframes founderLineSweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  40% {
+    transform: translateX(220%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+
