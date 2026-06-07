@@ -247,18 +247,18 @@ export default function Membership() {
   };
 
   return (
-    <section 
-      id="membership" 
+    <section
+      id="membership"
       className="py-20 sm:py-28 lg:pb-0 bg-[#09090b] relative overflow-hidden"
     >
       {/* ── BACKGROUND POSTER LAYER ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 select-none">
-        
+
         {/* Red ambient background glows */}
         <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-red-650/10 rounded-full blur-[140px] animate-glow-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-red-600/10 rounded-full blur-[140px] animate-glow-pulse" />
         <div className="absolute top-1/3 right-[10%] w-[350px] h-[350px] bg-red-550/15 rounded-full blur-[120px] animate-glow-pulse" />
-        
+
         {/* Drifting smoke effect */}
         <div className="absolute inset-0 opacity-25">
           <div className="absolute top-20 -left-10 w-96 h-96 bg-stone-950/20 blur-[70px] rounded-full animate-smoke-slow" />
@@ -285,40 +285,35 @@ export default function Membership() {
         {/* Top-Left Muscular Bodybuilder Photo Background */}
         <div className="absolute top-0 left-0 w-[50%] lg:w-[42%] xl:w-[40%] 2xl:w-[38%] h-[470px] md:h-[430px] lg:h-[850px] xl:h-[870px] 2xl:h-[900px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
           <div className="w-full h-full relative scale-[1.25] translate-y-[-20px] origin-top-left md:scale-[1.20] md:translate-y-0 md:origin-left lg:scale-[1.30] lg:translate-y-[-60px] lg:origin-top-left">
-            <img 
-              src="/membership-left-clean.jpg?v=5" 
+            <img
+              src="/membership-left-clean.jpg?v=5"
               alt="Bodybuilder decoration"
               className="w-full h-full object-cover filter contrast-130 brightness-[1.05] saturate-110 md:contrast-110 md:brightness-[0.8] animate-bodybuilder-breathe object-[left_20%] lg:object-top"
             />
-            {/* Subtle Rim Lighting Highlight */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(239,68,68,0.4),transparent_50%)] mix-blend-screen pointer-events-none md:hidden" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-50% to-[#09090b]" />
-          <div className="absolute top-[20%] left-[-10%] w-[250px] h-[250px] bg-red-650/30 rounded-full blur-[80px] md:hidden pointer-events-none" />
         </div>
 
         {/* Top-Right Gym Equipment Poster Texture */}
         <div className="absolute top-0 right-0 w-[50%] h-[470px] md:h-[430px] lg:h-[680px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
-          <img 
-            src="/membership-right-clean.jpg?v=5" 
+          <img
+            src="/membership-right-clean.jpg?v=5"
             alt="Gym background"
             className="w-full h-full object-cover object-right filter contrast-125 brightness-[1.70] saturate-110 md:brightness-[1.15]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-35% to-[#09090b] md:via-35%" />
-          <div className="absolute top-[10%] right-[10%] w-[180px] h-[180px] bg-red-650/20 rounded-full blur-[40px] md:hidden pointer-events-none" />
-          <div className="absolute top-1/2 right-[5%] w-[200px] h-[200px] bg-red-500/30 rounded-full blur-[60px] md:hidden pointer-events-none" />
         </div>
         {/* Bottom Red Glow Gradient — Desktop Only */}
         <div className="absolute top-[720px] left-0 right-0 h-[130px] bg-gradient-to-t from-red-650/25 via-red-900/5 to-transparent z-10 pointer-events-none hidden lg:block" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* ── SLANTED BOLD HEADER ── */}
         <div className="text-center mb-4 lg:mb-14 relative z-10 max-w-[280px] sm:max-w-none mx-auto translate-y-[25px] translate-x-0 md:translate-y-0 md:translate-x-12 lg:translate-x-0 xl:translate-x-0">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -327,10 +322,10 @@ export default function Membership() {
           >
             <DumbbellIcon />
           </motion.div>
-          
+
           {/* Mobile/Tablet Heading (visible on screens < lg) */}
           <h2 className="lg:hidden font-display font-black text-center uppercase tracking-tight italic select-none flex flex-col gap-0 leading-[0.85] sm:block sm:text-5xl md:text-6xl">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: -25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -339,7 +334,7 @@ export default function Membership() {
             >
               GYM
             </motion.span>
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: -25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -348,7 +343,7 @@ export default function Membership() {
             >
               MEMBERSHIP
             </motion.span>
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: -25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -362,7 +357,7 @@ export default function Membership() {
 
           {/* Desktop Heading (visible only on lg/xl/2xl) */}
           <h2 className="hidden lg:flex flex-col gap-0 leading-[0.82] text-center uppercase tracking-tighter italic select-none font-display font-black text-[95px] xl:text-[110px] w-full items-center justify-center">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -371,7 +366,7 @@ export default function Membership() {
             >
               GYM
             </motion.span>
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -380,7 +375,7 @@ export default function Membership() {
             >
               MEMBERSHIP
             </motion.span>
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -403,7 +398,7 @@ export default function Membership() {
         >
           {/* Mobile left line */}
           <div className="h-[1.5px] bg-red-500 w-6 shrink-0 sm:hidden" />
-          
+
           {/* Desktop left line */}
           <div className="h-[2px] bg-red-500 w-16 xl:w-20 shrink-0 hidden lg:block" />
 
@@ -413,7 +408,7 @@ export default function Membership() {
           </p>
 
           {/* Desktop text */}
-          <p 
+          <p
             className="hidden lg:block text-white font-sans text-lg xl:text-xl text-center uppercase tracking-[0.25em] italic font-black leading-[1.35] select-none"
             style={{ textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}
           >
@@ -428,7 +423,7 @@ export default function Membership() {
           {/* Desktop right line */}
           <div className="h-[2px] bg-red-500 w-16 xl:w-20 shrink-0 hidden lg:block" />
         </motion.div>
-        
+
         {/* ── MAIN VERTICAL STACKED LAYOUT ── */}
         <motion.div
           variants={containerVariants}
@@ -437,7 +432,7 @@ export default function Membership() {
           viewport={{ once: true, margin: "-100px" }}
           className="flex flex-col gap-10 sm:gap-12 max-w-4xl mx-auto relative z-10 mt-[45px] md:mt-0"
         >
-          
+
           {/* 1. MEMBERSHIP TABLE CARD (Full width layout) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
@@ -451,7 +446,7 @@ export default function Membership() {
               <div className="overflow-x-auto rounded-xl border border-white/10 scrollbar-none">
                 <table className="w-full border-collapse">
                   <thead>
-                    <motion.tr 
+                    <motion.tr
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
@@ -476,7 +471,7 @@ export default function Membership() {
                       </th>
                     </motion.tr>
                   </thead>
-                  <motion.tbody 
+                  <motion.tbody
                     variants={{
                       hidden: {},
                       visible: {
@@ -492,8 +487,8 @@ export default function Membership() {
                     className="divide-y divide-white/10 font-sans text-xs sm:text-[15px] text-stone-200"
                   >
                     {MEMBERSHIP_ROWS.map((row) => (
-                      <motion.tr 
-                        key={row.no} 
+                      <motion.tr
+                        key={row.no}
                         variants={{
                           hidden: { opacity: 0, y: 15 },
                           visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } }
@@ -534,7 +529,7 @@ export default function Membership() {
             </div>
 
             {/* Note banner at bottom */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -568,7 +563,7 @@ export default function Membership() {
                   >
                     <OctagonClipboardIcon />
                   </motion.div>
-                  <motion.h3 
+                  <motion.h3
                     initial={{ opacity: 0, x: -25 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -579,7 +574,7 @@ export default function Membership() {
                   </motion.h3>
                 </div>
                 {/* Red divider line with stars */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scaleX: 0 }}
                   whileInView={{ opacity: 1, scaleX: 1 }}
                   viewport={{ once: true }}
@@ -593,7 +588,7 @@ export default function Membership() {
               </div>
 
               {/* Rules List */}
-              <motion.div 
+              <motion.div
                 variants={{
                   hidden: {},
                   visible: {
@@ -608,8 +603,8 @@ export default function Membership() {
                 className="flex flex-col"
               >
                 {RULES.map((rule, index) => (
-                  <motion.div 
-                    key={index} 
+                  <motion.div
+                    key={index}
                     variants={{
                       hidden: { opacity: 0, x: -20 },
                       visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
@@ -617,7 +612,7 @@ export default function Membership() {
                     className="relative py-4 sm:py-5 flex items-center gap-3.5 sm:gap-5 group"
                   >
                     {/* Rounded Square Badge */}
-                    <motion.div 
+                    <motion.div
                       animate={{ boxShadow: ["0 0 10px rgba(239,68,68,0.45)", "0 0 20px rgba(239,68,68,0.75)", "0 0 10px rgba(239,68,68,0.45)"] }}
                       transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                       className="w-7 h-7 sm:w-8 sm:h-8 rounded bg-red-600 flex items-center justify-center shrink-0 font-display font-extrabold text-white text-sm sm:text-base"
@@ -629,7 +624,7 @@ export default function Membership() {
                       {rule.text}
                     </p>
                     {/* Circle Icon Badge */}
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
@@ -670,7 +665,7 @@ export default function Membership() {
 
           {/* ── HEADLINE ── */}
           <h4 className="font-display font-black italic uppercase tracking-tighter leading-[0.88] select-none text-white" style={{ fontSize: "clamp(2.5rem, 10vw, 4.8rem)" }}>
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -696,7 +691,7 @@ export default function Membership() {
                 STRONG.
               </motion.span>
             </motion.span>
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -705,7 +700,7 @@ export default function Membership() {
             >
               STAY FOCUSED.
             </motion.span>
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -735,12 +730,12 @@ export default function Membership() {
           </h4>
 
           {/* ── SUBTEXT ── */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.95 }}
-            className="mt-10 font-sans font-bold uppercase tracking-widest text-stone-400 select-none flex flex-col items-center leading-relaxed" 
+            className="mt-10 font-sans font-bold uppercase tracking-widest text-stone-400 select-none flex flex-col items-center leading-relaxed"
             style={{ fontSize: "clamp(0.8rem, 3.5vw, 1.15rem)" }}
           >
             <span>LET'S BUILD A BETTER,</span>
@@ -756,17 +751,17 @@ export default function Membership() {
           {/* ── BOTTOM DIVIDER ── */}
           <div className="relative w-full max-w-lg flex items-center justify-center mt-12">
             {/* Left Thin Line */}
-            <motion.div 
+            <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 1.55 }}
               style={{ transformOrigin: "right" }}
-              className="absolute left-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30" 
+              className="absolute left-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30"
             />
-            
+
             {/* Dumbbell Icon */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               viewport={{ once: true }}
@@ -781,15 +776,15 @@ export default function Membership() {
                 <rect x="18.5" y="7.5" width="2" height="9" rx="0.8" />
               </svg>
             </motion.div>
-            
+
             {/* Right Thin Line */}
-            <motion.div 
+            <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 1.55 }}
               style={{ transformOrigin: "left" }}
-              className="absolute right-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30" 
+              className="absolute right-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30"
             />
           </div>
         </div>
