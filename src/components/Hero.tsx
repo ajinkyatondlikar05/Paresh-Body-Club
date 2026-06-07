@@ -179,12 +179,12 @@ export default function Hero() {
           <path d="M14.5 8.5h.1" />
         </svg>
       ),
-      value: "10+",  target: 10,  suffix: "+",
+      value: "10+", target: 10, suffix: "+",
       label: "YEARS EXPERIENCE",
     },
-    { icon: <Users size={20} strokeWidth={1.8} />,   value: "500+", target: 500, suffix: "+", label: "HAPPY MEMBERS" },
-    { icon: <Dumbbell size={20} strokeWidth={1.8} />, value: "25+",  target: 25,  suffix: "+", label: "EQUIPMENTS" },
-    { icon: <Trophy size={20} strokeWidth={1.8} />,   value: "100%", target: 100, suffix: "%", label: "DEDICATION" },
+    { icon: <Users size={20} strokeWidth={1.8} />, value: "500+", target: 500, suffix: "+", label: "HAPPY MEMBERS" },
+    { icon: <Dumbbell size={20} strokeWidth={1.8} />, value: "25+", target: 25, suffix: "+", label: "EQUIPMENTS" },
+    { icon: <Trophy size={20} strokeWidth={1.8} />, value: "100%", target: 100, suffix: "%", label: "DEDICATION" },
   ];
 
   // Mobile-only stats: updated values, desktop stats above are unchanged
@@ -199,9 +199,9 @@ export default function Hero() {
       value: "15+", target: 15, suffix: "+",
       label: "YEARS EXPERIENCE",
     },
-    { icon: <Users size={20} strokeWidth={1.8} />,   value: "10K",  target: 10000, suffix: "", label: "HAPPY MEMBERS" },
-    { icon: <Dumbbell size={20} strokeWidth={1.8} />, value: "25+",  target: 25,  suffix: "+", label: "EQUIPMENTS" },
-    { icon: <Trophy size={20} strokeWidth={1.8} />,   value: "100%", target: 100, suffix: "%", label: "DEDICATION" },
+    { icon: <Users size={20} strokeWidth={1.8} />, value: "10K", target: 10, suffix: "K", label: "HAPPY MEMBERS" },
+    { icon: <Dumbbell size={20} strokeWidth={1.8} />, value: "25+", target: 25, suffix: "+", label: "EQUIPMENTS" },
+    { icon: <Trophy size={20} strokeWidth={1.8} />, value: "100%", target: 100, suffix: "%", label: "DEDICATION" },
   ];
 
   /* Stats viewport detection — animate in when scrolled into view */
@@ -286,9 +286,8 @@ export default function Hero() {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className={`flex flex-col items-center justify-center gap-1.5 py-4 px-2 text-center ${
-                  i < 3 ? "border-r border-white/8" : ""
-                }`}
+                className={`flex flex-col items-center justify-center gap-1.5 py-4 px-2 text-center ${i < 3 ? "border-r border-white/8" : ""
+                  }`}
               >
                 <div className="text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)]">
                   {stat.icon}
@@ -380,11 +379,11 @@ export default function Hero() {
 
         {/* ── FLOATING RED PARTICLES (5) ── */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
-          <Particle x="8%"  y="25%" size={3}   delay={0}   duration={5.5} />
-          <Particle x="72%" y="18%" size={2}   delay={1.2} duration={7}   />
-          <Particle x="55%" y="55%" size={2.5} delay={2.4} duration={6}   />
-          <Particle x="20%" y="65%" size={2}   delay={0.8} duration={8}   />
-          <Particle x="85%" y="42%" size={3}   delay={3}   duration={5}   />
+          <Particle x="8%" y="25%" size={3} delay={0} duration={5.5} />
+          <Particle x="72%" y="18%" size={2} delay={1.2} duration={7} />
+          <Particle x="55%" y="55%" size={2.5} delay={2.4} duration={6} />
+          <Particle x="20%" y="65%" size={2} delay={0.8} duration={8} />
+          <Particle x="85%" y="42%" size={3} delay={3} duration={5} />
         </div>
 
         {/* ═══════════════════════════════════════════════════════════════
@@ -707,36 +706,32 @@ export default function Hero() {
         {/* ── STATS — solid bg, z-index above hero so athlete never bleeds through ── */}
         <div ref={statsRef} className="px-4 pb-6 home-stats-container" style={{ position: "relative", zIndex: 10, background: "#050505", marginTop: "0px", paddingTop: "0px" }}>
           <div className="grid grid-cols-2" style={{ gap: "24px" }}>
-          {mobileStats.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 22 }}
-              animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
-              className="stat-card-glow flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl bg-[#111111] text-center"
-              style={{ willChange: "transform, opacity" }}
-            >
-              <div className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.65)]">
-                {stat.icon}
-              </div>
-              {/* Counter: animates 0 → target once counterStarted fires */}
-              <div className="font-display font-black text-white leading-none tracking-tight" style={{ fontSize: "clamp(1.7rem, 8.5vw, 2.2rem)" }}>
-                {stat.label === "HAPPY MEMBERS" ? (
-                  <span>10K</span>
-                ) : (
+            {mobileStats.map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 22 }}
+                animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+                className="stat-card-glow flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl bg-[#111111] text-center"
+                style={{ willChange: "transform, opacity" }}
+              >
+                <div className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.65)]">
+                  {stat.icon}
+                </div>
+                {/* Counter: animates 0 → target once counterStarted fires */}
+                <div className="font-display font-black text-white leading-none tracking-tight" style={{ fontSize: "clamp(1.7rem, 8.5vw, 2.2rem)" }}>
                   <AnimatedCounter
                     target={stat.target}
                     suffix={stat.suffix}
                     started={statsInView}
                     delayMs={500 + (i * 100)}
                   />
-                )}
-              </div>
-              <div className="text-[9px] font-bold tracking-widest text-stone-500 uppercase leading-tight">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
+                </div>
+                <div className="text-[9px] font-bold tracking-widest text-stone-500 uppercase leading-tight">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
