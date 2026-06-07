@@ -317,7 +317,7 @@ export default function Membership() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ── SLANTED BOLD HEADER ── */}
-        <div className="text-center mb-4 relative z-10 max-w-[280px] sm:max-w-none mx-auto translate-y-[25px] translate-x-0 md:translate-y-0 md:translate-x-12 lg:translate-x-0 xl:translate-x-0">
+        <div className="text-center mb-4 lg:mb-14 relative z-10 max-w-[280px] sm:max-w-none mx-auto translate-y-[25px] translate-x-0 md:translate-y-0 md:translate-x-12 lg:translate-x-0 xl:translate-x-0">
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -399,7 +399,7 @@ export default function Membership() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.45 }}
-          className="flex items-center justify-center gap-4 lg:gap-8 w-full max-w-[280px] sm:max-w-none mx-auto mb-12 relative z-10 translate-y-[35px] md:translate-y-0"
+          className="flex items-center justify-center gap-4 lg:gap-8 w-full max-w-[280px] sm:max-w-none mx-auto mb-12 relative z-10 translate-y-[35px] md:translate-y-0 lg:mt-6"
         >
           {/* Mobile left line */}
           <div className="h-[1.5px] bg-red-500 w-6 shrink-0 sm:hidden" />
