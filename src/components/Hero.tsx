@@ -207,27 +207,6 @@ export default function Hero() {
         <div className="relative z-10 flex flex-col justify-center px-16 xl:px-20 pt-28 pb-0 w-[52%] xl:w-[50%]">
           <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-red-600/10 blur-[120px] pointer-events-none" />
 
-          {/* Rating badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
-            className="inline-flex self-start items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-md mb-6 shadow-xl"
-          >
-            <div className="flex items-center gap-1 text-yellow-400">
-              <Star size={12} className="fill-yellow-400 text-yellow-400" />
-              <span className="text-xs font-black text-white leading-none">4.8</span>
-            </div>
-            <span className="h-3 w-px bg-white/20 mx-1" />
-            <span className="text-stone-300 text-[10px] font-bold tracking-wider uppercase leading-none">
-              10 GOOGLE REVIEWS
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-red-500 mx-1 animate-pulse" />
-            <span className="text-[10px] text-red-500 font-bold tracking-wider uppercase leading-none">
-              MURBAD'S BEST GYM
-            </span>
-          </motion.div>
-
           {/* Main headline */}
           <motion.h1
             initial={{ opacity: 0, x: -30 }}
