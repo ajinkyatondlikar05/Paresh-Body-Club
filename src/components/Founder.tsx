@@ -273,12 +273,19 @@ export default function Founder() {
                   />
                 </div>
                 <h2
-                  className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] mb-3"
+                  className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] flex flex-col items-start"
                   style={{ fontSize: "clamp(5rem, 13vw, 9rem)" }}
                 >
-                  PARESH HINDURAO
+                  <span>PARESH</span>
+                  <span>HINDURAO</span>
                 </h2>
-                <div className="text-stone-400 font-sans text-[16px] font-extrabold mt-3 uppercase tracking-wider flex flex-col gap-y-1">
+                <div
+                  className="text-[#D4AF37] font-sans text-[16px] font-extrabold uppercase tracking-wider flex flex-col gap-y-1"
+                  style={{
+                    marginTop: "24px",
+                    textShadow: "0 0 8px rgba(212,175,55,0.25)",
+                  }}
+                >
                   <span>PROFESSIONAL BODYBUILDER</span>
                   <span>IFSA CERTIFIED TRAINER</span>
                 </div>
