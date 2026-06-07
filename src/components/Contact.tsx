@@ -61,79 +61,11 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Contact Layout Grid Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+        {/* Contact Layout Centered Container */}
+        <div className="max-w-3xl mx-auto w-full">
           
-          {/* Left Side: Contact details + Embedded Interactive maps */}
-          <div className="hidden lg:flex lg:col-span-5 flex-col justify-between space-y-8">
-            <div className="space-y-6">
-              <h3 className="font-display font-black text-white text-xl uppercase tracking-wider">
-                Our Headquarters
-              </h3>
-              
-              <div className="space-y-4">
-                {/* Physical Address */}
-                <div className="flex gap-4 p-4 rounded-xl bg-stone-900/60 border border-white/5">
-                  <div className="p-3 bg-red-650/10 rounded-lg text-red-500 shrink-0">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <span className="text-stone-500 text-[10px] uppercase font-bold tracking-wider block">Physical Location</span>
-                    <span className="text-white text-xs sm:text-sm font-semibold block mt-0.5">
-                      Mata Nagar Rd, Shirgaon, Murbad, Maharashtra 421401
-                    </span>
-                    <span className="text-red-500 text-[10px] uppercase font-bold tracking-wider block mt-1.5 font-mono">
-                      Location Code: 794Q+CW Murbad, Maharashtra
-                    </span>
-                  </div>
-                </div>
-
-                {/* Telephone Line */}
-                <div className="flex gap-4 p-4 rounded-xl bg-stone-900/60 border border-white/5">
-                  <div className="p-3 bg-red-650/10 rounded-lg text-red-500 shrink-0">
-                    <Phone size={20} />
-                  </div>
-                  <div>
-                    <span className="text-stone-500 text-[10px] uppercase font-bold tracking-wider block">Direct Line</span>
-                    <a href="tel:+919021468123" className="text-white text-sm sm:text-base font-bold block mt-0.5 hover:text-red-500 transition-colors">
-                      +91 90214 68123
-                    </a>
-                  </div>
-                </div>
-
-                {/* Electronic Mailbox */}
-                <div className="flex gap-4 p-4 rounded-xl bg-stone-900/60 border border-white/5">
-                  <div className="p-3 bg-red-650/10 rounded-lg text-red-500 shrink-0">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <span className="text-stone-500 text-[10px] uppercase font-bold tracking-wider block">Inquiry Mailbox</span>
-                    <a href="mailto:info@pareshbodyclub.com" className="text-white text-sm sm:text-base font-bold block mt-0.5 hover:text-red-500 transition-colors">
-                      info@pareshbodyclub.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Custom Google Maps Embed targeting Mata Nagar, Shirgaon, Murbad */}
-            <div className="h-52 sm:h-64 rounded-2xl overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] bg-stone-900 relative">
-              <iframe
-                title="PARESH BODY CLUB Google Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.518602652497!2d73.3970222!3d19.2274404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ebd4f1ecb2e9%3A0xe8c7b6ffddb933cc!2sMurbad%2C%20Maharashtra%20421401!5e0!3m2!1sen!2sin!4v1716719138092!5m2!1sen!2sin"
-                className="w-full h-full border-0 filter grayscale invert contrast-110 opacity-75"
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-              <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded border border-white/5 flex items-center gap-1.5 shadow">
-                <Navigation size={10} className="text-red-500" /> Shirgaon Region
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side: High-polish Interaction Form */}
-          <div className="lg:col-span-7">
+          {/* High-polish Interaction Form */}
+          <div className="w-full">
             <div className="bg-[#0f0f13] border border-white/10 p-6 sm:p-10 rounded-2xl shadow-[0_20px_45px_rgba(0,0,0,0.6)] flex flex-col justify-between h-full">
               
               <AnimatePresence mode="wait">
