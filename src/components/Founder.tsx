@@ -242,8 +242,8 @@ export default function Founder() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full py-20" style={{ minHeight: "580px" }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
 
-            {/* Desktop: Left text column */}
-            <div className="lg:col-span-8 space-y-6 text-left relative z-20">
+            {/* Desktop: Left text column — capped at col-span-6 so content stays left of bodybuilder */}
+            <div className="lg:col-span-6 space-y-6 text-left relative z-20 pr-4">
               <div>
                 <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
                   FOUNDER
@@ -271,8 +271,8 @@ export default function Founder() {
                 confidence."
               </p>
 
-              {/* Desktop philosophy card */}
-              <div className="border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-3xl p-4 sm:p-7 transition-all duration-500 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.18)]">
+              {/* Desktop philosophy card — max-w constrained to stay inside left column */}
+              <div className="border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-[440px] p-4 sm:p-7 transition-all duration-500 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.18)]">
                 <span className="text-stone-500 text-[10px] uppercase font-bold tracking-widest block mb-1.5">
                   PERSONAL PHILOSOPHY ROOM
                 </span>
@@ -286,7 +286,7 @@ export default function Founder() {
             </div>
 
             {/* Desktop: Right col spacer (photo is absolute-positioned above) */}
-            <div className="lg:col-span-4" />
+            <div className="lg:col-span-6" />
           </div>
         </div>
       </div>
