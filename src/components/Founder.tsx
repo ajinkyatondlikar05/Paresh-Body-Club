@@ -280,13 +280,14 @@ export default function Founder() {
                   <span>HINDURAO</span>
                 </h2>
                 <div
-                  className="text-[#D4AF37] font-sans text-[16px] font-extrabold uppercase tracking-wider flex flex-col gap-y-1"
+                  className="text-[#D4AF37] font-sans text-[19px] font-extrabold uppercase flex flex-col gap-y-1"
                   style={{
                     marginTop: "24px",
                     marginLeft: "0px",
                     paddingLeft: "0px",
                     textAlign: "left",
-                    textShadow: "0 0 8px rgba(212,175,55,0.25)",
+                    letterSpacing: "1.8px",
+                    textShadow: "0 0 8px rgba(212,175,55,0.35), 0 0 16px rgba(212,175,55,0.15)",
                   }}
                 >
                   <span>PROFESSIONAL BODYBUILDER</span>
