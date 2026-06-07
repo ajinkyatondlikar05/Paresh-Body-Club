@@ -42,7 +42,7 @@ export default function Contact() {
   return (
     <section 
       id="contact" 
-      className="py-24 bg-[#0a0a0c] relative overflow-hidden bg-grid-pattern"
+      className="py-24 bg-[#0a0a0c] relative overflow-hidden bg-grid-pattern lg:hidden"
     >
       <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-red-500/15 to-transparent"></div>
 
