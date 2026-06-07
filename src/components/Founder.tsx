@@ -282,8 +282,6 @@ export default function Founder() {
                   <span>PROFESSIONAL BODYBUILDER</span>
                   <span className="text-red-500 font-black">•</span>
                   <span>IFSA CERTIFIED TRAINER</span>
-                  <span className="text-red-500 font-black">•</span>
-                  <span className="text-red-500">PARESH BODY CLUB</span>
                 </div>
               </div>
 
