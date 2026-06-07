@@ -245,7 +245,14 @@ export default function Founder() {
             {/* Desktop: Left text column — capped at col-span-6 so content stays left of bodybuilder */}
             <div className="lg:col-span-6 space-y-6 text-left relative z-20 pr-4">
               <div>
-                <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
+                <span
+                  className="text-red-500 font-display font-black uppercase block mb-2"
+                  style={{
+                    fontSize: "1.25rem",
+                    letterSpacing: "0.3em",
+                    textShadow: "0 0 18px rgba(239,68,68,0.55)",
+                  }}
+                >
                   FOUNDER
                 </span>
                 <h2
