@@ -411,20 +411,20 @@ body {
   }
 
   /* ── Contact: Full single column layout ── */
-  #contact .grid.lg\:grid-cols-12 {
+  #contact-mobile .grid.lg\:grid-cols-12 {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
   }
-  #contact .lg\:col-span-5,
-  #contact .lg\:col-span-7 {
+  #contact-mobile .lg\:col-span-5,
+  #contact-mobile .lg\:col-span-7 {
     grid-column: span 1 !important;
   }
-  #contact .h-52 {
+  #contact-mobile .h-52 {
     height: 180px !important;
   }
   /* Form inputs - full width and comfortable touch targets */
-  #contact input,
-  #contact textarea {
+  #contact-mobile input,
+  #contact-mobile textarea {
     font-size: 16px !important; /* prevents iOS zoom */
   }
 

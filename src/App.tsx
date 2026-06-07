@@ -40,7 +40,14 @@ export default function App() {
       const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
-        const element = document.getElementById(section);
+        let elementId = section;
+        if (section === "contact") {
+          const isDesktop = window.innerWidth >= 1024;
+          if (!isDesktop) {
+            elementId = "contact-mobile";
+          }
+        }
+        const element = document.getElementById(elementId);
         if (element) {
           const top = element.offsetTop;
           const height = element.offsetHeight;

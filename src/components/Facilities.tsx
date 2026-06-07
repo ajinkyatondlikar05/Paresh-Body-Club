@@ -202,7 +202,12 @@ export default function Facilities() {
           </div>
           <button 
             onClick={() => {
-              const element = document.getElementById("contact");
+              let targetId = "contact";
+              const isDesktop = window.innerWidth >= 1024;
+              if (!isDesktop) {
+                targetId = "contact-mobile";
+              }
+              const element = document.getElementById(targetId);
               if (element) {
                 element.scrollIntoView({ behavior: "smooth" });
               }

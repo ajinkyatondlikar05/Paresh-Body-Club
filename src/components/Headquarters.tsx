@@ -67,7 +67,7 @@ export default function Headquarters() {
 
   return (
     <motion.section
-      id="headquarters"
+      id="contact"
       ref={ref}
       variants={containerVariants}
       initial="hidden"
