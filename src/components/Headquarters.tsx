@@ -248,7 +248,10 @@ export default function Headquarters() {
           <div className="col-span-5 space-y-8 text-left">
             {/* Section Header */}
             <div className="mb-6">
-              <span className="text-red-500 font-display font-black uppercase text-sm tracking-[0.25em] block mb-3">
+              <span 
+                className="text-red-500 font-display font-black uppercase text-xl tracking-[0.3em] block mb-5"
+                style={{ textShadow: "0 0 8px rgba(239,68,68,0.4), 0 0 16px rgba(239,68,68,0.15)" }}
+              >
                 FIND US
               </span>
               <h2 className="font-display font-black text-5xl text-white uppercase tracking-tight">
