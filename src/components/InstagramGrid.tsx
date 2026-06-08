@@ -58,6 +58,7 @@ export default function InstagramGrid() {
                 alt={`Instagram Reel Preview ${reel.id}`}
                 className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
 
               {/* Dark Gradient Overlay */}

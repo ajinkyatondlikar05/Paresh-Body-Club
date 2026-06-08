@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { 
   MapPin, 
   Send, 
@@ -20,9 +20,34 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [lastSubmitTime, setLastSubmitTime] = useState<number>(0);
+
+  useEffect(() => {
+    const storedTime = localStorage.getItem("lastContactSubmit");
+    if (storedTime) {
+      setLastSubmitTime(parseInt(storedTime, 10));
+    }
+  }, []);
+
+  const sanitizeInput = (input: string) => {
+    return input.replace(/<[^>]*>?/gm, "").trim();
+  };
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!name || !phoneNumber) return;
+    
+    const now = Date.now();
+    // Rate limiting: 1 submission per 5 minutes
+    if (now - lastSubmitTime < 5 * 60 * 1000) {
+      alert("Please wait 5 minutes before submitting another query.");
+      return;
+    }
+
+    const cleanName = sanitizeInput(name);
+    const cleanPhone = sanitizeInput(phoneNumber);
+    const cleanMessage = sanitizeInput(message);
+
+    if (!cleanName || !cleanPhone || !cleanMessage) return;
 
     setLoading(true);
 
@@ -30,6 +55,9 @@ export default function Contact() {
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
+      
+      localStorage.setItem("lastContactSubmit", now.toString());
+      setLastSubmitTime(now);
       
       // Reset form
       setName("");

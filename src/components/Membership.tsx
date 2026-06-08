@@ -289,6 +289,7 @@ export default function Membership() {
               src="/membership-left-clean.jpg?v=5"
               alt="Bodybuilder decoration"
               className="w-full h-full object-cover filter contrast-[1.35] brightness-[1.10] saturate-[1.25] md:contrast-110 md:brightness-[0.8] animate-bodybuilder-breathe object-[left_20%] lg:object-top"
+              loading="lazy"
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b] opacity-55 lg:opacity-100" />
@@ -303,6 +304,7 @@ export default function Membership() {
             src="/membership-right-clean.jpg?v=5"
             alt="Gym background"
             className="w-full h-full object-cover object-right filter contrast-125 brightness-[1.70] saturate-110 md:brightness-[1.15]"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b] opacity-55 lg:opacity-100" />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-35% to-[#09090b] md:via-35% opacity-55 lg:opacity-100" />

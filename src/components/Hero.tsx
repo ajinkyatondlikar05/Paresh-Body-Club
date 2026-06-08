@@ -319,6 +319,7 @@ export default function Hero() {
               className="w-full h-full object-cover object-center"
               style={{ filter: "brightness(0.72) saturate(1.1) contrast(1.1)" }}
               referrerPolicy="no-referrer"
+              loading="eager"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0c0c0e] via-[#0c0c0e]/10 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-[#0c0c0e]/10 to-transparent" />
@@ -558,6 +559,7 @@ export default function Hero() {
                 willChange: "transform, opacity",
               }}
               referrerPolicy="no-referrer"
+              loading="eager"
             />
           </motion.div>
 

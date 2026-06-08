@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pareshbodyclub.com/sitemap.xml

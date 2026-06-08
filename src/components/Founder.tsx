@@ -215,6 +215,7 @@ export default function Founder() {
           initial={{ filter: "brightness(1.06) contrast(1.12) saturate(1.08)" }}
           whileHover={{ filter: "brightness(1.15) contrast(1.25) saturate(1.15)" }}
           transition={{ duration: 0.3 }}
+          loading="lazy"
         />
 
         {/* Subtle left-edge fade — blends image into text section naturally */}
@@ -370,6 +371,7 @@ export default function Founder() {
               initial={{ filter: "brightness(1.16) contrast(1.18) saturate(1.12) hue-rotate(2deg)" }}
               whileHover={{ filter: "brightness(1.25) contrast(1.25) saturate(1.2) hue-rotate(2deg)" }}
               transition={{ duration: 0.25 }}
+              loading="lazy"
             />
             {/* Warm red ambient glow — matches reference image 2 skin tone */}
             <div className="absolute inset-0" style={{
