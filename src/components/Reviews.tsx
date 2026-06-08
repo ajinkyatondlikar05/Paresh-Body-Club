@@ -77,7 +77,7 @@ export default function Reviews() {
                 <h4 className="font-display font-bold text-xs sm:text-sm text-white group-hover:text-red-500 transition-colors duration-200 uppercase">
                   {rev.author}
                 </h4>
-                <span className="text-[10px] font-mono text-stone-600 block">
+                <span className="text-[10px] font-mono text-white block">
                   {rev.date}
                 </span>
               </div>
