@@ -188,30 +188,6 @@ export default function Facilities() {
           })}
         </div>
 
-        {/* Informative Visual Banner below cards */}
-        <div className="mt-16 bg-gradient-to-r from-red-950/20 via-stone-900/60 to-red-950/20 border border-white/5 p-6 sm:p-8 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="h-2 w-2 rounded-full bg-red-500 animate-ping"></div>
-            <div>
-              <h4 className="font-display font-bold text-sm sm:text-base text-white uppercase tracking-wider">
-                Heavy Load Tested Equipment list
-              </h4>
-              <p className="text-xs text-stone-400 mt-1">Our steel dumbbells go up to advanced heavy limits for extreme bodybuilders.</p>
-            </div>
-          </div>
-          <button
-            onClick={() => {
-              const element = document.getElementById("contact");
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-            className="px-6 py-2.5 bg-stone-900 hover:bg-white text-stone-300 hover:text-red-600 text-xs font-black uppercase tracking-widest rounded-lg border border-white/10 hover:border-white transition-all duration-300 cursor-pointer whitespace-nowrap"
-          >
-            Enquire for virtual tour
-          </button>
-        </div>
-
       </div>
     </section>
   );
