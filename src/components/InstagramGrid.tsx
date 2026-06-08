@@ -1,4 +1,5 @@
 import { Instagram, Play, Film } from "lucide-react";
+import { motion } from "motion/react";
 
 export default function InstagramGrid() {
   const REELS = [
@@ -69,28 +70,38 @@ export default function InstagramGrid() {
 
               {/* Center Play Icon */}
               <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none group-hover:scale-110 transition-transform duration-500">
-                <div className="bg-black/50 backdrop-blur-md p-4 rounded-full text-white/90 group-hover:text-white group-hover:bg-red-600 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.4)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.6)] border border-white/10 group-hover:border-red-500/50">
+                <motion.div
+                  animate={{ boxShadow: ["0 0 15px rgba(0,0,0,0.5)", "0 0 25px rgba(239,68,68,0.4)", "0 0 15px rgba(0,0,0,0.5)"] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="bg-black/50 backdrop-blur-md p-4 rounded-full text-white/90 group-hover:text-white group-hover:bg-red-600 transition-colors duration-300 border border-white/10 group-hover:border-red-500/50"
+                >
                   <Play size={32} className="fill-current translate-x-0.5" />
-                </div>
+                </motion.div>
               </div>
 
               {/* Bottom Content / Watch Button */}
               <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6 flex flex-col items-center translate-y-2 group-hover:translate-y-0 transition-transform duration-300 z-10">
-                <div className="flex items-center justify-center gap-2.5 px-6 py-3.5 bg-red-600/90 backdrop-blur-sm text-white font-black tracking-widest uppercase text-xs rounded-xl border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.5)] group-hover:bg-red-500 group-hover:shadow-[0_0_25px_rgba(239,68,68,0.7)] transition-all duration-300 w-full">
+                <div className="flex items-center justify-center gap-2.5 px-6 py-3.5 bg-red-600/90 backdrop-blur-sm text-white font-black tracking-widest uppercase text-xs rounded-xl border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.5)] group-hover:bg-red-500 group-hover:shadow-[0_0_25px_rgba(239,68,68,0.7)] transition-all duration-300 w-full btn-shine-bmi">
                   <Play size={16} className="fill-current" /> Watch Reel
                 </div>
               </div>
-            </a>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
 
         {/* Prompt Button */}
-        <div className="text-center mt-10">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
+          className="text-center mt-10"
+        >
           <a
             href="https://www.instagram.com/paresh_bodyclub_murbad/"
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-4 lg:gap-5 px-6 lg:px-8 py-3 lg:py-4 bg-stone-900/80 hover:bg-black text-white text-xs lg:text-sm font-black uppercase tracking-widest rounded-2xl border border-white/10 hover:border-pink-500/40 transition-all duration-500 cursor-pointer shadow-lg hover:shadow-[0_0_35px_rgba(236,72,153,0.25)] hover:-translate-y-1"
+            className="group inline-flex items-center gap-4 lg:gap-5 px-6 lg:px-8 py-3 lg:py-4 bg-stone-900/80 hover:bg-black text-white text-xs lg:text-sm font-black uppercase tracking-widest rounded-2xl border border-white/10 hover:border-pink-500/40 transition-all duration-500 cursor-pointer shadow-lg hover:shadow-[0_10px_40px_rgba(236,72,153,0.35)] hover:-translate-y-1.5"
           >
             <div className="relative flex items-center justify-center">
               {/* Soft pink/red glow around the icon */}
@@ -115,7 +126,7 @@ export default function InstagramGrid() {
 
             <span className="group-hover:text-pink-400 transition-colors duration-300">Follow on Instagram</span>
           </a>
-        </div>
+        </motion.div>
 
       </div>
     </section>
