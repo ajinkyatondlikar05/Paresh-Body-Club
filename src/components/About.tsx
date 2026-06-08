@@ -489,32 +489,75 @@ export default function About() {
       </div>
 
       {/* ══════════════════════════════════════════════
-          FEATURES SECTION — dark background below (DESKTOP ONLY)
+          FEATURES SECTION — dark background below
       ══════════════════════════════════════════════ */}
-      <div className="bg-[#0a0a0c] py-24 hidden md:block">
+      <div className="bg-[#0a0a0c] py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div id="why-choose-us" className="text-center mb-12">
-            <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
+            <motion.span
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2"
+            >
               Your Training Verticals
-            </span>
-            <h3 className="font-display font-black text-2xl sm:text-4xl text-white uppercase tracking-tight">
+            </motion.span>
+            <motion.h3
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-display font-black text-2xl sm:text-4xl text-white uppercase tracking-tight"
+            >
               Avenues of Transformation
-            </h3>
-            <p className="text-stone-400 font-sans text-xs sm:text-sm max-w-xl mx-auto mt-2 leading-relaxed">
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="text-stone-400 font-sans text-xs sm:text-sm max-w-xl mx-auto mt-2 leading-relaxed"
+            >
               Unlock multi-disciplinary development zones curated for rapid calorie burning and extreme muscle gains.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.15 } }
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {ABOUT_FEATURES.map((feat, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-stone-900/40 hover:bg-stone-900/80 border border-white/5 hover:border-red-500/20 p-6 rounded-xl transition-all duration-300 hover:-translate-y-1.5 group flex items-start gap-4"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                }}
+                whileHover={{ y: -6, borderColor: "rgba(239, 68, 68, 0.5)", transition: { duration: 0.3 } }}
+                whileTap={{ y: -2 }}
+                className="bg-stone-900/40 hover:bg-stone-900/80 border border-white/5 p-6 rounded-xl transition-colors duration-300 group flex items-start gap-4"
               >
-                <div className="bg-red-500/10 p-2.5 rounded-lg text-red-500 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 shrink-0">
+                <motion.div
+                  animate={{
+                    boxShadow: [
+                      "0 0 0px rgba(239,68,68,0)",
+                      "0 0 12px rgba(239,68,68,0.35)",
+                      "0 0 0px rgba(239,68,68,0)"
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
+                  className="bg-red-500/10 p-2.5 rounded-lg text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors duration-300 shrink-0"
+                >
                   <CheckCircle2 size={18} />
-                </div>
+                </motion.div>
                 <div>
                   <h4 className="font-display font-bold text-base sm:text-lg text-white group-hover:text-red-500 transition-colors duration-200 uppercase tracking-tight">
                     {feat.title}
@@ -523,32 +566,51 @@ export default function About() {
                     {feat.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Why Choose Us */}
           <div className="mt-24 lg:mt-10 pt-16 lg:pt-8 border-t border-white/5">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <motion.div
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.15 } }
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid grid-cols-1 lg:grid-cols-3 gap-10"
+            >
               {whyChooseUs.map((wcu, k) => {
                 const IconComp = wcu.icon;
                 return (
-                  <div key={k} className="flex gap-4">
-                    <div className="p-3 bg-stone-900 rounded-xl border border-white/10 text-red-500 h-12 w-12 flex items-center justify-center shrink-0">
+                  <motion.div
+                    key={k}
+                    variants={{
+                      hidden: { opacity: 0, y: 30 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                    }}
+                    className="flex gap-4 group"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5, borderColor: "rgba(239,68,68,0.5)" }}
+                      className="p-3 bg-stone-900 rounded-xl border border-white/10 text-red-500 h-12 w-12 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-red-950/30"
+                    >
                       <IconComp size={22} />
-                    </div>
+                    </motion.div>
                     <div>
-                      <h4 className="font-display font-black text-white text-base sm:text-lg uppercase tracking-wider">
+                      <h4 className="font-display font-black text-white text-base sm:text-lg uppercase tracking-wider group-hover:text-red-500 transition-colors duration-200">
                         {wcu.title}
                       </h4>
                       <p className="text-stone-400 font-sans text-xs sm:text-sm mt-1 leading-relaxed font-light">
                         {wcu.description}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
 
         </div>
