@@ -11,40 +11,69 @@ export default function FAQ() {
   };
 
   return (
-    <section 
-      id="faq" 
+    <section
+      id="faq"
       className="py-24 bg-[#0c0c0e] relative overflow-hidden"
     >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-red-500/10 to-transparent"></div>
       <div className="absolute top-1/2 right-10 w-96 h-96 rounded-full bg-red-600/5 blur-[130px] pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Header Title */}
         <div className="text-center mb-16">
-          <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
+          <motion.span
+            initial={{ opacity: 0, y: -15 }}
+            whileInView={{ opacity: 1, y: 0, textShadow: "0 0 15px rgba(239,68,68,0.4)" }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2"
+          >
             Cleared Doubts
-          </span>
-          <h2 className="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight">
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 25, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            className="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight"
+          >
             Frequently Asked <span className="text-red-500">Questions</span>
-          </h2>
-          <p className="text-stone-400 font-sans text-xs sm:text-sm max-w-lg mx-auto mt-2 leading-relaxed font-light">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.25 }}
+            className="text-stone-400 font-sans text-xs sm:text-sm max-w-lg mx-auto mt-2 leading-relaxed font-light"
+          >
             Got questions about timing buffers, trainer certifications, or entry routines? Here are rapid breakdowns.
-          </p>
+          </motion.p>
         </div>
 
         {/* Collapsible Accordions layout */}
-        <div className="space-y-4">
+        <motion.div
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.4 } } }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="space-y-4"
+        >
           {FAQS.map((faq) => {
             const isOpen = openId === faq.id;
             return (
-              <div
+              <motion.div
                 key={faq.id}
-                className={`border rounded-xl transition-all duration-300 ${
-                  isOpen 
-                    ? "bg-[#0f0f12] border-red-500/30 shadow-[0_4px_25px_rgba(239,68,68,0.05)]" 
-                    : "bg-[#09090b] border-white/5 hover:border-white/10"
-                }`}
+                variants={{
+                  hidden: { opacity: 0, y: 25 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                }}
+                whileHover={{ y: -4, borderColor: "rgba(239, 68, 68, 0.4)", boxShadow: "0 10px 30px rgba(239,68,68,0.15)", transition: { duration: 0.3 } }}
+                whileTap={{ scale: 0.98 }}
+                className={`border rounded-xl transition-colors duration-300 overflow-hidden ${isOpen
+                    ? "bg-[#0f0f12] border-red-500/40 shadow-[0_4px_25px_rgba(239,68,68,0.15)]"
+                    : "bg-[#09090b] border-white/5"
+                  }`}
               >
                 {/* Accordion Trigger Button Layout */}
                 <button
@@ -52,17 +81,25 @@ export default function FAQ() {
                   className="w-full py-5 px-6 sm:px-8 flex items-center justify-between gap-4 text-left cursor-pointer"
                 >
                   <div className="flex items-center gap-3.5">
-                    <HelpCircle size={18} className={`shrink-0 ${isOpen ? "text-red-500" : "text-stone-400"}`} />
-                    <span className="font-display font-black text-white text-xs sm:text-sm uppercase tracking-wide">
+                    <motion.div
+                      animate={isOpen ? {
+                        filter: ["drop-shadow(0 0 2px rgba(239,68,68,0.2))", "drop-shadow(0 0 10px rgba(239,68,68,0.8))", "drop-shadow(0 0 2px rgba(239,68,68,0.2))"]
+                      } : {}}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <HelpCircle size={18} className={`shrink-0 transition-colors duration-300 ${isOpen ? "text-red-500" : "text-stone-400"}`} />
+                    </motion.div>
+                    <span className={`font-display font-black text-xs sm:text-sm uppercase tracking-wide transition-colors duration-300 ${isOpen ? "text-white" : "text-stone-200"}`}>
                       {faq.question}
                     </span>
                   </div>
-                  <ChevronDown
-                    size={16}
-                    className={`text-stone-500 shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-red-500" : ""
-                    }`}
-                  />
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className={`shrink-0 ${isOpen ? "text-red-500" : "text-stone-500"}`}
+                  >
+                    <ChevronDown size={16} />
+                  </motion.div>
                 </button>
 
                 {/* Accordion Content with framer-motion smooth collapse layout */}
@@ -72,8 +109,7 @@ export default function FAQ() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
-                      className="overflow-hidden"
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                     >
                       <div className="px-6 sm:px-8 pb-5 border-t border-white/5 pt-4 text-stone-400 font-sans text-xs sm:text-sm leading-relaxed font-light whitespace-pre-line">
                         {faq.answer}
@@ -81,10 +117,10 @@ export default function FAQ() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>
