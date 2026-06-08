@@ -92,8 +92,14 @@ export const FACILITIES: FacilityItem[] = [
   },
   {
     id: "fac-9",
-    title: "AC SURVEILLANCE",
-    description: "Air-conditioned environment with CCTV surveillance for a safe, comfortable, and secure workout experience.",
+    title: "FULLY AC GYM",
+    description: "Fully air-conditioned training space for a comfortable workout experience.",
+    iconName: "Snowflake"
+  },
+  {
+    id: "fac-10",
+    title: "CCTV SURVEILLANCE",
+    description: "24/7 CCTV monitoring for a safer and more secure gym environment.",
     iconName: "Cctv"
   }
 ];

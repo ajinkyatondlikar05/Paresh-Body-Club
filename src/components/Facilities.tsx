@@ -9,7 +9,9 @@ import {
   Users,
   Droplets,
   Music,
-  ChevronRight
+  ChevronRight,
+  Snowflake,
+  Cctv
 } from "lucide-react";
 import { FACILITIES } from "../data";
 
@@ -23,6 +25,8 @@ const iconMap: { [key: string]: any } = {
   Users,
   Droplets,
   Music,
+  Snowflake,
+  Cctv,
 };
 
 export default function Facilities() {
