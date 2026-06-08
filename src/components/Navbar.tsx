@@ -16,7 +16,6 @@ export default function Navbar({ activeSection }: NavbarProps) {
     { id: "founder", label: "Founder" },
     { id: "membership", label: "Membership" },
     { id: "facilities", label: "Facilities" },
-    { id: "gallery", label: "Gallery" },
     { id: "reviews", label: "Reviews" },
     { id: "contact", label: "Contact" },
   ];

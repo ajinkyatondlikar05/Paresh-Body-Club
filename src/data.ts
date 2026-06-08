@@ -1,10 +1,9 @@
-import { 
-  FacilityItem, 
-  PlanItem, 
-  ReviewItem, 
-  TrainerItem, 
-  GalleryItem, 
-  FAQItem 
+import {
+  FacilityItem,
+  PlanItem,
+  ReviewItem,
+  TrainerItem,
+  FAQItem
 } from "./types";
 
 export const STATS = [
@@ -174,45 +173,6 @@ export const TRAINERS: TrainerItem[] = [
     role: "Physique & Nutrition Advisor",
     imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop",
     specialties: ["Posture Alignment", "Supplement Guide Layouts", "Power Lifting Mentor"]
-  }
-];
-
-export const GALLERY_ITEMS: GalleryItem[] = [
-  {
-    id: "gal-1",
-    title: "Heavy Strength Setup",
-    category: "Workout area",
-    imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: "gal-2",
-    title: "Premium Lat & Bench Machines",
-    category: "Machines",
-    imageUrl: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: "gal-3",
-    title: "Pro Iron Dumbbells Stack",
-    category: "Dumbbells",
-    imageUrl: "https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: "gal-4",
-    title: "1-on-1 Fitness Mentorship",
-    category: "Fitness training",
-    imageUrl: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: "gal-5",
-    title: "High-Calorie Cardio Zone",
-    category: "Cardio section",
-    imageUrl: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: "gal-6",
-    title: "Motivational Gym Facility Layout",
-    category: "Gym interior",
-    imageUrl: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=800&auto=format&fit=crop"
   }
 ];
 

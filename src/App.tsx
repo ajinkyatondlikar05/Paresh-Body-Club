@@ -12,7 +12,7 @@ import Facilities from "./components/Facilities";
 import BMICalculator from "./components/BMICalculator";
 import Membership from "./components/Membership";
 
-import Gallery from "./components/Gallery";
+
 import Reviews from "./components/Reviews";
 import InstagramGrid from "./components/InstagramGrid";
 import FAQ from "./components/FAQ";
@@ -32,7 +32,7 @@ export default function App() {
         "founder",
         "membership", 
         "facilities", 
-        "gallery", 
+
         "reviews", 
         "contact"
       ];
@@ -90,8 +90,7 @@ export default function App() {
 
 
 
-        {/* Filterable category masonry showcasing real gym images */}
-        <Gallery />
+
 
         {/* Verified ratings metrics star board with custom glassy testimonials cards */}
         <Reviews />
