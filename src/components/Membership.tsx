@@ -5,36 +5,36 @@ import { motion } from "motion/react";
 const DiagonalStripesLeft = () => (
   <div className="absolute top-0 left-0 w-64 h-64 overflow-hidden pointer-events-none select-none z-20">
     {/* Thick Stripe with red glow and border */}
-    <div className="absolute top-[-30px] left-[-90px] w-[280px] h-[26px] bg-red-650 -rotate-45 shadow-[0_0_20px_#ff0000] border-b border-red-400" />
+    <div className="absolute top-[-30px] left-[-90px] w-[280px] h-[26px] bg-red-650 -rotate-45 shadow-none lg:shadow-[0_0_20px_#ff0000] border-b border-red-400" />
     {/* Thin Stripe */}
-    <div className="absolute top-[3px] left-[-80px] w-[280px] h-[6px] bg-red-500 -rotate-45 shadow-[0_0_12px_#ff0000]" />
+    <div className="absolute top-[3px] left-[-80px] w-[280px] h-[6px] bg-red-500 -rotate-45 shadow-none lg:shadow-[0_0_12px_#ff0000]" />
   </div>
 );
 
 const DiagonalStripesRight = () => (
   <div className="absolute top-0 right-0 w-64 h-64 overflow-hidden pointer-events-none select-none z-20">
     {/* Thick Stripe with red glow and border */}
-    <div className="absolute top-[-30px] right-[-90px] w-[280px] h-[26px] bg-red-650 rotate-45 shadow-[0_0_20px_#ff0000] border-b border-red-400" />
+    <div className="absolute top-[-30px] right-[-90px] w-[280px] h-[26px] bg-red-650 rotate-45 shadow-none lg:shadow-[0_0_20px_#ff0000] border-b border-red-400" />
     {/* Thin Stripe */}
-    <div className="absolute top-[3px] right-[-80px] w-[280px] h-[6px] bg-red-500 rotate-45 shadow-[0_0_12px_#ff0000]" />
+    <div className="absolute top-[3px] right-[-80px] w-[280px] h-[6px] bg-red-500 rotate-45 shadow-none lg:shadow-[0_0_12px_#ff0000]" />
   </div>
 );
 
 const DiagonalStripesBottomRight = () => (
   <div className="absolute bottom-0 right-0 w-64 h-64 overflow-hidden pointer-events-none select-none z-20">
     {/* Thick Stripe with red glow and border */}
-    <div className="absolute bottom-[-30px] right-[-90px] w-[280px] h-[26px] bg-red-650 -rotate-45 shadow-[0_0_20px_#ff0000] border-t border-red-400" />
+    <div className="absolute bottom-[-30px] right-[-90px] w-[280px] h-[26px] bg-red-650 -rotate-45 shadow-none lg:shadow-[0_0_20px_#ff0000] border-t border-red-400" />
     {/* Thin Stripe */}
-    <div className="absolute bottom-[3px] right-[-80px] w-[280px] h-[6px] bg-red-500 -rotate-45 shadow-[0_0_12px_#ff0000]" />
+    <div className="absolute bottom-[3px] right-[-80px] w-[280px] h-[6px] bg-red-500 -rotate-45 shadow-none lg:shadow-[0_0_12px_#ff0000]" />
   </div>
 );
 
 const DiagonalStripesBottomLeft = () => (
   <div className="absolute bottom-0 left-0 w-64 h-64 overflow-hidden pointer-events-none select-none z-20">
     {/* Thick Stripe with red glow and border */}
-    <div className="absolute bottom-[-30px] left-[-90px] w-[280px] h-[26px] bg-red-650 rotate-45 shadow-[0_0_20px_#ff0000] border-t border-red-400" />
+    <div className="absolute bottom-[-30px] left-[-90px] w-[280px] h-[26px] bg-red-650 rotate-45 shadow-none lg:shadow-[0_0_20px_#ff0000] border-t border-red-400" />
     {/* Thin Stripe */}
-    <div className="absolute bottom-[3px] left-[-80px] w-[280px] h-[6px] bg-red-500 rotate-45 shadow-[0_0_12px_#ff0000]" />
+    <div className="absolute bottom-[3px] left-[-80px] w-[280px] h-[6px] bg-red-500 rotate-45 shadow-none lg:shadow-[0_0_12px_#ff0000]" />
   </div>
 );
 
@@ -283,27 +283,31 @@ export default function Membership() {
         </div>
 
         {/* Top-Left Muscular Bodybuilder Photo Background */}
-        <div className="absolute top-0 left-0 w-[50%] lg:w-[42%] xl:w-[40%] 2xl:w-[38%] h-[470px] md:h-[430px] lg:h-[850px] xl:h-[870px] 2xl:h-[900px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-0 w-[50%] lg:w-[42%] xl:w-[40%] 2xl:w-[38%] h-[470px] md:h-[430px] lg:h-[850px] xl:h-[870px] 2xl:h-[900px] opacity-[0.55] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
           <div className="w-full h-full relative scale-[1.25] translate-y-[-20px] origin-top-left md:scale-[1.20] md:translate-y-0 md:origin-left lg:scale-[1.30] lg:translate-y-[-60px] lg:origin-top-left">
             <img
               src="/membership-left-clean.jpg?v=5"
               alt="Bodybuilder decoration"
-              className="w-full h-full object-cover filter contrast-130 brightness-[1.05] saturate-110 md:contrast-110 md:brightness-[0.8] animate-bodybuilder-breathe object-[left_20%] lg:object-top"
+              className="w-full h-full object-cover filter contrast-130 brightness-[1.05] saturate-110 md:contrast-110 md:brightness-[0.8] animate-bodybuilder-breathe object-[left_20%] lg:object-top grayscale lg:grayscale-0"
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-50% to-[#09090b]" />
+          {/* Black out the left edge on mobile to remove the red side tint/glow */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#09090b] via-[#09090b]/80 to-transparent lg:hidden z-10" />
         </div>
 
         {/* Top-Right Gym Equipment Poster Texture */}
-        <div className="absolute top-0 right-0 w-[50%] h-[470px] md:h-[430px] lg:h-[680px] opacity-[0.95] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-0 w-[50%] h-[470px] md:h-[430px] lg:h-[680px] opacity-[0.55] lg:opacity-[1.0] z-0 pointer-events-none overflow-hidden">
           <img
             src="/membership-right-clean.jpg?v=5"
             alt="Gym background"
-            className="w-full h-full object-cover object-right filter contrast-125 brightness-[1.70] saturate-110 md:brightness-[1.15]"
+            className="w-full h-full object-cover object-right filter contrast-125 brightness-[1.70] saturate-110 md:brightness-[1.15] grayscale lg:grayscale-0"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#09090b]" />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-35% to-[#09090b] md:via-35%" />
+          {/* Black out the right edge on mobile to remove the red side tint/glow */}
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#09090b] via-[#09090b]/80 to-transparent lg:hidden z-10" />
         </div>
         {/* Bottom Red Glow Gradient — Desktop Only */}
         <div className="absolute top-[720px] left-0 right-0 h-[130px] bg-gradient-to-t from-red-650/25 via-red-900/5 to-transparent z-10 pointer-events-none hidden lg:block" />
