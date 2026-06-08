@@ -5,17 +5,17 @@ export default function InstagramGrid() {
     {
       id: 1,
       url: "https://www.instagram.com/reel/DSRJkF6iC1B/?igsh=MW05bDlmZ3Y4dnZmdQ==",
-      thumbnail: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop",
+      thumbnail: "/reel-1.jpg",
     },
     {
       id: 2,
       url: "https://www.instagram.com/reel/DX15YK1Mt0G/?igsh=MXR6aTl0bjRpNjM1OQ==",
-      thumbnail: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop",
+      thumbnail: "/reel-2.jpg",
     },
     {
       id: 3,
       url: "https://www.instagram.com/reel/DRMq9nuCIdW/?igsh=MXc2dnpkbHhtN3c1Mw==",
-      thumbnail: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=600&auto=format&fit=crop",
+      thumbnail: "/reel-3.jpg",
     }
   ];
 
@@ -42,7 +42,7 @@ export default function InstagramGrid() {
         </div>
 
         {/* Reels Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-sm lg:max-w-5xl mx-auto mt-12 mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full max-w-sm sm:max-w-md lg:max-w-5xl mx-auto mt-12 mb-10">
           {REELS.map((reel) => (
             <a
               key={reel.id}
@@ -54,7 +54,11 @@ export default function InstagramGrid() {
               {/* Thumbnail Background */}
               <img
                 src={reel.thumbnail}
-                alt="Instagram Reel Preview"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = `https://placehold.co/600x1067/111111/ef4444?text=Reel+${reel.id}+Preview%5Cn(Upload+reel-${reel.id}.jpg)`;
+                }}
+                alt={`Instagram Reel Preview ${reel.id}`}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80"
                 referrerPolicy="no-referrer"
               />
@@ -65,6 +69,13 @@ export default function InstagramGrid() {
               {/* Top Right Reel Icon */}
               <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm p-2.5 rounded-full text-white/90 group-hover:text-red-500 group-hover:bg-black/70 transition-all duration-300 z-10">
                 <Film size={18} className="fill-current/20" />
+              </div>
+
+              {/* Center Play Icon */}
+              <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+                <div className="bg-black/50 backdrop-blur-md p-4 rounded-full text-white/90 group-hover:text-white group-hover:bg-red-600 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.4)] group-hover:shadow-[0_0_30px_rgba(239,68,68,0.6)] border border-white/10 group-hover:border-red-500/50">
+                  <Play size={32} className="fill-current translate-x-0.5" />
+                </div>
               </div>
 
               {/* Bottom Content / Watch Button */}
