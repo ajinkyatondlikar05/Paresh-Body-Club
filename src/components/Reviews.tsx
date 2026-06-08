@@ -15,21 +15,21 @@ export default function Reviews() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header containing the 4.8 rating metric summary details */}
-        <div className="flex flex-col gap-8 mb-16">
-          <div className="text-left">
+        <div className="flex flex-col gap-8 mb-16 lg:items-center">
+          <div className="text-left lg:text-center">
             <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
               Customer Experiences
             </span>
             <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight">
               Testimonials & <span className="text-red-500">Reviews</span>
             </h2>
-            <p className="text-stone-300 font-sans text-xs sm:text-sm md:text-base max-w-xl mt-3 leading-relaxed font-light">
+            <p className="text-stone-300 font-sans text-xs sm:text-sm md:text-base max-w-xl mt-3 leading-relaxed font-light lg:mx-auto">
               Don't just take our word for it. Read honest reviews from our dedicated member network who successfully rebuilt their physical confidence.
             </p>
           </div>
 
           {/* Interactive Rating Badge Grid */}
-          <div className="bg-stone-900/60 border border-white/5 py-5 px-8 sm:py-6 sm:px-12 rounded-2xl flex flex-col items-center justify-center backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.6)] self-start w-fit">
+          <div className="bg-stone-900/60 border border-white/5 py-5 px-8 sm:py-6 sm:px-12 rounded-2xl flex flex-col items-center justify-center backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.6)] self-start lg:self-center w-fit">
             <span className="block text-4xl sm:text-5xl font-mono font-black text-white text-center">4.8</span>
             <div className="flex items-center justify-center gap-1 mt-2 text-yellow-500">
               <Star size={16} className="fill-current" />
