@@ -85,14 +85,35 @@ export default function InstagramGrid() {
         </div>
 
         {/* Prompt Button */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-10">
           <a
             href="https://www.instagram.com/paresh_bodyclub_murbad/"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 hover:bg-white text-stone-300 hover:text-red-600 text-xs font-black uppercase tracking-widest rounded-lg border border-white/10 hover:border-white transition-all duration-300 cursor-pointer shadow-lg"
+            className="group inline-flex items-center gap-4 lg:gap-5 px-6 lg:px-8 py-3 lg:py-4 bg-stone-900/80 hover:bg-black text-white text-xs lg:text-sm font-black uppercase tracking-widest rounded-2xl border border-white/10 hover:border-pink-500/40 transition-all duration-500 cursor-pointer shadow-lg hover:shadow-[0_0_35px_rgba(236,72,153,0.25)] hover:-translate-y-1"
           >
-            <Instagram size={14} /> Follow on Instagram
+            <div className="relative flex items-center justify-center">
+              {/* Soft pink/red glow around the icon */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] blur-[12px] opacity-50 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500 rounded-full"></div>
+
+              {/* SVG Defs for Instagram Gradient */}
+              <svg width="0" height="0" className="absolute">
+                <linearGradient id="ig-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#f09433" />
+                  <stop offset="25%" stopColor="#e6683c" />
+                  <stop offset="50%" stopColor="#dc2743" />
+                  <stop offset="75%" stopColor="#cc2366" />
+                  <stop offset="100%" stopColor="#bc1888" />
+                </linearGradient>
+              </svg>
+
+              <Instagram
+                className="w-[38px] h-[38px] lg:w-[44px] lg:h-[44px] relative z-10 group-hover:scale-110 transition-transform duration-500"
+                style={{ stroke: "url(#ig-gradient)" }}
+              />
+            </div>
+
+            <span className="group-hover:text-pink-400 transition-colors duration-300">Follow on Instagram</span>
           </a>
         </div>
 
