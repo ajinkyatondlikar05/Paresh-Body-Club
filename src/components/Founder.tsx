@@ -692,7 +692,7 @@ export default function Founder() {
                     className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 achievement-card ${ach.glowColor} ${pulseClass}`}
                   >
                     {/* Desktop-only watermark */}
-                    {!isMobile && (() => {
+                    {(() => {
                       const WM = ach.watermarkIcon;
                       return (
                         <WM
@@ -799,12 +799,10 @@ export default function Founder() {
                 className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] instagram-card ach-pulse-pink`}
               >
                 {/* Desktop-only watermark */}
-                {!isMobile && (
-                  <Instagram
-                    size={140}
-                    className="absolute -right-4 -bottom-6 text-pink-500/5 pointer-events-none select-none z-0 hidden lg:block watermark-icon"
-                  />
-                )}
+                <Instagram
+                  size={140}
+                  className="absolute -right-4 -bottom-6 text-pink-500/5 pointer-events-none select-none z-0 hidden lg:block watermark-icon"
+                />
 
                 {/* Left Icon Badge */}
                 <motion.div
