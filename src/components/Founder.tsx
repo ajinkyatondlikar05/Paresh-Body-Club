@@ -200,15 +200,21 @@ export default function Founder() {
           Photo already has natural black bg — no extra black bars needed.
           Mobile untouched — hidden lg:block.
       ══════════════════════════════════════════════════════════════════════ */}
-      <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[54vw] xl:w-[50vw] z-10 pointer-events-none select-none overflow-hidden">
-        <img
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="hidden lg:block absolute right-0 top-0 bottom-0 w-[54vw] xl:w-[50vw] z-10 pointer-events-none select-none overflow-hidden"
+      >
+        <motion.img
           src="/founder-leaning.png"
           alt="Founder Paresh Hindurao - Bodybuilding Champion"
-          className="w-full h-full object-contain relative z-10"
-          style={{
-            objectPosition: "80% top",
-            filter: "brightness(1.06) contrast(1.12) saturate(1.08)",
-          }}
+          className="w-full h-full object-contain relative z-10 pointer-events-auto animate-founder-breathe"
+          style={{ objectPosition: "80% top" }}
+          initial={{ filter: "brightness(1.06) contrast(1.12) saturate(1.08)" }}
+          whileHover={{ filter: "brightness(1.15) contrast(1.25) saturate(1.15)" }}
+          transition={{ duration: 0.5 }}
         />
 
         {/* Subtle left-edge fade — blends image into text section naturally */}
@@ -219,7 +225,7 @@ export default function Founder() {
             the top-right corner of founder-leaning.png. The photo background
             is pure black there so this overlay is completely invisible. */}
         <div className="absolute top-0 right-0 w-[140px] h-[100px] bg-black z-30" />
-      </div>
+      </motion.div>
 
 
       {/* ══════════════════════════════════════════════════════════════════════
@@ -236,17 +242,20 @@ export default function Founder() {
               <div>
                 <div className="relative inline-block" style={{ marginLeft: "6px", marginBottom: "22px" }}>
                   {/* FOUNDER text */}
-                  <span
-                    className="text-red-500 font-display font-black uppercase block relative z-10"
+                  <motion.span
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                    className="text-red-500 font-display font-black uppercase block relative z-10 animate-text-glow-pulse"
                     style={{
                       fontSize: "48px",
                       letterSpacing: "10px",
-                      textShadow: "0 1px 3px rgba(0, 0, 0, 0.9)",
                       lineHeight: 1,
                     }}
                   >
                     FOUNDER
-                  </span>
+                  </motion.span>
 
                   {/* Small cinematic light streak under middle-left area (no full underline) */}
                   <div
@@ -261,14 +270,22 @@ export default function Founder() {
                     }}
                   />
                 </div>
-                <h2
+                <motion.h2
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
                   className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] flex flex-col items-start"
                   style={{ fontSize: "clamp(5rem, 13vw, 9rem)" }}
                 >
                   <span>PARESH</span>
                   <span>HINDURAO</span>
-                </h2>
-                <div
+                </motion.h2>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
                   className="text-[#D4AF37] font-sans text-[19px] font-extrabold uppercase flex flex-col gap-y-1"
                   style={{
                     marginTop: "24px",
@@ -279,21 +296,34 @@ export default function Founder() {
                     textShadow: "0 0 8px rgba(212,175,55,0.35), 0 0 16px rgba(212,175,55,0.15)",
                   }}
                 >
-                  <span>PROFESSIONAL BODYBUILDER</span>
-                  <span>IFSA CERTIFIED TRAINER</span>
-                </div>
+                  <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.4 }}>PROFESSIONAL BODYBUILDER</motion.span>
+                  <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.55 }}>IFSA CERTIFIED TRAINER</motion.span>
+                </motion.div>
               </div>
 
-              <p className="text-stone-300 font-sans text-sm sm:text-base leading-relaxed font-light max-w-3xl">
+              <motion.p
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.65 }}
+                className="text-stone-300 font-sans text-sm sm:text-base leading-relaxed font-light max-w-3xl"
+              >
                 "Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
                 dedicated to transforming lives through fitness and discipline. With multiple
                 bodybuilding titles and years of gym training experience, he founded PARESH BODY
                 CLUB MURBAD to inspire the youth of Murbad towards health, strength, and
                 confidence."
-              </p>
+              </motion.p>
 
               {/* Desktop philosophy card — max-w constrained to stay inside left column */}
-              <div className="border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-[440px] p-4 sm:p-7 transition-all duration-500 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.18)]">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-[440px] p-4 sm:p-7 transition-colors duration-500 hover:border-red-500/35 cursor-default animate-philosophy-glow"
+              >
                 <span className="text-stone-500 text-[10px] uppercase font-bold tracking-widest block mb-1.5">
                   PERSONAL PHILOSOPHY ROOM
                 </span>
@@ -303,7 +333,7 @@ export default function Founder() {
                 <span className="block text-right text-red-500 uppercase font-bold mt-1.5 tracking-widest text-xs">
                   — PARESH HINDURAO
                 </span>
-              </div>
+              </motion.div>
             </div>
 
             {/* Desktop: Right col spacer (photo is absolute-positioned above) */}
@@ -324,18 +354,22 @@ export default function Founder() {
         <div className="relative overflow-hidden">
 
           {/* Image — right 58%, face + upper body visible at top */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden z-10"
             style={{ width: "58%", height: "520px" }}
           >
-            <img
+            <motion.img
               src="/founder-leaning.png"
               alt="Founder Paresh Hindurao - Bodybuilding Champion"
-              className="w-full h-full object-cover animate-founder-breathe"
-              style={{
-                objectPosition: "25% top",
-                filter: "brightness(1.16) contrast(1.18) saturate(1.12) hue-rotate(2deg)",
-              }}
+              className="w-full h-full object-cover animate-founder-breathe pointer-events-auto"
+              style={{ objectPosition: "25% top" }}
+              initial={{ filter: "brightness(1.16) contrast(1.18) saturate(1.12) hue-rotate(2deg)" }}
+              whileHover={{ filter: "brightness(1.25) contrast(1.25) saturate(1.2) hue-rotate(2deg)" }}
+              transition={{ duration: 0.4 }}
             />
             {/* Warm red ambient glow — matches reference image 2 skin tone */}
             <div className="absolute inset-0" style={{
@@ -352,7 +386,7 @@ export default function Founder() {
             <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-black to-transparent" />
             {/* Right edge */}
             <div className="absolute inset-y-0 right-0 w-3 bg-gradient-to-l from-black to-transparent" />
-          </div>
+          </motion.div>
 
           {/* Background effects for mobile layout */}
           {/* Drifting smoke effect behind the bodybuilder */}
@@ -378,9 +412,8 @@ export default function Founder() {
                 fontSize: "clamp(24px, 6.5vw, 28px)",
                 fontWeight: 900,
                 letterSpacing: "5px",
-                textShadow: "0 0 12px rgba(239, 68, 68, 0.45)"
               }}
-              initial={{ opacity: 0, x: -25 }}
+              initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -399,10 +432,10 @@ export default function Founder() {
               <span className="block overflow-hidden">
                 <motion.span
                   className="block"
-                  initial={{ opacity: 0, y: 15, x: -10 }}
-                  whileInView={{ opacity: 1, y: 0, x: 0 }}
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1], delay: 0.05 }}
+                  transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
                 >
                   PARESH
                 </motion.span>
@@ -410,10 +443,10 @@ export default function Founder() {
               <span className="block overflow-hidden">
                 <motion.span
                   className="block"
-                  initial={{ opacity: 0, y: 15, x: -10 }}
-                  whileInView={{ opacity: 1, y: 0, x: 0 }}
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1], delay: 0.2 }}
+                  transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
                 >
                   HINDURAO
                 </motion.span>
@@ -421,12 +454,17 @@ export default function Founder() {
             </h2>
 
             {/* Tagline — two lines */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
               className="text-stone-400 font-display font-bold uppercase mb-5"
               style={{ fontSize: "12px", letterSpacing: "0.1em", lineHeight: 1.45 }}
             >
-              PROFESSIONAL<br />BODYBUILDER
-            </div>
+              <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.45 }}>PROFESSIONAL</motion.span><br />
+              <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.6 }}>BODYBUILDER</motion.span>
+            </motion.div>
 
             {/* Credentials — full-width dividers */}
             <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}>
@@ -492,10 +530,10 @@ export default function Founder() {
             <motion.p
               className="text-stone-300 font-sans font-light leading-relaxed mt-6"
               style={{ fontSize: "13px", lineHeight: 1.65 }}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1], delay: 0.35 }}
+              transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1], delay: 0.7 }}
             >
               Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
               dedicated to transforming lives through fitness and discipline. With multiple
@@ -509,13 +547,14 @@ export default function Founder() {
         {/* ── PHILOSOPHY CARD ───────────────────────────────────────────── */}
         <motion.div
           className="px-5 pb-10 pt-2 bg-black relative z-20"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: 0.8 }}
         >
-          <div
-            className="relative overflow-hidden animate-philosophy-glow"
+          <motion.div
+            whileHover={{ y: -4, scale: 1.02 }}
+            className="relative overflow-hidden animate-philosophy-glow cursor-default"
             style={{
               border: "1px solid rgba(239,68,68,0.18)",
               borderLeft: "4px solid #ef4444",
@@ -571,7 +610,7 @@ export default function Founder() {
             >
               — PARESH HINDURAO
             </p>
-          </div>
+          </motion.div>
         </motion.div>
 
       </div>
