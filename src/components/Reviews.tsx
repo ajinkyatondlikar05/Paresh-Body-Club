@@ -17,7 +17,7 @@ export default function Reviews() {
         {/* Header containing the 4.8 rating metric summary details */}
         <div className="flex flex-col gap-8 mb-16 lg:items-center">
           <div className="text-left lg:text-center">
-            <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2">
+            <span className="text-red-500 font-display font-black uppercase text-xs sm:text-sm lg:text-xl tracking-widest block mb-2 lg:mb-3 lg:[text-shadow:0_0_15px_rgba(239,68,68,0.5)]">
               Customer Experiences
             </span>
             <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight">
