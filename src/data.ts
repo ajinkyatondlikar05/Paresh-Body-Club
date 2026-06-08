@@ -7,10 +7,10 @@ import {
 } from "./types";
 
 export const STATS = [
-  { value: "500+", label: "Happy Members", prefix: "" },
-  { value: "5+", label: "Years Impacting Lives", prefix: "" },
+  { value: "10K", label: "Happy Members", prefix: "" },
+  { value: "15+", label: "Years Experience", prefix: "" },
   { value: "100%", label: "Result Oriented", prefix: "" },
-  { value: "15+", label: "Modern Equipment Stations", prefix: "" }
+  { value: "25+", label: "Modern Equipment Stations", prefix: "" }
 ];
 
 export const ABOUT_FEATURES = [

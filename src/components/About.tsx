@@ -110,10 +110,10 @@ function AnimatedCounter({ target, suffix, shouldStart }: CounterProps) {
    STAT DEFINITIONS
 ───────────────────────────────────────────── */
 const STATS = [
-  { target: 500, suffix: "+", label: "Happy Members",             icon: Users },
-  { target: 5,   suffix: "+", label: "Years Impacting Lives",     icon: CalendarDays },
-  { target: 100, suffix: "%", label: "Result Oriented",           icon: Target },
-  { target: 15,  suffix: "+", label: "Modern Equipment Stations", icon: Dumbbell },
+  { target: 10, suffix: "K", label: "Happy Members", icon: Users },
+  { target: 15, suffix: "+", label: "Years Experience", icon: CalendarDays },
+  { target: 100, suffix: "%", label: "Result Oriented", icon: Target },
+  { target: 25, suffix: "+", label: "Modern Equipment Stations", icon: Dumbbell },
 ];
 
 /* ─────────────────────────────────────────────
@@ -188,8 +188,8 @@ export default function About() {
         />
 
         {/* Cinematic gradient — solid black left 28%, diagonal fade, fully transparent at 80% */}
-        <div 
-          className="absolute inset-0 z-0 pointer-events-none" 
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
           style={{
             background: "linear-gradient(to right, #050505 28%, rgba(5,5,5,0.52) 45%, rgba(5,5,5,0.12) 65%, transparent 100%)",
             zIndex: 1,
@@ -271,9 +271,9 @@ export default function About() {
                 <span className="block text-stone-150 text-[25px] tracking-tight uppercase">TODAY IS THE DAY</span>
                 <span className="block text-stone-150 text-[25px] tracking-tight uppercase">BECAUSE TODAY</span>
                 <span className="block text-stone-150 text-[25px] tracking-tight uppercase">IS YOUR</span>
-                
+
                 {/* DAY. with red glow (glow intensity reduced by 20%) */}
-                <span 
+                <span
                   className="block text-[#ef4444] text-[84px] font-black uppercase tracking-tighter mt-1 animate-text-glow-pulse"
                 >
                   DAY.
