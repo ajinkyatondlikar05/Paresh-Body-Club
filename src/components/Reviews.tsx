@@ -74,14 +74,9 @@ export default function Reviews() {
 
               {/* Author Info */}
               <div className="border-t border-white/5 pt-4 flex items-center justify-between mt-auto">
-                <div>
-                  <h4 className="font-display font-bold text-xs sm:text-sm text-white group-hover:text-red-500 transition-colors duration-200 uppercase">
-                    {rev.author}
-                  </h4>
-                  <span className="text-[10px] text-stone-500 font-semibold uppercase tracking-wider block">
-                    {rev.role}
-                  </span>
-                </div>
+                <h4 className="font-display font-bold text-xs sm:text-sm text-white group-hover:text-red-500 transition-colors duration-200 uppercase">
+                  {rev.author}
+                </h4>
                 <span className="text-[10px] font-mono text-stone-600 block">
                   {rev.date}
                 </span>

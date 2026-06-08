@@ -180,7 +180,7 @@ export const REVIEWS: ReviewItem[] = [
   {
     id: "rev-1",
     author: "Vikrant Chavan",
-    role: "Google Local Guide",
+    role: "",
     rating: 5,
     comment: "One of the best gym & amazing facility, top equipment and great environment.",
     date: "2 months ago"
@@ -188,15 +188,15 @@ export const REVIEWS: ReviewItem[] = [
   {
     id: "rev-2",
     author: "Local Member",
-    role: "Fitness Enthusiast",
-    rating: 5,
+    role: "",
+    rating: 4,
     comment: "Good gym for workout and fitness training.",
     date: "1 month ago"
   },
   {
     id: "rev-3",
     author: "Sagar Gholap",
-    role: "Power Athlete",
+    role: "",
     rating: 5,
     comment: "Awesome gym in Murbad. Highly certified trainer, and extremely helpful staff members. Modern and well-maintained equipment.",
     date: "3 months ago"
@@ -204,15 +204,15 @@ export const REVIEWS: ReviewItem[] = [
   {
     id: "rev-4",
     author: "Amit Bhoir",
-    role: "Murbad Resident",
-    rating: 5,
+    role: "",
+    rating: 4,
     comment: "Best bodybuilding club in Murbad. The gym environment is extremely energetic and motivating. Highly recommend to everyone around Murbad.",
     date: "2 weeks ago"
   },
   {
     id: "rev-5",
     author: "Pratiksha Parab",
-    role: "Murbad Member",
+    role: "",
     rating: 5,
     comment: "Perfect gym for ladies as well. Extremely comfortable, clean changing rooms, great safety, and trainers provide custom weight loss schemes.",
     date: "4 months ago"
@@ -220,42 +220,10 @@ export const REVIEWS: ReviewItem[] = [
   {
     id: "rev-6",
     author: "Nilesh Vishe",
-    role: "Body Builder",
-    rating: 5,
+    role: "",
+    rating: 4,
     comment: "Excellent cardio machines and a massive dumbbells collection. Space is clean, and the surround heavy speaker system is absolutely fantastic!",
     date: "5 months ago"
-  },
-  {
-    id: "rev-7",
-    author: "Roshan Patil",
-    role: "Local Resident",
-    rating: 5,
-    comment: "Excellent strength training setup. Best professional gym in the Murbad area.",
-    date: "1 month ago"
-  },
-  {
-    id: "rev-8",
-    author: "Snehal Deshmukh",
-    role: "Cardio Enthusiast",
-    rating: 5,
-    comment: "Affordable quarterly and yearly plans compared to high-end amenities. Worth every rupee. Friendly staff.",
-    date: "6 months ago"
-  },
-  {
-    id: "rev-9",
-    author: "Vipul T.",
-    role: "Strength Trainer",
-    rating: 4.8,
-    comment: "The vibe here keeps me regular. Excellent music setup, purified water, neat lockers, and positive energy from Paresh sir.",
-    date: "3 weeks ago"
-  },
-  {
-    id: "rev-10",
-    author: "Kunal Karale",
-    role: "Gym Regular",
-    rating: 5,
-    comment: "Clean changing rooms, modern treadmills, robust weights, first class environment for serious fitness lovers in Murbad!",
-    date: "6 months ago"
   }
 ];
 
