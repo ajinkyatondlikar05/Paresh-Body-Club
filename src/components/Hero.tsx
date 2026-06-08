@@ -11,7 +11,7 @@ const lineReveal = {
     opacity: 1,
     y: "0%",
     clipPath: "inset(0 0 0% 0)",
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay },
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1], delay },
   }),
 };
 
@@ -21,7 +21,7 @@ const fadeUp = {
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1], delay },
   }),
 };
 
@@ -34,7 +34,7 @@ const redGlowPulse = {
       "0 0 22px rgba(239,68,68,0.85)",
       "0 0 12px rgba(239,68,68,0.5)",
     ],
-    transition: { duration: 0.9, delay: 0.75, ease: "easeOut" },
+    transition: { duration: 0.6, delay: 0.5, ease: "easeOut" },
   },
 };
 
@@ -82,7 +82,7 @@ function useCounter(target: number, durationSecs: number, started: boolean, dela
 /* ─── Animated stat number ─────────────────────────────────────────── */
 interface CounterProps { target: number; suffix: string; started: boolean; delayMs?: number; }
 function AnimatedCounter({ target, suffix, started, delayMs = 0 }: CounterProps) {
-  const count = useCounter(target, 1.8, started, delayMs);
+  const count = useCounter(target, 1.2, started, delayMs);
   return <>{count}{suffix}</>;
 }
 
@@ -221,7 +221,7 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.75, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
             className="font-display font-black uppercase leading-[0.92] tracking-tight select-none mb-6 text-left text-white"
             style={{ fontSize: "clamp(2.4rem, 6.5vw, 6.5rem)" }}
           >
@@ -239,7 +239,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.75, delay: 0.25 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="text-stone-400 text-sm font-light leading-relaxed max-w-lg mb-8 text-left"
           >
             Best Gym in Murbad with Professional Equipment &amp; Motivating Environment. Unleash physical peak conditioning with premium strength gears, cardio chambers, and guidance.
@@ -249,22 +249,22 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.38 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             className="flex flex-wrap gap-4 mb-10"
           >
             <button
               onClick={() => handleScrollTo("membership")}
-              className="group inline-flex items-center gap-2 px-6 py-3.5 bg-red-600 hover:bg-red-500 text-white font-black text-xs uppercase tracking-widest rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.45)] hover:shadow-[0_0_28px_rgba(220,38,38,0.65)] cursor-pointer"
+              className="group inline-flex items-center gap-2 px-6 py-3.5 bg-red-600 hover:bg-red-500 text-white font-black text-xs uppercase tracking-widest rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(220,38,38,0.45)] hover:shadow-[0_0_28px_rgba(220,38,38,0.65)] cursor-pointer"
             >
               JOIN NOW
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
             </button>
 
             <button
               onClick={() => handleScrollTo("contact")}
-              className="group inline-flex items-center gap-2.5 px-6 py-3.5 bg-transparent hover:bg-white/5 text-white font-black text-xs uppercase tracking-widest rounded-lg border border-white/20 hover:border-white/40 transition-all duration-300 cursor-pointer"
+              className="group inline-flex items-center gap-2.5 px-6 py-3.5 bg-transparent hover:bg-white/5 text-white font-black text-xs uppercase tracking-widest rounded-lg border border-white/20 hover:border-white/40 transition-all duration-200 cursor-pointer"
             >
-              <Phone size={13} className="text-red-500 fill-red-500/10 group-hover:scale-110 transition-transform duration-300" />
+              <Phone size={13} className="text-red-500 fill-red-500/10 group-hover:scale-110 transition-transform duration-200" />
               CONTACT US
             </button>
           </motion.div>
@@ -273,8 +273,8 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.52 }}
-            className="grid grid-cols-4 gap-0 bg-[#0c0c0e]/70 border border-white/10 hover:border-red-500/20 backdrop-blur-md rounded-xl overflow-hidden p-1.5 max-w-[550px] shadow-[0_0_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.1)] transition-all duration-300 home-stats-container"
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="grid grid-cols-4 gap-0 bg-[#0c0c0e]/70 border border-white/10 hover:border-red-500/20 backdrop-blur-md rounded-xl overflow-hidden p-1.5 max-w-[550px] shadow-[0_0_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(239,68,68,0.1)] transition-all duration-200 home-stats-container"
           >
             {stats.map((stat, i) => (
               <div
@@ -290,7 +290,7 @@ export default function Hero() {
                     target={stat.target}
                     suffix={stat.suffix}
                     started={true}
-                    delayMs={1270 + (i * 100)}
+                    delayMs={800 + (i * 80)}
                   />
                 </div>
                 <div className="text-[9px] font-black tracking-wider text-stone-400 uppercase leading-none">
@@ -309,7 +309,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.1, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="absolute inset-0"
           >
             <img
@@ -344,7 +344,7 @@ export default function Hero() {
         <span className="text-[9px] font-bold tracking-widest uppercase">Discover More</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6 }}
+          transition={{ repeat: Infinity, duration: 1.2 }}
           className="w-1 h-6 bg-red-600 rounded-full"
         />
       </div>
@@ -367,16 +367,16 @@ export default function Hero() {
             zIndex: 0,
           }}
           animate={{ scale: [1, 1.12, 1], opacity: [0.7, 1, 0.7] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
 
         {/* ── FLOATING RED PARTICLES (5) ── */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
-          <Particle x="8%" y="25%" size={3} delay={0} duration={5.5} />
-          <Particle x="72%" y="18%" size={2} delay={1.2} duration={7} />
-          <Particle x="55%" y="55%" size={2.5} delay={2.4} duration={6} />
-          <Particle x="20%" y="65%" size={2} delay={0.8} duration={8} />
-          <Particle x="85%" y="42%" size={3} delay={3} duration={5} />
+          <Particle x="8%" y="25%" size={3} delay={0} duration={4} />
+          <Particle x="72%" y="18%" size={2} delay={1.2} duration={5} />
+          <Particle x="55%" y="55%" size={2.5} delay={2.4} duration={4.5} />
+          <Particle x="20%" y="65%" size={2} delay={0.8} duration={6} />
+          <Particle x="85%" y="42%" size={3} delay={3} duration={3.5} />
         </div>
 
         {/* ═══════════════════════════════════════════════════════════════
@@ -403,7 +403,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.0, ease: "easeOut", delay: 0.05 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.03 }}
             className="absolute right-0 pointer-events-none"
             style={{
               top: "42px",
@@ -432,7 +432,7 @@ export default function Hero() {
               willChange: "transform, opacity",
             }}
               animate={{ x: [-8, 8, -8], y: [-3, 3, -3], opacity: [0.3, 0.5, 0.3] }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
             />
             {/* Smoke 2 — Behind torso/silhouette edges */}
             <motion.div className="absolute pointer-events-none" style={{
@@ -442,7 +442,7 @@ export default function Hero() {
               willChange: "transform, opacity",
             }}
               animate={{ x: [6, -6, 6], y: [4, -4, 4], opacity: [0.25, 0.45, 0.25] }}
-              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
             />
             {/* Smoke 3 — Behind left arm / outer silhouette */}
             <motion.div className="absolute pointer-events-none" style={{
@@ -452,7 +452,7 @@ export default function Hero() {
               willChange: "transform, opacity",
             }}
               animate={{ x: [-5, 5, -5], y: [-5, 5, -5], opacity: [0.3, 0.5, 0.3] }}
-              transition={{ duration: 13, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+              transition={{ duration: 9.5, repeat: Infinity, ease: "easeInOut", delay: 3 }}
             />
 
             {/* ── PREMIUM CINEMATIC EMBER PARTICLES — behind athlete, zIndex: 0 ── */}
@@ -491,7 +491,7 @@ export default function Hero() {
               willChange: "transform, opacity",
             }}
               animate={{ y: [0, -40, 10, -25, 0], x: [0, -5, 4, -2, 0], opacity: [0.55, 0.85, 0.35, 0.75, 0.55] }}
-              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+              transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
             />
             {/* Ember 5 — Behind left waist/torso */}
             <motion.div className="absolute rounded-full pointer-events-none" style={{
@@ -500,7 +500,7 @@ export default function Hero() {
               willChange: "transform, opacity",
             }}
               animate={{ y: [0, -22, 5, -11, 0], x: [0, 3, -2, 1, 0], opacity: [0.7, 1, 0.4, 0.8, 0.7] }}
-              transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 3.2 }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2.2 }}
             />
             {/* Ember 6 — Background outer left */}
             <motion.div className="absolute rounded-full pointer-events-none" style={{
@@ -509,7 +509,7 @@ export default function Hero() {
               willChange: "transform, opacity",
             }}
               animate={{ y: [0, -32, 6, -18, 0], x: [0, -4, 2, -2, 0], opacity: [0.65, 0.9, 0.3, 0.8, 0.65] }}
-              transition={{ duration: 7.8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
             />
             {/* Ember 7 — Background lower center */}
             <motion.div className="absolute rounded-full pointer-events-none" style={{
@@ -519,7 +519,7 @@ export default function Hero() {
               willChange: "transform, opacity",
             }}
               animate={{ y: [0, -36, 12, -22, 0], x: [0, 4, -4, 2, 0], opacity: [0.4, 0.7, 0.2, 0.55, 0.4] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 4.1 }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2.8 }}
             />
             {/* Ember 8 — Background deep depth right */}
             <motion.div className="absolute rounded-full pointer-events-none" style={{
@@ -528,7 +528,7 @@ export default function Hero() {
               willChange: "transform, opacity",
             }}
               animate={{ y: [0, -25, 7, -14, 0], x: [0, -3, 3, -1, 0], opacity: [0.75, 0.4, 0.85, 0.5, 0.75] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             />
 
             {/* ── ATHLETE IMAGE — cinematic filter boost, zIndex: 1 ── */}
@@ -576,7 +576,7 @@ export default function Hero() {
                   variants={lineReveal}
                   initial="hidden"
                   animate="visible"
-                  custom={0.15}
+                  custom={0.08}
                 >
                   TRANSFORM
                 </motion.span>
@@ -589,7 +589,7 @@ export default function Hero() {
                   variants={lineReveal}
                   initial="hidden"
                   animate="visible"
-                  custom={0.28}
+                  custom={0.15}
                 >
                   YOUR{" "}
                   <motion.span
@@ -611,7 +611,7 @@ export default function Hero() {
                   variants={lineReveal}
                   initial="hidden"
                   animate="visible"
-                  custom={0.41}
+                  custom={0.22}
                 >
                   TRANSFORM
                 </motion.span>
@@ -624,7 +624,7 @@ export default function Hero() {
                   variants={lineReveal}
                   initial="hidden"
                   animate="visible"
-                  custom={0.54}
+                  custom={0.3}
                 >
                   <motion.span
                     className="block text-red-500"
@@ -644,7 +644,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              custom={0.72}
+              custom={0.45}
               className="font-light leading-relaxed mt-3"
               style={{ fontSize: "clamp(9.5px, 2.55vw, 11.5px)", color: "#B3B3B3" }}
             >
@@ -657,7 +657,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              custom={0.88}
+              custom={0.55}
               className="flex flex-col mt-[32px]"
               style={{ display: "flex", flexDirection: "column", gap: "18px", marginBottom: "45px", position: "relative", zIndex: 20 }}
             >
@@ -669,9 +669,9 @@ export default function Hero() {
                 whileHover={{
                   backgroundColor: "#ef4444",
                   boxShadow: "0 0 28px rgba(220,38,38,0.7)",
-                  transition: { duration: 0.2 },
+                  transition: { duration: 0.15 },
                 }}
-                whileTap={{ scale: 1.03, boxShadow: "0 0 32px rgba(220,38,38,0.8)", transition: { duration: 0.1 } }}
+                whileTap={{ scale: 1.03, boxShadow: "0 0 32px rgba(220,38,38,0.8)", transition: { duration: 0.08 } }}
               >
                 JOIN NOW
                 <ArrowRight size={12} className="shrink-0" />
@@ -685,9 +685,9 @@ export default function Hero() {
                 whileHover={{
                   borderColor: "rgba(239,68,68,0.55)",
                   boxShadow: "0 0 16px rgba(239,68,68,0.2)",
-                  transition: { duration: 0.2 },
+                  transition: { duration: 0.15 },
                 }}
-                whileTap={{ scale: 1.02, transition: { duration: 0.1 } }}
+                whileTap={{ scale: 1.02, transition: { duration: 0.08 } }}
               >
                 <Phone size={11} className="text-red-500 shrink-0" />
                 CONTACT
@@ -704,7 +704,7 @@ export default function Hero() {
                 key={i}
                 initial={{ opacity: 0, y: 22 }}
                 animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
                 className="stat-card-glow flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-2xl bg-[#111111] text-center"
                 style={{ willChange: "transform, opacity" }}
               >
@@ -717,7 +717,7 @@ export default function Hero() {
                     target={stat.target}
                     suffix={stat.suffix}
                     started={statsInView}
-                    delayMs={500 + (i * 100)}
+                    delayMs={300 + (i * 80)}
                   />
                 </div>
                 <div className="text-[9px] font-bold tracking-widest text-stone-500 uppercase leading-tight">

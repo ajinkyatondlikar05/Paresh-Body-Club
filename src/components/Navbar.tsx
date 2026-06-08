@@ -55,9 +55,9 @@ export default function Navbar({ activeSection }: NavbarProps) {
     <>
       <nav
         id="main-navbar"
-        className={`fixed top-0 left-0 w-full transition-all duration-300 ${scrolled
-            ? "bg-[#0a0a0c]/97 backdrop-blur-md border-b border-white/8 py-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.9)]"
-            : "bg-[#0a0a0c]/90 backdrop-blur-sm py-5"
+        className={`fixed top-0 left-0 w-full transition-all duration-200 ${scrolled
+          ? "bg-[#0a0a0c]/97 backdrop-blur-md border-b border-white/8 py-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.9)]"
+          : "bg-[#0a0a0c]/90 backdrop-blur-sm py-5"
           }`}
         style={{ zIndex: 10000 }}
       >
@@ -70,7 +70,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
             >
               {/* Hexagon / shield SVG icon with barbell and subtle red glow */}
               <div className="relative w-12 h-12 md:w-[50px] md:h-[50px] flex items-center justify-center shrink-0">
-                <div className="absolute inset-0 bg-red-500/20 blur-[10px] rounded-full scale-90 group-hover:scale-105 transition-transform duration-300 pointer-events-none" />
+                <div className="absolute inset-0 bg-red-500/20 blur-[10px] rounded-full scale-90 group-hover:scale-105 transition-transform duration-200 pointer-events-none" />
                 <svg viewBox="0 0 44 44" className="relative w-12 h-12 md:w-[50px] md:h-[50px] filter drop-shadow-[0_2px_8px_rgba(239,68,68,0.35)]" fill="none">
                   {/* Hexagon shield */}
                   <path
@@ -113,8 +113,8 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
                   className={`relative px-3 py-2 text-xs lg:text-sm font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer ${activeSection === link.id
-                      ? "text-red-500"
-                      : "text-gray-300 hover:text-white"
+                    ? "text-red-500"
+                    : "text-gray-300 hover:text-white"
                     }`}
                 >
                   {link.label}
@@ -125,7 +125,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               ))}
               <button
                 onClick={() => scrollToSection("membership")}
-                className="ml-3 px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs lg:text-sm font-extrabold uppercase tracking-widest rounded-md cursor-pointer transition-all duration-300 flex items-center gap-2 shadow-[0_0_18px_rgba(239,68,68,0.35)] hover:shadow-[0_0_25px_rgba(239,68,68,0.55)]"
+                className="ml-3 px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs lg:text-sm font-extrabold uppercase tracking-widest rounded-md cursor-pointer transition-all duration-200 flex items-center gap-2 shadow-[0_0_18px_rgba(239,68,68,0.35)] hover:shadow-[0_0_25px_rgba(239,68,68,0.55)]"
               >
                 JOIN NOW <ArrowRight size={14} />
               </button>
@@ -171,7 +171,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
-              transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
+              transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
               className="md:hidden"
               style={{
                 position: "fixed",

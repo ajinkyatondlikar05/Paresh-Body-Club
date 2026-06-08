@@ -33,28 +33,28 @@ export default function Facilities() {
     initial: { opacity: 0, y: -12 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
-    transition: { duration: 0.5, ease: "easeOut" }
+    transition: { duration: 0.35, ease: "easeOut" }
   };
 
   const headingTitleProps = {
     initial: { opacity: 0, y: 15, textShadow: "0 0 0px rgba(239, 68, 68, 0)" },
     whileInView: { opacity: 1, y: 0, textShadow: "0 0 12px rgba(239, 68, 68, 0.45)" },
     viewport: { once: true },
-    transition: { duration: 0.6, ease: "easeOut", delay: 0.1 }
+    transition: { duration: 0.4, ease: "easeOut", delay: 0.08 }
   };
 
   const headingSubtitleProps = {
     initial: { opacity: 0, y: 10 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
-    transition: { duration: 0.5, ease: "easeOut", delay: 0.2 }
+    transition: { duration: 0.35, ease: "easeOut", delay: 0.15 }
   };
 
   const cardProps = (index: number) => ({
     initial: { opacity: 0, y: 45, scale: 0.96 },
     whileInView: { opacity: 1, y: 0, scale: 1 },
     viewport: { once: true, margin: "-50px" },
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: index * 0.15 }
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }
   });
 
   const iconWrapperProps = (index: number) => ({
@@ -63,10 +63,10 @@ export default function Facilities() {
       borderColor: ["rgba(239, 68, 68, 0.25)", "rgba(239, 68, 68, 0.65)", "rgba(239, 68, 68, 0.25)"]
     },
     transition: {
-      duration: 2.5,
+      duration: 1.8,
       repeat: Infinity,
       ease: "easeInOut",
-      delay: index * 0.2
+      delay: index * 0.1
     },
     whileHover: { scale: 1.06 },
     whileTap: { scale: 1.06 }
@@ -121,10 +121,10 @@ export default function Facilities() {
               <motion.div
                 key={fac.id}
                 {...cardProps(idx)}
-                className="group relative bg-[#0f0f12] hover:bg-[#141418] border border-white/5 hover:border-red-500/20 p-8 rounded-xl transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.4)] hover:-translate-y-1.5 flex flex-col justify-between"
+                className="group relative bg-[#0f0f12] hover:bg-[#141418] border border-white/5 hover:border-red-500/20 p-8 rounded-xl transition-all duration-200 shadow-[0_4px_25px_rgba(0,0,0,0.4)] hover:-translate-y-1.5 flex flex-col justify-between"
               >
                 {/* Glowing Background Overlay Spot on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-red-600/0 via-red-600/0 to-red-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-red-600/0 via-red-600/0 to-red-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
 
                 {/* Soft border glow sweep when card appears */}
                 <motion.div
@@ -132,8 +132,8 @@ export default function Facilities() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{
-                    duration: 1.8,
-                    delay: (idx * 0.15) + 0.5,
+                    duration: 1.2,
+                    delay: (idx * 0.08) + 0.3,
                     ease: "easeInOut"
                   }}
                 />
@@ -143,15 +143,15 @@ export default function Facilities() {
                   <div className="relative mb-6 inline-block">
                     <motion.div
                       {...iconWrapperProps(idx)}
-                      className="p-4 bg-stone-900 border border-white/5 rounded-xl text-red-500 group-hover:text-white group-hover:bg-red-600 transition-all duration-300 relative z-10"
+                      className="p-4 bg-stone-900 border border-white/5 rounded-xl text-red-500 group-hover:text-white group-hover:bg-red-600 transition-all duration-200 relative z-10"
                     >
                       <IconComponent size={24} className="stroke-[1.5]" />
                     </motion.div>
-                    <div className="absolute inset-0 bg-red-500 rounded-xl blur-md scale-75 opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-red-500 rounded-xl blur-md scale-75 opacity-0 group-hover:opacity-30 transition-opacity duration-200 pointer-events-none"></div>
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="font-display font-black text-lg text-white uppercase tracking-wider mb-2 group-hover:text-red-500 transition-colors duration-200">
+                  <h3 className="font-display font-black text-lg text-white uppercase tracking-wider mb-2 group-hover:text-red-500 transition-colors duration-150">
                     {fac.title}
                   </h3>
                   <p className="text-stone-400 font-sans text-xs sm:text-sm leading-relaxed font-light">

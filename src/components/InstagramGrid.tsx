@@ -119,12 +119,12 @@ export default function InstagramGrid() {
               </svg>
 
               <Instagram
-                className="w-[38px] h-[38px] lg:w-[44px] lg:h-[44px] relative z-10 group-hover:scale-110 transition-transform duration-500"
+                className="w-[38px] h-[38px] lg:w-[44px] lg:h-[44px] relative z-10 group-hover:scale-110 transition-transform duration-300"
                 style={{ stroke: "url(#ig-gradient)" }}
               />
             </div>
 
-            <span className="group-hover:text-pink-400 transition-colors duration-300">Follow on Instagram</span>
+            <span className="group-hover:text-pink-400 transition-colors duration-200">Follow on Instagram</span>
           </a>
         </motion.div>
 

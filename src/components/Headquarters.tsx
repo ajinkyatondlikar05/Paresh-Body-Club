@@ -11,7 +11,7 @@ export default function Headquarters() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.08,
       },
     },
   };
@@ -22,7 +22,7 @@ export default function Headquarters() {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -34,9 +34,9 @@ export default function Headquarters() {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
-        delay: 0.4, // Delays map fade up until cards start showing
+        delay: 0.25, // Delays map fade up until cards start showing
       },
     },
   };
@@ -85,7 +85,7 @@ export default function Headquarters() {
             initial={{ opacity: 0, y: -15 }}
             whileInView={{ opacity: 1, y: 0, textShadow: "0 0 15px rgba(239,68,68,0.4)" }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="text-red-500 font-display font-black uppercase text-xs tracking-widest block mb-1"
           >
             FIND US
@@ -94,7 +94,7 @@ export default function Headquarters() {
             initial={{ opacity: 0, y: 25, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.45, ease: "easeOut", delay: 0.08 }}
             className="font-display font-black text-3xl text-white uppercase tracking-tight"
           >
             OUR <span className="text-red-500">HEADQUARTERS</span>
@@ -103,7 +103,7 @@ export default function Headquarters() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
             className="w-12 h-[2px] bg-red-500 mx-auto mt-2 shadow-[0_0_6px_rgba(239,68,68,0.6)]"
           />
         </div>
@@ -116,9 +116,9 @@ export default function Headquarters() {
               <motion.div
                 key={idx}
                 variants={cardVariants}
-                whileHover={{ y: -4, scale: 1.02, borderColor: "rgba(239, 68, 68, 0.4)", boxShadow: "0 10px 30px rgba(239,68,68,0.2)" }}
+                whileHover={{ y: -4, scale: 1.02, borderColor: "rgba(239, 68, 68, 0.4)", boxShadow: "0 10px 30px rgba(239,68,68,0.2)", transition: { duration: 0.2 } }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-stone-900/50 backdrop-blur-md border border-white/5 rounded-2xl p-5 flex gap-4 items-start transition-colors duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+                className="bg-stone-900/50 backdrop-blur-md border border-white/5 rounded-2xl p-5 flex gap-4 items-start transition-colors duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
               >
                 {/* Glowing pulsing icon wrapper */}
                 <motion.div
@@ -136,10 +136,10 @@ export default function Headquarters() {
                     ],
                   }}
                   transition={{
-                    duration: 2.2,
+                    duration: 1.6,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: idx * 0.2, // Offset pulse timing for cool stagger
+                    delay: idx * 0.1, // Offset pulse timing for cool stagger
                   }}
                 >
                   <IconComponent size={20} className="stroke-[2px]" />
@@ -153,7 +153,7 @@ export default function Headquarters() {
                   {card.href ? (
                     <a
                       href={card.href}
-                      className="text-white hover:text-red-500 font-bold text-sm sm:text-base transition-colors duration-250 block truncate"
+                      className="text-white hover:text-red-500 font-bold text-sm sm:text-base transition-colors duration-150 block truncate"
                     >
                       {card.content}
                     </a>
@@ -173,7 +173,7 @@ export default function Headquarters() {
         {/* Glowing Interactive Live Map Container */}
         <motion.div
           variants={mapVariants}
-          className="relative rounded-[24px] overflow-hidden border border-red-500/40 shadow-[0_0_35px_rgba(239,68,68,0.28)] bg-stone-950 p-[1.5px] group transition-all duration-500 hover:scale-[1.02] cursor-default"
+          className="relative rounded-[24px] overflow-hidden border border-red-500/40 shadow-[0_0_35px_rgba(239,68,68,0.28)] bg-stone-950 p-[1.5px] group transition-all duration-300 hover:scale-[1.02] cursor-default"
         >
           {/* Subtle floating particles around the map border */}
           <div className="absolute -inset-2 pointer-events-none overflow-hidden rounded-[24px] z-20">
@@ -188,7 +188,7 @@ export default function Headquarters() {
             <iframe
               title="PARESH BODY CLUB Live Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.159392233777!2d73.387192!3d19.2560625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be78b102b0d142d%3A0x14c75fe9e41d57b4!2sPARESH%20BODY%20CLUB%20MURBAD!5e0!3m2!1sen!2sin!4v1716719138092!5m2!1sen!2sin"
-              className="w-full h-full border-0 opacity-90 transition-opacity duration-300 group-hover:opacity-95"
+              className="w-full h-full border-0 opacity-90 transition-opacity duration-200 group-hover:opacity-95"
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -206,7 +206,7 @@ export default function Headquarters() {
                 opacity: [1, 0],
               }}
               transition={{
-                duration: 3,
+                duration: 2,
                 repeat: Infinity,
                 ease: "easeOut",
               }}
@@ -223,7 +223,7 @@ export default function Headquarters() {
                   y: [0, -4, 0],
                 }}
                 transition={{
-                  duration: 1.5,
+                  duration: 1.0,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -248,7 +248,7 @@ export default function Headquarters() {
               rel="noopener noreferrer"
               whileHover={{ y: -3, scale: 1.05, boxShadow: "0 5px 20px rgba(239,68,68,0.4)", backgroundColor: "#ef4444", borderColor: "rgba(239,68,68,0.6)", color: "#fff" }}
               whileTap={{ scale: 0.95 }}
-              className="absolute bottom-3 right-3 bg-stone-950/90 backdrop-blur-md text-stone-300 text-[10px] font-black uppercase tracking-widest px-3 py-2 rounded-lg border border-white/10 flex items-center gap-1.5 shadow-[0_2px_10px_rgba(0,0,0,0.5)] transition-colors duration-300 cursor-pointer z-25 btn-shine-bmi overflow-hidden"
+              className="absolute bottom-3 right-3 bg-stone-950/90 backdrop-blur-md text-stone-300 text-[10px] font-black uppercase tracking-widest px-3 py-2 rounded-lg border border-white/10 flex items-center gap-1.5 shadow-[0_2px_10px_rgba(0,0,0,0.5)] transition-colors duration-200 cursor-pointer z-25 btn-shine-bmi overflow-hidden"
             >
               <Navigation size={10} className="rotate-45" />
               Open in Maps
@@ -269,7 +269,7 @@ export default function Headquarters() {
                 initial={{ opacity: 0, y: -15 }}
                 whileInView={{ opacity: 1, y: 0, textShadow: "0 0 15px rgba(239,68,68,0.4)" }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="text-red-500 font-display font-black uppercase text-xl tracking-[0.3em] block mb-5"
                 style={{ textShadow: "0 0 8px rgba(239,68,68,0.4), 0 0 16px rgba(239,68,68,0.15)" }}
               >
@@ -279,7 +279,7 @@ export default function Headquarters() {
                 initial={{ opacity: 0, y: 25, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                transition={{ duration: 0.45, ease: "easeOut", delay: 0.08 }}
                 className="font-display font-black text-5xl text-white uppercase tracking-tight"
               >
                 OUR <span className="text-red-500" style={{ textShadow: "0 0 12px rgba(239,68,68,0.45), 0 0 24px rgba(239,68,68,0.2)" }}>HEADQUARTERS</span>
@@ -288,7 +288,7 @@ export default function Headquarters() {
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
                 style={{ transformOrigin: "left" }}
                 className="w-20 h-[2px] bg-red-500 mt-4 shadow-[0_0_8px_rgba(239,68,68,0.8)]"
               />
@@ -302,9 +302,9 @@ export default function Headquarters() {
                   <motion.div
                     key={idx}
                     variants={cardVariants}
-                    whileHover={{ y: -5, scale: 1.02, borderColor: "rgba(239, 68, 68, 0.4)", boxShadow: "0 12px 35px rgba(239,68,68,0.2)" }}
+                    whileHover={{ y: -5, scale: 1.02, borderColor: "rgba(239, 68, 68, 0.4)", boxShadow: "0 12px 35px rgba(239,68,68,0.2)", transition: { duration: 0.2 } }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-stone-900/40 backdrop-blur-md border border-white/5 rounded-2xl p-5 flex gap-4 items-start transition-colors duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
+                    className="bg-stone-900/40 backdrop-blur-md border border-white/5 rounded-2xl p-5 flex gap-4 items-start transition-colors duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
                   >
                     {/* Glowing pulsing icon wrapper */}
                     <motion.div
@@ -322,10 +322,10 @@ export default function Headquarters() {
                         ],
                       }}
                       transition={{
-                        duration: 2.2,
+                        duration: 1.6,
                         repeat: Infinity,
                         ease: "easeInOut",
-                        delay: idx * 0.25,
+                        delay: idx * 0.15,
                       }}
                     >
                       <IconComponent size={20} className="stroke-[2px]" />
@@ -339,7 +339,7 @@ export default function Headquarters() {
                       {card.href ? (
                         <a
                           href={card.href}
-                          className="text-white hover:text-red-500 font-bold text-sm sm:text-base transition-colors duration-250 block truncate"
+                          className="text-white hover:text-red-500 font-bold text-sm sm:text-base transition-colors duration-150 block truncate"
                         >
                           {card.content}
                         </a>
@@ -361,7 +361,7 @@ export default function Headquarters() {
           <div className="col-span-7">
             <motion.div
               variants={mapVariants}
-              className="relative rounded-[24px] overflow-hidden border border-red-500/40 shadow-[0_0_35px_rgba(239,68,68,0.28)] bg-stone-950 p-[1.5px] group transition-all duration-500 hover:scale-[1.01] cursor-default"
+              className="relative rounded-[24px] overflow-hidden border border-red-500/40 shadow-[0_0_35px_rgba(239,68,68,0.28)] bg-stone-950 p-[1.5px] group transition-all duration-300 hover:scale-[1.01] cursor-default"
             >
               {/* Subtle floating particles around the map border */}
               <div className="absolute -inset-2 pointer-events-none overflow-hidden rounded-[24px] z-20">
@@ -376,7 +376,7 @@ export default function Headquarters() {
                 <iframe
                   title="PARESH BODY CLUB Desktop Live Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.159392233777!2d73.387192!3d19.2560625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be78b102b0d142d%3A0x14c75fe9e41d57b4!2sPARESH%20BODY%20CLUB%20MURBAD!5e0!3m2!1sen!2sin!4v1716719138092!5m2!1sen!2sin"
-                  className="w-full h-full border-0 opacity-90 transition-opacity duration-300 group-hover:opacity-95"
+                  className="w-full h-full border-0 opacity-90 transition-opacity duration-200 group-hover:opacity-95"
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -394,7 +394,7 @@ export default function Headquarters() {
                     opacity: [1, 0],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 2,
                     repeat: Infinity,
                     ease: "easeOut",
                   }}
@@ -411,7 +411,7 @@ export default function Headquarters() {
                       y: [0, -4, 0],
                     }}
                     transition={{
-                      duration: 1.5,
+                      duration: 1.0,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
@@ -434,9 +434,9 @@ export default function Headquarters() {
                   href="https://maps.app.goo.gl/McerevxEyhJxAf5p9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ y: -4, scale: 1.05, boxShadow: "0 10px 25px rgba(239,68,68,0.4)", backgroundColor: "#ef4444", borderColor: "rgba(239,68,68,0.6)", color: "#fff" }}
+                  whileHover={{ y: -4, scale: 1.05, boxShadow: "0 10px 25px rgba(239,68,68,0.4)", backgroundColor: "#ef4444", borderColor: "rgba(239,68,68,0.6)", color: "#fff", transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.95 }}
-                  className="absolute bottom-4 right-4 bg-stone-950/90 backdrop-blur-md text-stone-300 text-[11px] font-black uppercase tracking-widest px-4 py-2.5 rounded-lg border border-white/10 flex items-center gap-1.5 shadow-[0_2px_10px_rgba(0,0,0,0.5)] transition-colors duration-300 cursor-pointer z-25 btn-shine-bmi overflow-hidden"
+                  className="absolute bottom-4 right-4 bg-stone-950/90 backdrop-blur-md text-stone-300 text-[11px] font-black uppercase tracking-widest px-4 py-2.5 rounded-lg border border-white/10 flex items-center gap-1.5 shadow-[0_2px_10px_rgba(0,0,0,0.5)] transition-colors duration-200 cursor-pointer z-25 btn-shine-bmi overflow-hidden"
                 >
                   <Navigation size={12} className="rotate-45" />
                   Open in Maps

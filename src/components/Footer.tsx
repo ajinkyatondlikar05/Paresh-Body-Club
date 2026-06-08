@@ -32,7 +32,7 @@ export default function Footer() {
               onClick={() => handleScrollTo("home")}
               className="flex items-center space-x-2.5 cursor-pointer group w-fit"
             >
-              <div className="p-2 bg-red-650 rounded-lg group-hover:bg-red-700 transition-colors duration-200">
+              <div className="p-2 bg-red-650 rounded-lg group-hover:bg-red-700 transition-colors duration-150">
                 <Dumbbell className="text-white h-5 w-5" />
               </div>
               <div>
@@ -66,29 +66,29 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-[#1877F2]/10 hover:border-[#1877F2]/50 hover:shadow-[0_0_20px_rgba(24,119,242,0.4)] transition-all duration-300 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer"
+                className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-[#1877F2]/10 hover:border-[#1877F2]/50 hover:shadow-[0_0_20px_rgba(24,119,242,0.4)] transition-all duration-200 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer"
                 aria-label="Facebook Page"
               >
-                <Facebook className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:text-[#1877F2] transition-colors duration-300" />
+                <Facebook className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:text-[#1877F2] transition-colors duration-200" />
               </a>
               <a
                 href="https://www.instagram.com/paresh_hindurao/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all duration-300 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer relative overflow-hidden"
+                className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all duration-200 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer relative overflow-hidden"
                 aria-label="Instagram Profile"
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#f09433]/0 via-[#dc2743]/0 to-[#bc1888]/0 group-hover:from-[#f09433]/10 group-hover:via-[#dc2743]/10 group-hover:to-[#bc1888]/10 transition-colors duration-300 pointer-events-none"></div>
-                <Instagram className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:stroke-[url(#ig-footer-gradient)] transition-all duration-300 relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#f09433]/0 via-[#dc2743]/0 to-[#bc1888]/0 group-hover:from-[#f09433]/10 group-hover:via-[#dc2743]/10 group-hover:to-[#bc1888]/10 transition-colors duration-200 pointer-events-none"></div>
+                <Instagram className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:stroke-[url(#ig-footer-gradient)] transition-all duration-200 relative z-10" />
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-[#FF0000]/10 hover:border-[#FF0000]/50 hover:shadow-[0_0_20px_rgba(255,0,0,0.4)] transition-all duration-300 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer"
+                className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-[#FF0000]/10 hover:border-[#FF0000]/50 hover:shadow-[0_0_20px_rgba(255,0,0,0.4)] transition-all duration-200 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer"
                 aria-label="Youtube Channel"
               >
-                <Youtube className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:text-[#FF0000] transition-colors duration-300" />
+                <Youtube className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:text-[#FF0000] transition-colors duration-200" />
               </a>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => handleScrollTo("home")}
-                  className="hover:text-red-500 transition-colors uppercase tracking-wider cursor-pointer font-bold text-left block"
+                  className="hover:text-red-500 transition-colors duration-200 uppercase tracking-wider cursor-pointer font-bold text-left block"
                 >
                   Home Floor
                 </button>
@@ -110,7 +110,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => handleScrollTo("about")}
-                  className="hover:text-red-500 transition-colors uppercase tracking-wider cursor-pointer font-bold text-left block"
+                  className="hover:text-red-500 transition-colors duration-200 uppercase tracking-wider cursor-pointer font-bold text-left block"
                 >
                   About Story
                 </button>
@@ -118,7 +118,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => handleScrollTo("membership")}
-                  className="hover:text-red-500 transition-colors uppercase tracking-wider cursor-pointer font-bold text-left block"
+                  className="hover:text-red-500 transition-colors duration-200 uppercase tracking-wider cursor-pointer font-bold text-left block"
                 >
                   Membership Plans
                 </button>
@@ -126,7 +126,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => handleScrollTo("facilities")}
-                  className="hover:text-red-500 transition-colors uppercase tracking-wider cursor-pointer font-bold text-left block"
+                  className="hover:text-red-500 transition-colors duration-200 uppercase tracking-wider cursor-pointer font-bold text-left block"
                 >
                   Facilities List
                 </button>

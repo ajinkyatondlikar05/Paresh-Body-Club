@@ -27,8 +27,8 @@ const EagleIcon = ({ className, size = 14 }: { className?: string; size?: number
    ───────────────────────────────────────────────────────────── */
 const ACH_HEADING_DELAY = 0;          // crown / heading appear first
 const ACH_CARD_BASE = 0.2;        // first card starts at 0.2s
-const ACH_CARD_STAGGER = 0.18;       // 0.18s between cards
-const ACH_ENTRY_DUR = 0.6;        // card entry duration
+const ACH_CARD_STAGGER = 0.1;       // 0.18s between cards
+const ACH_ENTRY_DUR = 0.4;        // card entry duration
 const achCardDelay = (i: number) => ACH_CARD_BASE + i * ACH_CARD_STAGGER;
 const achCountDelay = (i: number) => achCardDelay(i) + ACH_ENTRY_DUR + 0.05;
 
@@ -51,7 +51,7 @@ function CountUp({
   startDelay?: number;
 }) {
   const motionVal = useMotionValue(0);
-  const spring = useSpring(motionVal, { stiffness: 55, damping: 14, mass: 0.8 });
+  const spring = useSpring(motionVal, { stiffness: 80, damping: 12, mass: 0.8 });
   const [display, setDisplay] = useState(isIfsa ? "" : "0");
 
   // Trigger count / reveal once shouldStart flips to true
@@ -204,7 +204,7 @@ export default function Founder() {
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="hidden lg:block absolute right-0 top-0 bottom-0 w-[54vw] xl:w-[50vw] z-10 pointer-events-none select-none overflow-hidden"
       >
         <motion.img
@@ -214,7 +214,7 @@ export default function Founder() {
           style={{ objectPosition: "80% top" }}
           initial={{ filter: "brightness(1.06) contrast(1.12) saturate(1.08)" }}
           whileHover={{ filter: "brightness(1.15) contrast(1.25) saturate(1.15)" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
         />
 
         {/* Subtle left-edge fade — blends image into text section naturally */}
@@ -246,7 +246,7 @@ export default function Founder() {
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                    transition={{ duration: 0.45, ease: "easeOut", delay: 0.08 }}
                     className="text-red-500 font-display font-black uppercase block relative z-10 animate-text-glow-pulse"
                     style={{
                       fontSize: "48px",
@@ -274,7 +274,7 @@ export default function Founder() {
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
                   className="font-display font-black text-white uppercase tracking-tighter leading-[0.85] flex flex-col items-start"
                   style={{ fontSize: "clamp(5rem, 13vw, 9rem)" }}
                 >
@@ -285,7 +285,7 @@ export default function Founder() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+                  transition={{ duration: 0.45, ease: "easeOut", delay: 0.25 }}
                   className="text-[#D4AF37] font-sans text-[19px] font-extrabold uppercase flex flex-col gap-y-1"
                   style={{
                     marginTop: "24px",
@@ -296,8 +296,8 @@ export default function Founder() {
                     textShadow: "0 0 8px rgba(212,175,55,0.35), 0 0 16px rgba(212,175,55,0.15)",
                   }}
                 >
-                  <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.4 }}>PROFESSIONAL BODYBUILDER</motion.span>
-                  <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.55 }}>IFSA CERTIFIED TRAINER</motion.span>
+                  <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.25 }}>PROFESSIONAL BODYBUILDER</motion.span>
+                  <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.35 }}>IFSA CERTIFIED TRAINER</motion.span>
                 </motion.div>
               </div>
 
@@ -305,7 +305,7 @@ export default function Founder() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: "easeOut", delay: 0.65 }}
+                transition={{ duration: 0.45, ease: "easeOut", delay: 0.4 }}
                 className="text-stone-300 font-sans text-sm sm:text-base leading-relaxed font-light max-w-3xl"
               >
                 "Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
@@ -320,9 +320,9 @@ export default function Founder() {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-[440px] p-4 sm:p-7 transition-colors duration-500 hover:border-red-500/35 cursor-default animate-philosophy-glow"
+                className="border border-red-500/15 bg-red-950/15 backdrop-blur-lg rounded-r-xl border-l-4 border-l-red-500 relative overflow-hidden shadow-[0_0_30px_rgba(239,68,68,0.1)] max-w-[440px] p-4 sm:p-7 transition-colors duration-300 hover:border-red-500/35 cursor-default animate-philosophy-glow"
               >
                 <span className="text-stone-500 text-[10px] uppercase font-bold tracking-widest block mb-1.5">
                   PERSONAL PHILOSOPHY ROOM
@@ -358,7 +358,7 @@ export default function Founder() {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="absolute top-0 right-0 pointer-events-none select-none overflow-hidden z-10"
             style={{ width: "58%", height: "520px" }}
           >
@@ -369,7 +369,7 @@ export default function Founder() {
               style={{ objectPosition: "25% top" }}
               initial={{ filter: "brightness(1.16) contrast(1.18) saturate(1.12) hue-rotate(2deg)" }}
               whileHover={{ filter: "brightness(1.25) contrast(1.25) saturate(1.2) hue-rotate(2deg)" }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.25 }}
             />
             {/* Warm red ambient glow — matches reference image 2 skin tone */}
             <div className="absolute inset-0" style={{
@@ -416,7 +416,7 @@ export default function Founder() {
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
               FOUNDER
             </motion.span>
@@ -435,7 +435,7 @@ export default function Founder() {
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
+                  transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: 0.08 }}
                 >
                   PARESH
                 </motion.span>
@@ -446,7 +446,7 @@ export default function Founder() {
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
+                  transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
                 >
                   HINDURAO
                 </motion.span>
@@ -458,12 +458,12 @@ export default function Founder() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
+              transition={{ duration: 0.45, delay: 0.25, ease: "easeOut" }}
               className="text-stone-400 font-display font-bold uppercase mb-5"
               style={{ fontSize: "12px", letterSpacing: "0.1em", lineHeight: 1.45 }}
             >
-              <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.45 }}>PROFESSIONAL</motion.span><br />
-              <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.6 }}>BODYBUILDER</motion.span>
+              <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.25 }}>PROFESSIONAL</motion.span><br />
+              <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.35 }}>BODYBUILDER</motion.span>
             </motion.div>
 
             {/* Credentials — full-width dividers */}
@@ -476,7 +476,7 @@ export default function Founder() {
                 initial={{ opacity: 0, x: -25 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
+                transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1], delay: 0.08 }}
               >
                 <div
                   className="flex items-center justify-center shrink-0 text-red-500"
@@ -504,7 +504,7 @@ export default function Founder() {
                 initial={{ opacity: 0, x: -25 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
+                transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
               >
                 <div
                   className="flex items-center justify-center shrink-0 text-red-500"
@@ -533,7 +533,7 @@ export default function Founder() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1], delay: 0.7 }}
+              transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1], delay: 0.4 }}
             >
               Paresh Hindurao is a passionate fitness trainer and professional bodybuilder
               dedicated to transforming lives through fitness and discipline. With multiple
@@ -550,7 +550,7 @@ export default function Founder() {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: 0.8 }}
+          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1], delay: 0.5 }}
         >
           <motion.div
             whileHover={{ y: -4, scale: 1.02 }}
@@ -597,7 +597,7 @@ export default function Founder() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
             >
               "DISCIPLINE, DEDICATION &amp;<br />HARD WORK{" "}
               <span className="text-red-500">BUILD CHAMPIONS."</span>
@@ -651,7 +651,7 @@ export default function Founder() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.75 }}
                 animate={achVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.75 }}
-                transition={{ duration: 0.55, ease: "easeOut", delay: ACH_HEADING_DELAY }}
+                transition={{ duration: 0.35, ease: "easeOut", delay: ACH_HEADING_DELAY }}
               >
                 <Crown size={22} className="text-red-500" />
               </motion.div>
@@ -665,7 +665,7 @@ export default function Founder() {
                     className="h-[1px] w-12 bg-gradient-to-r from-red-500/20 to-red-500"
                     initial={{ scaleX: 0 }}
                     animate={achVisible ? { scaleX: 1 } : { scaleX: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut", delay: ACH_HEADING_DELAY + 0.08 }}
+                    transition={{ duration: 0.45, ease: "easeOut", delay: ACH_HEADING_DELAY + 0.05 }}
                     style={{ transformOrigin: "right" }}
                   />
                 </div>
@@ -680,7 +680,7 @@ export default function Founder() {
                   }}
                   initial={{ opacity: 0, y: 18 }}
                   animate={achVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
-                  transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1], delay: ACH_HEADING_DELAY + 0.08 }}
+                  transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1], delay: ACH_HEADING_DELAY + 0.05 }}
                 >
                   OFFICIAL BODYBUILDING ACCOMPLISHMENTS
                 </motion.h3>
@@ -691,7 +691,7 @@ export default function Founder() {
                     className="h-[1px] w-12 bg-gradient-to-l from-red-500/20 to-red-500"
                     initial={{ scaleX: 0 }}
                     animate={achVisible ? { scaleX: 1 } : { scaleX: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut", delay: ACH_HEADING_DELAY + 0.08 }}
+                    transition={{ duration: 0.45, ease: "easeOut", delay: ACH_HEADING_DELAY + 0.05 }}
                     style={{ transformOrigin: "left" }}
                   />
                   <span className="w-1 h-1 rounded-full bg-red-500/70" />
@@ -728,7 +728,7 @@ export default function Founder() {
                       ease: [0.25, 1, 0.5, 1],
                       delay: delay,
                     }}
-                    className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 achievement-card ${ach.glowColor} ${pulseClass}`}
+                    className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-300 achievement-card ${ach.glowColor} ${pulseClass}`}
                   >
                     {/* Desktop-only watermark */}
                     {(() => {
@@ -745,7 +745,7 @@ export default function Founder() {
                       className={`p-3 lg:p-3.5 rounded-xl shrink-0 border z-10 ${ach.iconBoxClass} ach-icon-glow-pulse`}
                       whileHover={{ scale: 1.08 }}
                       whileTap={{ scale: 1.08 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 12 }}
                     >
                       <IconComp size={18} />
                     </motion.div>
@@ -769,7 +769,7 @@ export default function Founder() {
                             animate={
                               achVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }
                             }
-                            transition={{ type: "spring", stiffness: 320, delay: cntDelay + 0.1 }}
+                            transition={{ type: "spring", stiffness: 400, delay: cntDelay + 0.08 }}
                           >
                             ✓
                           </motion.span>
@@ -787,7 +787,7 @@ export default function Founder() {
                             className="text-[#9ca3af] text-xs font-black tracking-wider ml-1 block achievement-title"
                             initial={{ opacity: 0 }}
                             animate={achVisible ? { opacity: 1 } : { opacity: 0 }}
-                            transition={{ duration: 0.4, delay: cntDelay }}
+                            transition={{ duration: 0.25, delay: cntDelay }}
                           >
                             {ach.suffix}
                           </motion.span>
@@ -803,8 +803,8 @@ export default function Founder() {
                               initial={{ opacity: 0, y: 4 }}
                               animate={achVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 4 }}
                               transition={{
-                                duration: 0.28,
-                                delay: cntDelay + idx * 0.06,
+                                duration: 0.18,
+                                delay: cntDelay + idx * 0.04,
                               }}
                               className="inline-block"
                             >
@@ -835,7 +835,7 @@ export default function Founder() {
                   ease: [0.25, 1, 0.5, 1],
                   delay: achCardDelay(achievements.length),
                 }}
-                className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] instagram-card ach-pulse-pink`}
+                className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] instagram-card ach-pulse-pink`}
               >
                 {/* Desktop-only watermark */}
                 <Instagram
@@ -848,7 +848,7 @@ export default function Founder() {
                   className={`p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 z-10 ach-icon-glow-pulse animate-neon-pulse-pink`}
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 1.08 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 12 }}
                 >
                   <Instagram size={18} />
                 </motion.div>
@@ -862,7 +862,7 @@ export default function Founder() {
                     href="https://instagram.com/pareshhindurao"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-white hover:text-pink-500 text-lg sm:text-xl font-display font-black uppercase tracking-wider block mt-0.5 transition-colors duration-300 instagram-handle"
+                    className="text-white hover:text-pink-500 text-lg sm:text-xl font-display font-black uppercase tracking-wider block mt-0.5 transition-colors duration-200 instagram-handle"
                   >
                     @pareshhindurao
                   </a>
@@ -872,10 +872,10 @@ export default function Founder() {
                     href="https://instagram.com/pareshhindurao"
                     target="_blank"
                     rel="noreferrer"
-                    className={`mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit instagram-button btn-shine-animation`}
+                    className={`mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-200 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit instagram-button btn-shine-animation`}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 1.03 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                    transition={{ type: "spring", stiffness: 600, damping: 12 }}
                   >
                     <Instagram size={13} />
                     FOLLOW ON INSTAGRAM

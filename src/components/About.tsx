@@ -11,7 +11,7 @@ const fadeUp = {
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay },
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay },
   }),
 };
 
@@ -20,7 +20,7 @@ const fadeUpSubtle = {
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1], delay },
   }),
 };
 
@@ -28,7 +28,7 @@ const lineGrow = {
   hidden: { scaleY: 0 },
   visible: {
     scaleY: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.4 }
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: 0.25 }
   }
 };
 
@@ -37,7 +37,7 @@ const quoteTextFade = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut", delay: 0.9 }
+    transition: { duration: 0.35, ease: "easeOut", delay: 0.6 }
   }
 };
 
@@ -46,7 +46,7 @@ const slideLeft = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -55,7 +55,7 @@ const slideRight = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.2 },
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.15 },
   },
 };
 
@@ -64,7 +64,7 @@ const cardVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.2 },
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 },
   }),
 };
 
@@ -80,12 +80,12 @@ interface CounterProps {
 function AnimatedCounter({ target, suffix, shouldStart }: CounterProps) {
   const nodeRef = useRef<HTMLSpanElement>(null);
   const motionVal = useMotionValue(0);
-  const spring = useSpring(motionVal, { stiffness: 60, damping: 20 });
+  const spring = useSpring(motionVal, { stiffness: 100, damping: 15 });
 
   useEffect(() => {
     if (!shouldStart) return;
     const controls = animate(motionVal, target, {
-      duration: 2,
+      duration: 1.2,
       ease: "easeOut",
     });
     return controls.stop;
@@ -360,7 +360,7 @@ export default function About() {
                     className="h-full bg-red-500"
                     initial={{ width: "0%" }}
                     animate={sectionInView ? { width: "80px" } : { width: "0%" }}
-                    transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.6, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   />
                 </div>
 
@@ -368,7 +368,7 @@ export default function About() {
                 <motion.p
                   className="text-stone-200 font-sans text-sm leading-relaxed mb-5 font-light max-w-xl about-desktop-text"
                   variants={fadeUp}
-                  custom={0.35}
+                custom={0.2}
                 >
                   PARESH BODY CLUB MURBAD is one of the most trusted fitness destinations in
                   Murbad. The gym provides a motivating environment, quality workout equipment,
@@ -379,7 +379,7 @@ export default function About() {
                 <motion.div
                   className="border-l-2 border-red-500 pl-4 max-w-xl about-desktop-text"
                   variants={fadeUp}
-                  custom={0.5}
+                custom={0.3}
                 >
                   <p className="text-stone-450 font-sans text-xs sm:text-sm leading-relaxed font-light">
                     Whether you are a local beginner stepping into the weights room for the first time,
@@ -408,7 +408,7 @@ export default function About() {
                     key={line}
                     className="block text-stone-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
                     variants={fadeUp}
-                    custom={0.3 + li * 0.12}
+                    custom={0.2 + li * 0.08}
                   >
                     {line}
                   </motion.span>
@@ -419,7 +419,7 @@ export default function About() {
                   className="block text-red-500 drop-shadow-[0_0_30px_rgba(239,68,68,0.65)]"
                   style={{ fontSize: "clamp(1.8rem, 5vw, 5.2rem)" }}
                   variants={fadeUp}
-                  custom={0.66}
+                  custom={0.45}
                   animate={sectionInView ? {
                     textShadow: [
                       "0 0 20px rgba(239,68,68,0.3)",
@@ -429,8 +429,8 @@ export default function About() {
                   } : {}}
                   transition={{
                     textShadow: {
-                      delay: 1.2,
-                      duration: 1.5,
+                      delay: 0.8,
+                      duration: 1.0,
                       ease: "easeInOut",
                     },
                   }}
@@ -457,13 +457,13 @@ export default function About() {
                       y: -10,
                       scale: 1.03,
                       boxShadow: "0 0 24px 4px rgba(239,68,68,0.22)",
-                      transition: { duration: 0.3, ease: "easeOut" },
+                      transition: { duration: 0.2, ease: "easeOut" },
                     }}
-                    className="flex flex-col items-center justify-center p-6 text-center rounded-xl bg-black/45 border border-white/10 backdrop-blur-sm relative overflow-hidden group hover:border-red-500/30 transition-colors duration-300 cursor-default about-metric-card"
+                    className="flex flex-col items-center justify-center p-6 text-center rounded-xl bg-black/45 border border-white/10 backdrop-blur-sm relative overflow-hidden group hover:border-red-500/30 transition-colors duration-200 cursor-default about-metric-card"
                     style={{ willChange: "transform" }}
                   >
                     {/* Red circle icon */}
-                    <div className="w-12 h-12 rounded-full border border-red-500/60 bg-red-600/10 flex items-center justify-center mb-4 group-hover:bg-red-600/20 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-full border border-red-500/60 bg-red-600/10 flex items-center justify-center mb-4 group-hover:bg-red-600/20 transition-all duration-200">
                       <IconComp size={20} className="text-red-500" />
                     </div>
 
@@ -499,7 +499,7 @@ export default function About() {
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
               className="text-red-500 font-display font-black uppercase text-xs sm:text-sm tracking-widest block mb-2"
             >
               Your Training Verticals
@@ -508,7 +508,7 @@ export default function About() {
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className="font-display font-black text-2xl sm:text-4xl text-white uppercase tracking-tight"
             >
               Avenues of Transformation
@@ -517,7 +517,7 @@ export default function About() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
               className="text-stone-400 font-sans text-xs sm:text-sm max-w-xl mx-auto mt-2 leading-relaxed"
             >
               Unlock multi-disciplinary development zones curated for rapid calorie burning and extreme muscle gains.
@@ -527,7 +527,7 @@ export default function About() {
           <motion.div
             variants={{
               hidden: {},
-              visible: { transition: { staggerChildren: 0.15 } }
+              visible: { transition: { staggerChildren: 0.08 } }
             }}
             initial="hidden"
             whileInView="visible"
@@ -539,11 +539,11 @@ export default function About() {
                 key={index}
                 variants={{
                   hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
                 }}
-                whileHover={{ y: -6, borderColor: "rgba(239, 68, 68, 0.5)", transition: { duration: 0.3 } }}
+                whileHover={{ y: -6, borderColor: "rgba(239, 68, 68, 0.5)", transition: { duration: 0.2 } }}
                 whileTap={{ y: -2 }}
-                className="bg-stone-900/40 hover:bg-stone-900/80 border border-white/5 p-6 rounded-xl transition-colors duration-300 group flex items-start gap-4"
+                className="bg-stone-900/40 hover:bg-stone-900/80 border border-white/5 p-6 rounded-xl transition-colors duration-200 group flex items-start gap-4"
               >
                 <motion.div
                   animate={{
@@ -553,13 +553,13 @@ export default function About() {
                       "0 0 0px rgba(239,68,68,0)"
                     ]
                   }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-                  className="bg-red-500/10 p-2.5 rounded-lg text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors duration-300 shrink-0"
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.1 }}
+                  className="bg-red-500/10 p-2.5 rounded-lg text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors duration-200 shrink-0"
                 >
                   <CheckCircle2 size={18} />
                 </motion.div>
                 <div>
-                  <h4 className="font-display font-bold text-base sm:text-lg text-white group-hover:text-red-500 transition-colors duration-200 uppercase tracking-tight">
+                  <h4 className="font-display font-bold text-base sm:text-lg text-white group-hover:text-red-500 transition-colors duration-150 uppercase tracking-tight">
                     {feat.title}
                   </h4>
                   <p className="text-stone-400 font-sans text-xs sm:text-sm mt-1.5 leading-relaxed font-light">
@@ -575,7 +575,7 @@ export default function About() {
             <motion.div
               variants={{
                 hidden: {},
-                visible: { transition: { staggerChildren: 0.15 } }
+                visible: { transition: { staggerChildren: 0.08 } }
               }}
               initial="hidden"
               whileInView="visible"
@@ -589,18 +589,18 @@ export default function About() {
                     key={k}
                     variants={{
                       hidden: { opacity: 0, y: 30 },
-                      visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
                     }}
                     className="flex gap-4 group"
                   >
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5, borderColor: "rgba(239,68,68,0.5)" }}
-                      className="p-3 bg-stone-900 rounded-xl border border-white/10 text-red-500 h-12 w-12 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-red-950/30"
+                      className="p-3 bg-stone-900 rounded-xl border border-white/10 text-red-500 h-12 w-12 flex items-center justify-center shrink-0 transition-colors duration-200 group-hover:bg-red-950/30"
                     >
                       <IconComp size={22} />
                     </motion.div>
                     <div>
-                      <h4 className="font-display font-black text-white text-base sm:text-lg uppercase tracking-wider group-hover:text-red-500 transition-colors duration-200">
+                      <h4 className="font-display font-black text-white text-base sm:text-lg uppercase tracking-wider group-hover:text-red-500 transition-colors duration-150">
                         {wcu.title}
                       </h4>
                       <p className="text-stone-400 font-sans text-xs sm:text-sm mt-1 leading-relaxed font-light">

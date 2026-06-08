@@ -6,7 +6,7 @@ function AnimatedValue({ value }: { value: string }) {
   const nodeRef = useRef<HTMLSpanElement>(null);
   const numValue = parseFloat(value);
   const motionVal = useMotionValue(numValue);
-  const spring = useSpring(motionVal, { stiffness: 120, damping: 25 });
+  const spring = useSpring(motionVal, { stiffness: 150, damping: 20 });
 
   useEffect(() => {
     motionVal.set(numValue);
@@ -27,7 +27,7 @@ function AnimatedValue({ value }: { value: string }) {
 function AnimatedBMI({ value }: { value: number }) {
   const nodeRef = useRef<HTMLSpanElement>(null);
   const motionVal = useMotionValue(0);
-  const spring = useSpring(motionVal, { stiffness: 80, damping: 25 });
+  const spring = useSpring(motionVal, { stiffness: 120, damping: 20 });
 
   useEffect(() => {
     motionVal.set(value);
@@ -117,28 +117,28 @@ export default function BMICalculator() {
   ];
 
   return (
-    <section
-      id="bmi-calculator"
+    <section 
+      id="bmi-calculator" 
       ref={sectionRef}
       className="py-24 bg-[#0a0a0c] relative overflow-hidden bg-grid-pattern-animated"
     >
       <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-red-600/5 blur-[120px] pointer-events-none"></div>
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div className="absolute top-[20%] left-[5%] w-2 h-2 bg-red-500/20 rounded-full" animate={{ y: [0, -15, 0], opacity: [0, 0.5, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} />
-        <motion.div className="absolute top-[60%] left-[45%] w-3 h-3 bg-red-500/20 rounded-full" animate={{ y: [0, 20, 0], opacity: [0, 0.6, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }} />
-        <motion.div className="absolute top-[40%] right-[10%] w-2 h-2 bg-red-500/20 rounded-full" animate={{ y: [0, -10, 0], opacity: [0, 0.4, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 4 }} />
+        <motion.div className="absolute top-[20%] left-[5%] w-2 h-2 bg-red-500/20 rounded-full" animate={{ y: [0, -15, 0], opacity: [0, 0.5, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }} />
+        <motion.div className="absolute top-[60%] left-[45%] w-3 h-3 bg-red-500/20 rounded-full" animate={{ y: [0, 20, 0], opacity: [0, 0.6, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} />
+        <motion.div className="absolute top-[40%] right-[10%] w-2 h-2 bg-red-500/20 rounded-full" animate={{ y: [0, -10, 0], opacity: [0, 0.4, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 3 }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
+        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
+          
           {/* Left Columns - Information */}
-          <motion.div
+          <motion.div 
             className="lg:col-span-6"
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <div className="space-y-6">
               <div>
@@ -146,10 +146,10 @@ export default function BMICalculator() {
                   Know Your Stats
                 </span>
                 <h2 className="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight leading-none">
-                  Instant <motion.span
+                  Instant <motion.span 
                     className="text-red-500"
                     animate={isInView ? { textShadow: ["0 0 8px rgba(239,68,68,0.3)", "0 0 24px rgba(239,68,68,0.8)", "0 0 8px rgba(239,68,68,0.3)"] } : {}}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                   >BMI</motion.span>{" "}
                   Fitness Calculator
                 </h2>
@@ -158,11 +158,11 @@ export default function BMICalculator() {
                 Body Mass Index (BMI) is a rapid and internationally verified metric to understand your body fat distribution ratio based on height and weight.
               </p>
             </div>
-
+            
             {/* Quick reference chart */}
-            <motion.div
+            <motion.div 
               className="space-y-3 max-w-md mt-8"
-              variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+              variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
             >
@@ -172,15 +172,15 @@ export default function BMICalculator() {
                   <motion.div
                     key={range.label}
                     variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                    whileHover={{ y: -4, borderColor: 'rgba(239, 68, 68, 0.4)' }}
-                    className={`relative flex justify-between items-center p-3 rounded-lg bg-stone-900/40 border border-white/5 text-xs text-stone-400 font-mono transition-all duration-300 overflow-hidden ${isActive ? 'border-red-500/50' : ''}`}
+                    whileHover={{ y: -4, borderColor: 'rgba(239, 68, 68, 0.4)', transition: { duration: 0.2 } }}
+                    className={`relative flex justify-between items-center p-3 rounded-lg bg-stone-900/40 border border-white/5 text-xs text-stone-400 font-mono transition-all duration-200 overflow-hidden ${isActive ? 'border-red-500/50' : ''}`}
                   >
                     {isActive && (
-                      <motion.div
+                      <motion.div 
                         className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-transparent"
                         initial={{ x: "-100%" }}
                         animate={{ x: "100%" }}
-                        transition={{ duration: 1, ease: "linear", repeat: Infinity }}
+                        transition={{ duration: 0.7, ease: "linear", repeat: Infinity }}
                       />
                     )}
                     <span className="relative">{range.label}</span>
@@ -193,19 +193,19 @@ export default function BMICalculator() {
 
           {/* Right Column - Interactive Form & Live Result Display */}
           <div className="lg:col-span-6 relative">
-            <motion.div
+            <motion.div 
               className="absolute -inset-8 bg-red-600/5 blur-[80px] rounded-full"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 1, delay: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
             />
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0, x: 40, scale: 0.98 }}
               animate={isInView ? { opacity: 1, x: 0, scale: 1 } : {}}
-              transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
+              transition={{ type: 'spring', stiffness: 150, damping: 18, delay: 0.15 }}
               className="bg-[#0f0f12]/80 backdrop-blur-lg border border-white/10 p-5 sm:p-8 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
             >
-
+              
               <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
                 <div className="p-3 bg-red-600/10 rounded-xl text-red-500">
                   <Calculator size={22} />
@@ -268,7 +268,7 @@ export default function BMICalculator() {
                     type="submit"
                     whileHover={{ y: -3, scale: 1.05, boxShadow: "0 0 25px rgba(239, 68, 68, 0.6)" }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex-1 py-3.5 px-6 bg-red-600 text-white text-xs font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_15px_rgba(239,68,68,0.3)] cursor-pointer disabled:opacity-50 btn-shine-bmi"
+                    className="flex-1 py-3.5 px-6 bg-red-600 text-white text-xs font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 transition-all duration-200 shadow-[0_0_15px_rgba(239,68,68,0.3)] cursor-pointer disabled:opacity-50 btn-shine-bmi"
                   >
                     <Sparkles size={14} /> Calculate
                   </motion.button>
@@ -299,21 +299,21 @@ export default function BMICalculator() {
                       <div>
                         <span className="text-stone-500 text-[10px] uppercase font-bold tracking-wider">Your Body Index</span>
                         <div className="relative w-fit">
-                          <motion.div
+                          <motion.div 
                             className="absolute inset-0 -m-2 border-2 rounded-full"
                             style={{ borderColor: colorClass.replace('text-', 'border-').replace('/5', '/40') }}
                             animate={{ scale: [1, 1.6], opacity: [0.8, 0] }}
-                            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeOut' }}
+                            transition={{ repeat: Infinity, duration: 1.0, ease: 'easeOut' }}
                           />
                           <h4 className="font-mono font-black text-3xl text-white mt-0.5 relative">
                             <AnimatedBMI value={bmiValue} />
                           </h4>
                         </div>
                       </div>
-                      <motion.div
+                      <motion.div 
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.5 }}
+                        transition={{ type: 'spring', stiffness: 250, damping: 18, delay: 0.3 }}
                         className={`px-3 py-1.5 rounded-lg border text-xs sm:text-sm font-black tracking-wider uppercase ${colorClass}`}
                       >
                         {status}

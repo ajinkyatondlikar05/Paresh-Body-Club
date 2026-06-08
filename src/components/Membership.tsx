@@ -229,7 +229,7 @@ export default function Membership() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
@@ -240,7 +240,7 @@ export default function Membership() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.75,
+        duration: 0.5,
         ease: [0.25, 1, 0.5, 1]
       }
     }
@@ -333,7 +333,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: -25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.08, ease: "easeOut" }}
               className="text-white text-6xl tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal sm:mr-3"
             >
               GYM
@@ -342,7 +342,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: -25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
               className="text-white text-[42px] tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal sm:mr-3 -mt-1 sm:mt-0"
             >
               MEMBERSHIP
@@ -351,7 +351,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: -25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
               animate={{ textShadow: ["0 0 10px rgba(239,68,68,0.25)", "0 0 22px rgba(239,68,68,0.7)", "0 0 10px rgba(239,68,68,0.25)"] }}
               className="text-red-500 text-6xl tracking-tighter block sm:inline sm:text-5xl sm:tracking-normal drop-shadow-[0_0_15px_rgba(239,68,68,0.65)] -mt-1 sm:mt-0"
             >
@@ -365,7 +365,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.08, ease: "easeOut" }}
               className="text-white block"
             >
               GYM
@@ -374,7 +374,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
               className="text-white block mt-1"
             >
               MEMBERSHIP
@@ -383,7 +383,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
               animate={{ textShadow: ["0 0 15px rgba(239,68,68,0.25)", "0 0 32px rgba(239,68,68,0.75)", "0 0 15px rgba(239,68,68,0.25)"] }}
               className="text-red-500 block mt-1 drop-shadow-[0_0_25px_rgba(239,68,68,0.7)]"
             >
@@ -397,7 +397,7 @@ export default function Membership() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.45 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
           className="flex items-center justify-center gap-4 lg:gap-8 w-full max-w-[280px] sm:max-w-none mx-auto mb-12 relative z-10 translate-y-[35px] md:translate-y-0 lg:mt-6"
         >
           {/* Mobile left line */}
@@ -442,7 +442,7 @@ export default function Membership() {
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="bg-[#09090b]/90 backdrop-blur-md border border-red-500/50 rounded-2xl sm:rounded-3xl p-3.5 sm:p-8 flex flex-col justify-between animate-border-pulse shadow-[0_0_30px_rgba(239,68,68,0.22)]"
           >
             <div>
@@ -454,7 +454,7 @@ export default function Membership() {
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
+                      transition={{ duration: 0.35, delay: 0.15 }}
                       className="bg-gradient-to-r from-red-800 to-red-650 text-white font-display text-[11px] sm:text-sm tracking-wider uppercase border-b border-white/10 italic"
                     >
                       <th className="py-4 px-2 text-center font-black border-r border-white/10 w-16 sm:w-20">
@@ -480,8 +480,8 @@ export default function Membership() {
                       hidden: {},
                       visible: {
                         transition: {
-                          staggerChildren: 0.12,
-                          delayChildren: 0.25
+                          staggerChildren: 0.08,
+                          delayChildren: 0.15
                         }
                       }
                     }}
@@ -495,9 +495,9 @@ export default function Membership() {
                         key={row.no}
                         variants={{
                           hidden: { opacity: 0, y: 15 },
-                          visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } }
+                          visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }
                         }}
-                        className="hover:bg-white/5 transition-colors duration-150 border-b border-white/10 last:border-b-0"
+                        className="hover:bg-white/5 transition-colors duration-100 border-b border-white/10 last:border-b-0"
                       >
                         <td className="py-4 px-2 text-center border-r border-white/10">
                           <HexagonNumber num={row.no} />
@@ -505,7 +505,7 @@ export default function Membership() {
                         <td className="py-4 px-2 text-center font-extrabold border-r border-white/10 text-stone-100">{row.months}</td>
                         {/* GYM price — clickable WhatsApp enquiry */}
                         <motion.td
-                          className="py-4 px-2 text-center font-extrabold border-r border-white/10 text-stone-100 cursor-pointer select-none transition-all duration-200 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.7)] active:scale-95"
+                          className="py-4 px-2 text-center font-extrabold border-r border-white/10 text-stone-100 cursor-pointer select-none transition-all duration-150 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.7)] active:scale-95"
                           onClick={() => openWhatsApp(row.gymMsg)}
                           title={`Enquire about ${row.months} Gym plan`}
                           whileHover={{ scale: 1.05, textShadow: "0 0 12px rgba(34,197,94,0.8)" }}
@@ -516,7 +516,7 @@ export default function Membership() {
                         </motion.td>
                         {/* GYM + CARDIO price — clickable WhatsApp enquiry */}
                         <motion.td
-                          className="py-4 px-2 text-center font-extrabold text-stone-100 cursor-pointer select-none transition-all duration-200 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.7)] active:scale-95"
+                          className="py-4 px-2 text-center font-extrabold text-stone-100 cursor-pointer select-none transition-all duration-150 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.7)] active:scale-95"
                           onClick={() => openWhatsApp(row.gymCardioMsg)}
                           title={`Enquire about ${row.months} Gym + Cardio plan`}
                           whileHover={{ scale: 1.05, textShadow: "0 0 12px rgba(34,197,94,0.8)" }}
@@ -537,7 +537,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.35, delay: 0.4 }}
               className="flex items-center justify-center mt-6"
             >
               <div className="flex items-center gap-2.5 px-4 py-2.5 bg-black/60 border border-white/10 rounded-full text-stone-300 text-[10px] sm:text-xs max-w-lg shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)]">
@@ -552,7 +552,7 @@ export default function Membership() {
             initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="bg-[#09090b]/90 backdrop-blur-md border border-red-500/50 rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex flex-col justify-between animate-border-pulse shadow-[0_0_30px_rgba(239,68,68,0.22)]"
           >
             <div>
@@ -563,7 +563,7 @@ export default function Membership() {
                     initial={{ scale: 0, rotate: -45 }}
                     whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                    transition={{ type: "spring", stiffness: 250, damping: 12 }}
                   >
                     <OctagonClipboardIcon />
                   </motion.div>
@@ -571,7 +571,7 @@ export default function Membership() {
                     initial={{ opacity: 0, x: -25 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                    transition={{ duration: 0.4, delay: 0.08, ease: "easeOut" }}
                     className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight italic text-center sm:text-left mt-2 sm:mt-0"
                   >
                     RULES <span className="text-red-500">& REGULATIONS</span>
@@ -582,7 +582,7 @@ export default function Membership() {
                   initial={{ opacity: 0, scaleX: 0 }}
                   whileInView={{ opacity: 1, scaleX: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  transition={{ duration: 0.4, delay: 0.15 }}
                   className="flex items-center gap-3 w-full max-w-[280px] mt-3 mx-auto sm:mx-0"
                 >
                   <div className="h-[1.5px] bg-gradient-to-r from-transparent to-red-500/80 flex-grow" />
@@ -597,7 +597,7 @@ export default function Membership() {
                   hidden: {},
                   visible: {
                     transition: {
-                      staggerChildren: 0.15
+                      staggerChildren: 0.08
                     }
                   }
                 }}
@@ -611,14 +611,14 @@ export default function Membership() {
                     key={index}
                     variants={{
                       hidden: { opacity: 0, x: -20 },
-                      visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                      visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: "easeOut" } }
                     }}
                     className="relative py-4 sm:py-5 flex items-center gap-3.5 sm:gap-5 group"
                   >
                     {/* Rounded Square Badge */}
                     <motion.div
                       animate={{ boxShadow: ["0 0 10px rgba(239,68,68,0.45)", "0 0 20px rgba(239,68,68,0.75)", "0 0 10px rgba(239,68,68,0.45)"] }}
-                      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                       className="w-7 h-7 sm:w-8 sm:h-8 rounded bg-red-600 flex items-center justify-center shrink-0 font-display font-extrabold text-white text-sm sm:text-base"
                     >
                       {index + 1}
@@ -632,8 +632,8 @@ export default function Membership() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-red-500/35 flex items-center justify-center shrink-0 bg-red-950/10 shadow-[0_0_10px_rgba(239,68,68,0.15)] group-hover:border-red-500/60 transition-colors duration-200"
+                      transition={{ duration: 0.25, delay: 0.15 }}
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-red-500/35 flex items-center justify-center shrink-0 bg-red-950/10 shadow-[0_0_10px_rgba(239,68,68,0.15)] group-hover:border-red-500/60 transition-colors duration-150"
                     >
                       {getRuleIcon(rule.icon)}
                     </motion.div>
@@ -673,7 +673,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.08 }}
               className="block"
             >
               STAY{" "}
@@ -688,7 +688,7 @@ export default function Membership() {
                 }}
                 transition={{
                   repeat: Infinity,
-                  duration: 2.5,
+                  duration: 1.8,
                   ease: "easeInOut"
                 }}
               >
@@ -699,7 +699,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.35 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
               className="block mt-2"
             >
               STAY FOCUSED.
@@ -708,7 +708,7 @@ export default function Membership() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.35 }}
               className="block mt-2"
             >
               STAY{" "}
@@ -723,7 +723,7 @@ export default function Membership() {
                 }}
                 transition={{
                   repeat: Infinity,
-                  duration: 2.5,
+                  duration: 1.8,
                   ease: "easeInOut",
                   delay: 1.25
                 }}
@@ -738,7 +738,7 @@ export default function Membership() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.95 }}
+            transition={{ duration: 0.45, ease: "easeOut", delay: 0.6 }}
             className="mt-10 font-sans font-bold uppercase tracking-widest text-stone-400 select-none flex flex-col items-center leading-relaxed"
             style={{ fontSize: "clamp(0.8rem, 3.5vw, 1.15rem)" }}
           >
@@ -759,7 +759,7 @@ export default function Membership() {
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 1.55 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 1.0 }}
               style={{ transformOrigin: "right" }}
               className="absolute left-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30"
             />
@@ -769,7 +769,7 @@ export default function Membership() {
               initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 120, damping: 12, delay: 1.25 }}
+              transition={{ type: "spring", stiffness: 180, damping: 10, delay: 0.8 }}
               className="relative z-10 text-red-500 filter drop-shadow-[0_0_4px_rgba(239,68,68,0.5)]"
             >
               <svg viewBox="0 0 24 24" width="20" height="20" className="fill-current">
@@ -786,7 +786,7 @@ export default function Membership() {
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 1.55 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 1.0 }}
               style={{ transformOrigin: "left" }}
               className="absolute right-0 w-[calc(50%-25px)] h-[1px] bg-red-500/30"
             />
