@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Oswald:wght@500;600;700;800;900&family=Anton&display=swap');
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -327,8 +329,13 @@ body {
 /* ── BMI Calculator Animations ── */
 
 @keyframes movingGrid {
-  0% { background-position: 0 0; }
-  100% { background-position: 40px 40px; }
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 40px 40px;
+  }
 }
 
 .bg-grid-pattern-animated {
@@ -356,7 +363,8 @@ body {
   appearance: none;
   width: 20px;
   height: 20px;
-  background: #ef4444; /* red-500 */
+  background: #ef4444;
+  /* red-500 */
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid white;
