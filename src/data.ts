@@ -303,7 +303,7 @@ export const FAQS: FAQItem[] = [
   {
     id: "faq-1",
     question: "What are the timings of PARESH BODY CLUB MURBAD?",
-    answer: "Our gym opens from Monday to Saturday, Morning: 6:00 AM to 10:00 AM, and Evening: 5:00 PM to 9:30 PM. We are closed on Sundays to allow muscle recovery and equipment audits."
+    answer: "Our gym opens from Monday to Thursday and Saturday.\nMorning: 5:30 AM to 10:30 AM\nEvening: 3:30 PM to 10:30 PM\nFriday: Holiday"
   },
   {
     id: "faq-2",
