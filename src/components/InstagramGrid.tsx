@@ -1,6 +1,24 @@
-import { Instagram } from "lucide-react";
+import { Instagram, Play, Film } from "lucide-react";
 
 export default function InstagramGrid() {
+  const REELS = [
+    {
+      id: 1,
+      url: "https://www.instagram.com/reel/DSRJkF6iC1B/?igsh=MW05bDlmZ3Y4dnZmdQ==",
+      thumbnail: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop",
+    },
+    {
+      id: 2,
+      url: "https://www.instagram.com/reel/DX15YK1Mt0G/?igsh=MXR6aTl0bjRpNjM1OQ==",
+      thumbnail: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop",
+    },
+    {
+      id: 3,
+      url: "https://www.instagram.com/reel/DRMq9nuCIdW/?igsh=MXc2dnpkbHhtN3c1Mw==",
+      thumbnail: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=600&auto=format&fit=crop",
+    }
+  ];
+
   return (
     <section
       id="instagram"
@@ -16,17 +34,53 @@ export default function InstagramGrid() {
             <Instagram size={22} />
           </div>
           <h2 className="font-display font-black text-2xl sm:text-4xl text-white uppercase tracking-tight">
-            INSTAGRAM FEED <span className="text-red-500">@PARESH_BODY_CLUB</span>
+            INSTAGRAM FEED <span className="text-red-500">@PARESH_BODYCLUB_MURBAD</span>
           </h2>
           <p className="text-stone-400 font-sans text-xs sm:text-sm max-w-lg mx-auto mt-2 leading-relaxed font-light">
             Stay plugged into our daily routine frames, reels, fat-to-fit updates, and motivational tips.
           </p>
         </div>
 
+        {/* Reels Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-sm lg:max-w-5xl mx-auto mt-12 mb-10">
+          {REELS.map((reel) => (
+            <a
+              key={reel.id}
+              href={reel.url}
+              target="_blank"
+              rel="noreferrer"
+              className="relative block aspect-[9/16] rounded-2xl overflow-hidden group border border-white/10 hover:border-red-500/60 shadow-lg hover:shadow-[0_0_30px_rgba(239,68,68,0.25)] transition-all duration-500 bg-stone-900/40 backdrop-blur-md"
+            >
+              {/* Thumbnail Background */}
+              <img
+                src={reel.thumbnail}
+                alt="Instagram Reel Preview"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80"
+                referrerPolicy="no-referrer"
+              />
+
+              {/* Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90 transition-opacity duration-300 group-hover:opacity-90"></div>
+
+              {/* Top Right Reel Icon */}
+              <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm p-2.5 rounded-full text-white/90 group-hover:text-red-500 group-hover:bg-black/70 transition-all duration-300 z-10">
+                <Film size={18} className="fill-current/20" />
+              </div>
+
+              {/* Bottom Content / Watch Button */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col items-center translate-y-2 group-hover:translate-y-0 transition-transform duration-300 z-10">
+                <div className="flex items-center justify-center gap-2.5 px-6 py-3.5 bg-red-600/90 backdrop-blur-sm text-white font-black tracking-widest uppercase text-xs rounded-xl border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.5)] group-hover:bg-red-500 group-hover:shadow-[0_0_25px_rgba(239,68,68,0.7)] transition-all duration-300 w-full">
+                  <Play size={16} className="fill-current" /> Watch Reel
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
         {/* Prompt Button */}
         <div className="text-center mt-8">
           <a
-            href="https://www.instagram.com/paresh_body_club_murbad/"
+            href="https://www.instagram.com/paresh_bodyclub_murbad/"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 hover:bg-white text-stone-300 hover:text-red-600 text-xs font-black uppercase tracking-widest rounded-lg border border-white/10 hover:border-white transition-all duration-300 cursor-pointer shadow-lg"
