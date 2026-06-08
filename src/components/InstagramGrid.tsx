@@ -5,17 +5,20 @@ export default function InstagramGrid() {
     {
       id: 1,
       url: "https://www.instagram.com/reel/DSRJkF6iC1B/?igsh=MW05bDlmZ3Y4dnZmdQ==",
-      thumbnail: "/reel-1.jpg",
+      thumbnail: "/reels/reel-1.jpg",
+      fallbackUrl: "https://placehold.co/600x1067/0c0c0e/ef4444?font=Oswald&text=WHAT+HAPPENED%5CnTO+YOU%3F%5Cn%5Cn(Motivational+Poster)",
     },
     {
       id: 2,
       url: "https://www.instagram.com/reel/DX15YK1Mt0G/?igsh=MXR6aTl0bjRpNjM1OQ==",
-      thumbnail: "/reel-2.jpg",
+      thumbnail: "/reels/reel-2.jpg",
+      fallbackUrl: "https://placehold.co/600x1067/0c0c0e/ef4444?font=Oswald&text=BODYBUILDING%5CnCOMPETITION%5Cn%5Cn(Trophy+Poster)",
     },
     {
       id: 3,
       url: "https://www.instagram.com/reel/DRMq9nuCIdW/?igsh=MXc2dnpkbHhtN3c1Mw==",
-      thumbnail: "/reel-3.jpg",
+      thumbnail: "/reels/reel-3.jpg",
+      fallbackUrl: "https://placehold.co/600x1067/0c0c0e/ef4444?font=Oswald&text=BASIC+RULES%5CnOF+SUCCESS%5Cn%5Cn(Rules+Poster)",
     }
   ];
 
@@ -56,7 +59,7 @@ export default function InstagramGrid() {
                 src={reel.thumbnail}
                 onError={(e) => {
                   e.currentTarget.onerror = null;
-                  e.currentTarget.src = `https://placehold.co/600x1067/111111/ef4444?text=Reel+${reel.id}+Preview%5Cn(Upload+reel-${reel.id}.jpg)`;
+                  e.currentTarget.src = reel.fallbackUrl;
                 }}
                 alt={`Instagram Reel Preview ${reel.id}`}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80"
