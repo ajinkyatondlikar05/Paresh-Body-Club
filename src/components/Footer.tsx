@@ -72,7 +72,7 @@ export default function Footer() {
                 <Facebook className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:text-[#1877F2] transition-colors duration-300" />
               </a>
               <a
-                href="https://www.instagram.com/paresh_body_club_murbad/"
+                href="https://www.instagram.com/paresh_hindurao/"
                 target="_blank"
                 rel="noreferrer"
                 className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all duration-300 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer relative overflow-hidden"
