@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 
 export default function Reviews() {
   return (
-    <section 
-      id="reviews" 
+    <section
+      id="reviews"
       className="py-24 bg-[#0c0c0e] relative overflow-hidden"
     >
       {/* Decorative Blur Spheres */}
@@ -13,7 +13,7 @@ export default function Reviews() {
       <div className="absolute bottom-10 left-10 w-[250px] h-[250px] bg-stone-800/15 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Header containing the 4.8 rating metric summary details */}
         <div className="flex flex-col gap-8 mb-16">
           <div className="text-left">
@@ -29,30 +29,18 @@ export default function Reviews() {
           </div>
 
           {/* Interactive Rating Badge Grid */}
-          <div className="bg-stone-900/60 border border-white/5 p-4 sm:p-6 rounded-2xl flex items-center justify-between backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.6)] gap-4 max-w-lg">
-            <div>
-              <span className="block text-4xl sm:text-5xl font-mono font-black text-white">4.8</span>
-              <div className="flex items-center gap-0.5 mt-1.5 text-yellow-500">
-                <Star size={16} className="fill-current" />
-                <Star size={16} className="fill-current" />
-                <Star size={16} className="fill-current" />
-                <Star size={16} className="fill-current" />
-                <Star size={16} className="fill-current" />
-              </div>
-              <span className="block text-stone-500 text-[10px] uppercase font-bold tracking-wider mt-2">
-                Overall Score Metric
-              </span>
+          <div className="bg-stone-900/60 border border-white/5 py-5 px-8 sm:py-6 sm:px-12 rounded-2xl flex flex-col items-center justify-center backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.6)] self-start w-fit">
+            <span className="block text-4xl sm:text-5xl font-mono font-black text-white text-center">4.8</span>
+            <div className="flex items-center justify-center gap-1 mt-2 text-yellow-500">
+              <Star size={16} className="fill-current" />
+              <Star size={16} className="fill-current" />
+              <Star size={16} className="fill-current" />
+              <Star size={16} className="fill-current" />
+              <Star size={16} className="fill-current" />
             </div>
-
-            <div className="h-16 w-px bg-white/10"></div>
-
-            <div className="text-right">
-              <span className="block text-4xl sm:text-5xl font-mono font-black text-red-500">10</span>
-              <span className="block text-stone-300 text-xs font-semibold uppercase mt-1">Verified reviews</span>
-              <span className="block text-stone-500 text-[10px] uppercase font-bold tracking-wider mt-2">
-                Google Local Map
-              </span>
-            </div>
+            <span className="block text-stone-500 text-[10px] uppercase font-bold tracking-wider mt-2.5 text-center">
+              Overall Score Metric
+            </span>
           </div>
         </div>
 
@@ -68,10 +56,10 @@ export default function Reviews() {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-0.5 text-yellow-500">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <Star 
-                        key={i} 
-                        size={12} 
-                        className={i < Math.floor(rev.rating) ? "fill-current" : "text-stone-600"} 
+                      <Star
+                        key={i}
+                        size={12}
+                        className={i < Math.floor(rev.rating) ? "fill-current" : "text-stone-600"}
                       />
                     ))}
                   </div>
