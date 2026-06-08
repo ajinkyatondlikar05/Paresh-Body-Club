@@ -7,14 +7,14 @@ export default function InstagramGrid() {
       imageUrl: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=400&auto=format&fit=crop",
       likes: "152",
       comments: "14",
-      caption: "Consistency beats talent. Paresh sir showing correct deadlift biomechanics at Shirgaon. #murbadgym #bodybuilding"
+      caption: "Consistency beats talent. Paresh sir showing correct deadlift biomechanics at Murbad. #murbadgym #bodybuilding"
     },
     {
       id: "ig-2",
       imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=400&auto=format&fit=crop",
       likes: "284",
       comments: "25",
-      caption: "Cardio decks are ready! Kickstart high-calorie fat burn in Mata Nagar. #hiit #murbadfitness"
+      caption: "Cardio decks are ready! Kickstart high-calorie fat burn in Murbad. #hiit #murbadfitness"
     },
     {
       id: "ig-3",

@@ -46,7 +46,7 @@ export default function Footer() {
             </div>
 
             <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed max-w-sm">
-              One of the most trusted strength and bodybuilding destinations in Shirgaon and Mata Nagar Rd area, Murbad. Empowering fitness lovers with pristine biomechanics, raw iron stacks, and continuous coaching.
+              One of the most trusted strength and bodybuilding destinations near Parasic Bank, Murbad. Empowering fitness lovers with pristine biomechanics, raw iron stacks, and continuous coaching.
             </p>
 
             {/* Social media icons stack */}
@@ -131,7 +131,7 @@ export default function Footer() {
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-red-500 shrink-0 mt-0.5" />
                 <span className="text-stone-400 font-light leading-snug">
-                  Mata Nagar Rd, Shirgaon, Murbad, Maharashtra 421401
+                  Congress Bhavan, 1st Floor, Near Parasic Bank, Murbad, Maharashtra 421401
                 </span>
               </li>
               <li className="flex items-center gap-2.5">

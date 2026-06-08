@@ -44,8 +44,7 @@ export default function Headquarters() {
   const cards = [
     {
       title: "Physical Location",
-      content: "Mata Nagar Rd, Shirgaon, Murbad, Maharashtra 421401",
-      extra: "LOCATION CODE: 794Q+CW MURBAD, MAHARASHTRA",
+      content: "Congress Bhavan, 1st Floor, Near Parasic Bank, Murbad, Maharashtra 421401",
       icon: MapPin,
       type: "address",
     },
@@ -144,11 +143,7 @@ export default function Headquarters() {
                     </span>
                   )}
 
-                  {card.extra && (
-                    <span className="text-red-500 text-[9px] uppercase font-black tracking-widest block mt-2 font-mono bg-red-500/5 py-1 px-2.5 rounded border border-red-500/10 w-fit">
-                      {card.extra}
-                    </span>
-                  )}
+
                 </div>
               </motion.div>
             );
@@ -223,7 +218,7 @@ export default function Headquarters() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
               </span>
-              SHIRGAON REGION
+              MURBAD REGION
             </div>
 
             {/* Floating Open in Maps Link */}
@@ -313,11 +308,7 @@ export default function Headquarters() {
                         </span>
                       )}
 
-                      {card.extra && (
-                        <span className="text-red-500 text-[9px] uppercase font-black tracking-widest block mt-2 font-mono bg-red-500/5 py-1 px-2.5 rounded border border-red-500/10 w-fit">
-                          {card.extra}
-                        </span>
-                      )}
+
                     </div>
                   </motion.div>
                 );
@@ -394,7 +385,7 @@ export default function Headquarters() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
                   </span>
-                  SHIRGAON REGION
+                  MURBAD REGION
                 </div>
 
                 {/* Floating Open in Maps Link */}

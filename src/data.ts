@@ -244,9 +244,9 @@ export const REVIEWS: ReviewItem[] = [
   {
     id: "rev-4",
     author: "Amit Bhoir",
-    role: "Mata Nagar Resident",
+    role: "Murbad Resident",
     rating: 5,
-    comment: "Best bodybuilding club in Mata Nagar region. The gym environment is extremely energetic and motivating. Highly recommend to everyone around Murbad.",
+    comment: "Best bodybuilding club in Murbad. The gym environment is extremely energetic and motivating. Highly recommend to everyone around Murbad.",
     date: "2 weeks ago"
   },
   {
@@ -270,7 +270,7 @@ export const REVIEWS: ReviewItem[] = [
     author: "Roshan Patil",
     role: "Local Resident",
     rating: 5,
-    comment: "Excellent strength training setup. Best professional gym in Shirgaon and Mata Nagar Rd area.",
+    comment: "Excellent strength training setup. Best professional gym in the Murbad area.",
     date: "1 month ago"
   },
   {
