@@ -86,9 +86,9 @@ export default function InstagramGrid() {
                   <Play size={16} className="fill-current" /> Watch Reel
                 </div>
               </div>
-            </motion.a>
+            </a>
           ))}
-        </motion.div>
+        </div>
 
         {/* Prompt Button */}
         <motion.div
