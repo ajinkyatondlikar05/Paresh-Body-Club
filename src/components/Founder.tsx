@@ -25,11 +25,11 @@ const EagleIcon = ({ className, size = 14 }: { className?: string; size?: number
    MOBILE ACHIEVEMENTS — timing constants
    heading: 0s | cards: 0.2 + index*0.18s | count starts after card
    ───────────────────────────────────────────────────────────── */
-const ACH_HEADING_DELAY  = 0;          // crown / heading appear first
-const ACH_CARD_BASE      = 0.2;        // first card starts at 0.2s
-const ACH_CARD_STAGGER   = 0.18;       // 0.18s between cards
-const ACH_ENTRY_DUR      = 0.6;        // card entry duration
-const achCardDelay  = (i: number) => ACH_CARD_BASE + i * ACH_CARD_STAGGER;
+const ACH_HEADING_DELAY = 0;          // crown / heading appear first
+const ACH_CARD_BASE = 0.2;        // first card starts at 0.2s
+const ACH_CARD_STAGGER = 0.18;       // 0.18s between cards
+const ACH_ENTRY_DUR = 0.6;        // card entry duration
+const achCardDelay = (i: number) => ACH_CARD_BASE + i * ACH_CARD_STAGGER;
 const achCountDelay = (i: number) => achCardDelay(i) + ACH_ENTRY_DUR + 0.05;
 
 /* ─────────────────────────────────────────────────────────────
@@ -76,9 +76,8 @@ function CountUp({
 
   return (
     <span
-      className={`font-display font-black text-xl sm:text-2xl block ${
-        isIfsa ? "text-white" : color
-      }`}
+      className={`font-display font-black text-xl sm:text-2xl block ${isIfsa ? "text-white" : color
+        }`}
     >
       {display}
     </span>
@@ -89,16 +88,6 @@ function CountUp({
    MAIN COMPONENT
 ───────────────────────────────────────────────────────────── */
 export default function Founder() {
-  // Initialise synchronously so mobile state is correct before first paint
-  const [isMobile, setIsMobile] = useState(
-    () => typeof window !== "undefined" && window.innerWidth < 1024
-  );
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 1024);
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
   /* ── Single observer drives ALL achievement animations on mobile ── */
   const [achVisible, setAchVisible] = useState(false);
   const achRef = useRef<HTMLDivElement>(null);
@@ -385,9 +374,9 @@ export default function Founder() {
             {/* Red label */}
             <motion.span
               className="text-red-500 font-display uppercase block animate-text-glow-pulse"
-              style={{ 
-                fontSize: "clamp(24px, 6.5vw, 28px)", 
-                fontWeight: 900, 
+              style={{
+                fontSize: "clamp(24px, 6.5vw, 28px)",
+                fontWeight: 900,
                 letterSpacing: "5px",
                 textShadow: "0 0 12px rgba(239, 68, 68, 0.45)"
               }}
@@ -408,7 +397,7 @@ export default function Founder() {
               style={{ fontSize: "clamp(46px, 13vw, 64px)" }}
             >
               <span className="block overflow-hidden">
-                <motion.span 
+                <motion.span
                   className="block"
                   initial={{ opacity: 0, y: 15, x: -10 }}
                   whileInView={{ opacity: 1, y: 0, x: 0 }}
@@ -419,7 +408,7 @@ export default function Founder() {
                 </motion.span>
               </span>
               <span className="block overflow-hidden">
-                <motion.span 
+                <motion.span
                   className="block"
                   initial={{ opacity: 0, y: 15, x: -10 }}
                   whileInView={{ opacity: 1, y: 0, x: 0 }}
@@ -518,7 +507,7 @@ export default function Founder() {
         </div>
 
         {/* ── PHILOSOPHY CARD ───────────────────────────────────────────── */}
-        <motion.div 
+        <motion.div
           className="px-5 pb-10 pt-2 bg-black relative z-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -601,20 +590,18 @@ export default function Founder() {
       ══════════════════════════════════════════════════════════════════════ */}
       <div ref={achRef} className="relative z-30 bg-black overflow-hidden">
         {/* Subtle color-matched floating particles for mobile Achievements section */}
-        {isMobile && (
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-            {/* Red particle (top left) */}
-            <div className="absolute left-[15%] top-[20%] w-[3px] h-[3px] bg-red-500/20 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '0s', animationDuration: '12s' }} />
-            {/* Amber/Orange particle (mid right) */}
-            <div className="absolute right-[10%] top-[40%] w-[4px] h-[4px] bg-amber-500/15 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '3s', animationDuration: '15s' }} />
-            {/* Blue particle (mid left) */}
-            <div className="absolute left-[8%] top-[60%] w-[3px] h-[3px] bg-blue-500/20 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '6s', animationDuration: '14s' }} />
-            {/* Emerald/Green particle (bottom right) */}
-            <div className="absolute right-[20%] top-[80%] w-[4px] h-[4px] bg-emerald-500/15 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '9s', animationDuration: '16s' }} />
-            {/* Pink/Instagram particle (bottom left) */}
-            <div className="absolute left-[25%] top-[90%] w-[3px] h-[3px] bg-pink-500/20 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '2s', animationDuration: '18s' }} />
-          </div>
-        )}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          {/* Red particle (top left) */}
+          <div className="absolute left-[15%] top-[20%] w-[3px] h-[3px] bg-red-500/20 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '0s', animationDuration: '12s' }} />
+          {/* Amber/Orange particle (mid right) */}
+          <div className="absolute right-[10%] top-[40%] w-[4px] h-[4px] bg-amber-500/15 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '3s', animationDuration: '15s' }} />
+          {/* Blue particle (mid left) */}
+          <div className="absolute left-[8%] top-[60%] w-[3px] h-[3px] bg-blue-500/20 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '6s', animationDuration: '14s' }} />
+          {/* Emerald/Green particle (bottom right) */}
+          <div className="absolute right-[20%] top-[80%] w-[4px] h-[4px] bg-emerald-500/15 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '9s', animationDuration: '16s' }} />
+          {/* Pink/Instagram particle (bottom left) */}
+          <div className="absolute left-[25%] top-[90%] w-[3px] h-[3px] bg-pink-500/20 rounded-full blur-[0.5px] animate-particle-float-slow" style={{ animationDelay: '2s', animationDuration: '18s' }} />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16 pt-8 border-t border-white/5 relative z-10">
           <div className="space-y-8">
@@ -623,14 +610,8 @@ export default function Founder() {
             <div className="flex flex-col items-center text-center space-y-3.5 mb-10">
               {/* Crown icon — appears first */}
               <motion.div
-                initial={isMobile ? { opacity: 0, scale: 0.75 } : false}
-                animate={
-                  isMobile
-                    ? achVisible
-                      ? { opacity: 1, scale: 1 }
-                      : { opacity: 0, scale: 0.75 }
-                    : {}
-                }
+                initial={{ opacity: 0, scale: 0.75 }}
+                animate={achVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.75 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: ACH_HEADING_DELAY }}
               >
                 <Crown size={22} className="text-red-500" />
@@ -643,14 +624,8 @@ export default function Founder() {
                   <span className="w-1 h-1 rounded-full bg-red-500/70" />
                   <motion.div
                     className="h-[1px] w-12 bg-gradient-to-r from-red-500/20 to-red-500"
-                    initial={isMobile ? { scaleX: 0 } : false}
-                    animate={
-                      isMobile
-                        ? achVisible
-                          ? { scaleX: 1 }
-                          : { scaleX: 0 }
-                        : {}
-                    }
+                    initial={{ scaleX: 0 }}
+                    animate={achVisible ? { scaleX: 1 } : { scaleX: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: ACH_HEADING_DELAY + 0.08 }}
                     style={{ transformOrigin: "right" }}
                   />
@@ -664,14 +639,8 @@ export default function Founder() {
                     lineHeight: 1.1,
                     letterSpacing: "0.08em"
                   }}
-                  initial={isMobile ? { opacity: 0, y: 18 } : false}
-                  animate={
-                    isMobile
-                      ? achVisible
-                        ? { opacity: 1, y: 0 }
-                        : { opacity: 0, y: 18 }
-                      : {}
-                  }
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={achVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
                   transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1], delay: ACH_HEADING_DELAY + 0.08 }}
                 >
                   OFFICIAL BODYBUILDING ACCOMPLISHMENTS
@@ -681,14 +650,8 @@ export default function Founder() {
                 <div className="flex items-center gap-1.5 flex-grow justify-start opacity-60">
                   <motion.div
                     className="h-[1px] w-12 bg-gradient-to-l from-red-500/20 to-red-500"
-                    initial={isMobile ? { scaleX: 0 } : false}
-                    animate={
-                      isMobile
-                        ? achVisible
-                          ? { scaleX: 1 }
-                          : { scaleX: 0 }
-                        : {}
-                    }
+                    initial={{ scaleX: 0 }}
+                    animate={achVisible ? { scaleX: 1 } : { scaleX: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: ACH_HEADING_DELAY + 0.08 }}
                     style={{ transformOrigin: "left" }}
                   />
@@ -703,32 +666,28 @@ export default function Founder() {
 
               {achievements.map((ach, index) => {
                 const IconComp = ach.icon;
-                const delay     = achCardDelay(index);   // entry start
-                const cntDelay  = achCountDelay(index);  // count starts after card fully in
+                const delay = achCardDelay(index);   // entry start
+                const cntDelay = achCountDelay(index);  // count starts after card fully in
 
-                const pulseClass = isMobile
-                  ? ach.id === "ach-1" ? "ach-pulse-red"
+                const pulseClass = ach.id === "ach-1" ? "ach-pulse-red"
                   : ach.id === "ach-2" ? "ach-pulse-amber"
-                  : ach.id === "ach-3" ? "ach-pulse-blue"
-                  : ach.id === "ach-4" ? "ach-pulse-emerald"
-                  : ""
-                  : "";
+                    : ach.id === "ach-3" ? "ach-pulse-blue"
+                      : ach.id === "ach-4" ? "ach-pulse-emerald"
+                        : "";
 
                 return (
                   <motion.div
                     key={ach.id}
-                    initial={isMobile ? { opacity: 0, y: 40, scale: 0.96 } : false}
+                    initial={{ opacity: 0, y: 40, scale: 0.96 }}
                     animate={
-                      isMobile
-                        ? achVisible
-                          ? { opacity: 1, y: 0, scale: 1 }
-                          : { opacity: 0, y: 40, scale: 0.96 }
-                        : {}
+                      achVisible
+                        ? { opacity: 1, y: 0, scale: 1 }
+                        : { opacity: 0, y: 40, scale: 0.96 }
                     }
                     transition={{
                       duration: ACH_ENTRY_DUR,
                       ease: [0.25, 1, 0.5, 1],
-                      delay: isMobile ? delay : 0,
+                      delay: delay,
                     }}
                     className={`p-5 lg:p-6 border ${ach.borderColor} rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 achievement-card ${ach.glowColor} ${pulseClass}`}
                   >
@@ -744,11 +703,9 @@ export default function Founder() {
 
                     {/* Left Icon Badge */}
                     <motion.div
-                      className={`p-3 lg:p-3.5 rounded-xl shrink-0 border z-10 ${ach.iconBoxClass} ${
-                        isMobile ? "ach-icon-glow-pulse" : "transition-transform duration-300 group-hover:scale-105"
-                      }`}
-                      whileHover={isMobile ? { scale: 1.08 } : {}}
-                      whileTap={isMobile ? { scale: 1.08 } : {}}
+                      className={`p-3 lg:p-3.5 rounded-xl shrink-0 border z-10 ${ach.iconBoxClass} ach-icon-glow-pulse`}
+                      whileHover={{ scale: 1.08 }}
+                      whileTap={{ scale: 1.08 }}
                       transition={{ type: "spring", stiffness: 400, damping: 15 }}
                     >
                       <IconComp size={18} />
@@ -758,60 +715,40 @@ export default function Founder() {
                     <div className="z-10 flex-grow text-left">
                       {ach.isIfsa ? (
                         <div className="flex items-center leading-none overflow-hidden">
-                          {isMobile ? (
-                            <CountUp
-                              target={ach.number}
-                              color="text-white"
-                              isIfsa
-                              shouldStart={achVisible}
-                              startDelay={cntDelay}
-                            />
-                          ) : (
-                            <span className="font-display font-black text-xl sm:text-2xl text-white block achievement-number">
-                              {ach.number}
-                            </span>
-                          )}
+                          <CountUp
+                            target={ach.number}
+                            color="text-white"
+                            isIfsa
+                            shouldStart={achVisible}
+                            startDelay={cntDelay}
+                          />
                           {/* Checkmark — pops in after count */}
                           <motion.span
                             className="inline-flex items-center justify-center bg-emerald-500 text-black rounded-full w-4 h-4 ml-1.5 shrink-0"
                             style={{ fontSize: "9px", fontWeight: "bold" }}
-                            initial={isMobile ? { opacity: 0, scale: 0 } : false}
+                            initial={{ opacity: 0, scale: 0 }}
                             animate={
-                              isMobile
-                                ? achVisible
-                                  ? { opacity: 1, scale: 1 }
-                                  : { opacity: 0, scale: 0 }
-                                : {}
+                              achVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }
                             }
-                            transition={{ type: "spring", stiffness: 320, delay: isMobile ? cntDelay + 0.1 : 0 }}
+                            transition={{ type: "spring", stiffness: 320, delay: cntDelay + 0.1 }}
                           >
                             ✓
                           </motion.span>
                         </div>
                       ) : (
                         <div className="font-display font-black text-xl sm:text-2xl flex items-baseline gap-1.5 leading-none overflow-hidden">
-                          {isMobile ? (
-                            <CountUp
-                              target={ach.number}
-                              color={ach.numColor}
-                              shouldStart={achVisible}
-                              startDelay={cntDelay}
-                            />
-                          ) : (
-                            <span className={`${ach.numColor} block achievement-number`}>{ach.number}</span>
-                          )}
+                          <CountUp
+                            target={ach.number}
+                            color={ach.numColor}
+                            shouldStart={achVisible}
+                            startDelay={cntDelay}
+                          />
                           {/* Suffix fades in after number */}
                           <motion.span
                             className="text-[#9ca3af] text-xs font-black tracking-wider ml-1 block achievement-title"
-                            initial={isMobile ? { opacity: 0 } : false}
-                            animate={
-                              isMobile
-                                ? achVisible
-                                  ? { opacity: 1 }
-                                  : { opacity: 0 }
-                                : {}
-                            }
-                            transition={{ duration: 0.4, delay: isMobile ? cntDelay : 0 }}
+                            initial={{ opacity: 0 }}
+                            animate={achVisible ? { opacity: 1 } : { opacity: 0 }}
+                            transition={{ duration: 0.4, delay: cntDelay }}
                           >
                             {ach.suffix}
                           </motion.span>
@@ -824,17 +761,11 @@ export default function Founder() {
                           {Array.from({ length: ach.eagleCount }).map((_, idx) => (
                             <motion.div
                               key={idx}
-                              initial={isMobile ? { opacity: 0, y: 4 } : false}
-                              animate={
-                                isMobile
-                                  ? achVisible
-                                    ? { opacity: 1, y: 0 }
-                                    : { opacity: 0, y: 4 }
-                                  : {}
-                              }
+                              initial={{ opacity: 0, y: 4 }}
+                              animate={achVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 4 }}
                               transition={{
                                 duration: 0.28,
-                                delay: isMobile ? cntDelay + idx * 0.06 : 0,
+                                delay: cntDelay + idx * 0.06,
                               }}
                               className="inline-block"
                             >
@@ -854,22 +785,18 @@ export default function Founder() {
 
               {/* ── Instagram Card (Card 5) ── */}
               <motion.div
-                initial={isMobile ? { opacity: 0, y: 40, scale: 0.96 } : false}
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
                 animate={
-                  isMobile
-                    ? achVisible
-                      ? { opacity: 1, y: 0, scale: 1 }
-                      : { opacity: 0, y: 40, scale: 0.96 }
-                    : {}
+                  achVisible
+                    ? { opacity: 1, y: 0, scale: 1 }
+                    : { opacity: 0, y: 40, scale: 0.96 }
                 }
                 transition={{
                   duration: ACH_ENTRY_DUR,
                   ease: [0.25, 1, 0.5, 1],
-                  delay: isMobile ? achCardDelay(achievements.length) : 0,
+                  delay: achCardDelay(achievements.length),
                 }}
-                className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] instagram-card ${
-                  isMobile ? "ach-pulse-pink" : ""
-                }`}
+                className={`p-5 lg:p-6 border border-pink-500/35 hover:border-pink-500/60 rounded-xl flex items-center gap-4 lg:gap-5 bg-[#09090b]/60 relative group overflow-hidden transition-all duration-500 shadow-[0_0_20px_rgba(236,72,153,0.06)] hover:shadow-[0_0_30px_rgba(236,72,153,0.16)] instagram-card ach-pulse-pink`}
               >
                 {/* Desktop-only watermark */}
                 {!isMobile && (
@@ -881,13 +808,9 @@ export default function Founder() {
 
                 {/* Left Icon Badge */}
                 <motion.div
-                  className={`p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 z-10 ${
-                    isMobile
-                      ? "ach-icon-glow-pulse animate-neon-pulse-pink"
-                      : "shadow-[0_0_10px_rgba(236,72,153,0.15)] transition-transform duration-300 group-hover:scale-105 z-10"
-                  }`}
-                  whileHover={isMobile ? { scale: 1.08 } : {}}
-                  whileTap={isMobile ? { scale: 1.08 } : {}}
+                  className={`p-3 lg:p-3.5 rounded-full shrink-0 border border-pink-500/40 bg-pink-500/10 text-pink-500 z-10 ach-icon-glow-pulse animate-neon-pulse-pink`}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 1.08 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
                   <Instagram size={18} />
@@ -912,11 +835,9 @@ export default function Founder() {
                     href="https://instagram.com/pareshhindurao"
                     target="_blank"
                     rel="noreferrer"
-                    className={`mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit instagram-button ${
-                      isMobile ? "btn-shine-animation" : ""
-                    }`}
-                    whileHover={isMobile ? { scale: 1.03 } : {}}
-                    whileTap={isMobile ? { scale: 1.03 } : {}}
+                    className={`mt-3.5 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 via-red-500 to-pink-500 hover:from-amber-600 hover:via-red-650 hover:to-pink-600 text-white text-xs font-black uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] w-fit instagram-button btn-shine-animation`}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 1.03 }}
                     transition={{ type: "spring", stiffness: 500, damping: 15 }}
                   >
                     <Instagram size={13} />

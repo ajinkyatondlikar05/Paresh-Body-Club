@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import {
   Flame,
@@ -30,58 +29,38 @@ const iconMap: { [key: string]: any } = {
 };
 
 export default function Facilities() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  // Conditioned Animation Props for Mobile Section heading
-  const headingSpanProps = isMobile ? {
+  const headingSpanProps = {
     initial: { opacity: 0, y: -12 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
     transition: { duration: 0.5, ease: "easeOut" }
-  } : {};
+  };
 
-  const headingTitleProps = isMobile ? {
+  const headingTitleProps = {
     initial: { opacity: 0, y: 15, textShadow: "0 0 0px rgba(239, 68, 68, 0)" },
     whileInView: { opacity: 1, y: 0, textShadow: "0 0 12px rgba(239, 68, 68, 0.45)" },
     viewport: { once: true },
     transition: { duration: 0.6, ease: "easeOut", delay: 0.1 }
-  } : {};
+  };
 
-  const headingSubtitleProps = isMobile ? {
+  const headingSubtitleProps = {
     initial: { opacity: 0, y: 10 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
     transition: { duration: 0.5, ease: "easeOut", delay: 0.2 }
-  } : {};
+  };
 
-  // Conditioned Card Props for Scroll Fade-up Stagger
-  const cardProps = (index: number) => isMobile ? {
+  const cardProps = (index: number) => ({
     initial: { opacity: 0, y: 45, scale: 0.96 },
     whileInView: { opacity: 1, y: 0, scale: 1 },
     viewport: { once: true, margin: "-50px" },
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: index * 0.15 }
-  } : {};
+  });
 
-  // Conditioned Icon Props for Soft Red Pulse & Interaction Scale
-  const iconWrapperProps = (index: number) => isMobile ? {
+  const iconWrapperProps = (index: number) => ({
     animate: {
-      boxShadow: [
-        "0 0 4px rgba(239, 68, 68, 0.15)",
-        "0 0 14px rgba(239, 68, 68, 0.45)",
-        "0 0 4px rgba(239, 68, 68, 0.15)"
-      ],
-      borderColor: [
-        "rgba(239, 68, 68, 0.25)",
-        "rgba(239, 68, 68, 0.65)",
-        "rgba(239, 68, 68, 0.25)"
-      ]
+      boxShadow: ["0 0 4px rgba(239, 68, 68, 0.15)", "0 0 14px rgba(239, 68, 68, 0.45)", "0 0 4px rgba(239, 68, 68, 0.15)"],
+      borderColor: ["rgba(239, 68, 68, 0.25)", "rgba(239, 68, 68, 0.65)", "rgba(239, 68, 68, 0.25)"]
     },
     transition: {
       duration: 2.5,
@@ -91,7 +70,7 @@ export default function Facilities() {
     },
     whileHover: { scale: 1.06 },
     whileTap: { scale: 1.06 }
-  } : {};
+  });
 
   return (
     <section
@@ -102,15 +81,13 @@ export default function Facilities() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-red-500/20 to-transparent"></div>
       <div className="absolute -top-40 left-1/4 w-80 h-80 rounded-full bg-red-600/5 blur-[120px] pointer-events-none"></div>
 
-      {/* Subtle floating red particles/embers behind cards (mobile-only) */}
-      {isMobile && (
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          <div className="absolute left-[10%] w-[1.5px] h-[1.5px] bg-red-500/10 rounded-full blur-[0.5px] animate-ember-1" />
-          <div className="absolute left-[35%] w-[2px] h-[2px] bg-red-500/8 rounded-full blur-[1px] animate-ember-2" style={{ animationDelay: '2s' }} />
-          <div className="absolute left-[65%] w-[1.5px] h-[1.5px] bg-red-500/12 rounded-full blur-[0.5px] animate-ember-3" style={{ animationDelay: '4s' }} />
-          <div className="absolute left-[85%] w-[1.5px] h-[1.5px] bg-red-500/10 rounded-full blur-[0.5px] animate-ember-1" style={{ animationDelay: '6s' }} />
-        </div>
-      )}
+      {/* Subtle floating red particles/embers behind cards */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute left-[10%] w-[1.5px] h-[1.5px] bg-red-500/10 rounded-full blur-[0.5px] animate-ember-1" />
+        <div className="absolute left-[35%] w-[2px] h-[2px] bg-red-500/8 rounded-full blur-[1px] animate-ember-2" style={{ animationDelay: '2s' }} />
+        <div className="absolute left-[65%] w-[1.5px] h-[1.5px] bg-red-500/12 rounded-full blur-[0.5px] animate-ember-3" style={{ animationDelay: '4s' }} />
+        <div className="absolute left-[85%] w-[1.5px] h-[1.5px] bg-red-500/10 rounded-full blur-[0.5px] animate-ember-1" style={{ animationDelay: '6s' }} />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -150,18 +127,16 @@ export default function Facilities() {
                 <div className="absolute inset-0 bg-gradient-to-br from-red-600/0 via-red-600/0 to-red-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
 
                 {/* Soft border glow sweep when card appears */}
-                {isMobile && (
-                  <motion.div
-                    className="absolute inset-0 rounded-xl pointer-events-none z-0 border border-red-500/25"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: [0, 1, 0] }}
-                    transition={{
-                      duration: 1.8,
-                      delay: (idx * 0.15) + 0.5,
-                      ease: "easeInOut"
-                    }}
-                  />
-                )}
+                <motion.div
+                  className="absolute inset-0 rounded-xl pointer-events-none z-0 border border-red-500/25"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 1, 0] }}
+                  transition={{
+                    duration: 1.8,
+                    delay: (idx * 0.15) + 0.5,
+                    ease: "easeInOut"
+                  }}
+                />
 
                 <div className="relative z-10">
                   {/* Icon Block with Ring Flare */}
