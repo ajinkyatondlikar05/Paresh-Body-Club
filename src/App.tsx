@@ -16,7 +16,6 @@ import Membership from "./components/Membership";
 import Reviews from "./components/Reviews";
 import InstagramGrid from "./components/InstagramGrid";
 import FAQ from "./components/FAQ";
-import Contact from "./components/Contact";
 import Headquarters from "./components/Headquarters";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -27,27 +26,20 @@ export default function App() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
-        "home", 
-        "about", 
+        "home",
+        "about",
         "founder",
-        "membership", 
-        "facilities", 
+        "membership",
+        "facilities",
 
-        "reviews", 
+        "reviews",
         "contact"
       ];
       // Offset matches navbar heights snugly
       const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
-        let elementId = section;
-        if (section === "contact") {
-          const isDesktop = window.innerWidth >= 1024;
-          if (!isDesktop) {
-            elementId = "contact-mobile";
-          }
-        }
-        const element = document.getElementById(elementId);
+        const element = document.getElementById(section);
         if (element) {
           const top = element.offsetTop;
           const height = element.offsetHeight;
@@ -101,11 +93,8 @@ export default function App() {
         {/* Toggable collapsible accordion FAQs addressing timings and women hygiene */}
         <FAQ />
 
-        {/* Mobile-only section for headquarters details and map */}
+        {/* Headquarters details and map */}
         <Headquarters />
-
-        {/* Contact info, physical location address, and secure submission success modal */}
-        <Contact />
       </main>
 
       {/* Structured detailed multi links branding footer */}

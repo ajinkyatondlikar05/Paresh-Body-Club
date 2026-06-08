@@ -42,14 +42,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
 
   const scrollToSection = (id: string) => {
     setIsOpen(false);
-    let targetId = id;
-    if (id === "contact") {
-      const isDesktop = window.innerWidth >= 1024;
-      if (!isDesktop) {
-        targetId = "contact-mobile";
-      }
-    }
-    const element = document.getElementById(targetId);
+    const element = document.getElementById(id);
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
@@ -62,11 +55,10 @@ export default function Navbar({ activeSection }: NavbarProps) {
     <>
       <nav
         id="main-navbar"
-        className={`fixed top-0 left-0 w-full transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 w-full transition-all duration-300 ${scrolled
             ? "bg-[#0a0a0c]/97 backdrop-blur-md border-b border-white/8 py-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.9)]"
             : "bg-[#0a0a0c]/90 backdrop-blur-sm py-5"
-        }`}
+          }`}
         style={{ zIndex: 10000 }}
       >
         <div className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -95,7 +87,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   <rect x="34" y="18" width="4" height="8" rx="1.5" fill="white" />
                 </svg>
               </div>
-              
+
               {/* Text block with premium typography & custom red accent line */}
               <div className="flex flex-col justify-center text-left">
                 <div className="flex items-baseline gap-1 md:gap-1.5 leading-none">
@@ -120,11 +112,10 @@ export default function Navbar({ activeSection }: NavbarProps) {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`relative px-3 py-2 text-xs lg:text-sm font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
-                    activeSection === link.id
+                  className={`relative px-3 py-2 text-xs lg:text-sm font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer ${activeSection === link.id
                       ? "text-red-500"
                       : "text-gray-300 hover:text-white"
-                  }`}
+                    }`}
                 >
                   {link.label}
                   {activeSection === link.id && (
@@ -227,13 +218,13 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   {/* Brand Text block */}
                   <div className="flex flex-col text-left justify-center leading-none">
                     <div className="flex flex-col leading-none">
-                      <span 
+                      <span
                         className="font-display font-extrabold text-white text-[24px] tracking-wide leading-none antialiased"
                         style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
                       >
                         PARESH
                       </span>
-                      <span 
+                      <span
                         className="font-display font-black text-[#ff1a1a] text-[26px] tracking-tight leading-none mt-0.5 antialiased relative inline-block pb-1.5"
                         style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
                       >
@@ -242,7 +233,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                         <span className="absolute bottom-0 left-0 w-12 h-[2px] bg-[#ff1a1a] rounded-full shadow-[0_0_6px_rgba(255,26,26,0.8)]" />
                       </span>
                     </div>
-                    <div 
+                    <div
                       className="text-[12px] uppercase text-white/75 font-bold leading-none mt-2.5 antialiased"
                       style={{ letterSpacing: "4px" }}
                     >
@@ -275,9 +266,8 @@ export default function Navbar({ activeSection }: NavbarProps) {
                         e.preventDefault();
                         scrollToSection(link.id);
                       }}
-                      className={`flex items-center w-full transition-all duration-200 cursor-pointer text-left pl-8 h-16 text-[22px] font-bold border-b border-black/25 hover:text-[#ff1a1a] active:text-[#ff1a1a] ${
-                        isActive ? "text-[#ff1a1a]" : "text-white"
-                      }`}
+                      className={`flex items-center w-full transition-all duration-200 cursor-pointer text-left pl-8 h-16 text-[22px] font-bold border-b border-black/25 hover:text-[#ff1a1a] active:text-[#ff1a1a] ${isActive ? "text-[#ff1a1a]" : "text-white"
+                        }`}
                       style={{
                         textTransform: isHome ? "none" : "uppercase",
                       }}

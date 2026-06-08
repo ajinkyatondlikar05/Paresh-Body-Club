@@ -155,14 +155,7 @@ export default function Hero() {
   };
 
   const handleScrollTo = (id: string) => {
-    let targetId = id;
-    if (id === "contact") {
-      const isDesktop = window.innerWidth >= 1024;
-      if (!isDesktop) {
-        targetId = "contact-mobile";
-      }
-    }
-    const element = document.getElementById(targetId);
+    const element = document.getElementById(id);
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
