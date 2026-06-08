@@ -22,7 +22,7 @@ export default function InstagramGrid() {
   return (
     <section
       id="instagram"
-      className="py-20 bg-[#0c0c0e] relative overflow-hidden"
+      className="py-12 lg:py-20 bg-[#0c0c0e] relative overflow-hidden"
     >
       <div className="absolute -bottom-20 right-1/4 w-80 h-80 rounded-full bg-red-600/5 blur-[120px] pointer-events-none"></div>
 
@@ -42,20 +42,20 @@ export default function InstagramGrid() {
         </div>
 
         {/* Reels Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full max-w-sm sm:max-w-md lg:max-w-5xl mx-auto mt-12 mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full max-w-sm sm:max-w-md lg:max-w-5xl mx-auto mt-8 mb-6 lg:mt-12 lg:mb-10">
           {REELS.map((reel) => (
             <a
               key={reel.id}
               href={reel.url}
               target="_blank"
               rel="noreferrer"
-              className="relative block aspect-[9/16] rounded-2xl overflow-hidden group border border-white/10 hover:border-red-500/60 shadow-lg hover:shadow-[0_0_30px_rgba(239,68,68,0.25)] transition-all duration-500 bg-stone-900/40 backdrop-blur-md"
+              className="relative block w-full h-[520px] max-h-[520px] lg:h-auto lg:max-h-none lg:aspect-[9/16] rounded-2xl overflow-hidden group border border-white/10 hover:border-red-500/60 shadow-lg hover:shadow-[0_0_30px_rgba(239,68,68,0.25)] transition-all duration-500 bg-stone-900/40 backdrop-blur-md"
             >
               {/* Thumbnail Background */}
               <img
                 src={reel.thumbnail}
                 alt={`Instagram Reel Preview ${reel.id}`}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80"
+                className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80"
                 referrerPolicy="no-referrer"
               />
 
@@ -75,7 +75,7 @@ export default function InstagramGrid() {
               </div>
 
               {/* Bottom Content / Watch Button */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col items-center translate-y-2 group-hover:translate-y-0 transition-transform duration-300 z-10">
+              <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6 flex flex-col items-center translate-y-2 group-hover:translate-y-0 transition-transform duration-300 z-10">
                 <div className="flex items-center justify-center gap-2.5 px-6 py-3.5 bg-red-600/90 backdrop-blur-sm text-white font-black tracking-widest uppercase text-xs rounded-xl border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.5)] group-hover:bg-red-500 group-hover:shadow-[0_0_25px_rgba(239,68,68,0.7)] transition-all duration-300 w-full">
                   <Play size={16} className="fill-current" /> Watch Reel
                 </div>
