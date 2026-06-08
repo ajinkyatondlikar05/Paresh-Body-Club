@@ -49,34 +49,46 @@ export default function Footer() {
               One of the most trusted strength and bodybuilding destinations near Parasic Bank, Murbad. Empowering fitness lovers with pristine biomechanics, raw iron stacks, and continuous coaching.
             </p>
 
+            {/* SVG Defs for Instagram Gradient */}
+            <svg width="0" height="0" className="absolute">
+              <linearGradient id="ig-footer-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#f09433" />
+                <stop offset="25%" stopColor="#e6683c" />
+                <stop offset="50%" stopColor="#dc2743" />
+                <stop offset="75%" stopColor="#cc2366" />
+                <stop offset="100%" stopColor="#bc1888" />
+              </linearGradient>
+            </svg>
+
             {/* Social media icons stack */}
             <div className="flex items-center gap-3">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 bg-stone-900 hover:bg-red-650 text-stone-400 hover:text-white rounded-lg border border-white/5 transition-all cursor-pointer"
+                className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-[#1877F2]/10 hover:border-[#1877F2]/50 hover:shadow-[0_0_20px_rgba(24,119,242,0.4)] transition-all duration-300 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer"
                 aria-label="Facebook Page"
               >
-                <Facebook size={18} />
+                <Facebook className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:text-[#1877F2] transition-colors duration-300" />
               </a>
               <a
                 href="https://www.instagram.com/paresh_body_club_murbad/"
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 bg-stone-900 hover:bg-red-650 text-stone-400 hover:text-white rounded-lg border border-white/5 transition-all cursor-pointer"
+                className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all duration-300 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer relative overflow-hidden"
                 aria-label="Instagram Profile"
               >
-                <Instagram size={18} />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#f09433]/0 via-[#dc2743]/0 to-[#bc1888]/0 group-hover:from-[#f09433]/10 group-hover:via-[#dc2743]/10 group-hover:to-[#bc1888]/10 transition-colors duration-300"></div>
+                <Instagram className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:stroke-[url(#ig-footer-gradient)] transition-all duration-300 relative z-10" />
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 bg-stone-900 hover:bg-red-650 text-stone-400 hover:text-white rounded-lg border border-white/5 transition-all cursor-pointer"
+                className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-[#FF0000]/10 hover:border-[#FF0000]/50 hover:shadow-[0_0_20px_rgba(255,0,0,0.4)] transition-all duration-300 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer"
                 aria-label="Youtube Channel"
               >
-                <Youtube size={18} />
+                <Youtube className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:text-[#FF0000] transition-colors duration-300" />
               </a>
             </div>
           </div>
