@@ -160,14 +160,16 @@ export default function Footer() {
         </div>
 
         {/* Lower section containing copyright and passion tagline */}
-        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm md:text-base font-light text-center sm:text-left">
-          <div>
+        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm md:text-base font-light text-center relative">
+          <div className="hidden sm:block"></div>
+
+          <div className="sm:absolute sm:left-1/2 sm:-translate-x-1/2">
             <p className="font-mono text-stone-600">
-              © {new Date().getFullYear()} PARESH BODY CLUB MURBAD. All rights reserved.
+              ALL RIGHTS RESERVED.
             </p>
           </div>
 
-          <div className="flex items-center justify-center sm:justify-start gap-1.5 text-stone-500 text-sm md:text-base uppercase font-extrabold tracking-widest">
+          <div className="flex items-center justify-center sm:justify-end gap-1.5 text-stone-500 text-sm md:text-base uppercase font-extrabold tracking-widest">
             <Flame size={18} className="text-red-500 animate-pulse shrink-0" />
             <span>Built with passion for fitness</span>
           </div>
