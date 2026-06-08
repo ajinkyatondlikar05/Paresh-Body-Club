@@ -187,7 +187,7 @@ export const REVIEWS: ReviewItem[] = [
   },
   {
     id: "rev-2",
-    author: "Local Member",
+    author: "Rohit Patil",
     role: "",
     rating: 4,
     comment: "Good gym for workout and fitness training.",
