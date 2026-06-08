@@ -50,7 +50,7 @@ export default function Footer() {
             </p>
 
             {/* SVG Defs for Instagram Gradient */}
-            <svg width="0" height="0" className="absolute">
+            <svg width="0" height="0" className="absolute pointer-events-none">
               <linearGradient id="ig-footer-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#f09433" />
                 <stop offset="25%" stopColor="#e6683c" />
@@ -74,11 +74,11 @@ export default function Footer() {
               <a
                 href="https://www.instagram.com/paresh_hindurao/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="group flex items-center justify-center w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-stone-900/60 backdrop-blur-md rounded-2xl border border-white/10 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all duration-300 hover:scale-[1.08] hover:-translate-y-1 cursor-pointer relative overflow-hidden"
                 aria-label="Instagram Profile"
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#f09433]/0 via-[#dc2743]/0 to-[#bc1888]/0 group-hover:from-[#f09433]/10 group-hover:via-[#dc2743]/10 group-hover:to-[#bc1888]/10 transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#f09433]/0 via-[#dc2743]/0 to-[#bc1888]/0 group-hover:from-[#f09433]/10 group-hover:via-[#dc2743]/10 group-hover:to-[#bc1888]/10 transition-colors duration-300 pointer-events-none"></div>
                 <Instagram className="w-7 h-7 md:w-[32px] md:h-[32px] text-stone-400 group-hover:stroke-[url(#ig-footer-gradient)] transition-all duration-300 relative z-10" />
               </a>
               <a
