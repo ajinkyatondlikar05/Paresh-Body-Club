@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pareshbodyclub.com/sitemap.xml
+Sitemap: https://pareshbodyclub.dpdns.org/sitemap.xml
