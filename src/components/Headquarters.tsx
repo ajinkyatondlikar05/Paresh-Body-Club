@@ -57,8 +57,8 @@ export default function Headquarters() {
     },
     {
       title: "Inquiry Mailbox",
-      content: "info@pareshbodyclub.com",
-      href: "mailto:info@pareshbodyclub.com",
+      content: "pareshhindurao24@gmail.com",
+      href: "mailto:pareshhindurao24@gmail.com",
       icon: Mail,
       type: "email",
     },
